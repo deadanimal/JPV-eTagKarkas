@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('jenis_ternakan');
+            $table->string('bil_ternakan');
+            $table->string('bil_kodbar');
             $table->timestamps();
         });
     }

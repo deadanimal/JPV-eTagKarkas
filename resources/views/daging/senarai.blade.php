@@ -59,8 +59,7 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">NO SKV</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" autocapitalize="off" name="induk"
-                                        placeholder="XXXX" />
+                                    <input class="form-control" type="text" name="no_skv" placeholder="XXXX" />
                                 </div>
                             </div>
 
@@ -76,6 +75,25 @@
                 </div>
             </div>
         </div>
+
+
+
+        <div class=" row mb-3">
+            <label for="" class="col-sm-2 col-form-label">nama pemilik:</label>
+            <div class="col-sm-10 ">
+                <input type="text" name="" id="">
+            </div>
+            <label for="" class="col-sm-2 col-form-label">nama aku:</label>
+            <div class="col-sm-10 ">
+                <input type="text" name="" id="">
+            </div>
+            
+        </div>
+
+
+
+
+       {{-- <div class="col-2 mb-2">Nama Pemilik</div> --}}
 
 
     </div>

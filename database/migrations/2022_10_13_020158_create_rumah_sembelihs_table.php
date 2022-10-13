@@ -14,7 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('rumah_sembelihs', function (Blueprint $table) {
+            
             $table->id();
+            $table->string('induk');
+            $table->string('nama_rumah');
+            $table->string('kod');
+            $table->string('kategori');
+            $table->string('alamat');
+            $table->string('negeri');
+            $table->string('daerah');
+            $table->string('no_tel');
+            $table->string('emel');
+            $table->string('orang_dihubungi');
+            $table->string('zon');
+            $table->string('kod_bar');
+            $table->string('akses_ternakan');
             $table->timestamps();
         });
     }

@@ -15,77 +15,84 @@
         </div>
 
         <div class="card">
-            <div class="card-header bg-oranje-jkr">
+            <div class="card-header">
                 <b>Permohonan Tag Karkas</b>
             </div>
             <div class="card-body">
 
 
-
-                <!--Nama Pengeluar-->
+                <form action="/tag" method="post" enctype="multipart/form-data">
+                    @method('POST')
+                    @csrf
+                    <!--Nama Pengeluar-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="nama" readonly />
+                        <input class="form-control" type="text" placeholder="Zachroy Anazfitry" name="nama" readonly />
                     </div>
                 </div>
                 <!--Induk-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Induk:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="induk" readonly />
+                        <input class="form-control" type="text" placeholder="RSRJ - Rumah Sembelih Jabatan Selangor" name="induk" readonly />
                     </div>
                 </div>
                 <!--Pejabat Pengeluar-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Pejabat Pengeluar:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="pejabat" readonly />
+                        <input class="form-control" type="text" placeholder="Rumah Sembelih Ampang" name="pejabat" readonly />
                     </div>
                 </div>
                 <!--Kategori Tag-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Kategori Tag</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="tag" readonly />
+                        <input class="form-control" type="text" placeholder="K1" name="tag" readonly />
                     </div>
                 </div>
                 <!--Jenis Ternakan-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Jenis Ternakan</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="tag" readonly />
+                        <select class="form-select" aria-label="Default select example" name="jenis_ternakan">
+                            <option selected value="Ruminan Besar">Ruminan Besar</option>
+                            <option value="Ruminan Kecil">Ruminan Kecil</option>
+                            <option value="Unggas">Unggas</option>
+                            <option value="Babi">Babi</option>
+                        </select>                     
                     </div>
+
                 </div>
                 {{-- Bilangan Ternakan --}}
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="bil_ternakan" readonly />
+                        <input class="form-control" type="text" placeholder="4" name="bil_ternakan"  />
                     </div>
                 </div>
                 {{-- Bilangan Kod Bar Untuk Dijana --}}
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="bil_kod" placeholder="16"
-                            readonly />
+                        <input class="form-control" type="text" placeholder="16" name="bil_kodbar" />
                     </div>
                 </div>
                 {{-- Pengesyoran Kuantiti --}}
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="bil_kod" placeholder="16"
-                            readonly />
+                        <input class="form-control" type="text" placeholder="" name="bil_kod" placeholder="16"
+                             />
                     </div>
-                </div>
+                </div> --}}
 
                 <!--Cetakan Kod Bar-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Cetakan Kod Bar</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="cetakan" readonly />
+                        <input class="form-control" type="text" placeholder="Manual" name="cetakan" readonly  />
                     </div>
                 </div>
 
@@ -94,7 +101,9 @@
                     <button class=“btn btn-primary” type=“submit”>Cipta</button>
                 </div>
 
+
                 </form>
+               
             </div>
         </div>
 
@@ -120,7 +129,7 @@
 
         <div class="row d-flex justify-content-center">
             <table class="table table-bordered">
-                <thead class="text-white ">
+                <thead class="text-black ">
                     <tr>
                         <th scope="col">Bil.</th>
                         <th scope="col">Nombor Dokumen</th>
@@ -135,20 +144,23 @@
 
                     </tr>
                 </thead>
-                <tbody id="myTable">
+                <tbody>
 
                     <tr>
 
-
-                        <td>-asd</td>
-                        <td>-asd</td>
-                        <td>-asd</td>
-                        <td>-asd</td>
-                        <td>-asd</td>
-                        <td>-asd</td>
-                        <td>-asd</td>
-                        <td>-asd</td>
-                        <td>-asd</td>
+                        @foreach($tag as $tags)
+                        <td>{{ $loop->iteration }}</td>
+                        <td>Rxxxxxxx-001</td>
+                        <td>Rumah Sembelih</td>
+                        <td>{{ $tags->jenis_ternakan }}</td>
+                        <td>{{ $tags->bil_ternakan }}</td>
+                        <td>K1</td>
+                        <td>14/7/2022</td>
+                        <td>Pemeriksa Daging</td>
+                        <td>Manual</td>
+                        <td>Dihantar</td>
+                        {{-- <td>{{ $tags->bil_kodbar }}</td> --}}
+                       
 
                         {{-- Button edit & hapus --}}
                         <td>
@@ -166,6 +178,8 @@
                         </td>
 
                     </tr>
+
+                    @endforeach
 
 
                 </tbody>
