@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use App\Models\RumahSembelih;
+
 
 class TagController extends Controller
 {
@@ -13,16 +15,17 @@ class TagController extends Controller
     }
 
     public function senarai_tag(Request $request) {
-        $tag = Tag::all();
-        return view('tag.senarai', compact('tag'));
+        $tags = Tag::all();
+
+        return view('tag.senarai', compact('tags'));
     } 
  
     public function cipta_tag(Request $request) {
-        $tag = New Tag;
-        $tag->jenis_ternakan = $request->jenis_ternakan;
-        $tag->bil_ternakan = $request->bil_ternakan;
-        $tag->bil_kodbar = $request->bil_kodbar;
-        $tag->save();
+        $tags = New Tag;
+        $tags->jenis_ternakan = $request->jenis_ternakan;
+        $tags->bil_ternakan = $request->bil_ternakan;
+        $tags->bil_kodbar = $request->bil_kodbar;
+        $tags->save();
         return back();
     }           
 

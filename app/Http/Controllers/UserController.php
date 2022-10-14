@@ -22,7 +22,9 @@ class UserController extends Controller
     public function kemaskini_profil(Request $request) {
         $user = $request->user;
 
+        // tambah yang nak edit
         $user->name = $request->name;
+
 
         $user->save();
 

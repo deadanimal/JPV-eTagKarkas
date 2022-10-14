@@ -26,7 +26,9 @@
 
                     <!--Nama Pengeluar-->
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Induk</label>
+                        <div class="col-sm-2 mb-3">
+                            <label class="col-form-label">Induk</label>
+                        </div>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default select example" name="induk">
                                 <option selected>Rumah Sembelih Jabatan</option>
@@ -35,73 +37,74 @@
                                 <option value="3">Rumah Sembelih Perak</option>
                               </select>
                         </div>
-                    </div>
-                    <!--Induk-->
-                    <div class="row">
-                        <label class="col-sm-2 col-form-label">Nama Rumah Sembelih</label>
+                        <div class="col-sm-2">
+                            <label class="form-label">Nama Rumah Sembelih</label>
+                        </div>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="nama_rumah"  />
                         </div>
+                        
                     </div>
-    
-                    <!--Kod & Kategori-->
-                    <div class="row " >
-                        <div class="col col-form-label">
-                            <label class="col-sm-2 col-form-label">Kod</label>
-                            <div class="col-sm-2">
-                                <input class="form-control" type="text" name="kod"  />
-                            </div>
+                    <!--Induk-->
+                    <div class="mb-3 row">
+                        <div class="col-2">
+                            <label class="form-label">Kod</label>
                         </div>
-                        <!--Kategori-->
-                        <div class="col">
-                            <label class="col-sm-2 col-form-label">Kategori</label>
-                            <div class="col-sm-2">
-                                <input class="form-control" type="text" name="kategori"  />
-                            </div>
+                        <div class="col-4">
+                            <input class="form-control" type="text" name="kod"  />
                         </div>
-                    </div>
-                    <!--Alamat,Daerah, Negeri-->
-                    <div class="row g-2 col-form-label" >
-                        <div class="col">
-                            <label class="col-sm-2 col-form-label">Alamat</label>
-                            <div class="col-sm-10">
-                                {{-- <input class="form-control" type="text" name="alamat"  /> --}}
-                                <textarea name="alamat" cols="50" rows="5"></textarea>
-                            </div>
+                        <div class="col-2 text-end">
+                                <label class="form-label">Kategori</label>
                         </div>
-                        <!--Kategori-->
-                        <div class="col">
-                            
-                            <label class="col-sm-2 col-form-label">Negeri</label>
-                            <div class="col-sm-7">
-                                <select class="form-select" aria-label="Default select example" name="negeri">
-                                    <option selected>Pilih Negeri</option>
-                                    <option value="Selangor">Selangor</option>
-                                    <option value="Kelantan">Kelantan</option>
-                                    <option value="Terengganu">Terengganu</option>
-                                </select>                            
-                            </div>
-                            <label class="col-sm-2 col-form-label">Daerah</label>
-                            <div class="col-sm-7">
-                                <select class="form-select" aria-label="Default select example" name="daerah">
-                                    <option selected value="Shah Alam">Shah Alam</option>
-                                    <option value="Kuala Selangor">Kuala Selangor</option>
-                                    <option value="Kuantan">Kuantan</option>
-                                    <option value="Pasir Mas">Pasir Mas</option>
-                                </select>                            
-                            </div>
+                        <div class="col-4">
+                            <input class="form-control" type="text" name="kategori"  />
                         </div>
                     </div>
-                    
-                     {{-- Nombor Telefon --}}
-                     <div class="mb-3 row">
+
+                    {{-- Alamat --}}
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Alamat</label>
+                        <div class="col-sm-10">
+                            <textarea name="alamat" cols="93" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    {{-- Negeri & Daerah --}}
+                    <div class="mb-3 row">
+                        <div class="col-2">
+                            <label class="form-label">Negeri</label>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select" aria-label="Default select example" name="negeri">
+                                <option selected>Pilih Negeri</option>
+                                <option value="Selangor">Selangor</option>
+                                <option value="Kelantan">Kelantan</option>
+                                <option value="Terengganu">Terengganu</option>
+                            </select>                                                 </div>
+                        <div class="col-2 text-end">
+                                <label class="form-label">Daerah</label>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select" aria-label="Default select example" name="daerah">
+                                <option selected>Pilih Daerah</option>
+                                <option value="Selangor">Shah Alam</option>
+                                <option value="Kelantan">Kuantan</option>
+                                <option value="Terengganu">Pasir Mas</option>
+                            </select> 
+                        </div>
+                       
+                    </div>
+
+                      {{-- Nombor Telefon --}}
+                      <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Nombor Telefon</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="no_tel"  />
                         </div>
                     </div>
-                     {{-- Emel --}}
-                     <div class="mb-3 row">
+
+                    {{-- Emel --}}
+                    <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Emel</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="emel"  />
@@ -127,6 +130,7 @@
                             </select>                         
                         </div>
                     </div>
+                    
                     {{-- Manual Jana Kodbar --}}
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Jana Kodbar</label>
@@ -164,8 +168,10 @@
                     <div align="right">
                         <button class=“btn btn-primary” type=“submit”>Cipta</button>
                     </div>
-    
                     
+                   
+                    </div>
+    
                 </div>
             </form>
         </div>
@@ -203,7 +209,7 @@
                             <td>{{ $rumah->zon }}</td>
                             <td>{{ $rumah->kod_bar }}</td>
                             <td>{{ $rumah->akses_ternakan }}</td>
-                            <td></td>
+                            <td>Dihantar</td>
                             {{-- <td>{{ -asd }}</td> --}}
                             
 

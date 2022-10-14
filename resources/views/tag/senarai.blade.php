@@ -28,14 +28,14 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="Zachroy Anazfitry" name="nama" readonly />
+                        <input class="form-control" type="text"  readonly />
                     </div>
                 </div>
                 <!--Induk-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Induk:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="RSRJ - Rumah Sembelih Jabatan Selangor" name="induk" readonly />
+                        <input class="form-control" type="text"  readonly />
                     </div>
                 </div>
                 <!--Pejabat Pengeluar-->
@@ -148,12 +148,12 @@
 
                     <tr>
 
-                        @foreach($tag as $tags)
+                        @foreach($tags as $tag)
                         <td>{{ $loop->iteration }}</td>
                         <td>Rxxxxxxx-001</td>
                         <td>Rumah Sembelih</td>
-                        <td>{{ $tags->jenis_ternakan }}</td>
-                        <td>{{ $tags->bil_ternakan }}</td>
+                        <td>{{ $tag->jenis_ternakan }}</td>
+                        <td>{{ $tag->bil_ternakan }}</td>
                         <td>K1</td>
                         <td>14/7/2022</td>
                         <td>Pemeriksa Daging</td>
