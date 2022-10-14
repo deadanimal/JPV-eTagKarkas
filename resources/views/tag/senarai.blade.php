@@ -39,16 +39,16 @@
                 </div>
                 <!--Pejabat Pengeluar-->
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Pejabat Pengeluar:</label>
+                    <label class="col-sm-2 col-form-label">Nama Rumah Sembelih:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="Rumah Sembelih Ampang" name="pejabat" readonly />
+                        <input class="form-control" type="text" value="{{ $user->rumah_sembelih->nama_rumah }}" readonly />
                     </div>
                 </div>
                 <!--Kategori Tag-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Kategori Tag</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="K1" name="tag" readonly />
+                        <input class="form-control" type="text" value="{{ $user->rumah_sembelih->kategori }}" readonly />
                     </div>
                 </div>
                 <!--Jenis Ternakan-->
@@ -91,7 +91,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Cetakan Kod Bar</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="Manual" name="cetakan" readonly  />
+                        <input class="form-control" type="text" value="{{ $user->rumah_sembelih->kod_bar }}"  readonly  />
                     </div>
                 </div>
 

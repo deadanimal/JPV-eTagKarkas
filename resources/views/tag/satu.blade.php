@@ -38,7 +38,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="nama" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly />
+                        <input class="form-control" type="text" name="nama" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly />
                     </div>
                     </div>
                     <!--Induk-->

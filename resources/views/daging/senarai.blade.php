@@ -48,8 +48,7 @@
                                 <label class="col-sm-2 col-form-label">Jenis Ternakan</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example">
-                                        <option selected>Ruminan Besar</option>
-                                        <option value="ruminan_kecil">Ruminan Kecil</option>
+                                        <option selected>Ruminan</option>
                                         <option value="unggas">Unggas</option>
                                         <option value="babi">Babi</option>
                                     </select>
@@ -77,64 +76,127 @@
         </div>
 
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-header">
-                    <b>Pengenalan Ternakan</b>
-                </div>
-                <div class="container">
-                    <div class="col">
-                        <div class="row mb-3">
-                            <div class="col-2">
-                                <div class="card">
-                                    
-                                    <div class="card-body">
-                                        <div class="row mb-1">
-                                            Nama Pemilik
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <b>Pengenalan Ternakan</b>
+                    </div>
+    
+                   <div class="card-body">
+
+                    <form action="">
+
+                        <div class="row">
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">Nama Pemilik</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">No Kenderaan</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">Masa Ternakan Tiba</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">Masa Ternakan Disembelih</label>
+                                <input type="text">
+                            </div>
+                           
+                        </div>
+
+                        <div class="row">
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">No Permit</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">Spesis</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">Bilangan Ternakan</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="mb-3 col-md-3">
+                                <label for="">ID Permis</label>
+                                <input type="text">
+                            </div>
+                           
+                        </div>
+                          
+
+                        </div>
+
+                    </form>
+
+    
+                    
+                    {{-- <div class="container">
+                        <div class="col">
+                            <div class="row mb-3">
+                                <div class="col-2">
+                                    <div class="card">
+                                        
+                                        <div class="card-body">
+                                            <div class="row mb-1">
+                                                Nama Pemilik
+                                            </div>
+                                            <input class="form-control" type="text" name="no_skv" placeholder="Zach" />
                                         </div>
-                                        <input class="form-control" type="text" name="no_skv" placeholder="Zach" />
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row mb-1">
-                                            No. Kenderaan
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row mb-1">
+                                                No. Kenderaan
+                                            </div>
+                                            <input class="form-control" type="text" name="no_skv" placeholder="" />
+            
                                         </div>
-                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
-        
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row mb-1">
-                                            Masa Ternakan Tiba
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row mb-1">
+                                                Masa Ternakan Tiba
+                                            </div>
+                                            <input class="form-control" type="text" name="no_skv" placeholder="" />
+            
                                         </div>
-                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
-        
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row mb-1">
-                                            Masa Ternakan Disembelih
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row mb-1">
+                                                Masa Ternakan Disembelih
+                                            </div>
+                                            <input class="form-control" type="text" name="no_skv" placeholder="" />
+            
                                         </div>
-                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
-        
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row mb-1">
-                                            No.Permit
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row mb-1">
+                                                No.Permit
+                                            </div>
+                                            <input class="form-control" type="text" name="no_skv" placeholder="" />
                                         </div>
-                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+    
                 </div>
-
             </div>
+            
         </div>
 
         <div class="container-fluid">
