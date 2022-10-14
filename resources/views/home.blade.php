@@ -10,7 +10,7 @@
 
         <div class="header">
             <h1 class="header-title">
-                Home
+                Dashboard
             </h1>
         </div>
 

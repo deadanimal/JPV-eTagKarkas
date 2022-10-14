@@ -57,7 +57,13 @@
                         <a class="sidebar-link" href="/daging">
                             <span class="align-middle">Daging</span>
                         </a>
-                    </li>                     
+                    </li> 
+                    
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pengguna">
+                            <span class="align-middle">Pengguna</span>
+                        </a>
+                    </li>                      
 
 
 
