@@ -36,7 +36,7 @@
 
                 <div class="container-fluid">
                     <div class="card">
-                        <div class="card-header bg-oranje-jkr">
+                        <div class="card-header">
                             <b>Pemeriksaan Daging</b>
                         </div>
                         <div class="card-body">
@@ -76,24 +76,129 @@
             </div>
         </div>
 
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <b>Pengenalan Ternakan</b>
+                </div>
+                <div class="container">
+                    <div class="col">
+                        <div class="row mb-3">
+                            <div class="col-2">
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Nama Pemilik
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="Zach" />
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            No. Kenderaan
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+        
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Masa Ternakan Tiba
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+        
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Masa Ternakan Disembelih
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+        
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            No.Permit
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-
-        <div class=" row mb-3">
-            <label for="" class="col-sm-2 col-form-label">nama pemilik:</label>
-            <div class="col-sm-10 ">
-                <input type="text" name="" id="">
             </div>
-            <label for="" class="col-sm-2 col-form-label">nama aku:</label>
-            <div class="col-sm-10 ">
-                <input type="text" name="" id="">
-            </div>
-            
         </div>
 
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <b>Pemeriksaan Ternakan</b>
+                </div>
+                <div class="container">
+                    <div class="col">
+                        <div class="row mb-3">
+                            <div class="col-2">
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Bilangan Ternakan Yang Diterima
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="Zach" />
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Ternakan Yang Mati Semasa Tiba
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+        
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Jumlah Ternakan Yang Diperiksa
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+        
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Jumlah Binatang Sebagai Layak Untuk Disembelih
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+        
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-1">
+                                            Bilangan Yang Diasingkan Untuk Pemeriksaan Rapi
+                                        </div>
+                                        <input class="form-control" type="text" name="no_skv" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
 
-
-       {{-- <div class="col-2 mb-2">Nama Pemilik</div> --}}
+       
 
 
     </div>
