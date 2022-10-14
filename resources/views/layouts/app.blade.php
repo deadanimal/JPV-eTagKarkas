@@ -27,6 +27,8 @@
 
     <div class="wrapper">
 
+        @include('sweetalert::alert')
+
         <nav id="sidebar" class="sidebar">
             <a class="sidebar-brand" href="/">
                 eTagKarkas

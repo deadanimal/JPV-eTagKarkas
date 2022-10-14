@@ -26,8 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('tag/{id}', [TagController::class, 'satu_tag']);
     Route::post('tag', [TagController::class, 'cipta_tag']);   
     
-    Route::get('profil', [Userontroller::class, 'senarai_profil']);
-    Route::put('profil', [Userontroller::class, 'kemaskini_profil']);
+    Route::get('profil', [UserController::class, 'senarai_profil']);
+    Route::put('profil', [UserController::class, 'kemaskini_profil']);
 
   
 
@@ -35,9 +35,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['role:pentadbir'])->group(function () {
 
-    Route::get('pengguna', [Userontroller::class, 'senarai_pengguna']);
-    Route::get('pengguna/{id}', [Userontroller::class, 'satu_pengguna']);
-    Route::post('pengguna', [Userontroller::class, 'cipta_pengguna']);    
+    Route::get('pengguna', [UserController::class, 'senarai_pengguna']);
+    Route::get('pengguna/{id}', [UserController::class, 'satu_pengguna']);
+    Route::post('pengguna', [UserController::class, 'cipta_pengguna']);    
 
 });
 

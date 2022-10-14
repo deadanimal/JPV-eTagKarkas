@@ -56,4 +56,16 @@ class DagingController extends Controller
 
         return back();
     }  
+
+    public function cipta_sebelum_sembelih(Request $request) {
+        return back();
+    }
+
+    public function cipta_selepas_sembelih(Request $request) {
+        return back();
+    }
+
+    public function cipta_laporan(Request $request) {
+        return back();
+    }
 }
