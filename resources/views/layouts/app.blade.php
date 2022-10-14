@@ -58,12 +58,21 @@
                             <span class="align-middle">Daging</span>
                         </a>
                     </li> 
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/profil">
+                            <span class="align-middle">Profil</span>
+                        </a>
+                    </li>                      
                     
+
+                    @role('pentadbir')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/pengguna">
                             <span class="align-middle">Pengguna</span>
                         </a>
-                    </li>                      
+                    </li>           
+                    @endrole           
 
 
 
@@ -88,14 +97,6 @@
                                 <i class="align-middle fas fa-cog"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-
-                                <!-- <a class="dropdown-item" href="/notifikasi"><i class="align-middle me-1 fas fa-fw fa-envelope"></i>Notifikasi</a> -->
-                                <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#lokasiModal"><i
-                                        class="align-middle me-1 fas fa-fw fa-map-marker"></i>Lokasi</a>
-                                <a class="dropdown-item" href="/profil"><i
-                                        class="align-middle me-1 fas fa-fw fa-user"></i>Profil</a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout"><i
                                         class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Log
                                     Keluar</a>
@@ -104,55 +105,6 @@
                     </ul>
                 </div>
             </nav>
-
-            <!-- @if ($errors->any())
-
-				@foreach ($errors->all() as $error)
-
-					<div class="modal fade show" id="modalText" style="display: block;" aria-modal="true" role="dialog">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title">Error Message</h5>
-									
-								</div>
-								<div class="modal-body m-3">
-									<p class="mb-0">{{ $error }}</p>
-								</div>
-								<div class="modal-footer">
-									
-									<button type="button" class="btn btn-danger" onclick="closeModal()">Close</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-									
-											
-				@endforeach
-
-				<div id="modalBackdrop" class="modal-backdrop fade show"></div>
-
-				<script>
-					function closeModal() {
-  						//document.getElementById("modalText").classList.remove('show');
-						//document.getElementById("modalText").classList.add('hide');
-						var element = document.getElementById("modalText");
-						element.remove();								
-						var element = document.getElementById("modalBackdrop");
-						element.remove();					
-					}
-				</script>				
-					
-					
-				
-			@endif		
-			
-			@isset($message)
-<div class="alert alert-success">
-<strong>{{@message}}</strong>
-</div>
-@endif			 -->
 
 
             @yield('content')
@@ -174,7 +126,7 @@
                         </div>
                         <div class="col-4 text-end">
                             <p class="mb-0">
-                                &copy; 2022 - <a href="/" class="text-muted">Monitor</a>
+                                &copy; 2022 - <a href="/" class="text-muted">JPV - eTagKarkas</a>
                             </p>
                         </div>
                     </div>
