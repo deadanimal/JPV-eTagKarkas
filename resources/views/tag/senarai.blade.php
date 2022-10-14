@@ -21,21 +21,20 @@
             <div class="card-body">
 
 
-                <form action="/tag" method="post" enctype="multipart/form-data">
-                    @method('POST')
+                <form action="/tag" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--Nama Pengeluar-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text"  readonly />
+                        <input class="form-control" type="text" value="{{ $user->rumah_sembelih->nama_rumah }}"  readonly />
                     </div>
                 </div>
                 <!--Induk-->
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Induk:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text"  readonly />
+                        <input class="form-control" type="text" value="{{ $user->rumah_sembelih->induk }}"  readonly />
                     </div>
                 </div>
                 <!--Pejabat Pengeluar-->
@@ -97,8 +96,8 @@
                 </div>
 
                 <!--Button-->
-                <div align="right">
-                    <button class=“btn btn-primary” type=“submit”>Cipta</button>
+                <div>
+                    <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Cipta</button>
                 </div>
 
 
@@ -165,10 +164,10 @@
                         {{-- Button edit & hapus --}}
                         <td>
                             <div class="col-auto">
-                                <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                             </div>
                             <div class="col-auto">
-                                <form action="#" method="post">
+                                <form action="/tag/{{$tag->id}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-outline-primary"><i

@@ -1,3 +1,9 @@
+@extends('layouts.app')
+
+
+
+@section('content')
+
 <div>
     <div>
         <div class="row mb-3">
@@ -26,34 +32,34 @@
                 </div>
                 <div class="card-body">
                         
-                   
+                   <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih->id}}" >
 
                     <!--Nama Pengeluar-->
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="nama" value="{{$daftar}}" readonly/>
+                        <input class="form-control" type="text" autocapitalize="off" name="nama" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly/>
                     </div>
                     </div>
                     <!--Induk-->
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Induk:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="induk" value="{{$daftar}}" readonly  />
+                        <input class="form-control" type="text" autocapitalize="off" name="induk" value="" readonly  />
                     </div>
                     </div>
                     <!--Pejabat Pengeluar-->
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Pejabat Pengeluar:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="pejabat" value="{{$daftar}}" readonly  />
+                        <input class="form-control" type="text" autocapitalize="off" name="pejabat" value="" readonly  />
                     </div>
                     </div>
                     <!--Kategori Tag-->
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Kategori Tag</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="tag" value="{{$daftar}}" readonly />
+                        <input class="form-control" type="text" autocapitalize="off" name="tag" value="" readonly />
                     </div>
                     </div>
 
@@ -92,7 +98,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Cetakan Kod Bar</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="cetakan" placeholder="Manual" value="{{$daftar}}" readonly  />
+                        <input class="form-control" type="text" autocapitalize="off" name="cetakan" placeholder="Manual" value="" readonly  />
                     </div>
                     </div>         
                             
@@ -108,3 +114,5 @@
         </div>
     </div>
 </div>
+
+@endsection

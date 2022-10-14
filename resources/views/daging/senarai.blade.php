@@ -8,7 +8,7 @@
 
         <div class="header">
             <h1 class="header-title">
-                Kosong Page
+                Daging
             </h1>
         </div>
 

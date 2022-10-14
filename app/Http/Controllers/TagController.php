@@ -11,13 +11,16 @@ class TagController extends Controller
 {
 
     public function satu_tag(Request $request) {
-        return view('tag.satu');
+        $id = (int)$request->route('id');
+        $tag = Tag::find($id);        
+        return view('tag.satu', compact('tag'));
     }
 
     public function senarai_tag(Request $request) {
         $tags = Tag::all();
+        $user = $request->user();
 
-        return view('tag.senarai', compact('tags'));
+        return view('tag.senarai', compact('user','tags'));
     } 
  
     public function cipta_tag(Request $request) {
