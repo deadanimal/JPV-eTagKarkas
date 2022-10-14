@@ -36,6 +36,12 @@
                 <ul class="sidebar-nav">
 
                     <li class="sidebar-item">
+                        <a class="sidebar-link" href="/">
+                            <span class="align-middle">Dashboard</span>
+                        </a>
+                    </li>                    
+
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
                             <span class="align-middle">Rumah Sembelih</span>
                         </a>
