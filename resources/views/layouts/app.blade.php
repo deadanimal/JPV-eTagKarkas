@@ -44,12 +44,6 @@
                     </li>                    
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="/rumah">
-                            <span class="align-middle">Rumah Sembelih</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
                             <span class="align-middle">Tag</span>
                         </a>
@@ -69,6 +63,14 @@
                     
 
                     @role('pentadbir')
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/rumah">
+                            <span class="align-middle">Rumah Sembelih</span>
+                        </a>
+                    </li>
+                    
+                    
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/pengguna">
                             <span class="align-middle">Pengguna</span>
