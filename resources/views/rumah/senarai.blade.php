@@ -195,14 +195,14 @@
 
                     <tr>
 
-                        @foreach ($rumah as $r)
+                        @foreach ($rumahs as $rumah)
 
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $r->kategori }}</td>
-                            <td>{{ $r->nama_rumah }}</td>
-                            <td>{{ $r->zon }}</td>
-                            <td>{{ $r->kod_bar }}</td>
-                            <td>{{ $r->akses_ternakan }}</td>
+                            <td>{{ $rumah->kategori }}</td>
+                            <td>{{ $rumah->nama_rumah }}</td>
+                            <td>{{ $rumah->zon }}</td>
+                            <td>{{ $rumah->kod_bar }}</td>
+                            <td>{{ $rumah->akses_ternakan }}</td>
                             <td></td>
                             {{-- <td>{{ -asd }}</td> --}}
                             
@@ -217,16 +217,9 @@
                         {{-- Button edit & hapus --}}
                         <td>
                             <div class="col-auto">
-                                <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="/rumah/{{$rumah->id}}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                             </div>
-                            {{-- <div class="col-auto">
-                                <form action="#" method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-sm btn-outline-primary"><i
-                                            class="fas fa-trash-alt"></i></button>
-                                </form>
-                            </div> --}}
+
                         </td>
 
 

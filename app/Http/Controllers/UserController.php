@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function senarai_profil(Request $request) {
         $user = $request->user;
-        return view('user.profil', compact('user'));
+        return view('pengguna.profil', compact('user'));
     }
 
     public function kemaskini_profil(Request $request) {
@@ -31,13 +31,13 @@ class UserController extends Controller
 
     public function senarai_pengguna(Request $request) {
         $users = User::all();
-        return view('user.senarai', compact('users'));
+        return view('pengguna.senarai', compact('users'));
     }
 
     public function satu_pengguna(Request $request) {
         $id = (int)$request->route('id');
         $user = User::find($id);
-        return view('user.satu', compact('user'));        
+        return view('pengguna.satu', compact('user'));        
     }
 
     public function cipta_pengguna(Request $request) {

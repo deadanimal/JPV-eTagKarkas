@@ -9,8 +9,8 @@ class RumahSembelihController extends Controller
 {
 
     public function senarai_rumah(Request $request) {
-        $rumah = RumahSembelih::all();
-        return view('rumah.senarai', compact('rumah'));
+        $rumahs = RumahSembelih::all();
+        return view('rumah.senarai', compact('rumahs'));
     } 
     
     public function cipta_rumah(Request $request) {
@@ -33,4 +33,10 @@ class RumahSembelihController extends Controller
 
         return back();
     }  
+
+    public function satu_rumah(Request $request) {
+        $id = (int)$request->route('id');
+        $rumah = RumahSembelih::find($id);
+        return view('rumah.satu', compact('rumah'));
+    }     
 }
