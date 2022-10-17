@@ -19,7 +19,9 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('daging', [DagingController::class, 'senarai_daging']);    
     Route::post('daging', [DagingController::class, 'cipta_daging']);
-    Route::get('daging/{id}', [DagingController::class, 'satu_daging']);
+    // Route::get('daging/{id}', [DagingController::class, 'satu_daging']);
+    // tambah kejap
+    Route::get('daging/satu_ruminan', [DagingController::class, 'satu_daging']);
     Route::put('daging/{id}', [DagingController::class, 'kemaskini_daging']);
     Route::post('daging/{id}/sebelum-sembelih', [DagingController::class, 'cipta_sebelum_sembelih']);
     Route::post('daging/{id}/selepas-sembelih', [DagingController::class, 'cipta_selepas_sembelih']);
