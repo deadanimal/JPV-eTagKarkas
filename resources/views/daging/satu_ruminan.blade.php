@@ -129,9 +129,9 @@
                             </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                             </div>
     
                     </div>
@@ -211,9 +211,9 @@
                             </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                             </div>
     
                     </div>
@@ -285,9 +285,9 @@
                             </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Jana</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                             </div>
     
                     </div>
@@ -311,9 +311,9 @@
                             </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Jana Borang</button>
-                                <button class=“btn btn-primary” type=“submit”>Kembali</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                             </div>
     
                     </div>
@@ -337,9 +337,9 @@
                             </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Jana Borang</button>
-                                <button class=“btn btn-primary” type=“submit”>Kembali</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Jana Borang</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Kembali</a>
                             </div>
     
                     </div>
@@ -394,9 +394,9 @@
                             </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Tambah</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                             </div>
     
                     </div>
@@ -477,10 +477,10 @@
                             </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Tambah</button>
-                                <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Tambah</button>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                             </div>
     
                     </div>
@@ -541,9 +541,9 @@
                         </div>
     
                             <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                                <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                             </div>
     
                     </div>

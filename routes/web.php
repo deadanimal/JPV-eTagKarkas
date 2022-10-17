@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('tag/{id}', [TagController::class, 'satu_tag']);
     Route::post('tag', [TagController::class, 'cipta_tag']);   
     Route::put('tag/{id}', [TagController::class, 'kemaskini_tag']);
+    Route::delete('tag/{id}', [TagController::class, 'padam_tag']);
     
     Route::get('profil', [UserController::class, 'senarai_profil']);
     Route::put('profil', [UserController::class, 'kemaskini_profil']);

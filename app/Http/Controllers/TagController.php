@@ -30,6 +30,17 @@ class TagController extends Controller
         $tags->bil_kodbar = $request->bil_kodbar;
         $tags->save();
         return back();
-    }           
+    } 
+    
+    // zach buat fungsi padam
+    public function padam_tag(Request $request) {
+        $id = (int)$request->route('id');
+        $tags = Tag::find($id); 
+        $user = $request->user();
+
+        $tags->delete();        
+        alert()->success('Berjaya dipadam', 'Berjaya');
+        return back();
+    }
 
 }

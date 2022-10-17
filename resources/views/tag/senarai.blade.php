@@ -174,6 +174,9 @@
                                             class="fas fa-trash-alt"></i></button>
                                 </form>
                             </div>
+                            <div class="col-auto">
+                                <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-print"></i></a>
+                            </div>
                         </td>
 
                     </tr>

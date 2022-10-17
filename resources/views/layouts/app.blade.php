@@ -55,25 +55,25 @@
                         </a>
                     </li> 
 
-                    <li class="sidebar-item">
+                    {{-- <li class="sidebar-item">
                         <a class="sidebar-link" href="/profil">
                             <span class="align-middle">Profil</span>
                         </a>
-                    </li>                      
+                    </li>                       --}}
                     
 
                     @role('pentadbir')
 
-                    <li class="sidebar-item">
+                    {{-- <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
                             <span class="align-middle">Rumah Sembelih</span>
                         </a>
-                    </li>
+                    </li> --}}
                     
                     
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/pengguna">
-                            <span class="align-middle">Pengguna</span>
+                            <span class="align-middle">Profil Pengguna</span>
                         </a>
                     </li>           
                     @endrole           

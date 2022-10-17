@@ -7,7 +7,7 @@
     <div class="container-fluid">
 
         <div class="header">
-            <h1 class="header-title">
+            <h1 class="header-title" >
                 Daging
             </h1>
         </div>
@@ -64,10 +64,9 @@
 
 
                             <!--Button-->
-                            <div align="right">
-                                <button class=“btn btn-primary” type=“submit”>Semak</button>
-                                <a href="/daging/satu_ruminan" class="btn btn-primary">Daftar</a>
-                                
+                            <div>
+                                <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Semak</button>
+                                <a href="/daging/satu_ruminan" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Daftar</a>
                             </div>
 
                         </div>
@@ -154,9 +153,9 @@
                         </div>
 
                         <!--Button-->
-                        <div align="center">
-                            <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
-                            <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                        <div>
+                            <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
+                            <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
                         </div>
 
                     </form>
