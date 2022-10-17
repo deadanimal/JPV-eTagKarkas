@@ -41,7 +41,24 @@
                         <a class="sidebar-link" href="/">
                             <span class="align-middle">Dashboard</span>
                         </a>
-                    </li>                    
+                    </li> 
+                    
+                    @role('pentadbir')
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pengguna">
+                            <span class="align-middle">Profil Pengguna</span>
+                        </a>
+                    </li>           
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/rumah">
+                            <span class="align-middle">Rumah Sembelih</span>
+                        </a>
+                    </li>
+                    
+                
+                    @endrole  
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
@@ -61,24 +78,6 @@
                         </a>
                     </li>                       --}}
                     
-
-                    @role('pentadbir')
-
-                    {{-- <li class="sidebar-item">
-                        <a class="sidebar-link" href="/rumah">
-                            <span class="align-middle">Rumah Sembelih</span>
-                        </a>
-                    </li> --}}
-                    
-                    
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pengguna">
-                            <span class="align-middle">Profil Pengguna</span>
-                        </a>
-                    </li>           
-                    @endrole           
-
-
 
                 </ul>
             </div>

@@ -73,7 +73,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" autocapitalize="off" name="bil_ternakan" value="" readonly  />
+                            <input class="form-control" type="text" autocapitalize="off" name="bil_ternakan" value="4" readonly  />
                         </div>
                     </div>
                     {{-- Bilangan Kod Bar Untuk Dijana --}}
@@ -83,13 +83,33 @@
                             <input class="form-control" type="text" autocapitalize="off" name="bil_kod" placeholder="16" value="" readonly  />
                         </div>
                     </div>
+
+                    @role('pentadbir')
                      {{-- Pengesyoran Kuantiti --}}
                      <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" autocapitalize="off" name="bil_kod" placeholder="16" value="" readonly  />
+                            <input class="form-control" type="text" autocapitalize="off" name="bil_kod" value=""  />
                         </div>
                     </div>
+                    {{-- Bilangan Pengesyoran Kod Bar --}}
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kod Bar</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" autocapitalize="off" name="bil_kod" value=""  />
+                        </div>
+                    </div>
+                    @endrole
+
+                    @role('ketua-seksyen')
+                    {{-- Pengesyoran Kuantiti --}}
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" autocapitalize="off" name="bil_kod" value=""  />
+                        </div>
+                    </div>
+                    @endrole
 
                     <!--Cetakan Kod Bar-->
                     <div class="mb-3 row">
@@ -100,10 +120,19 @@
                     </div>         
                             
                     <!--Button-->
-                    <div align="right">
-                        <button class=“btn btn-primary” type=“submit”>Simpan/Tolak</button>
-                        <button class=“btn btn-primary” type=“submit”>Hantar/Lulus</button>
+                    @role('pentadbir')
+                    <div>
+                        <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Simpan</button>
+                        <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Hantar</button>
                     </div>
+                    @endrole
+
+                    @role('ketua-seksyen')
+                    <div>
+                        <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Tolak</button>
+                        <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Lulus</button>
+                    </div>
+                    @endrole
         
                         </form>
                 </div>

@@ -157,10 +157,17 @@
                         <td>14/7/2022</td>
                         <td>Pemeriksa Daging</td>
                         <td>Manual</td>
-                        <td>Dihantar</td>
-                        {{-- <td>{{ $tags->bil_kodbar }}</td> --}}
-                       
 
+                        @role('pentadbir')
+                        <td>
+                            <div class="col-auto">
+                                <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-primary">Semak<i class="fas fa-eye"></i></a>
+                            </div>
+                        </td>
+                        @endrole
+                       
+                        @role('pengurus-rumah-sembelih')
+                        {{-- @role('pengurus-rumah-sembelih,pemeriksa-daging,pemeriksa-daging-negeri') --}}
                         {{-- Button edit & hapus --}}
                         <td>
                             <div class="col-auto">
@@ -170,13 +177,43 @@
                                 <form action="/tag/{{$tag->id}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-outline-primary"><i
-                                            class="fas fa-trash-alt"></i></button>
+                                    <button type="submit" class="btn btn-sm btn-primary"><i
+                                    class="fas fa-trash-alt"></i></button>
                                 </form>
                             </div>
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-print"></i></a>
+                        </td>
+                        @endrole
+                            
+                            {{-- button trigger modal --}}
+
+                        @role('ketua-seksyen')
+
+                        <td>
+                            <button type="submit" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                class="fas fa-print" ></i></button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Jana Permohonan</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    ...
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-primary">Jana</button>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
+                        </td>
+
+                        @endrole
+
                         </td>
 
                     </tr>
