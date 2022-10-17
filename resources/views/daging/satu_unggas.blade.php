@@ -32,9 +32,7 @@
                 </div>
 
                 <hr class="text-primary mb-3">
-
-
-               
+   
             </div>
         </div>
 
@@ -52,7 +50,12 @@
     
                                 <div class="mb-3 col-md-3">
                                     <label for="">Nama Ladang</label>
-                                    <input type="text" >
+                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
+                                        <option selected></option>
+                                        <option value="Farm A">Farm A</option>
+                                        <option value="Farm B">Farm B</option>
+                                        <option value="Farm C">Farm C</option>
+                                      </select>                               
                                 </div>
     
                                 <div class="mb-3 col-md-3">
@@ -61,12 +64,7 @@
                                 </div>
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Tarikh Terima Ternakan</label>
-                                    <input type="text">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Nama Pemilik</label>
+                                    <label for="">ID Ladang</label>
                                     <input type="text">
                                 </div>
                                
@@ -75,55 +73,15 @@
                             <div class="row">
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">No Kenderaan</label>
+                                    <label for="">Alamat Ladang</label>
                                     <input type="text" >
                                 </div>
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Masa Ternakan Tiba</label>
-                                    <input type="text" placeholder="Lembu">
+                                    <label for="">Tarikh Terima Ternakan </label>
+                                    <input type="text" >
                                 </div>
     
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Masa Ternakan Disembelih</label>
-                                    <input type="text" placeholder="12">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">No. Permit</label>
-                                    <input type="text">
-                                </div>
-                               
-                            </div>
-    
-                            <div class="row">
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Spesis</label>
-                                    <input type="text">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Bilangan Ternakan (Mengikut SKV)</label>
-                                    <input type="text">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">ID Premis</label>
-                                    <input type="text">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Nama Premis</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-    
-                            <div class="row">
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Alamat</label>
-                                    <textarea name="catatan" cols="25" rows="5"></textarea>
-                                </div>
-      
                             </div>
     
                             </div>
@@ -145,7 +103,7 @@
                 <form action="">
                     <div class="card">
                         <div class="card-header">
-                            <b>Pemeriksaan Daging > Maklumat Haiwan Ternakan</b>
+                            <b>Pemeriksaan Ternakan > Maklumat Unggas</b>
                         </div>
         
                        <div class="card-body">
@@ -154,21 +112,21 @@
     
                                 <div class="mb-3 col-md-3">
                                     <label for="">Bilangan Ternakan Yang Diterima</label>
+                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
+                                        <option selected></option>
+                                        <option value="Farm A">Farm A</option>
+                                        <option value="Farm B">Farm B</option>
+                                        <option value="Farm C">Farm C</option>
+                                      </select>                               
+                                </div>
+    
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Bilangan Yang Mati Semasa Tiba(D0A)</label>
                                     <input type="text" >
                                 </div>
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Ternakan Yang Mati Semasa Tiba</label>
-                                    <input type="text" >
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Ternakan Yang Diperiksa</label>
-                                    <input type="text">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Ternakan Layak Untuk Disembelih</label>
+                                    <label for="">Ternakan Mati Sebelum Sembelih(DBS)</label>
                                     <input type="text">
                                 </div>
                                
@@ -177,35 +135,15 @@
                             <div class="row">
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi</label>
+                                    <label for="">Runt(AM + PM)</label>
                                     <input type="text" >
                                 </div>
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Binatang Disembelih Kerana Kecemasan</label>
-                                    <input type="text">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Yang Disembelih</label>
+                                    <label for="">Salah Sembelih </label>
                                     <input type="text" >
                                 </div>
     
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Baki Ternakan Yang Belum Disembelih</label>
-                                    <input type="text">
-                                </div>
-                               
-                            </div>
-    
-                
-    
-                            <div class="row">
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Catatan</label>
-                                    <textarea name="catatan" cols="25" rows="5"></textarea>
-                                </div>
-      
                             </div>
     
                             </div>
@@ -214,132 +152,6 @@
                             <div align="center">
                                 <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
                                 <button class=“btn btn-primary” type=“submit”>Simpan</button>
-                            </div>
-    
-                    </div>
-                </form>
-            </div>
-            
-        </div>
-
-        <div class="container-fluid">
-            <div class="col-md-12">
-                <form action="">
-                    <div class="card">
-                        <div class="card-header">
-                            <b>Pemeriksaan Daging > Haiwan Ternakan > Pemeriksaan Rapi</b>
-                        </div>
-        
-                       <div class="card-body">
-    
-                            <div class="row">
-
-                                <h6>Pemeriksaan Rapi: Perihal Haiwan</h6>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Warna</label>
-                                    <input type="text" >
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Tanda Dikenalpasti</label>
-                                    <input type="text" >
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Ternakan Yang Diperiksa</label>
-                                    <input type="text">
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Ternakan Layak Untuk Disembelih</label>
-                                    <input type="text">
-                                </div>
-                               
-                            </div>
-    
-                            <div class="row">
-
-                                <h6>Keputusan Klinikal</h6>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Diagnosis</label>
-                                    <input type="text" >
-                                </div>
-    
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Suhu Badan</label>
-                                    <input type="text">
-                                </div>
-                               
-                            </div>
-
-                            <div class="row">
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Catatan</label>
-                                    <textarea name="catatan" cols="25" rows="5"></textarea>
-                                </div>
-      
-                            </div>
-    
-                            </div>
-    
-                            <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Jana</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
-                            </div>
-    
-                    </div>
-                </form>
-            </div>
-            
-        </div>
-
-        <div class="container-fluid">
-            <div class="col-md-12">
-                <form action="">
-                    <div class="card">
-                        <div class="card-header">
-                            <b>Pemeriksaan Daging > Pemeriksaan Ante Mortem > Borang 1</b>
-                        </div>
-        
-                       <div class="card-body">
-    
-                            
-    
-                            </div>
-    
-                            <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Jana Borang</button>
-                                <button class=“btn btn-primary” type=“submit”>Kembali</button>
-                            </div>
-    
-                    </div>
-                </form>
-            </div>
-            
-        </div>
-
-        <div class="container-fluid">
-            <div class="col-md-12">
-                <form action="">
-                    <div class="card">
-                        <div class="card-header">
-                            <b>Pemeriksaan Daging > Pemeriksaan Ante Mortem > Borang 2</b>
-                        </div>
-        
-                       <div class="card-body">
-    
-                            
-    
-                            </div>
-    
-                            <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Jana Borang</button>
-                                <button class=“btn btn-primary” type=“submit”>Kembali</button>
                             </div>
     
                     </div>
@@ -361,7 +173,7 @@
                             <div class="row">
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Penemuan Ante Mortem</label>
+                                    <label for="">General Condition</label>
                                     <select class="form-select" aria-label="Default select example" name="ante_mortem">
                                         <option selected></option>
                                         <option value="1">1</option>
@@ -374,28 +186,80 @@
                                     <label for="">Bilangan Kes</label>
                                     <input type="number" >
                                 </div>
-    
+
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Nombor Tag</label>
-                                    <select class="form-select" aria-label="Default select example" name="nombor_tag">
+                                   <button>Tambah</button>
+                                </div>  
+
+                                <hr class="text-primary mb-3">
+
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Respiratory System</label>
+                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
                                         <option selected></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
-                                      </select>                                </div>
+                                      </select>
+                                </div>
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Catatan</label>
-                                    <textarea name="catatan" cols="25" rows="5"></textarea>
+                                    <label for="">Bilangan Kes</label>
+                                    <input type="number" >
                                 </div>
-                               
-                            </div>
+
+                                <div class="mb-3 col-md-3">
+                                   <button>Tambah</button>
+                                </div>  
+
+                                <hr class="text-primary mb-3">
+
+                                <div class="mb-3 col-md-3">
+                                    <label for="">CNS Symptoms</label>
+                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
+                                        <option selected></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                      </select>
+                                </div>
     
-                            </div>
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Bilangan Kes</label>
+                                    <input type="number" >
+                                </div>
+
+                                <div class="mb-3 col-md-3">
+                                   <button>Tambah</button>
+                                </div>  
+
+                                <hr class="text-primary mb-3">
+
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Gastrointestinal Tract System</label>
+                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
+                                        <option selected></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                      </select>
+                                </div>
+    
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Bilangan Kes</label>
+                                    <input type="number" >
+                                </div>
+
+                                <div class="mb-3 col-md-3">
+                                   <button>Tambah</button>
+                                </div>  
+
+                                <hr class="text-primary mb-3">
+
     
                             <!--Button-->
                             <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Tambah</button>
+                                <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
                                 <button class=“btn btn-primary” type=“submit”>Simpan</button>
                             </div>
     
@@ -404,6 +268,7 @@
             </div>
             
         </div>
+
 
         <div class="container-fluid">
             <div class="col-md-12">
@@ -418,27 +283,7 @@
                             <div class="row">
     
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Kategori</label>
-                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                        <option selected></option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                      </select>
-                                </div>
-
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Bahagian</label>
-                                    <select class="form-select" aria-label="Default select example" name="bahagian">
-                                        <option selected></option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                      </select>
-                                </div>
-
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Sebab Musnah</label>
+                                    <label for="">Bukan Lesi Semasa Post Mortem</label>
                                     <select class="form-select" aria-label="Default select example" name="ante_mortem">
                                         <option selected></option>
                                         <option value="1">1</option>
@@ -451,19 +296,43 @@
                                     <label for="">Bilangan Kes</label>
                                     <input type="number" >
                                 </div>
-    
+
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Nombor Tag</label>
-                                    <select class="form-select" aria-label="Default select example" name="nombor_tag">
-                                        <option selected></option>
+                                   <button>Tambah</button>
+                                </div>  
+
+                                <hr class="text-primary mb-3">
+
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Lesi Semasa Post Mortem</label>
+                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
+                                        <option selected>Carcass</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
-                                      </select>                                
+                                      </select>
+
+                                      <select class="form-select" aria-label="Default select example" name="ante_mortem">
+                                        <option selected>Abcess</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                      </select>
+                                </div>
+    
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Bilangan Kes</label>
+                                    <input type="number" >
                                 </div>
 
                                 <div class="mb-3 col-md-3">
-                                    <label for="">Keputusan</label>
+                                   <button>Tambah</button>
+                                </div>  
+
+                                <hr class="text-primary mb-3">
+
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Gastrointestinal Tract System</label>
                                     <select class="form-select" aria-label="Default select example" name="ante_mortem">
                                         <option selected></option>
                                         <option value="1">1</option>
@@ -471,81 +340,24 @@
                                         <option value="3">3</option>
                                       </select>
                                 </div>
-                               
-                            </div>
     
-                            </div>
-    
-                            <!--Button-->
-                            <div align="center">
-                                <button class=“btn btn-primary” type=“submit”>Tambah</button>
-                                <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
-                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
-                            </div>
-    
-                    </div>
-                </form>
-            </div>
-            
-        </div>
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Bilangan Kes</label>
+                                    <input type="number" >
+                                </div>
 
-        <div class="container-fluid">
-            <div class="col-md-12">
-                <form action="">
-                    <div class="card">
-                        <div class="card-header">
-                            <b>Catatan Penggunaan Tag Karkas</b>
-                        </div>
-        
-                       <div class="card-body">
+                                <div class="mb-3 col-md-3">
+                                   <button>Tambah</button>
+                                </div>  
 
-                        <div class="row d-flex justify-content-center">
-                            <table class="table table-bordered">
-                                <thead class="text-black ">
-                                    <tr>
-                                        <th>Bil.</th>
-                                        <th scope="col">No. Tag</th>
-                                        <th scope="col">Jantina</th>
-                                        <th scope="col">Baka</th>
-                                        <th scope="col">Tarikh Disembelih</th>
-                                        <th scope="col">Penggunaan Tag Karkas</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                
-                                    <tr>
-                
-                                            <td>1</td>
-                                            <td>XXXX</td>
-                                            <td>Betina</td>
-                                            <td>XXXX</td>
-                                            <td>20/7/2022</td>
-                                            <td>
-                                                <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                    <option selected></option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                  </select>
-                                            </td>
-                
-                                        {{-- Button edit & hapus --}}
-                                       
-                                    </tr>
-                
- 
-                                </tbody>
-                            </table>
-                        </div>
+                                <hr class="text-primary mb-3">
 
-                        </div>
     
                             <!--Button-->
                             <div align="center">
                                 <button class=“btn btn-primary” type=“submit”>Kemaskini</button>
                                 <button class=“btn btn-primary” type=“submit”>Simpan</button>
                             </div>
-    
                     </div>
                 </form>
             </div>
