@@ -10,12 +10,12 @@
 
         <div class="header">
             <h1 class="header-title">
-                Tag
+                Permohonan Tag Karkas
             </h1>
         </div>
 
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-info text-black">
                 <b>Permohonan Tag Karkas</b>
             </div>
             <div class="card-body">
@@ -96,8 +96,8 @@
                 </div>
 
                 <!--Button-->
-                <div>
-                    <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Cipta</button>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button class="btn btn-success" type="submit" >Cipta</button>
                 </div>
 
 
@@ -110,16 +110,16 @@
 
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
-                <div class="card p-3  py-4">
+                <div class="card p-3  py-4 bg-info">
                     <div class="row g-3 mt-2">
-                        <div class="col-md-3">
+                        <div class="col-md-3 text-black">
                             <label for="nama_projek">Nombor Dokumen</label>
                         </div>
                         <div class="col-md-6">
                             <input type="text" id="myInput" class="form-control" placeholder="xxxxx">
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-light btn-block">Carian</button>
+                            <button class="btn btn-primary btn-block">Carian</button>
                         </div>
                     </div>
                 </div>
@@ -127,8 +127,8 @@
         </div>
 
         <div class="row d-flex justify-content-center">
-            <table class="table table-bordered">
-                <thead class="text-black ">
+            <table class="table border border-info">
+                <thead class="text-black bg-info ">
                     <tr>
                         <th scope="col">Bil.</th>
                         <th scope="col">Nombor Dokumen</th>
@@ -161,7 +161,7 @@
                         @role('pentadbir')
                         <td>
                             <div class="col-auto">
-                                <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-primary">Semak<i class="fas fa-eye"></i></a>
+                                <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-success">Semak<i class="fas fa-eye"></i></a>
                             </div>
                         </td>
                         @endrole
@@ -171,13 +171,13 @@
                         {{-- Button edit & hapus --}}
                         <td>
                             <div class="col-auto">
-                                <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
                             </div>
                             <div class="col-auto">
                                 <form action="/tag/{{$tag->id}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-primary"><i
+                                    <button type="submit" class="btn btn-sm btn-success"><i
                                     class="fas fa-trash-alt"></i></button>
                                 </form>
                             </div>
@@ -189,7 +189,7 @@
                         @role('ketua-seksyen')
 
                         <td>
-                            <button type="submit" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                            <button type="submit" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
                                 class="fas fa-print" ></i></button>
 
                             <!-- Modal -->
@@ -205,7 +205,7 @@
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                    <button type="button" class="btn btn-primary">Jana</button>
+                                    <button type="button" class="btn btn-success">Jana</button>
                                     </div>
                                 </div>
                                 </div>

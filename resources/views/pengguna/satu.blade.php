@@ -23,7 +23,7 @@
                 </div> --}}
         
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-info text-black">
                         <b> Profil Pengguna</b>
                     </div>
         
@@ -129,7 +129,7 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a href="/pengguna" type="button" class="btn btn-primary">Kembali</a>
+                            <a href="/pengguna" type="button" class="btn btn-success">Kembali</a>
                         </div>
                     
                 </div>

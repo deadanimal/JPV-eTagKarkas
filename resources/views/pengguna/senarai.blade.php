@@ -24,7 +24,7 @@
                 </div> --}}
         
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-info text-black">
                         <b>Daftar Profil Pengguna</b>
                     </div>
         
@@ -35,16 +35,16 @@
         
                             <!--Nama Pengeluar-->
                             <div class="mb-3 row">
-                                <div class="col-sm-2">
+                                <div class="col-xl-2 col-md-auto">
                                     <label class="form-label">Nama Pengguna</label>
                                 </div>
-                                <div class="col-sm-10">
+                                <div class="col-xl-10 ">
                                     <input class="form-control" type="text" name="nama_pengguna"  />
                                 </div>
-                                <div class="col-sm-2 mb-3">
+                                <div class="col-xl-2 mb-3">
                                     <label class="col-form-label">Peranan</label>
                                 </div>
-                                <div class="col-sm-10">
+                                <div class="col-xl-10">
                                     {{-- peranan adalah name dalam DB --}}
                                     <select class="form-select" aria-label="Default select example" name="name">
                                         <option selected value="Pengurus Rumah Sembelih">Pengurus Rumah Sembelih</option>
@@ -54,23 +54,23 @@
                                         <option value="Pentadbir">Pentadbir</option>
                                       </select>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-xl-2">
                 
                                     <label class="form-label">Ibu Pejabat</label>
                                 </div>
-                                <div class="col-sm-10 mb-3">
+                                <div class="col-xl-10 mb-3">
                                     <input class="form-control" type="text" name="ibu_pejabat"  />
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-xl-2">
                                     <label class="form-label">Alamat Tempat Bertugas</label>
                                 </div>
-                                <div class="col-sm-10">
+                                <div class="col-xl-10">
                                     <input class="form-control" type="text" name="alamat"  />
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-xl-2">
                                     <label class="form-label">Emel</label>
                                 </div>
-                                <div class="col-sm-10">
+                                <div class="col-xl-10">
                                     {{-- emel adalah email dalam DB --}}
                                     <input class="form-control" type="text" name="email"  />
                                 </div>
@@ -143,7 +143,7 @@
                             <!--Button-->
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button class="btn btn-primary" type="submit">Cipta</button>
+                                <button class="btn btn-success" type="submit">Cipta</button>
                             </div>
                             
                             </form>
@@ -157,14 +157,14 @@
         
         
                 {{-- Tunjuk data --}}
+                <div class="card-header bg-info text-black col-xl-5 align-item-centers">
+                    <b>Butiran Maklumat Senarai Pengguna</b>
+                </div>
                 <div class="card-body">
-                    <div class="card-header">
-                        <b>Butiran Maklumat Senarai Pengguna</b>
-                    </div>
                     <div class="row d-flex justify-content-center">
-                        <table class="table table-bordered">
-                            <thead class="text-black " style="background-color: rgb(80, 159, 255)">
-                                <tr>
+                        <table class="table border border-info">
+                            <thead class="text-black bg-info ">
+                                <tr class="border">
                                     <th>Bil.</th>
                                     <th scope="col">Nama Pengguna</th>
                                     <th scope="col">Peranan</th>
@@ -175,7 +175,7 @@
                                     <th scope="col">Nombor Telefon</th>
                                     <th scope="col">Jawatan</th>
                                     <th scope="col">Status</th>
-                                    <th></th>
+                                    <th>Kemaskini</th>
             
                                 </tr>
                             </thead>
@@ -196,9 +196,10 @@
                                         <td>{{ $user->status }}</td>
                                         <td>
                                             <div class="col-auto">
-                                                <a href="/pengguna/{{$user->id}}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                                <a href="/pengguna/{{$user->id}}" class="btn btn-xl btn-success"><i class="fas fa-edit"></i></a>
                                             </div>
                                         </td>
+                                      
                                         
             
                                         {{-- <td>-asd</td>

@@ -37,7 +37,7 @@
 
                 <ul class="sidebar-nav">
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item ">
                         <a class="sidebar-link" href="/">
                             <span class="align-middle">Dashboard</span>
                         </a>
@@ -53,7 +53,7 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
-                            <span class="align-middle">Rumah Sembelih</span>
+                            <span class="align-middle">Pendaftaran Rumah Sembelih</span>
                         </a>
                     </li>
                     
@@ -62,13 +62,13 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
-                            <span class="align-middle">Tag</span>
+                            <span class="align-middle">Permohonan Tag</span>
                         </a>
                     </li>    
                     
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/daging">
-                            <span class="align-middle">Daging</span>
+                            <span class="align-middle">Pemeriksaan Daging</span>
                         </a>
                     </li> 
 
