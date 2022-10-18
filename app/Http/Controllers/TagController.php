@@ -43,4 +43,26 @@ class TagController extends Controller
         return back();
     }
 
+    // untuk kemaskini tag - zach tambah
+    public function kemaskini_tag(Request $request) {
+        // dd('masuk');
+        $id = (int)$request->route('id');
+        $tag = Tag::find($id); 
+               
+        return view('tag.senarai', compact('tag'));
+    }
+
+    // public function cipta_kemaskini_tag(Request $request) {
+    //     $id = (int)$request->route('id');
+
+    //     $tag = Tag::find($id);
+    //     // dd($tag);
+
+    //     $tag->jenis_ternakan = $request->jenis_ternakan;
+    //     $tag->bil_ternakan = $request->bil_ternakan;
+    //     $tag->bil_kodbar = $request->bil_kodbar;
+    //     $tag->save();
+    //     return back();
+    // } 
+
 }

@@ -15,7 +15,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-info text-black">
                 <b>Pendaftaran Rumah Sembelih</b>
             </div>
 
@@ -165,8 +165,8 @@
                     </div>
     
                     <!--Button-->
-                    <div align="right">
-                        <button class=“btn btn-primary” type=“submit”>Cipta</button>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button class="btn btn-success" type="submit">Cipta</button>
                     </div>
                     
                    
@@ -179,12 +179,12 @@
 
 
         {{-- Tunjuk data --}}
-        <div class="card-header">
+        <div class="card-header bg-info col-md-5 text-black">
             <b>Borang Maklumat Rumah Sembelih</b>
         </div>
         <div class="row d-flex justify-content-center">
             <table class="table table-bordered">
-                <thead class="text-black ">
+                <thead class="text-black bg-info ">
                     <tr>
                         <th>Bil.</th>
                         <th scope="col">Kategori</th>
@@ -193,7 +193,7 @@
                         <th scope="col">Jana Kod Bar</th>
                         <th scope="col">Akses Ternakan</th>
                         <th scope="col">Status</th>
-                        <th></th>
+                        <th>Tindakan</th>
 
                     </tr>
                 </thead>
@@ -222,8 +222,8 @@
 
                         {{-- Button edit & hapus --}}
                         <td>
-                            <div class="col-auto">
-                                <a href="/rumah/{{$rumah->id}}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                            <div class="col-auto d-grid gap-2 d-md-flex justify-content-md-center">
+                                <a href="/rumah/{{$rumah->id}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                             </div>
 
                         </td>

@@ -50,15 +50,14 @@
                             <span class="align-middle">Profil Pengguna</span>
                         </a>
                     </li>           
+            
+                    @endrole  
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
                             <span class="align-middle">Pendaftaran Rumah Sembelih</span>
                         </a>
                     </li>
-                    
-                
-                    @endrole  
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">

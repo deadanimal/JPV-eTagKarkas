@@ -140,6 +140,9 @@
                         <th scope="col">Pemohon Oleh</th>
                         <th scope="col">Cetakan Kod Bar</th>
                         <th scope="col">Status</th>
+                        @role('pentadbir')
+                        <th scope="col">Tindakan</th>
+                        @endrole
 
                     </tr>
                 </thead>
@@ -162,6 +165,30 @@
                         <td>
                             <div class="col-auto">
                                 <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-success">Semak<i class="fas fa-eye"></i></a>
+                            </div>
+                            
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                class="fas fa-print" ></i></button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Jana Permohonan</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-success">Jana</button>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         </td>
                         @endrole
@@ -187,31 +214,11 @@
                             {{-- button trigger modal --}}
 
                         @role('ketua-seksyen')
-
                         <td>
-                            <button type="submit" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                class="fas fa-print" ></i></button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Jana Permohonan</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                    ...
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                    <button type="button" class="btn btn-success">Jana</button>
-                                    </div>
-                                </div>
-                                </div>
+                            <div class="col-auto">
+                                <a href="/tag/{{$tag->id}}" class="btn btn-sm btn-success">Semak<i class="fas fa-eye"></i></a>
                             </div>
                         </td>
-
                         @endrole
 
                         </td>

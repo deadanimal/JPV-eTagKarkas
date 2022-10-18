@@ -6,11 +6,11 @@
 
     <div class="container-fluid">
 
-        <div class="header">
+        {{-- <div class="header">
             <h1 class="header-title">
                 Satu Page
             </h1>
-        </div>
+        </div> --}}
 
         <main class="content">
 
@@ -18,12 +18,12 @@
 
         <div class="header">
             <h1 class="header-title">
-                Rumah Sembelih
+                Pendaftaran Rumah Sembelih
             </h1>
         </div>
 
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-info text-black">
                 <b>Pendaftaran Rumah Sembelih</b>
             </div>
 
@@ -137,9 +137,9 @@
                     </div>
     
                     <!--Button-->
-                    <div align="right">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                         {{-- <button class=“btn btn-primary” type=“submit”>Cipta</button> --}}
-                        <a href="/rumah" class="btn btn-primary">Kembali</a>
+                        <a href="/rumah" class="btn btn-success">Simpan</a>
                     </div>
                     
                    
