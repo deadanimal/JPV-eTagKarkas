@@ -17,21 +17,21 @@
 
             <div class="container-fluid">
         
-                <div class="header">
+                {{-- <div class="header">
                     <h1 class="header-title">
                         Pendaftaran Pengguna
                     </h1>
-                </div>
+                </div> --}}
         
                 <div class="card">
                     <div class="card-header">
                         <b>Daftar Profil Pengguna</b>
                     </div>
         
-                    <form action="/pengguna" method="post" enctype="multipart/form-data">
-                        @method('POST')
-                        @csrf
+                    
                         <div class="card-body">
+                            <form action="/pengguna" method="post" enctype="multipart/form-data">
+                                @csrf
         
                             <!--Nama Pengeluar-->
                             <div class="mb-3 row">
@@ -45,15 +45,17 @@
                                     <label class="col-form-label">Peranan</label>
                                 </div>
                                 <div class="col-sm-10">
+                                    {{-- peranan adalah name dalam DB --}}
                                     <select class="form-select" aria-label="Default select example" name="name">
-                                        <option selected>Pengurus Rumah Sembelih</option>
-                                        <option value="1">Pemeriksa Daging</option>
-                                        <option value="1">Pemeriksa Daging Negeri</option>
-                                        <option value="2">Ketua Seksyen</option>
-                                        <option value="3">Pentadbir</option>
+                                        <option selected value="Pengurus Rumah Sembelih">Pengurus Rumah Sembelih</option>
+                                        <option value="Pemeriksa Daging">Pemeriksa Daging</option>
+                                        <option value="Pemeriksa Daging Negeri">Pemeriksa Daging Negeri</option>
+                                        <option value="Ketua Seksyen">Ketua Seksyen</option>
+                                        <option value="Pentadbir">Pentadbir</option>
                                       </select>
                                 </div>
                                 <div class="col-sm-2">
+                
                                     <label class="form-label">Ibu Pejabat</label>
                                 </div>
                                 <div class="col-sm-10 mb-3">
@@ -69,6 +71,7 @@
                                     <label class="form-label">Emel</label>
                                 </div>
                                 <div class="col-sm-10">
+                                    {{-- emel adalah email dalam DB --}}
                                     <input class="form-control" type="text" name="email"  />
                                 </div>
                                 
@@ -126,7 +129,11 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Aktif</label>
                                 <div class="col-sm-2">
-                                    <input type="checkbox" value="Manual" name="status" />
+                                    <input type="checkbox" value="Aktif" name="status" />
+                                </div>
+                                <label class="col-sm-2 col-form-label">Tidak Aktif</label>
+                                <div class="col-sm-2">
+                                    <input type="checkbox" value="Tidak Aktif" name="status" />
                                 </div>
                                
                             </div>
@@ -134,15 +141,17 @@
             
             
                             <!--Button-->
-                            <div align="right">
-                                <button class=“btn btn-primary” type=“submit”>Cipta</button>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                <button class="btn btn-primary" type="submit">Cipta</button>
                             </div>
                             
+                            </form>
                            
                             </div>
             
                         </div>
-                    </form>
+                    
                 </div>
         
         
@@ -157,14 +166,16 @@
                             <thead class="text-black " style="background-color: rgb(80, 159, 255)">
                                 <tr>
                                     <th>Bil.</th>
-                                    <th scope="col">Peranan</th>
                                     <th scope="col">Nama Pengguna</th>
+                                    <th scope="col">Peranan</th>
                                     <th scope="col">Ibu Pejabat</th>
+                                    {{-- rumah sembelih sama dengan alamat dalam DB --}}
                                     <th scope="col">Rumah Sembelih</th>
                                     <th scope="col">E-mel</th>
                                     <th scope="col">Nombor Telefon</th>
                                     <th scope="col">Jawatan</th>
                                     <th scope="col">Status</th>
+                                    <th></th>
             
                                 </tr>
                             </thead>
@@ -172,37 +183,44 @@
             
                                 <tr>
             
-                                    {{-- @foreach ($rumahs as $rumah)
+                                    @foreach ($users as $user)
             
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $rumah->name }}</td>
-                                        <td>{{ $rumah->nama_pengguna }}</td>
-                                        <td>{{ $rumah->ibu_pejabat }}</td>
-                                        <td>{{ $rumah->kod_bar }}</td>
-                                        <td>{{ $rumah->akses_ternakan }}</td>
-                                        <td>Dihantar</td> --}}
+                                        <td>{{ $user->nama_pengguna }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->ibu_pejabat }}</td>
+                                        <td>{{ $user->alamat }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->nombor_telefon }}</td>
+                                        <td>{{ $user->jawatan }}</td>
+                                        <td>{{ $user->status }}</td>
+                                        <td>
+                                            <div class="col-auto">
+                                                <a href="/pengguna/{{$user->id}}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                            </div>
+                                        </td>
                                         
             
+                                        {{-- <td>-asd</td>
                                         <td>-asd</td>
                                         <td>-asd</td>
                                         <td>-asd</td>
                                         <td>-asd</td>
                                         <td>-asd</td>
                                         <td>-asd</td>
-                                        <td>-asd</td>
-                                        <td>-asd</td>
+                                        <td>-asd</td> --}}
             
                                     {{-- Button edit & hapus --}}
-                                    <td>
+                                    {{-- <td>
                                         <div class="col-auto">
                                             <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                         </div>
             
-                                    </td>
+                                    </td> --}}
             
                                 </tr>
             
-                                {{-- @endforeach --}}
+                                    @endforeach
             
             
                             </tbody>

@@ -32,7 +32,7 @@ class TagController extends Controller
         return back();
     } 
     
-    // zach buat fungsi padam
+    // fungsi padam - zach buat
     public function padam_tag(Request $request) {
         $id = (int)$request->route('id');
         $tags = Tag::find($id); 
