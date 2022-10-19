@@ -31,10 +31,10 @@
                         </div>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default select example" name="induk">
-                                <option selected>Rumah Sembelih Jabatan</option>
-                                <option value="1">Rumah Sembelih Selangor</option>
-                                <option value="2">Rumah Sembelih Kelantan</option>
-                                <option value="3">Rumah Sembelih Perak</option>
+                                <option selected value="Rumah Sembelih Jabatan">Rumah Sembelih Jabatan</option>
+                                <option value="Rumah Sembelih Selangor">Rumah Sembelih Selangor</option>
+                                <option value="Rumah Sembelih Kelantan">Rumah Sembelih Kelantan</option>
+                                <option value="Rumah Sembelih Perak">Rumah Sembelih Perak</option>
                               </select>
                         </div>
                         <div class="col-sm-2">

@@ -45,7 +45,7 @@ class TagController extends Controller
 
     // untuk kemaskini tag - zach tambah
     public function kemaskini_tag(Request $request) {
-        // dd('masuk');
+        dd('masuk');
         $id = (int)$request->route('id');
         $tag = Tag::find($id); 
                
