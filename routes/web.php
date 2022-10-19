@@ -19,7 +19,6 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('daging', [DagingController::class, 'senarai_daging']);    
     Route::post('daging', [DagingController::class, 'cipta_daging']);
-    // Route::get('daging/{id}', [DagingController::class, 'satu_daging']); --zach tambah
     Route::get('daging/satu_ruminan', [DagingController::class, 'satu_daging']);
     Route::put('daging/{id}', [DagingController::class, 'kemaskini_daging']);
     Route::post('daging/{id}/sebelum-sembelih', [DagingController::class, 'cipta_sebelum_sembelih']);
@@ -31,6 +30,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('tag', [TagController::class, 'cipta_tag']);   
     Route::put('tag/{id}', [TagController::class, 'kemaskini_tag']);
     Route::delete('tag/{id}', [TagController::class, 'padam_tag']);
+
+    // zach tambah - kenapa??
+    Route::get('tag/senarai_tag/stok', [TagController::class, 'senarai_stok_tag']);
+
     
     Route::get('profil', [UserController::class, 'senarai_profil']);
     Route::put('profil', [UserController::class, 'kemaskini_profil']);

@@ -63,7 +63,17 @@
                         <a class="sidebar-link" href="/tag">
                             <span class="align-middle">Permohonan Tag</span>
                         </a>
-                    </li>    
+                    </li>  
+                    
+                    @role('pentadbir')
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="tag/senarai_tag/stok">
+                            <span class="align-middle">Pendaftaran Stok Tag Karkas</span>
+                        </a>
+                    </li>           
+            
+                    @endrole  
                     
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/daging">

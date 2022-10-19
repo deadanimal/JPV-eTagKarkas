@@ -65,4 +65,11 @@ class TagController extends Controller
     //     return back();
     // } 
 
+    public function senarai_stok_tag(Request $request) {
+        $tags = Tag::all();
+        $user = $request->user();
+        
+        return view('tag.senarai_stok', compact('tags','user'));
+    } 
+
 }

@@ -10,7 +10,7 @@
 
         <div class="header">
             <h1 class="header-title">
-                Rumah Sembelih
+                Pendaftaran Rumah Sembelih
             </h1>
         </div>
 
