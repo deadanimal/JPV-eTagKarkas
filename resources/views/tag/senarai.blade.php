@@ -184,6 +184,8 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
+                                        <img src="/img/barkod.png" alt="error" width="550" height="93">
+
                                     
                                     </div>
                                     <div class="modal-footer">
