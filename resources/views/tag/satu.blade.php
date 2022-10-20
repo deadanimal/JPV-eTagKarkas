@@ -107,6 +107,12 @@
                             <input class="form-control" type="text"  name="pengesyoran_kuantiti"   />
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label class="col-xl-2 col-form-label">Bilangan Pengesyoran Kod Bar</label>
+                        <div class="col-xl-10">
+                            <input class="form-control" type="text"  name="pengesyoran_kuantiti"   />
+                        </div>
+                    </div>
                     @endrole
 
                     @role('ketua-seksyen')

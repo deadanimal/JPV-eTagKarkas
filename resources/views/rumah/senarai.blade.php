@@ -15,8 +15,8 @@
         </div>
 
         <div class="card">
-            <div class="card-header bg-info text-black">
-                <b>Pendaftaran Rumah Sembelih</b>
+            <div class="card-header bg-info text-white">
+                <b class="text-center">Pendaftaran Rumah Sembelih</b>
             </div>
 
             <form action="/rumah" method="post" enctype="multipart/form-data">
@@ -41,7 +41,7 @@
                             <label class="form-label">Nama Rumah Sembelih</label>
                         </div>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="nama_rumah"  />
+                            <input class="form-label" type="text" name="nama_rumah"  />
                         </div>
                         
                     </div>
@@ -51,13 +51,13 @@
                             <label class="form-label">Kod</label>
                         </div>
                         <div class="col-4">
-                            <input class="form-control" type="text" name="kod"  />
+                            <input class="form-label" type="text" name="kod"  />
                         </div>
                         <div class="col-2 text-end">
                                 <label class="form-label">Kategori</label>
                         </div>
                         <div class="col-4">
-                            <input class="form-control" type="text" name="kategori"  />
+                            <input class="form-label" type="text" name="kategori"  />
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
-                            <textarea name="alamat" cols="93" rows="5"></textarea>
+                            <textarea class="form-label" name="alamat" cols="93" rows="5"></textarea>
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@
                       <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Nombor Telefon</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="no_tel"  />
+                            <input class="form-label" type="text" name="no_tel"  />
                         </div>
                     </div>
 
@@ -107,14 +107,14 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Emel</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="emel"  />
+                            <input class="form-label" type="text" name="emel"  />
                         </div>
                     </div>
                      {{-- Orang Dihubungi --}}
                      <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Orang Dihubungi</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="orang_dihubungi"  />
+                            <input class="form-label" type="text" name="orang_dihubungi"  />
                         </div>
                     </div>
                      {{-- Zon --}}
@@ -135,32 +135,32 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Jana Kodbar</label>
                         <div class="col-sm-2">Manual
-                            <input type="checkbox" value="Manual" name="kod_bar" />
+                            <input class="form-label" type="checkbox" value="Manual" name="kod_bar" />
                         </div>
-                        <label class="col-sm-2 "></label>
-                        <div class="col-sm-2">Auto
-                            <input type="checkbox" value="Auto" name="kod_bar" />
+                        <label class="col-sm-2 form-label "></label>
+                        <div class="col-sm-2 ">Auto
+                            <input class="form-label" type="checkbox" value="Auto" name="kod_bar" />
                         </div>
                     </div>
                    
     
                     <!--Akses Ternakan-->
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Akses Ternakan</label>
-                        <div class="col">Ruminan Besar
-                            <input type="checkbox" name="akses_ternakan" value="Ruminan Besar" />
+                        <label class="col-xl-2 col-form-label">Akses Ternakan</label>
+                        <div class="col ">Ruminan Besar
+                            <input class="form-label" type="checkbox" name="akses_ternakan" value="Ruminan Besar" />
                         </div>
                         <label class="col"></label>
-                        <div class="col">Ruminan Kecil
-                            <input type="checkbox" name="akses_ternakan" value="Ruminan Kecil" />
+                        <div class="col ">Ruminan Kecil
+                            <input class="form-label" type="checkbox" name="akses_ternakan" value="Ruminan Kecil" />
                         </div>
                         <label class="col"></label>
-                        <div class="col">Unggas
-                            <input type="checkbox" name="akses_ternakan" value="Unggas"  />
+                        <div class="col ">Unggas
+                            <input class="form-label" type="checkbox" name="akses_ternakan" value="Unggas"  />
                         </div>
                         <label class="col"></label>
-                        <div class="col">Babi
-                            <input type="checkbox" name="akses_ternakan" value="Babi"  />
+                        <div class="col ">Babi
+                            <input class="form-label" type="checkbox" name="akses_ternakan" value="Babi"  />
                         </div>
                     </div>
     
@@ -175,70 +175,61 @@
                 </div>
             </form>
         </div>
-
-
-
+        
         {{-- Tunjuk data --}}
-        <div class="card-header bg-info col-md-5 text-black">
-            <b>Borang Maklumat Rumah Sembelih</b>
+        <div class="card">
+            <div class="card-header bg-info col-md-3 text-white d-flex justify-content-center align-self-center">
+                <b>Borang Maklumat Rumah Sembelih</b>
+            </div>
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <table class="table table-bordered">
+                        <thead class="text-black bg-info ">
+                            <tr>
+                                <th>Bil.</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">Nama Rumah Sembelih</th>
+                                <th scope="col">Zon</th>
+                                <th scope="col">Jana Kod Bar</th>
+                                <th scope="col">Akses Ternakan</th>
+                                <th scope="col">Status</th>
+                                <th>Tindakan</th>
+        
+                            </tr>
+                        </thead>
+                        <tbody>
+        
+                            <tr>
+        
+                                @foreach ($rumahs as $rumah)
+        
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $rumah->kategori }}</td>
+                                    <td>{{ $rumah->nama_rumah }}</td>
+                                    <td>{{ $rumah->zon }}</td>
+                                    <td>{{ $rumah->kod_bar }}</td>
+                                    <td>{{ $rumah->akses_ternakan }}</td>
+                                    <td>Dihantar</td>
+            
+                                {{-- Button edit--}}
+                                <td>
+                                    <div class="col-auto d-grid gap-2 d-md-flex justify-content-md-center">
+                                        <a href="/rumah/{{$rumah->id}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                    </div>
+        
+                                </td>
+        
+                            </tr>
+        
+                            @endforeach
+        
+        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="row d-flex justify-content-center">
-            <table class="table table-bordered">
-                <thead class="text-black bg-info ">
-                    <tr>
-                        <th>Bil.</th>
-                        <th scope="col">Kategori</th>
-                        <th scope="col">Nama Rumah Sembelih</th>
-                        <th scope="col">Zon</th>
-                        <th scope="col">Jana Kod Bar</th>
-                        <th scope="col">Akses Ternakan</th>
-                        <th scope="col">Status</th>
-                        <th>Tindakan</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-
-                        @foreach ($rumahs as $rumah)
-
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $rumah->kategori }}</td>
-                            <td>{{ $rumah->nama_rumah }}</td>
-                            <td>{{ $rumah->zon }}</td>
-                            <td>{{ $rumah->kod_bar }}</td>
-                            <td>{{ $rumah->akses_ternakan }}</td>
-                            <td>Dihantar</td>
-                            {{-- <td>{{ -asd }}</td> --}}
-                            
-
-                            {{-- <td>-asd</td>
-                            <td>-asd</td>
-                            <td>-asd</td>
-                            <td>-asd</td>
-                            <td>-asd</td>
-                            <td>-asd</td> --}}
-
-                        {{-- Button edit & hapus --}}
-                        <td>
-                            <div class="col-auto d-grid gap-2 d-md-flex justify-content-md-center">
-                                <a href="/rumah/{{$rumah->id}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                            </div>
-
-                        </td>
-
-
-
-                    </tr>
-
-                    @endforeach
-
-
-                </tbody>
-            </table>
-        </div>
-    </div>
 
 
 

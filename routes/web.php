@@ -31,8 +31,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('tag/{id}', [TagController::class, 'kemaskini_tag']);
     Route::delete('tag/{id}', [TagController::class, 'padam_tag']);
 
-    // zach tambah - kenapa??
+    // pendaftaran stok tag - zach tambah
     Route::get('tag/senarai_tag/stok', [TagController::class, 'senarai_stok_tag']);
+    Route::post('tag/senarai_tag/stok', [TagController::class, 'cipta_stok_tag']);
+    Route::get('tag/senarai_tag/stok/{id}', [TagController::class, 'satu_stok_tag']);
+    Route::put('tag/senarai_tag/stok/{id}', [TagController::class, 'kemaskini_stok_tag']);
+
+    
 
     
     Route::get('profil', [UserController::class, 'senarai_profil']);

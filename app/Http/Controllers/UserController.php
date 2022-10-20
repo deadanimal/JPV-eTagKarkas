@@ -44,46 +44,26 @@ class UserController extends Controller
     }
 
     public function cipta_pengguna(Request $request) {
-
         
         $user = User::create([
-            'name' => $request->name,
+            'name' => $request->nama,
             'email' => $request->email,
             'password' => Hash::make('PipelineForever'),
+        ]);
+        
+        $user->ibu_pejabat = $request->pejabat;
+        $user->alamat = $request->alamat;
+        $user->unit = $request->unit;
+        $user->cawangan = $request->cawangan;
+        $user->jawatan = $request->jawatan;
+        $user->gred = $request->gred;
+        $user->nombor_telefon = $request->elefon;
+        $user->status = (int)$request->status;
 
-            // zach tambah
-            'nama_pengguna' => $request->nama_pengguna,
-            'ibu_pejabat' => $request->ibu_pejabat,
-            'alamat' => $request->alamat,
-            'unit' => $request->unit,
-            'cawangan' => $request->cawangan,
-            'jawatan' => $request->jawatan,
-            'gred' => $request->gred,
-            'nombor_telefon' => $request->nombor_telefon,
-            'status' => $request->status,
-
-        ]); 
-
-
-        $user->organisasi_id = $request->organisasi_id;
         $user->save();
 
-        $role = Role::find($request->role_id);
+        $role = Role::find((int)$request->peranan);
         $user->attachRole($role);
-
-        // simpan cipta pengguna - zach buat
-        // $users = New User;
-
-        // $users->nama_pengguna = $request->nama_pengguna;
-        // $users->ibu_pejabat = $request->ibu_pejabat;
-        // $users->alamat = $request->alamat;
-        // $users->unit = $request->unit;
-        // $users->cawangan = $request->cawangan;
-        // $users->jawatan = $request->jawatan;
-        // $users->gred = $request->gred;
-        // $users->nombor_telefon = $request->nombor_telefon;
-        // $users->status = $request->status;
-        // $users->save();
 
         return back();
     }

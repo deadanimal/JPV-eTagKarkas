@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('nama_pengguna');
-            $table->string('ibu_pejabat');
-            $table->string('alamat');
-            $table->string('unit');
-            $table->string('cawangan');
-            $table->string('jawatan');
-            $table->string('gred');
-            $table->string('nombor_telefon');
-            $table->string('status');
+            $table->string('nama_pengguna')->nullable();
+            $table->string('ibu_pejabat')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('unit')->nullable();
+            $table->string('cawangan')->nullable();
+            $table->string('jawatan')->nullable();
+            $table->string('gred')->nullable();
+            $table->string('nombor_telefon')->nullable();
+            $table->string('status')->nullable();
 
         });
     }

@@ -8,6 +8,7 @@
 
     <div class="container-fluid">
 
+        @role('pengurus-rumah-sembelih')
         <div class="header">
             <h1 class="header-title">
                 Permohonan Tag Karkas
@@ -105,6 +106,8 @@
                
             </div>
         </div>
+
+        @endrole
 
 
 

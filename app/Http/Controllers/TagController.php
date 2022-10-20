@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stok_tag;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use App\Models\RumahSembelih;
@@ -66,10 +67,42 @@ class TagController extends Controller
     // } 
 
     public function senarai_stok_tag(Request $request) {
-        $tags = Tag::all();
+        $stoks = Stok_tag::all();
         $user = $request->user();
         
-        return view('tag.senarai_stok', compact('tags','user'));
+        return view('tag.senarai_stok', compact('stoks','user'));
+    } 
+
+    public function cipta_stok_tag(Request $request) {
+        $stoks = New Stok_tag;
+        // dd($stoks);
+        $stoks->tarikh = $request->tarikh;
+        $stoks->tag_diterima = $request->tag_diterima;
+        $stoks->tag_rosak = $request->tag_rosak;
+        $stoks->tarikh_tag_rosak = $request->tarikh_tag_rosak;
+        $stoks->catatan = $request->catatan;
+        $stoks->save();
+        return back();
+    } 
+
+
+    public function satu_stok_tag(Request $request) {
+        $id = (int)$request->route('id');
+        $stoks = Stok_tag::find($id);        
+        return view('tag.satu_stok', compact('stoks'));
+    }
+
+    public function kemaskini_stok_tag(Request $request) {
+        $id = (int)$request->route('id');
+
+        $stoks = Stok_tag::find($id);
+        // dd($stoks);
+
+        $stoks->tag_diterima = $request->tag_diterima;
+        $stoks->tag_rosak = $request->tag_rosak;
+        $stoks->catatan = $request->catatan;
+        $stoks->save();
+        return back();
     } 
 
 }

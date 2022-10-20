@@ -24,13 +24,13 @@
                 </div> --}}
         
                 <div class="card">
-                    <div class="card-header bg-info text-black">
+                    <div class="card-header bg-info text-white">
                         <b>Daftar Profil Pengguna</b>
                     </div>
         
                     
                         <div class="card-body">
-                            <form action="/pengguna" method="post" enctype="multipart/form-data">
+                            <form action="/pengguna" method="POST" enctype="multipart/form-data">
                                 @csrf
         
                             <!--Nama Pengeluar-->
@@ -39,19 +39,19 @@
                                     <label class="form-label">Nama Pengguna</label>
                                 </div>
                                 <div class="col-xl-10 ">
-                                    <input class="form-control" type="text" name="nama_pengguna"  />
+                                    <input class="form-control" type="text" name="nama"  />
                                 </div>
                                 <div class="col-xl-2 mb-3">
                                     <label class="col-form-label">Peranan</label>
                                 </div>
                                 <div class="col-xl-10">
                                     {{-- peranan adalah name dalam DB --}}
-                                    <select class="form-select" aria-label="Default select example" name="name">
-                                        <option selected value="Pengurus Rumah Sembelih">Pengurus Rumah Sembelih</option>
-                                        <option value="Pemeriksa Daging">Pemeriksa Daging</option>
-                                        <option value="Pemeriksa Daging Negeri">Pemeriksa Daging Negeri</option>
-                                        <option value="Ketua Seksyen">Ketua Seksyen</option>
-                                        <option value="Pentadbir">Pentadbir</option>
+                                    <select class="form-select" aria-label="Default select example" name="peranan">
+                                        <option value="1">Pengurus Rumah Sembelih</option>
+                                        <option value="2">Pemeriksa Daging</option>
+                                        <option value="3">Pemeriksa Daging Negeri</option>                                        
+                                        <option value="4">Pentadbir</option>
+                                        <option value="5">Ketua Seksyen</option>
                                       </select>
                                 </div>
                                 <div class="col-xl-2">
@@ -59,7 +59,7 @@
                                     <label class="form-label">Ibu Pejabat</label>
                                 </div>
                                 <div class="col-xl-10 mb-3">
-                                    <input class="form-control" type="text" name="ibu_pejabat"  />
+                                    <input class="form-control" type="text" name="pejabat"  />
                                 </div>
                                 <div class="col-xl-2">
                                     <label class="form-label">Alamat Tempat Bertugas</label>
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col-xl-10">
                                     {{-- emel adalah email dalam DB --}}
-                                    <input class="form-control" type="text" name="email"  />
+                                    <input class="form-control" type="email" name="email"  />
                                 </div>
                                 
                             </div>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-4">
                                     <select class="form-select" aria-label="Default select example" name="gred">
-                                        <option selected value="G29">G29</option>
+                                        <option value="G29">G29</option>
                                         <option value="G41">G41</option>
                                         <option value="G44">G44</option>
                                         <option value="G54">G54</option>
@@ -119,7 +119,7 @@
                               <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label">Nombor Telefon</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" name="nombor_telefon"  />
+                                        <input class="form-control" type="tel" name="telefon"  />
                                     </div>
                                 </div>
     
@@ -129,11 +129,11 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Aktif</label>
                                 <div class="col-sm-2">
-                                    <input type="checkbox" value="Aktif" name="status" />
+                                    <input type="checkbox" value=1 name="status" />
                                 </div>
                                 <label class="col-sm-2 col-form-label">Tidak Aktif</label>
                                 <div class="col-sm-2">
-                                    <input type="checkbox" value="Tidak Aktif" name="status" />
+                                    <input type="checkbox" value=0 name="status" />
                                 </div>
                                
                             </div>
@@ -157,89 +157,74 @@
         
         
                 {{-- Tunjuk data --}}
-                <div class="card-header bg-info text-black col-xl-5 align-item-centers">
-                    <b>Butiran Maklumat Senarai Pengguna</b>
-                </div>
-                <div class="card-body">
-                    <div class="row d-flex justify-content-center">
-                        <table class="table border border-info">
-                            <thead class="text-black bg-info ">
-                                <tr class="border">
-                                    <th>Bil.</th>
-                                    <th scope="col">Nama Pengguna</th>
-                                    <th scope="col">Peranan</th>
-                                    <th scope="col">Ibu Pejabat</th>
-                                    {{-- rumah sembelih sama dengan alamat dalam DB --}}
-                                    <th scope="col">Rumah Sembelih</th>
-                                    <th scope="col">E-mel</th>
-                                    <th scope="col">Nombor Telefon</th>
-                                    <th scope="col">Jawatan</th>
-                                    <th scope="col">Status</th>
-                                    <th>Kemaskini</th>
-            
-                                </tr>
-                            </thead>
-                            <tbody>
-            
-                                <tr>
-            
-                                    @foreach ($users as $user)
-            
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->nama_pengguna }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->ibu_pejabat }}</td>
-                                        <td>{{ $user->alamat }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->nombor_telefon }}</td>
-                                        <td>{{ $user->jawatan }}</td>
-                                        <td>{{ $user->status }}</td>
-                                        <td>
-                                            <div class="col-auto">
-                                                <a href="/pengguna/{{$user->id}}" class="btn btn-xl btn-success"><i class="fas fa-edit"></i></a>
-                                            </div>
-                                        </td>
-                                      
-                                        
-            
-                                        {{-- <td>-asd</td>
-                                        <td>-asd</td>
-                                        <td>-asd</td>
-                                        <td>-asd</td>
-                                        <td>-asd</td>
-                                        <td>-asd</td>
-                                        <td>-asd</td>
-                                        <td>-asd</td> --}}
-            
-                                    {{-- Button edit & hapus --}}
-                                    {{-- <td>
-                                        <div class="col-auto">
-                                            <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                                        </div>
-            
-                                    </td> --}}
-            
-                                </tr>
-            
-                                    @endforeach
-            
-            
-                            </tbody>
-                        </table>
+               <div class="card ">
+                    <div class="card-header bg-info col-md-3 text-white d-flex justify-content-center align-self-center">
+                        <b>Butiran Maklumat Senarai Pengguna</b>
                     </div>
-                </div>
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <table class="table table-bordered">
+                                <thead class="text-black bg-info ">
+                                    <tr>
+                                        <th>Bil.</th>
+                                        <th scope="col">Nama Pengguna</th>
+                                        <th scope="col">Peranan</th>
+                                        <th scope="col">Ibu Pejabat</th>
+                                        {{-- rumah sembelih sama dengan alamat dalam DB --}}
+                                        <th scope="col">Rumah Sembelih</th>
+                                        <th scope="col">E-mel</th>
+                                        <th scope="col">Nombor Telefon</th>
+                                        <th scope="col">Jawatan</th>
+                                        <th scope="col">Status</th>
+                                        <th>Kemaskini</th>
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                
+                                    <tr>
+                
+                                        @foreach ($users as $user)
+                
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $user->nama_pengguna }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->ibu_pejabat }}</td>
+                                            <td>{{ $user->alamat }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->nombor_telefon }}</td>
+                                            <td>{{ $user->jawatan }}</td>
+                                            <td>{{ $user->status }}</td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <a href="/pengguna/{{$user->id}}" class="btn btn-xl btn-success"><i class="fas fa-edit"></i></a>
+                                                </div>
+                                            </td>
+                                          
+                
+                                        {{-- Button edit & hapus --}}
+                                        {{-- <td>
+                                            <div class="col-auto">
+                                                <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                            </div>
+                
+                                        </td> --}}
+                
+                                    </tr>
+                
+                                        @endforeach
+                
+                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
+               </div>
             </div>
-        
-        
         
         </main>
 
-
-    </div>
-
-
-
-</main>
 
 @endsection
 

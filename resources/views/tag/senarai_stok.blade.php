@@ -21,34 +21,34 @@
             <div class="card-body">
 
 
-                <form action="/tag" method="POST" enctype="multipart/form-data">
+                <form action="/tag/senarai_tag/stok" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--JUmlah-->
                 <div class="mb-3 row">
                     <label class="col-xl-2 col-form-label">Jumlah Tag Diterima</label>
                     <div class="col-xl-10">
-                        <input class="form-control" type="text" />
+                        <input class="form-control" type="text" name="tag_diterima" />
                     </div>
                 </div>
                 <!--Induk-->
                 <div class="mb-3 row">
                     <label class="col-xl-2 col-form-label">Tarikh Terima Stok</label>
                     <div class="col-xl-10">
-                        <input class="form-control" type="date" />
+                        <input class="form-control" type="date" name="tarikh" />
                     </div>
                 </div>
                 <!--Jumlah Tag Rosak-->
                 <div class="mb-3 row">
                     <label class="col-xl-2 col-form-label">Jumlah Tag Rosak</label>
                     <div class="col-xl-10">
-                        <input class="form-control" type="text"  />
+                        <input class="form-control" type="text" name="tag_rosak"  />
                     </div>
                 </div>
                 <!--Tarikh Tag Rosak-->
                 <div class="mb-3 row">
                     <label class="col-xl-2 col-form-label">Tarikh Tag Rosak</label>
                     <div class="col-xl-10">
-                        <input class="form-control" type="date"  />
+                        <input class="form-control" type="date" name="tarikh_tag_rosak"  />
                     </div>
                 </div>
                 {{-- Catatan --}}
@@ -98,33 +98,34 @@
 
                     <tr>
 
-                        {{-- @foreach($stoks as $stok)
+                        @foreach($stoks as $stok)
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $stok->tarikh }}</td>
+                        <td>{{ $stok->created_at }}</td>
                         <td>{{ $stok->tag_diterima }}</td>
                         <td>{{ $stok->tag_rosak }}</td>
                         <td>{{ $stok->tarikh_tag_rosak }}</td>
-                        <td>{{ $stok->catatan }}</td> --}}
+                        <td>{{ $stok->catatan }}</td>
 
                         
 
 
-                        <td>11</td>
+                        {{-- <td>11</td>
                         <td>14/7/2022</td>
                         <td>100</td>
                         <td>500</td>
                         <td>14/7/2022</td>
-                        <td>Rosak</td>
+                        <td>Rosak</td> --}}
+
                         <td>
                             <div class="col-auto">
-                                <a href="#" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="/tag/senarai_tag/stok/{{$stok->id}}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
                             </div>
     
                         </td>
                        
                     </tr>
 
-                    {{-- @endforeach --}}
+                    @endforeach
 
                 </tbody>
             </table>

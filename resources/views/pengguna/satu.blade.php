@@ -129,7 +129,7 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a href="/pengguna" type="button" class="btn btn-success">Kembali</a>
+                            <a href="/pengguna" type="button" class="btn btn-success">Simpan</a>
                         </div>
                     
                 </div>
