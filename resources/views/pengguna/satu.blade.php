@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-sm-10">
                                     {{-- emel adalah email dalam DB --}}
-                                    <input class="form-control" type="text" name="email" value="{{ $user->email }}"  />
+                                    <input class="form-control" type="text" name="email" value="{{ $user->email }}" readonly  />
                                 </div>
                                 
                             </div>

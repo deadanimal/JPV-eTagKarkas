@@ -51,13 +51,14 @@ class UserController extends Controller
             'password' => Hash::make('PipelineForever'),
         ]);
         
-        $user->ibu_pejabat = $request->pejabat;
+        $user->peranan = $request->peranan;
+        $user->pejabat = $request->pejabat;
         $user->alamat = $request->alamat;
         $user->unit = $request->unit;
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
-        $user->nombor_telefon = $request->elefon;
+        $user->telefon = $request->telefon;
         $user->status = (int)$request->status;
 
         $user->save();

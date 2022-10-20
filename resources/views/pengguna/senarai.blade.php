@@ -47,11 +47,16 @@
                                 <div class="col-xl-10">
                                     {{-- peranan adalah name dalam DB --}}
                                     <select class="form-select" aria-label="Default select example" name="peranan">
-                                        <option value="1">Pengurus Rumah Sembelih</option>
+                                        {{-- <option value="1">Pengurus Rumah Sembelih</option>
                                         <option value="2">Pemeriksa Daging</option>
                                         <option value="3">Pemeriksa Daging Negeri</option>                                        
                                         <option value="4">Pentadbir</option>
-                                        <option value="5">Ketua Seksyen</option>
+                                        <option value="5">Ketua Seksyen</option> --}}
+                                        <option value="Pengurus Rumah Sembelih">Pengurus Rumah Sembelih</option>
+                                        <option value="Pemeriksa Daging">Pemeriksa Daging</option>
+                                        <option value="Pemeriksa Daging Negeri">Pemeriksa Daging Negeri</option>                                        
+                                        <option value="Pentadbir">Pentadbir</option>
+                                        <option value="Ketua Seksyen">Ketua Seksyen</option>
                                       </select>
                                 </div>
                                 <div class="col-xl-2">
@@ -129,11 +134,13 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Aktif</label>
                                 <div class="col-sm-2">
-                                    <input type="checkbox" value=1 name="status" />
+                                    {{-- <input type="checkbox" value=1 name="status" /> --}}
+                                    <input type="checkbox" value="Aktif" name="status" />
                                 </div>
                                 <label class="col-sm-2 col-form-label">Tidak Aktif</label>
                                 <div class="col-sm-2">
-                                    <input type="checkbox" value=0 name="status" />
+                                    {{-- <input type="checkbox" value=0 name="status" /> --}}
+                                    <input type="checkbox" value="Tidak Aktif" name="status" />
                                 </div>
                                
                             </div>
@@ -187,12 +194,12 @@
                                         @foreach ($users as $user)
                 
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $user->nama_pengguna }}</td>
                                             <td>{{ $user->name }}</td>
-                                            <td>{{ $user->ibu_pejabat }}</td>
+                                            <td>{{ $user->peranan }}</td>
+                                            <td>{{ $user->pejabat }}</td>
                                             <td>{{ $user->alamat }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->nombor_telefon }}</td>
+                                            <td>{{ $user->telefon }}</td>
                                             <td>{{ $user->jawatan }}</td>
                                             <td>{{ $user->status }}</td>
                                             <td>
