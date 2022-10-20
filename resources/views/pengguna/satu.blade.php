@@ -37,14 +37,14 @@
                                     <label class="form-label">Nama Pengguna</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{ $user->nama_pengguna }}"  />
+                                    <input class="form-control" type="text" value="{{ $user->name }}"  />
                                 </div>
                                 <div class="col-sm-2 mb-3">
                                     <label class="col-form-label">Peranan</label>
                                 </div>
                                 <div class="col-sm-10">
                                     {{-- peranan adalah name dalam DB --}}
-                                    <input class="form-control" type="text" value="{{ $user->name }}"  />
+                                    <input class="form-control" type="text" value="{{ $user->peranan }}"  />
 
                                   
                                 </div>
@@ -53,7 +53,7 @@
                                     <label class="form-label">Ibu Pejabat</label>
                                 </div>
                                 <div class="col-sm-10 mb-3">
-                                    <input class="form-control" type="text" name="ibu_pejabat" value="{{ $user->ibu_pejabat }}"  />
+                                    <input class="form-control" type="text" name="ibu_pejabat" value="{{ $user->pejabat }}"  />
                                 </div>
                                 <div class="col-sm-2">
                                     <label class="form-label">Alamat Tempat Bertugas</label>
@@ -108,7 +108,7 @@
                               <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label">Nombor Telefon</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" name="nombor_telefon" value="{{ $user->nombor_telefon }}"  />
+                                        <input class="form-control" type="text" name="nombor_telefon" value="{{ $user->telefon }}"  />
                                     </div>
                                 </div>
     
