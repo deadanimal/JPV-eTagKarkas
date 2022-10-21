@@ -102,12 +102,14 @@
                     <button class="btn btn-success" type="submit" >Simpan</button>
                     <button class="btn btn-success" type="submit" >Hantar</button>
                 </div>
+                @endrole
 
                 @role('pentadbir')
                 <!--Button-->
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                     <button class="btn btn-success" type="submit" >Daftar</button>
                 </div>
+                @endrole
 
 
                 </form>
