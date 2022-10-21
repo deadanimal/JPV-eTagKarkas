@@ -69,10 +69,11 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="4" name="bil_ternakan"  />
+                        <input class="form-control" type="text" placeholder="0" name="bil_ternakan"  />
                     </div>
                 </div>
                 {{-- Bilangan Kod Bar Untuk Dijana --}}
+                {{-- must be generate automitaclly according to R.Besar n R.Kecil --}}
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
                     <div class="col-sm-10">

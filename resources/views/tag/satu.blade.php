@@ -78,7 +78,7 @@
                         <select class="form-select" aria-label="Default select example" name="jenis_ternakan" value="{{ $tag->jenis_ternakan }}">
                             <option selected value="Ruminan Besar">Ruminan Besar</option>
                             <option value="Ruminan Kecil">Ruminan Kecil</option>
-                            <option value="Unggas">Unggas</option>
+                            <option value="Ayam/Itik">Ayam/Itik</option>
                             <option value="Babi">Babi</option>
                         </select> 
                     </div>
