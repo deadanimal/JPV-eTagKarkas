@@ -59,7 +59,7 @@
                         <select class="form-select" aria-label="Default select example" name="jenis_ternakan">
                             <option selected value="Ruminan Besar">Ruminan Besar</option>
                             <option value="Ruminan Kecil">Ruminan Kecil</option>
-                            <option value="Unggas">Unggas</option>
+                            <option value="Ayam/Itik">Ayam/Itik</option>
                             <option value="Babi">Babi</option>
                         </select>                     
                     </div>
@@ -96,6 +96,14 @@
                     </div>
                 </div>
 
+                @role('pengurus-rumah sembelih')
+                <!--Button-->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button class="btn btn-success" type="submit" >Simpan</button>
+                    <button class="btn btn-success" type="submit" >Hantar</button>
+                </div>
+
+                @role('pentadbir')
                 <!--Button-->
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                     <button class="btn btn-success" type="submit" >Daftar</button>
