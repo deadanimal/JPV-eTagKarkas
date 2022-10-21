@@ -98,7 +98,7 @@
 
                 <!--Button-->
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button class="btn btn-success" type="submit" >Cipta</button>
+                    <button class="btn btn-success" type="submit" >Daftar</button>
                 </div>
 
 
