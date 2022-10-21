@@ -116,7 +116,7 @@
                 <div class="card p-3  py-4 bg-info">
                     <div class="row g-3 mt-2">
                         <div class="col-md-3 text-black">
-                            <label for="nama_projek">Nombor Dokumen</label>
+                            <label for="nama_projek">Nombor Rujukan Permohonan</label>
                         </div>
                         <div class="col-md-6">
                             <input type="text" id="myInput" class="form-control" placeholder="xxxxx">
