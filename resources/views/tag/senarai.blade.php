@@ -145,7 +145,7 @@
                 <thead class="text-black bg-info ">
                     <tr>
                         <th scope="col">Bil.</th>
-                        <th scope="col">Nombor Dokumen</th>
+                        <th scope="col">Nombor Rujukan Permohonan</th>
                         <th scope="col">Nama Premis</th>
                         <th scope="col">Jenis Ternakan</th>
                         <th scope="col">Bilangan Ternakan</th>

@@ -181,13 +181,14 @@
                     <table class="table table-bordered">
                         <thead class="text-black bg-info ">
                             <tr>
-                                <th>Bil.</th>
-                                <th scope="col">Kategori Premis</th>
+                                <th>No.</th>
+                                {{-- <th scope="col">Kategori Premis</th> --}}
                                 <th scope="col">Nama Premis</th>
-                                <th scope="col">Zon</th>
+                                {{-- <th scope="col">Zon</th> --}}
                                 <th scope="col">Kod Premis</th>
-                                <th scope="col">Jenis Ternakan/Produk</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Kategori Premis</th>
+                                {{-- <th scope="col">Jenis Ternakan/Produk</th> --}}
+                                {{-- <th scope="col">Status</th> --}}
                                 <th>Tindakan</th>
         
                             </tr>
@@ -199,12 +200,13 @@
                                 @foreach ($rumahs as $rumah)
         
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $rumah->kategori }}</td>
+                                    {{-- <td>{{ $rumah->kategori }}</td> --}}
                                     <td>{{ $rumah->nama_rumah }}</td>
-                                    <td>{{ $rumah->zon }}</td>
-                                    <td>{{ $rumah->kod_bar }}</td>
-                                    <td>{{ $rumah->akses_ternakan }}</td>
-                                    <td>Dihantar</td>
+                                    {{-- <td>{{ $rumah->zon }}</td> --}}
+                                    <td>{{ $rumah->kod }}</td>
+                                    <td>{{ $rumah->induk }}</td>
+                                    {{-- <td>{{ $rumah->akses_ternakan }}</td> --}}
+                                    {{-- <td>Dihantar</td> --}}
             
                                 {{-- Button edit--}}
                                 <td>
@@ -342,32 +344,32 @@
                     </div>
 
                       {{-- Nombor Telefon --}}
-                      <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Nombor Telefon Premis</label>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                         <div class="col-sm-10">
                             <input class="form-label" type="text" name="no_tel"  />
                         </div>
                     </div>
 
                     {{-- Emel --}}
-                    <div class="mb-3 row">
+                    {{-- <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Emel</label>
                         <div class="col-sm-10">
                             <input class="form-label" type="text" name="emel"  />
                         </div>
-                    </div>
+                    </div> --}}
                      {{-- Orang Dihubungi --}}
-                     <div class="mb-3 row">
+                     {{-- <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Orang Dihubungi</label>
                         <div class="col-sm-10">
                             <input class="form-label" type="text" name="orang_dihubungi"  />
                         </div>
-                    </div>
+                    </div> --}}
                      
                     
                     {{-- Manual Jana Kodbar --}} 
                     {{-- only for Rumah sembelih, jana kodbar and kategori tag put into pendaftaran tag --}}
-                    <div class="mb-3 row">
+                    {{-- <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Jana Kodbar</label>
                         <div class="col-sm-2">Manual
                             <input class="form-label" type="checkbox" value="Manual" name="kod_bar" />
@@ -376,7 +378,7 @@
                         <div class="col-sm-2 ">Auto
                             <input class="form-label" type="checkbox" value="Auto" name="kod_bar" />
                         </div>
-                    </div>
+                    </div> --}}
                    
     
                     <!--Akses Ternakan-->
@@ -403,6 +405,10 @@
                         </div>
                         <label class="col"></label>
                         <div class="col ">Susu
+                            <input class="form-label" type="checkbox" name="akses_ternakan" value="Susu"  />
+                        </div>
+                        <label class="col"></label>
+                        <div class="col ">Tambah Nilai
                             <input class="form-label" type="checkbox" name="akses_ternakan" value="Susu"  />
                         </div>
                     </div>

@@ -28,9 +28,9 @@
                         <input class="form-control" type="text" name="induk" value="{{$tag->rumah_sembelih->induk}}" readonly  />
                     </div>
                     </div>
-                    <!--Pejabat Pengeluar-->
+                    <!--Nama Rumah Sembelih-->
                     <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Pejabat Pengeluar:</label>
+                        <label class="col-xl-2 col-form-label">Nama Rumah Sembelih:</label>
                     <div class="col-xl-10">
                         <input class="form-control" type="text"  name="nama_rumah" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly    />
                     </div>
@@ -100,9 +100,9 @@
                     @endrole
 
                     @role('pentadbir')
-                     {{-- Pengesyoran Kuantiti --}}
+                     {{-- Bilangan Ternakan Yang Disyorkan --}}
                      <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Pengesyoran Kuantiti</label>
+                        <label class="col-xl-2 col-form-label">Bilangan Ternakan Yang Disyorkan</label>
                         <div class="col-xl-10">
                             <input class="form-control" type="text"  name="pengesyoran_kuantiti"   />
                         </div>
@@ -116,9 +116,9 @@
                     @endrole
 
                     @role('ketua-seksyen')
-                    {{-- Pengesyoran Kuantiti --}}
+                    {{-- Bilangan Ternakan Yang Disyorkan --}}
                     <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Pengesyoran Kuantiti</label>
+                        <label class="col-xl-2 col-form-label">Bilangan Ternakan Yang Disyorkan</label>
                         <div class="col-xl-10">
                             <input class="form-control" type="text"  name="pengesyoran_kuantiti" value="{{ $tag->kuantiti }}" readonly  />
                         </div>
