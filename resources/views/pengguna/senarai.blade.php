@@ -35,7 +35,7 @@
         
                             <!--Nama Pengeluar-->
                             <div class="mb-3 row">
-                                <div class="col-xl-2 col-md-auto">
+                                <div class="col-xl-2 col-md-auto mb-3">
                                     <label class="form-label">Nama Pengguna</label>
                                 </div>
                                 <div class="col-xl-10 ">
@@ -69,16 +69,23 @@
                                 <div class="col-xl-2">
                                     <label class="form-label">Alamat Tempat Bertugas</label>
                                 </div>
-                                <div class="col-xl-10">
+                                <div class="col-xl-10 mb-3">
                                     <input class="form-control" type="text" name="alamat"  />
                                 </div>
                                 <div class="col-xl-2">
                                     <label class="form-label">Emel</label>
                                 </div>
-                                <div class="col-xl-10">
+                                <div class="col-xl-10 mb-3">
                                     {{-- emel adalah email dalam DB --}}
                                     <input class="form-control" type="email" name="email"  />
                                 </div>
+                                <div class="col-xl-2">
+                                    <label class="form-label">Katalaluan</label>
+                                </div>
+                                <div class="col-xl-10">
+                                    {{-- emel adalah email dalam DB --}}
+                                    <input class="form-control" type="password" name="password"  />
+                                </div>                                
                                 
                             </div>
 

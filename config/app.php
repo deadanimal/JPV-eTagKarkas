@@ -209,6 +209,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,        
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

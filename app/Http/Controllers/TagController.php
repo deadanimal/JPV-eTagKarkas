@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Tag;
 use App\Models\RumahSembelih;
 
-
+use DataTables;
+use DateTime;
+use Carbon\Carbon;
+use Alert;
 class TagController extends Controller
 {
 
@@ -30,6 +33,8 @@ class TagController extends Controller
         $tags->bil_ternakan = $request->bil_ternakan;
         $tags->bil_kodbar = $request->bil_kodbar;
         $tags->save();
+        //Alert::html('Html Title', 'Html Code', 'Type');
+
         return back();
     } 
     

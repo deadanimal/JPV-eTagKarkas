@@ -13,8 +13,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('', [UserController::class, 'home']);
 
     Route::get('rumah', [RumahSembelihController::class, 'senarai_rumah']);
+    Route::get('rumah/borang', [RumahSembelihController::class, 'borang_rumah']);
     Route::post('rumah', [RumahSembelihController::class, 'cipta_rumah']);
     Route::get('rumah/{id}', [RumahSembelihController::class, 'satu_rumah']);
+    Route::get('rumah/{id}/aktif', [RumahSembelihController::class, 'aktif_rumah']);
     Route::put('rumah/{id}', [RumahSembelihController::class, 'kemaskini_rumah']);
     
     Route::get('daging', [DagingController::class, 'senarai_daging']);    

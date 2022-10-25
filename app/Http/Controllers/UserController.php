@@ -48,7 +48,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request->nama,
             'email' => $request->email,
-            'password' => Hash::make('PipelineForever'),
+            'password' => Hash::make($request->password),
         ]);
         
         $user->peranan = $request->peranan;
