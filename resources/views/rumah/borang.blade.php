@@ -33,17 +33,19 @@
                             <div class="col-sm-10">
 
                                 <select class="form-select" aria-label="Default select example" name="induk">
-                                    <option selected value="PILIH INDUK">PILIH PREMIS</option>
-                                    <option value="RSRJ -RUMAH SEMBELIH RUMINAN JABATAN">RSRJ -RUMAH SEMBELIH RUMINAN
-                                        JABATAN</option>
-                                    <option value="RSBJ -RUMAH SEMBELIH BABI JABATAN">RSBJ -RUMAH SEMBELIH BABI JABATAN
-                                    </option>
-                                    <option value="LPAS - LOJI PENYEMBELIHAN AYAM SWASTA">LPAS - LOJI PENYEMBELIHAN AYAM
-                                        SWASTA</option>
-                                    <option value="RSRS - RUMAHSEMBELIH RUMINAN SWASTA">RSRS - RUMAH SEMBELIH RUMINAN SWASTA
-                                    </option>
-
+                                    <option selected value="PILIH INDUK">Pilih Kategori Premis</option>
+                                    <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
+                                    <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
+                                    <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
+                                    <option value="RUMAH SEMBELIH SWASTA (BABI)">RUMAH SEMBELIH SWASTA (BABI)</option>
+                                    <option value="SEMBELIHAN LUAR">SEMBELIHAN LUAR</option>
+                                    <option value="LOJI PENYEMBELIHAN AYAM">LOJI PENYEMBELIHAN AYAM</option>
+                                    <option value="LOJI PENYEMBELIHAN ITIK">LOJI PENYEMBELIHAN ITIK</option>
+                                    <option value="LOJI PEMPROSESAN PRODUK">LOJI PEMPROSESAN PRODUK</option>
+                                    <option value="LADANG MyGap">LADANG MyGap</option>
+                                    <option value="LADANG MyOrganic">LADANG MyOrganic</option>
                                 </select>
+
                             </div>
                             <div class="col-sm-2">
                                 <label class="form-label">Nama Premis</label>

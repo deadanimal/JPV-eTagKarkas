@@ -37,9 +37,9 @@ class RumahSembelihController extends Controller
                     $url = '/rumah/'.$rumah->id;
                     $url2 = '/rumah/'.$rumah->id.'/aktif';
                     if($rumah->aktif){
-                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Edit</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Nyahaktif</button></a>';
+                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Nyahaktif</button></a>';
                     } else {
-                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Edit</button></a> <a href="'.$url2.'"><button class="btn btn-success">Aktifkan</button></a>';
+                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-success">Aktifkan</button></a>';
                     }                    
                     return $html_button;
                 })

@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('daging/{id}/laporan', [DagingController::class, 'cipta_laporan']);
     
     Route::get('tag', [TagController::class, 'senarai_tag']);
+    Route::get('tag-borang', [TagController::class, 'borang_tag']);
     Route::get('tag/{id}', [TagController::class, 'satu_tag']);
     Route::post('tag', [TagController::class, 'cipta_tag']);   
     Route::put('tag/{id}', [TagController::class, 'kemaskini_tag']);

@@ -55,7 +55,7 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
-                            <span class="align-middle">Pendaftaran Rumah Sembelih</span>
+                            <span class="align-middle">Pendaftaran Premis</span>
                         </a>
                     </li>
 
