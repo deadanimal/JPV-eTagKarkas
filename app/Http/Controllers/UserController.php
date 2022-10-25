@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use App\Models\RumahSembelih;
 
 class UserController extends Controller
 {
@@ -65,6 +66,13 @@ class UserController extends Controller
 
         $role = Role::find((int)$request->peranan);
         $user->attachRole($role);
+
+        if ($request->peranan == 'pengurus-rumah-sembelih') {
+            $rumah = New RumahSembelih;
+            $rumah->save();            
+            $user->rumah_sembelih_id = $rumah->id;
+            $user->save();
+        }
 
         return back();
     }

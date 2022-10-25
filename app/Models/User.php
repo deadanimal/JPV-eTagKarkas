@@ -45,7 +45,7 @@ class User extends Authenticatable
     ];
 
     public function rumah_sembelih() {
-        return $this->hasMany(RumahSembelih::class);
+        return $this->belongsTo(RumahSembelih::class);
     }
 
     public function tags() {

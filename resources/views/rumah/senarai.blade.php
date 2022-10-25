@@ -11,10 +11,11 @@
                 <h1 class="header-title">
                     Pendaftaran Premis
                 </h1>
-                <a href="/rumah/borang"><button class="btn btn-warning btn-block">Tambah</button></a>
+                    <a href="/rumah-borang"><button class="btn btn-warning btn-block">Tambah</button></a>
             </div>
 
-            {{-- Tunjuk data --}}
+            
+            @role('pentadbir')
             <div class="card">
 
                 {{-- datatable --}}
@@ -41,7 +42,10 @@
                     </div>
                 </div>
             </div>
+            @endrole
 
+            @role('pengurus-rumah-sembelih')
+            @endrole
 
         </div>
 

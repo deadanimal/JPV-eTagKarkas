@@ -27,8 +27,8 @@
                 <b>Pendaftaran Rumah Sembelih</b>
             </div>
 
-            <form action="/rumah" method="post" enctype="multipart/form-data">
-                @method('POST')
+            <form action="/rumah/{{$rumah->id}}" method="POST">
+                @method('PUT')
                 @csrf
                 <div class="card-body">
 
@@ -44,7 +44,7 @@
                             <label class="form-label">Nama Rumah Sembelih</label>
                         </div>
                         <div class="col-sm-10">
-                            <input type="text" value="{{ $rumah->nama_rumah}}" >
+                            <input type="text" name="nama_rumah" value="{{ $rumah->nama_rumah}}" >
                         </div>
                         
                     </div>
@@ -138,8 +138,8 @@
     
                     <!--Button-->
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        {{-- <button class=“btn btn-primary” type=“submit”>Cipta</button> --}}
-                        <a href="/rumah" class="btn btn-success">Simpan</a>
+                        <button class="btn btn-primary" type=“submit”>Simpan</button>
+                        {{-- <a href="/rumah" class="btn btn-success">Simpan</a> --}}
                     </div>
                     
                    
