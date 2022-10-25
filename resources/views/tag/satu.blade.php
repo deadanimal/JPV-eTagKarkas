@@ -85,7 +85,7 @@
                     </div>
                     {{-- Bilangan Ternakan --}}
                     <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Ternakan</label>
+                        <label class="col-xl-2 col-form-label">Bilangan Ternakan Yang Disyorkan</label>
                         <div class="col-xl-10">
                             <input class="form-control" type="text"  name="bil_ternakan" value="{{ $tag->bil_ternakan }}"   />
                         </div>

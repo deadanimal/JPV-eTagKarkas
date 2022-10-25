@@ -10,6 +10,9 @@ class RumahSembelihController extends Controller
 
     public function senarai_rumah(Request $request) {
         $rumahs = RumahSembelih::all();
+
+        // pagination - zach tambah
+        $rumahs = RumahSembelih::latest()->paginate(2);
         return view('rumah.senarai', compact('rumahs'));
     } 
     

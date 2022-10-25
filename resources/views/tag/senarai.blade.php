@@ -69,7 +69,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="0" name="bil_ternakan"  />
+                        <input class="form-control" type="text" placeholder="0" name="bil_ternakan" id="ternakan"  />
                     </div>
                 </div>
                 {{-- Bilangan Kod Bar Untuk Dijana --}}
@@ -77,7 +77,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" placeholder="16" name="bil_kodbar" />
+                        <input class="form-control" type="text" placeholder="16" name="bil_kodbar" id="kodbar" />
                     </div>
                 </div>
                 {{-- Pengesyoran Kuantiti --}}
@@ -127,10 +127,10 @@
                 <div class="card p-3  py-4 bg-info">
                     <div class="row g-3 mt-2">
                         <div class="col-md-3 text-black">
-                            <label for="nama_projek">Nombor Rujukan Permohonan</label>
+                            <label for="nama_projek">Nama Premis</label>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" id="myInput" class="form-control" placeholder="xxxxx">
+                            <input type="text" id="myInput" class="form-control" placeholder="Sila Masukkan Nama Premis ">
                         </div>
                         <div class="col-md-3">
                             <button class="btn btn-primary btn-block">Carian</button>
@@ -146,12 +146,12 @@
                     <tr>
                         <th scope="col">Bil.</th>
                         <th scope="col">Nombor Dokumen</th>
-                        <th scope="col">Pejabat Pengeluar</th>
+                        <th scope="col">Nama Premis</th>
                         <th scope="col">Jenis Ternakan</th>
                         <th scope="col">Bilangan Ternakan</th>
                         <th scope="col">Kategori Tag</th>
-                        <th scope="col">Tarikh Rekod</th>
-                        <th scope="col">Pemohon Oleh</th>
+                        <th scope="col">Tarikh Permohonan</th>
+                        <th scope="col">Nama Pemohon</th>
                         <th scope="col">Cetakan Kod Bar</th>
                         <th scope="col">Status</th>
                         @role('pentadbir')
@@ -166,7 +166,7 @@
 
                         @foreach($tags as $tag)
                         <td>{{ $loop->iteration }}</td>
-                        <td>Rxxxxxxx-001</td>
+                        <td>RS-2020-001</td>
                         <td>Rumah Sembelih</td>
                         <td>{{ $tag->jenis_ternakan }}</td>
                         <td>{{ $tag->bil_ternakan }}</td>
