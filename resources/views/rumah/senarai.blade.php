@@ -11,7 +11,12 @@
                 <h1 class="header-title">
                     Pendaftaran Premis
                 </h1>
-                    <a href="/rumah-borang"><button class="btn btn-warning btn-block">Tambah</button></a>
+                    <a href="/rumah-borang" class="btn float-end " style="width: fit-content"><button class="btn btn-warning btn-block">Tambah</button></a>
+            </div>
+
+            {{-- align button tambah --}}
+            <div class="card" style="width: fit-content">
+
             </div>
 
             
