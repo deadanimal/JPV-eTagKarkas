@@ -12,8 +12,9 @@
                 <h1 class="header-title">
                     Permohonan Tag Karkas
                 </h1>
+                @role('pengurus-rumah-sembelih')
                 <a href="/tag-borang"><button class="btn btn-warning btn-block">Tambah</button></a>
-
+                @endrole
             </div>
 
 

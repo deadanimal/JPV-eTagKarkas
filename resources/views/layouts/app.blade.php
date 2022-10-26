@@ -55,7 +55,7 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
-                            <span class="align-middle">Pendaftaran Premis</span>
+                            <span class="align-middle">Maklumat Premis</span>
                         </a>
                     </li>
 

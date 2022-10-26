@@ -177,16 +177,32 @@
 
 <script>
     var stateObject = {
-    "Zon Utara": { "Perak": ["Ipoh", "Kangsar"],
-    "Pulau Pinang": ["Butterworth", "Batu Kawan"],
-    "Kedah": ["Kuala Kedah", "Alor Setar"],
+    "Zon Utara": { "Perak": ["Kampar", "Kuala Kangsar","Kinta"],
+    "Pulau Pinang": ["Seberang Perai Selatan", "Seberang Perai Utara"],
+    "Kedah": ["Kuala Muda", "Kota Setar","Langkawi"],
+    "Perlis": ["Arau", "Kangar","Padang Besar"],
     },
     "Zon Tengah": {
-    "Selangor": ["Shah Alam", "Gombak"],
-    "WP. Kuala Lumpur": ["Kuala Lumpur", "Sentul"]
-    }, "Zon Timur": {
-    "Pahang": ["Kuantan", "Bentong"],
-    "Terengganu": ["Kuala Terengganu", "Marang"]
+    "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang"],
+    "WP. Kuala Lumpur": ["Kuala Lumpur", "Sentul"],
+    "WP. Putrajaya": ["Putrajaya", "Sentul"],
+    "Melaka": ["Melaka Tengah", "Alor Gajah","Jasin"],
+    "Negeri Sembilan": ["Seremban", "Jempol","Port Dickson","Kuala Pilah"],
+    }, 
+    "Zon Timur": {
+    "Pahang": ["Cameron Highlands", "Bentong","Kuantan","Temerloh"],
+    "Terengganu": ["Kuala Terengganu", "Marang"],
+    "Kelantan": ["Kota Bharu", "Pasir Mas","Kuala Krai"],
+    },
+    "Zon Selatan": {
+        "Johor":["Johor Bahru","Batu Pahat","Kluang"],
+    },
+    "Sabah": {
+        "Sabah":["Kota Kinabalu","Tawau","Sandakan","Lahad Datu"],
+        "Labuan":["Labuan"],
+    },
+    "Sarawak": {
+        "Sarawak": ["Kuching","Miri","Sibu","Bintulu"],
     },
     }
     window.onload = function () {
