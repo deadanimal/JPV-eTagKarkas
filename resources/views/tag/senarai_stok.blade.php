@@ -12,123 +12,44 @@
             <h1 class="header-title">
                 Pendaftaran Stok Tag Karkas
             </h1>
+            <a href="/tag/senarai_tag/stok-borang" class="btn float-end " style="width: fit-content"><button class="btn btn-warning btn-block text-center">Tambah</button></a>
+
+
         </div>
 
+    
+        <div class="card" style="width: fit-content">
+
+        </div>
+        
+
         <div class="card">
-            <div class="card-header bg-info text-black">
-                <b>Pendaftaran Stok Tag Karkas</b>
-            </div>
             <div class="card-body">
 
 
-                <form action="/tag/senarai_tag/stok" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <!--JUmlah-->
-                <div class="mb-3 row">
-                    <label class="col-xl-2 col-form-label">Jumlah Tag Diterima</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text" name="tag_diterima" />
-                    </div>
-                </div>
-                <!--Induk-->
-                <div class="mb-3 row">
-                    <label class="col-xl-2 col-form-label">Tarikh Terima Stok</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="date" name="tarikh" />
-                    </div>
-                </div>
-                <!--Jumlah Tag Rosak-->
-                <div class="mb-3 row">
-                    <label class="col-xl-2 col-form-label">Jumlah Tag Rosak</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text" name="tag_rosak"  />
-                    </div>
-                </div>
-                <!--Tarikh Tag Rosak-->
-                <div class="mb-3 row">
-                    <label class="col-xl-2 col-form-label">Tarikh Tag Rosak</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="date" name="tarikh_tag_rosak"  />
-                    </div>
-                </div>
-                {{-- Catatan --}}
-                <div class="mb-3 row">
-                    <label class="col-xl-2 col-form-label">Catatan</label>
-                <div class="col-xl-6">
-                    <textarea name="catatan" cols="93" rows="5"></textarea>
-                </div>
-                </div>
-
-                <!--Button-->
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button class="btn btn-success" type="submit" >Daftar</button>
-                </div>
-
-
-                </form>
-               
-            </div>
-        </div>
-
-
-        <div class="mb-3 row">
-            <label class="col-xl-2 col-form-label">Tarikh</label>
-            <div class="col-xl-10">
-                <input class="form-control" type="date"  />
-            </div>
-        </div>
-
-
-
-
         <div class="row d-flex justify-content-center">
-            <table class="table border border-info">
-                <thead class="text-black bg-info ">
+            <table class="table border border-info stok-datatable">
+                <thead class="text-white bg-info ">
                     <tr>
-                        <th scope="col">Bil.</th>
+                        <th scope="col">No.</th>
                         <th scope="col">Tarikh</th>
                         <th scope="col">Jumlah Tag Diterima</th>
                         <th scope="col">Jumlah Tag Rosak</th>
                         <th scope="col">Tarikh Tag Rosak</th>
                         <th scope="col">Catatan</th>
-                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
 
                     <tr>
-
-                        @foreach($stoks as $stok)
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $stok->created_at }}</td>
-                        <td>{{ $stok->tag_diterima }}</td>
-                        <td>{{ $stok->tag_rosak }}</td>
-                        <td>{{ $stok->tarikh_tag_rosak }}</td>
-                        <td>{{ $stok->catatan }}</td>
-
-                        
-
-
-                        {{-- <td>11</td>
-                        <td>14/7/2022</td>
-                        <td>100</td>
-                        <td>500</td>
-                        <td>14/7/2022</td>
-                        <td>Rosak</td> --}}
-
-                        <td>
-                            <div class="col-auto">
-                                <a href="/tag/senarai_tag/stok/{{$stok->id}}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
-                            </div>
-    
-                        </td>
                        
                     </tr>
 
-                    @endforeach
-
                 </tbody>
             </table>
+        </div>
+            </div>
+
         </div>
 
 
@@ -141,6 +62,48 @@
 @endsection
 
 @section('script')
+
+<script type="text/javascript">
+    $(function() {
+
+        var table = $('.stok-datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            ajax: "/tag/senarai_tag/stok",
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'tag_diterima',
+                    name: 'tag_diterima'
+                },
+                {
+                    data: 'tag_rosak',
+                    name: 'tag_rosak'
+                }, 
+               
+                {
+                    data: 'tarikh_tag_rosak',
+                    name: 'tarikh_tag_rosak'
+                },
+                {
+                    data: 'catatan',
+                    name: 'catatan'
+                }, 
+                       
+
+            ]
+        });
+
+
+    });
+</script>
 
 
 @endsection

@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
     // pendaftaran stok tag - zach tambah
     Route::get('tag/senarai_tag/stok', [TagController::class, 'senarai_stok_tag']);
+    Route::get('tag/senarai_tag/stok-borang', [TagController::class, 'borang_stok']);
     Route::post('tag/senarai_tag/stok', [TagController::class, 'cipta_stok_tag']);
     Route::get('tag/senarai_tag/stok/{id}', [TagController::class, 'satu_stok_tag']);
     Route::put('tag/senarai_tag/stok/{id}', [TagController::class, 'kemaskini_stok_tag']);

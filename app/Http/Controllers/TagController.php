@@ -12,6 +12,7 @@ use DataTables;
 use DateTime;
 use Carbon\Carbon;
 use Alert;
+use Yajra\DataTables\Contracts\DataTable;
 class TagController extends Controller
 {
 
@@ -82,8 +83,21 @@ class TagController extends Controller
     // } 
 
     public function senarai_stok_tag(Request $request) {
-        $stoks = Stok_tag::all();
+
         $user = $request->user();
+
+        $stoks = Stok_tag::all();
+        if($request->ajax()) {
+            return DataTables::collection($stoks)
+            // ->addColumn('tindakan', function (Stok_tag $stok) {
+            //     $url = '/tag/senarai_tag/stok/'.$stok->id;
+            //     return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            // })
+
+            
+            
+            ->make(true);
+        }
         
         return view('tag.senarai_stok', compact('stoks','user'));
     } 
@@ -119,5 +133,10 @@ class TagController extends Controller
         $stoks->save();
         return back();
     } 
+
+    public function borang_stok(Request $request) {
+        $user = $request->user();
+        return view('tag.borang_stok');
+    }  
 
 }
