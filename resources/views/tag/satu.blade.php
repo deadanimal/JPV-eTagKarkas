@@ -1,180 +1,204 @@
 @extends('layouts.app')
 
-
-
 @section('content')
+    <main class="content">
 
-<div>
-    <div>
-        
         <div class="container-fluid">
+
+            <div class="header">
+                <h1 class="header-title">
+                    Permohonan Tag Karkas
+                </h1>
+
+            </div>
+
             <div class="card">
-                <div class="card-header bg-info text-black">
-                    <b>Permohonan Tag Karkas</b>
-                </div>
                 <div class="card-body">
-                        
-                    <!--Nama Pengeluar-->
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Nama Pengeluar:</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text" name="nama" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly />
-                    </div>
-                    </div>
-                    <!--Induk-->
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Induk:</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text" name="induk" value="{{$tag->rumah_sembelih->induk}}" readonly  />
-                    </div>
-                    </div>
-                    <!--Pejabat Pengeluar-->
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Pejabat Pengeluar:</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text"  name="nama_rumah" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly    />
-                    </div>
-                    </div>
-                    <!--Kategori Tag-->
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Kategori Tag</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text"  name="kategori" value="{{$tag->rumah_sembelih->kategori}}" readonly    />
-                    </div>
-                    </div>
 
-                    @role('pentadbir')
-                    <!--Jenis Ternakan-->
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Jenis Ternakan</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text"  name="jenis_ternakan" value="{{$tag->jenis_ternakan}}" readonly />
-                    </div>
-                    </div>
-                    {{-- Bilangan Ternakan --}}
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Ternakan</label>
-                        <div class="col-xl-10">
-                            <input class="form-control" type="text"  name="bil_ternakan" value="{{$tag->bil_ternakan}}" readonly  />
-                        </div>
-                    </div>
-                    {{-- Bilangan Kod Bar Untuk Dijana --}}
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
-                        <div class="col-xl-10">
-                            <input class="form-control" type="text"  name="bil_kodbar" value="{{$tag->bil_kodbar}}" readonly  />
-                        </div>
-                    </div>
-                    @endrole
-
-                    @role('pengurus-rumah-sembelih')
-                   <form action="/tag/{{$tag->id}}" method="post" enctype="multipart/form-data">
-                        @method('PUT')
+                    <form action="/tag/{{ $tag->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                     <!--Jenis Ternakan-->
-                     <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Jenis Ternakan 1</label>
-                    <div class="col-xl-10">
-                        <select class="form-select" aria-label="Default select example" name="jenis_ternakan" value="{{ $tag->jenis_ternakan }}">
-                            <option selected value="Ruminan Besar">Ruminan Besar</option>
-                            <option value="Ruminan Kecil">Ruminan Kecil</option>
-                            <option value="Ayam/Itik">Ayam/Itik</option>
-                            <option value="Babi">Babi</option>
-                        </select> 
-                    </div>
-                    </div>
-                    {{-- Bilangan Ternakan --}}
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Ternakan Yang Disyorkan</label>
-                        <div class="col-xl-10">
-                            <input class="form-control" type="text"  name="bil_ternakan" value="{{ $tag->bil_ternakan }}"   />
+                        @method('PUT')
+                        <!--Nama Pengeluar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->nama_rumah }}"
+                                    readonly />
+                            </div>
                         </div>
-                    </div>
-                    {{-- Bilangan Kod Bar Untuk Dijana --}}
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
-                        <div class="col-xl-10">
-                            <input class="form-control" type="text"  name="bil_kodbar" value="{{ $tag->bil_kodbar }}"   />
+                        <!--Induk-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Premis:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->induk }}"
+                                    readonly />
+                            </div>
                         </div>
-                    </div>
-                    @endrole
-
-                    @role('pentadbir')
-                     {{-- Bilangan Ternakan Yang Disyorkan --}}
-                     <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Ternakan Yang Disyorkan</label>
-                        <div class="col-xl-10">
-                            <input class="form-control" type="text"  name="pengesyoran_kuantiti"   />
+                        <!--Pejabat Pengeluar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Nama Premis:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->nama_rumah }}"
+                                    readonly />
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Pengesyoran Kod Bar</label>
-                        <div class="col-xl-10">
-                            <input class="form-control" type="text"  name="pengesyoran_kuantiti"   />
+                        <!--Kategori Tag-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Kategori Tag</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->kategori }}"
+                                    readonly />
+                            </div>
                         </div>
-                    </div>
-                    @endrole
+                        <!--Jenis Ternakan-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Jenis Ternakan</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" id="jenis_ternakan"
+                                    name="jenis_ternakan" value="{{ $tag->jenis_ternakan }}"
+                                    @if ($tag->status != 'Simpan') disabled @endif>
+                                    <option value="Ruminan Besar" @if ($tag->jenis_ternakan == 'Ruminan Besar') selected @endif>Ruminan
+                                        Besar</option>
+                                    <option value="Ruminan Kecil" @if ($tag->jenis_ternakan == 'Ruminan Kecil') selected @endif>Ruminan
+                                        Kecil</option>
+                                    <option value="Ayam/Itik" @if ($tag->jenis_ternakan == 'Ayam/Itik') selected @endif>Ayam/Itik
+                                    </option>
+                                    <option value="Babi" @if ($tag->jenis_ternakan == 'Babi') selected @endif>Babi</option>
+                                </select>
+                            </div>
 
-                    @role('ketua-seksyen')
-                    {{-- Bilangan Ternakan Yang Disyorkan --}}
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Bilangan Ternakan Yang Disyorkan</label>
-                        <div class="col-xl-10">
-                            <input class="form-control" type="text"  name="pengesyoran_kuantiti" value="{{ $tag->kuantiti }}" readonly  />
                         </div>
-                    </div>
-                     {{-- Catatan --}}
-                     <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Catatan</label>
-                    <div class="col-xl-10">
-                        <textarea name="alamat" cols="93" rows="5" placeholder="Isi jika permohonan ditolak sahaja"></textarea>
-                    </div>
-                    </div>
-                    @endrole
+                        {{-- Bilangan Ternakan --}}
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" min=1 name="bil_ternakan"
+                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
+                                    @if ($tag->status != 'Simpan') readonly @endif />
+                            </div>
+                        </div>
+                       
+                        {{-- Pengesyoran Kuantiti --}}
+                        @if ($tag->status != 'Simpan')
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah" placeholder="16" />
+                            </div>                            
+                        </div>
+                        @endif
+                        
+                        
+                        {{-- Bilangan Kod Bar Untuk Dijana --}}
+                        {{-- must be generate automitaclly according to R.Besar n R.Kecil --}}
+                        
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="bil_kodbar" id="bilangan_kodbar"
+                                    value="{{ $tag->bil_kodbar }}" readonly />
+                            </div>
+                        </div>
 
-                    <!--Cetakan Kod Bar-->
-                    <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Cetakan Kod Bar</label>
-                    <div class="col-xl-10">
-                        <input class="form-control" type="text"  name="kod_bar" value="{{$tag->rumah_sembelih->kod_bar}}" readonly   />
-                    </div>
-                    </div>    
-                    
-                    
-                            
-                    <!--Button-->
-                    @role('pengurus-rumah-sembelih')
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        {{-- <a href="/tag" type="submit" class="btn btn-primary">Kemaskini</a> --}}
-                        <button class="btn btn-primary" type="submit">Kemaskini</button>
-                    </div>
+                        @if ($tag->status != 'Simpan')
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar </label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" placeholder="" id="bil_kodbar_sah" name="bil_kodbar_sah" value="{{ $tag->bil_kodbar_sah }}" readonly placeholder="16" />
+                            </div>                            
+                        </div>
+                        @endif
 
-                    </form>
-                    @endrole
+                        <!--Cetakan Kod Bar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Kategori Tag</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" name="kategori"
+                                    @if ($tag->status != 'Simpan') disabled @endif>
+                                    <option value="K1" @if ($tag->kategori == 'K1') selected @endif>K1</option>
+                                    <option value="K2" @if ($tag->kategori == 'K2') selected @endif>K2</option>
+                                    <option value="K3" @if ($tag->kategori == 'K3') selected @endif>K3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--Cetakan Kod Bar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Jana Tag</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" name="kodbar"
+                                    @if ($tag->status != 'Simpan') disabled @endif>
+                                    <option value="Manual" @if ($tag->kodbar == 'Manual') selected @endif>Manual
+                                    </option>
+                                    <option value="Auto" @if ($tag->kodbar == 'Auto') selected @endif>Auto</option>
+                                </select>
+                            </div>
 
-                   
 
+                        </div>
 
-                    @role('pentadbir')
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        <a href="/tag" type="submit" class="btn btn-primary">Simpan</a>
-                        <a href="/tag" type="submit" class="btn btn-success">Hantar</a>
+                        {{-- Catatan --}}
+                        @if ($tag->status == 'Sah' || $tag->status == 'Tolak')
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Catatan</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="catatan_tolak" cols="90" rows="5" >{{$tag->catatan_tolak}}</textarea>
 
-                    </div>
-                    @endrole
+                            </div>
+                        </div>
+                        @endif
 
-                    @role('ketua-seksyen')
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        <a href="/tag" class="btn btn-danger">Tolak</a>
-                        <a href="/tag" class="btn btn-success">Lulus</a>
-                    </div>
-                    @endrole
-        
-        
                 </div>
+
+                <!--Button-->
+                @role('pengurus-rumah-sembelih')
+                @if ($tag->status == 'Simpan')
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Simpan">Simpan</button>
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button>
+                    </div>
+                @endif
+                @endrole
+
+                @role('pentadbir')
+                @if ($tag->status == 'Hantar')
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Sah">Sah</button>
+                    
+                    </div>
+                @endif   
+                @endrole
+                
+                @role('ketua-seksyen')
+                @if ($tag->status == 'Sah')
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Lulus">Lulus</button>
+                        <button class="btn btn-danger" type="submit" name="submitbutton" value="Tolak">Tolak</button>                    
+                    </div>
+                @endif   
+                @endrole                
+                </form>
             </div>
         </div>
-    </div>
-</div>
 
+        </div>
+
+
+
+    </main>
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+        function calculate() {
+            var jenisTernakan = document.getElementById("jenis_ternakan").value;
+            console.log(jenisTernakan);
+            var bilanganTernakan = document.getElementById("bil_ternakan_sah").value;
+            console.log(bilanganTernakan);
+            if (jenisTernakan == 'Ruminan Besar') {
+                document.getElementById("bil_kodbar_sah").value = bilanganTernakan * 4;
+            } else {
+                document.getElementById("bil_kodbar_sah").value = bilanganTernakan * 2;
+            }
+        }
+    </script>
 @endsection

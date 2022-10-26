@@ -71,7 +71,6 @@ class RumahSembelihController extends Controller
         $rumah->emel = $request->emel;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
         $rumah->zon = $request->zon;
-        $rumah->kod_bar = $request->kod_bar;
         $rumah['akses_ternakan'] = $request->akses_ternakan;
         $rumah->save();
 
@@ -94,8 +93,7 @@ class RumahSembelihController extends Controller
         $rumah->emel = $request->emel;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
         $rumah->zon = $request->zon;
-        $rumah->kod_bar = $request->kod_bar;
-        $rumah->akses_ternakan = $request->akses_ternakan;
+        $rumah->category = $request->input('category');
         
         $rumah->save();
 

@@ -195,6 +195,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+
     ],
 
     /*
@@ -210,7 +212,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,        
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,    
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,    
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

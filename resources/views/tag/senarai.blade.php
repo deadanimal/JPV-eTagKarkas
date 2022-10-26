@@ -29,24 +29,21 @@
 
            <div class="card">
             <div class="card-body">
-                <div class="row d-flex justify-content-center">
-                    <table class="table table-bordered tag-datatable">
+                <div class="row justify-content-center">
+                    <table class="table table-responsive table-bordered tag-datatable">
                         <thead class="text-white bg-info ">
                             <tr>
-                                <th scope="col">Bil.</th>
-                                {{-- <th scope="col">Nombor Rujukan Permohonan</th> --}}
-                                {{-- <th scope="col">Nama Premis</th> --}}
+                                <th scope="col">Nombor Rujukan Permohonan</th>
+                                <th scope="col">Nama Premis</th>
                                 <th scope="col">Jenis Ternakan</th>
                                 <th scope="col">Bilangan Ternakan Yang Disyorkan</th>
 
-                                {{-- <th scope="col">Kategori Tag</th>
+                                <th scope="col">Kategori Tag</th>
                                 <th scope="col">Tarikh Permohonan</th>
                                 <th scope="col">Nama Pemohon</th>
                                 <th scope="col">Cetakan Kod Bar</th>
                                 <th scope="col">Status</th>
-                                @role('pentadbir')
-                                    <th scope="col">Tindakan</th>
-                                @endrole --}}
+                                <th scope="col">Tindakan</th>
     
                             </tr>
                         </thead>
@@ -83,20 +80,49 @@
             responsive: true,
             ajax: "/tag",
             columns: [{
-                    data: 'id',
-                    name: 'id'
+                    data: 'no_rujukan',
+                    name: 'no_rujukan'
+                },                                       
+                {
+                    data: 'nama_premis',
+                    name: 'nama_premis'
                 },
-               
-                
-               
                 {
                     data: 'jenis_ternakan',
                     name: 'jenis_ternakan'
-                },
+                }, 
                 {
                     data: 'bil_ternakan',
                     name: 'bil_ternakan'
                 }, 
+                {
+                    data: 'kategori_tag',
+                    name: 'kategori_tag'
+                }, 
+                {
+                    data: {
+                        _:'created_at.display',
+                        sort:'created_at.timestamp',
+                        filter:'created_at.display',
+                    },
+                    name: 'created_at'
+                },
+                {
+                    data: 'pemohon_tag',
+                    name: 'pemohon_tag'
+                }, 
+                {
+                    data: 'kodbar',
+                    name: 'kodbar'
+                },
+                {
+                    data: 'status',
+                    name: 'status'
+                },      
+                {
+                    data: 'tindakan',
+                    name: 'tindakan'
+                },                                                                        
                 
                
 

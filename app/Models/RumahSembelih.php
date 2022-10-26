@@ -15,5 +15,15 @@ class RumahSembelih extends Model
 
     public function tag() {
         return $this->hasMany(Tag::class);
-    }      
+    }    
+    
+    public function setCategoryAttribute($value)
+    {
+        $this->attributes['category'] = json_encode($value);
+    }
+
+    public function getCategoryAttribute($value)
+    {
+        return $this->attributes['category'] = json_decode($value);
+    }    
 }
