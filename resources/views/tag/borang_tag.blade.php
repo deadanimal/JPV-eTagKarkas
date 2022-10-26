@@ -15,6 +15,7 @@
 
         <div class="card">
             <div class="card-body">
+               
                 <form action="/tag" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--Nama Pengeluar-->
@@ -88,14 +89,32 @@
                          />
                 </div>
             </div> --}}
-        
+
+                    @role('pengurus-rumah-sembelih')
                     <!--Cetakan Kod Bar-->
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Cetakan Kod Bar</label>
+                        <label class="col-sm-2 col-form-label">Kategori Tag</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" value="{{ $user->rumah_sembelih->kod_bar }}"
-                                readonly />
+                            <select class="form-select" aria-label="Default select example" name="kategori">
+                                <option value="K1">K1</option>
+                                <option value="K2">K2</option>
+                                <option value="K3">K3</option>
+                            </select>
                         </div>
+                    </div>
+                    <!--Cetakan Kod Bar-->
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Jana Tag</label>
+                            <div class="col ">Manual
+                                <input class="form-label" type="checkbox" name="kodbar" value="Manual" />
+                            </div>
+                        <label class="col"></label>
+                        <div class="col ">Auto
+                            <input class="form-label" type="checkbox" name="kodbar" value="Auto" />
+                        </div>
+                        
+                        </div>
+                        @endrole
                     </div>
         
                     <!--Button-->
@@ -103,9 +122,6 @@
                         <button class="btn btn-success" type="submit">Simpan</button>
                         <button class="btn btn-success" type="submit">Hantar</button>
                     </div>
-        
-        
-        
                 </form>
             </div>
         </div>

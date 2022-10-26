@@ -43,6 +43,8 @@ class TagController extends Controller
         $tags->jenis_ternakan = $request->jenis_ternakan;
         $tags->bil_ternakan = $request->bil_ternakan;
         $tags->bil_kodbar = $request->bil_kodbar;
+        $tags->kategori = $request->kategori;
+        $tags->kodbar = $request->kodbar;
         $tags->save();
         //Alert::html('Html Title', 'Html Code', 'Type');
 
