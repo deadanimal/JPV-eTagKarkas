@@ -49,21 +49,33 @@
                         <a class="sidebar-link" href="/pengguna">
                             <span class="align-middle">Profil Pengguna</span>
                         </a>
-                    </li>           
+                    </li>  
+                    
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/rumah">
+                            <span class="align-middle">Pendaftaran Premis</span>
+                        </a>
+                    </li>
             
                     @endrole  
 
+                    @role('pengurus-rumah-sembelih')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
                             <span class="align-middle">Maklumat Premis</span>
                         </a>
                     </li>
+                    @endrole
+
+                    
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
                             <span class="align-middle">Permohonan Tag</span>
                         </a>
                     </li>  
+
+                    
                     
                     @role('pentadbir')
 

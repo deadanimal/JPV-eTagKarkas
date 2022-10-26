@@ -8,16 +8,34 @@
         <div class="container-fluid">
 
             <div class="header">
+                @role('pentadbir')
                 <h1 class="header-title">
                     Pendaftaran Premis
                 </h1>
+                @endrole
             </div>
+
+            @role('pengurus-rumah-sembelih')
+            <div class="header">
+                <h1 class="header-title">
+                    Maklumat Premis
+                </h1>
+            </div>
+            @endrole
 
 
             <div class="card">
+                @role('pentadbir')
                 <div class="card-header bg-info text-white">
                     <b class="text-center">Pendaftaran Premis</b>
                 </div>
+                @endrole
+
+                @role('pengurus-rumah-sembelih')
+                <div class="card-header bg-info text-white">
+                    <b class="text-center">Maklumat Premis</b>
+                </div>
+                @endrole
 
                 <form action="/rumah/{{$rumah->id}}" method="POST" >
                     @method('PUT')
