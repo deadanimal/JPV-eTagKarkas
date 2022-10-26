@@ -83,13 +83,9 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Zon</label>
                             <div class="col-xl-4">
-                                <select class="form-select" aria-label="Default select example" name="zon">
-                                    <option selected value="Zon Utara">Zon Utara</option>
-                                    <option value="Zon Tengah">Zon Tengah</option>
-                                    <option value="Zon Timur">Zon Timur</option>
-                                    <option value="Zon Selatan">Zon Selatan</option>
-                                    <option value="Zon Sabah">Zon Sabah</option>
-                                    <option value="Zon Sarawak">Zon Sarawak</option>
+                                <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" >
+                                    <option selected>Pilih Zon</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -100,17 +96,9 @@
                                 <label class="form-label">Negeri</label>
                             </div>
                             <div class="col-4">
-                                <select class="form-select" aria-label="Default select example" name="negeri">
+                                <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" >
                                     <option selected>Pilih Negeri</option>
-                                    <option class="Zon Utara" value="Perak">Perak</option>
-                                    <option class="Zon Utara" value="Pulau Pinang">Pulau Pinang</option>
-                                    <option class="Zon Utara" value="Kedah">Kedah</option>
-                                    <option class="Zon Utara" value="Perlis">Perlis</option>
-                                    <option class="Zon Tengah" value="Selangor">Selangor</option>
-                                    <option class="Zon Tengah" value="Melaka">Melaka</option>
-                                    <option class="Zon Tengah" value="Negeri Sembilan">Negeri Sembilan</option>
-                                    <option class="Zon Tengah" value="W.P Putrajaya">W.P Putrajaya</option>
-                                    <option class="Zon Tengah" value="W.P Kuala Lumpur">W.P Kuala Lumpur</option>
+                                    
                                 </select>
                             </div>
 
@@ -118,11 +106,8 @@
                                 <label class="form-label">Daerah</label>
                             </div>
                             <div class="col-4">
-                                <select class="form-select" aria-label="Default select example" name="daerah">
+                                <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example" >
                                     <option selected>Pilih Daerah</option>
-                                    <option value="Selangor">Shah Alam</option>
-                                    <option value="Kelantan">Kuantan</option>
-                                    <option value="Terengganu">Pasir Mas</option>
                                 </select>
                             </div>
 
@@ -189,5 +174,46 @@
 
 
 @section('script')
+
+<script>
+    var stateObject = {
+    "Zon Utara": { "Perak": ["Ipoh", "Kangsar"],
+    "Pulau Pinang": ["Butterworth", "Batu Kawan"],
+    "Kedah": ["Kuala Kedah", "Alor Setar"],
+    },
+    "Zon Tengah": {
+    "Selangor": ["Shah Alam", "Gombak"],
+    "WP. Kuala Lumpur": ["Kuala Lumpur", "Sentul"]
+    }, "Zon Timur": {
+    "Pahang": ["Kuantan", "Bentong"],
+    "Terengganu": ["Kuala Terengganu", "Marang"]
+    },
+    }
+    window.onload = function () {
+    var countySel = document.getElementById("countySel"),
+    stateSel = document.getElementById("stateSel"),
+    districtSel = document.getElementById("districtSel");
+    for (var zon in stateObject) {
+    countySel.options[countySel.options.length] = new Option(zon, zon);
+    }
+    countySel.onchange = function () {
+    stateSel.length = 1; // remove all options bar first
+    districtSel.length = 1; // remove all options bar first
+    if (this.selectedIndex < 1) return; // done 
+    for (var negeri in stateObject[this.value]) {
+    stateSel.options[stateSel.options.length] = new Option(negeri, negeri);
+    }
+    }
+    countySel.onchange(); // reset in case page is reloaded
+    stateSel.onchange = function () {
+    districtSel.length = 1; // remove all options bar first
+    if (this.selectedIndex < 1) return; // done 
+    var daerah = stateObject[countySel.value][this.value];
+    for (var i = 0; i < daerah.length; i++) {
+    districtSel.options[districtSel.options.length] = new Option(daerah[i], daerah[i]);
+    }
+    }
+    }
+</script>
 
 @endsection

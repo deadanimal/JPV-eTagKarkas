@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stok_tag;
+use Illuminate\Cache\TaggedCache;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use App\Models\RumahSembelih;
@@ -21,8 +22,17 @@ class TagController extends Controller
     }
 
     public function senarai_tag(Request $request) {
-        $tags = Tag::all();
+        // $tags = Tag::all();
         $user = $request->user();
+
+        $tags = Tag::all();
+        if($request->ajax()) {
+            return DataTables::collection($tags)
+
+            
+            
+            ->make(true);
+        }
 
         return view('tag.senarai', compact('user','tags'));
     } 

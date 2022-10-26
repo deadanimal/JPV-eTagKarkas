@@ -148,7 +148,7 @@
                             </div>
                             <label class="col"></label>
                             <div class="col ">Tambah Nilai
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Susu" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Tambah Nilai" />
                             </div>
                         </div>
 
