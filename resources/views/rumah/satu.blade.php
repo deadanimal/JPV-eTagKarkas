@@ -96,23 +96,19 @@
                         </div>
 
                         {{-- Zon --}}
+                       
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Zon</label>
                             <div class="col-xl-4">
-                                <select class="form-select" aria-label="Default select example" name="zon">
-                                    {{-- <option selected value="Zon">{{ $rumah->zon }}</option> --}}
-                                    <option value="Zon Utara">Zon Utara</option>
-                                    <option value="Zon Tengah">Zon Tengah</option>
-                                    <option value="Zon Timur">Zon Timur</option>
-                                    <option value="Zon Selatan">Zon Selatan</option>
-                                    <option value="Zon Sabah">Zon Sabah</option>
-                                    <option value="Zon Sarawak">Zon Sarawak</option>
+                                <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" >
+                                    <option selected>{{ $rumah->zon }}</option>
+                                    
                                 </select>
                             </div>
                         </div>
 
                         {{-- Negeri & Daerah --}}
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <div class="col-2">
                                 <label class="form-label">Negeri</label>
                             </div>
@@ -125,6 +121,27 @@
                             </div>
                             <div class="col-4">
                                 <input type="text" name="daerah" value="{{ $rumah->daerah}}" >
+                            </div>
+
+                        </div> --}}
+                        <div class="mb-3 row">
+                            <div class="col-2">
+                                <label class="form-label">Negeri</label>
+                            </div>
+                            <div class="col-4">
+                                <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" >
+                                    <option selected>{{ $rumah->negeri}}</option>
+                                    
+                                </select>
+                            </div>
+
+                            <div class="col-2 text-end">
+                                <label class="form-label">Daerah</label>
+                            </div>
+                            <div class="col-4">
+                                <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example" >
+                                    <option selected>{{ $rumah->daerah}}</option>
+                                </select>
                             </div>
 
                         </div>
@@ -190,5 +207,62 @@
 
 
 @section('script')
+
+<script>
+    var stateObject = {
+    "Zon Utara": { "Perak": ["Kampar", "Kuala Kangsar","Kinta"],
+    "Pulau Pinang": ["Seberang Perai Selatan", "Seberang Perai Utara"],
+    "Kedah": ["Kuala Muda", "Kota Setar","Langkawi"],
+    "Perlis": ["Arau", "Kangar","Padang Besar"],
+    },
+    "Zon Tengah": {
+    "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang"],
+    "WP. Kuala Lumpur": ["Kuala Lumpur", "Sentul"],
+    "WP. Putrajaya": ["Putrajaya", "Sentul"],
+    "Melaka": ["Melaka Tengah", "Alor Gajah","Jasin"],
+    "Negeri Sembilan": ["Seremban", "Jempol","Port Dickson","Kuala Pilah"],
+    }, 
+    "Zon Timur": {
+    "Pahang": ["Cameron Highlands", "Bentong","Kuantan","Temerloh"],
+    "Terengganu": ["Kuala Terengganu", "Marang"],
+    "Kelantan": ["Kota Bharu", "Pasir Mas","Kuala Krai"],
+    },
+    "Zon Selatan": {
+        "Johor":["Johor Bahru","Batu Pahat","Kluang"],
+    },
+    "Sabah": {
+        "Sabah":["Kota Kinabalu","Tawau","Sandakan","Lahad Datu"],
+        "Labuan":["Labuan"],
+    },
+    "Sarawak": {
+        "Sarawak": ["Kuching","Miri","Sibu","Bintulu"],
+    },
+    }
+    window.onload = function () {
+    var countySel = document.getElementById("countySel"),
+    stateSel = document.getElementById("stateSel"),
+    districtSel = document.getElementById("districtSel");
+    for (var zon in stateObject) {
+    countySel.options[countySel.options.length] = new Option(zon, zon);
+    }
+    countySel.onchange = function () {
+    stateSel.length = 1; // remove all options bar first
+    districtSel.length = 1; // remove all options bar first
+    if (this.selectedIndex < 1) return; // done 
+    for (var negeri in stateObject[this.value]) {
+    stateSel.options[stateSel.options.length] = new Option(negeri, negeri);
+    }
+    }
+    countySel.onchange(); // reset in case page is reloaded
+    stateSel.onchange = function () {
+    districtSel.length = 1; // remove all options bar first
+    if (this.selectedIndex < 1) return; // done 
+    var daerah = stateObject[countySel.value][this.value];
+    for (var i = 0; i < daerah.length; i++) {
+    districtSel.options[districtSel.options.length] = new Option(daerah[i], daerah[i]);
+    }
+    }
+    }
+</script>
 
 @endsection
