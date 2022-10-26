@@ -12,6 +12,8 @@
                 <h1 class="header-title">
                     Permohonan Tag Karkas
                 </h1>
+                <a href="/tag-borang"><button class="btn btn-warning btn-block">Tambah</button></a>
+
             </div>
 
 
@@ -29,7 +31,7 @@
                                 {{-- <th scope="col">Nombor Rujukan Permohonan</th> --}}
                                 {{-- <th scope="col">Nama Premis</th> --}}
                                 <th scope="col">Jenis Ternakan</th>
-                                <th scope="col">Bilangan Ternakan</th>
+                                <th scope="col">Bilangan Ternakan Yang Disyorkan</th>
 
                                 {{-- <th scope="col">Kategori Tag</th>
                                 <th scope="col">Tarikh Permohonan</th>

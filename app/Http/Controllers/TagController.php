@@ -82,6 +82,11 @@ class TagController extends Controller
     //     return back();
     // } 
 
+    public function borang_tag(Request $request) {
+        $user = $request->user();
+        return view('tag.borang_tag', compact('user'));
+    }   
+
     public function senarai_stok_tag(Request $request) {
 
         $user = $request->user();

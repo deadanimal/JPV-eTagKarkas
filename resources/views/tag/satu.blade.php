@@ -28,9 +28,9 @@
                         <input class="form-control" type="text" name="induk" value="{{$tag->rumah_sembelih->induk}}" readonly  />
                     </div>
                     </div>
-                    <!--Nama Rumah Sembelih-->
+                    <!--Pejabat Pengeluar-->
                     <div class="mb-3 row">
-                        <label class="col-xl-2 col-form-label">Nama Rumah Sembelih:</label>
+                        <label class="col-xl-2 col-form-label">Pejabat Pengeluar:</label>
                     <div class="col-xl-10">
                         <input class="form-control" type="text"  name="nama_rumah" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly    />
                     </div>
