@@ -71,7 +71,7 @@ class RumahSembelihController extends Controller
         $rumah->emel = $request->emel;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
         $rumah->zon = $request->zon;
-        // $rumah['akses_ternakan'] = $request->akses_ternakan;
+        $rumah['category'] = $request->akses_ternakan;
         $rumah->save();
 
         return back();
