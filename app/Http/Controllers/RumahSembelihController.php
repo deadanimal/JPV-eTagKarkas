@@ -22,36 +22,36 @@ class RumahSembelihController extends Controller
             return view('rumah.satu', compact('rumah'));
         } else {
             $rumahs = RumahSembelih::all();
-            if($request->ajax()) {
-                return DataTables::collection($rumahs)
-                ->addIndexColumn()
-                ->addColumn('aktif', function (RumahSembelih $rumah) {
-                    if($rumah->aktif){
-                        $html_button = 'Aktif';
-                    } else {
-                        $html_button = 'Tidak Aktif';
-                    }                
-                    return $html_button;
-                })            
-                ->addColumn('tindakan', function (RumahSembelih $rumah) {
-                    $url = '/rumah/'.$rumah->id;
-                    $url2 = '/rumah/'.$rumah->id.'/aktif';
-                    if($rumah->aktif){
-                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Nyahaktif</button></a>';
-                    } else {
-                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-success">Aktifkan</button></a>';
-                    }                    
-                    return $html_button;
-                })
-                ->editColumn('created_at', function (RumahSembelih $rumah) {
-                    return [
-                        'display' => ($rumah->created_at && $rumah->created_at != '0000-00-00 00:00:00') ? with(new Carbon($rumah->created_at))->format('d F Y') : '',
-                        'timestamp' => ($rumah->created_at && $rumah->created_at != '0000-00-00 00:00:00') ? with(new Carbon($rumah->created_at))->timestamp : ''
-                    ];
-                })
-                ->rawColumns(['tindakan', 'aktif'])
-                ->make(true);
-            }
+                if($request->ajax()) {
+                    return DataTables::collection($rumahs)
+                    ->addIndexColumn()
+                    ->addColumn('aktif', function (RumahSembelih $rumah) {
+                        if($rumah->aktif){
+                            $html_button = 'Aktif';
+                        } else {
+                            $html_button = 'Tidak Aktif';
+                        }                
+                        return $html_button;
+                    })            
+                    ->addColumn('tindakan', function (RumahSembelih $rumah) {
+                        $url = '/rumah/'.$rumah->id;
+                        $url2 = '/rumah/'.$rumah->id.'/aktif';
+                        if($rumah->aktif){
+                            $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Nyahaktif</button></a>';
+                        } else {
+                            $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-success">Aktifkan</button></a>';
+                        }                    
+                        return $html_button;
+                    })
+                    ->editColumn('created_at', function (RumahSembelih $rumah) {
+                        return [
+                            'display' => ($rumah->created_at && $rumah->created_at != '0000-00-00 00:00:00') ? with(new Carbon($rumah->created_at))->format('d F Y') : '',
+                            'timestamp' => ($rumah->created_at && $rumah->created_at != '0000-00-00 00:00:00') ? with(new Carbon($rumah->created_at))->timestamp : ''
+                        ];
+                    })
+                    ->rawColumns(['tindakan', 'aktif'])
+                    ->make(true);
+                }
 
             return view('rumah.senarai', compact('rumahs'));
         }
@@ -71,7 +71,7 @@ class RumahSembelihController extends Controller
         $rumah->emel = $request->emel;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
         $rumah->zon = $request->zon;
-        $rumah['akses_ternakan'] = $request->akses_ternakan;
+        $rumah['category'] = $request->akses_ternakan;
         $rumah->save();
 
         return back();
