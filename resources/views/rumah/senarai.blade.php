@@ -9,7 +9,7 @@
 
             <div class="header">
                 <h1 class="header-title">
-                    Pendaftaran Premis
+                    Senarai Pendaftaran Premis
                 </h1>
                     <a href="/rumah-borang" class="btn float-end " style="width: fit-content"><button class="btn btn-warning btn-block">Tambah</button></a>
             </div>
@@ -26,7 +26,7 @@
                 {{-- datatable --}}
                 <div class="card-body">
                     <div class="row d-flex justify-content-center">
-                        <table class="table table-bordered rumah-datatable">
+                        <table class="table table-bordered rumah-datatable" >
                             <thead class="text-white bg-info ">
                                 <tr>
                                     <th>No.</th>

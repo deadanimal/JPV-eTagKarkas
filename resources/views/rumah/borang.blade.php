@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+<style>
+    /* remove arrow in input number */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+    input[type=number] {
+    -moz-appearance: textfield;
+}
+</style>
 
 
 @section('content')
@@ -19,9 +31,19 @@
                     <b class="text-center">Pendaftaran Premis</b>
                 </div>
 
-                <form action="/rumah" method="post" enctype="multipart/form-data">
+                @if(Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                    @php
+                        Session::forget('success');
+                    @endphp
+                </div>
+                @endif
+
+                <form action="/rumah" method="post" enctype="multipart/form-data" id="perlu">
                     @method('POST')
                     @csrf
+
                     <div class="card-body">
 
                         <!--Nama Pengeluar-->
@@ -32,8 +54,8 @@
                             </div>
                             <div class="col-sm-10">
 
-                                <select class="form-select" aria-label="Default select example" name="induk">
-                                    <option selected value="PILIH INDUK">Pilih Kategori Premis</option>
+                                <select class="form-select" aria-label="Default select example" name="induk" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected disabled value="">Pilih Kategori Premis</option>
                                     <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
                                     <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                     <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
@@ -51,9 +73,12 @@
                                 <label class="form-label">Nama Premis</label>
                             </div>
                             <div class="col-sm-10">
-                                <input class="form-label" type="text" name="nama_rumah" />
+                                <input class="form-label" type="text" name="nama_rumah" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"  />
+                                
                             </div>
-
+                             
+                            
+                            
                         </div>
                         <!--Induk-->
                         <div class="mb-3 row">
@@ -61,13 +86,19 @@
                                 <label class="form-label">Kod Premis</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kod" />
+                                <input class="form-label" type="text" name="kod" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')" />
                             </div>
                             <div class="col-2 text-end">
                                 <label class="form-label">Kategori Tag</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kategori" />
+                                <select class="form-select" aria-label="Default select example" name="kategori" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected="Pilih Kategori Tag">Pilih Kategori Tag</option>
+                                    <option value="K1">K1</option>
+                                    <option value="K2">K2</option>
+                                    <option value="K3">K3</option>
+                                    
+                                </select>
                             </div>
                         </div>
 
@@ -75,7 +106,8 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
-                                <textarea class="form-label" name="alamat" cols="93" rows="5"></textarea>
+                                <textarea class="form-label" name="alamat" cols="93" rows="5" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                oninput="this.setCustomValidity('')"></textarea>
                             </div>
                         </div>
 
@@ -83,8 +115,8 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Zon</label>
                             <div class="col-xl-4">
-                                <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" >
-                                    <option selected>Pilih Zon</option>
+                                <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')" >
+                                    <option selected value="">Pilih Zon</option>
                                     
                                 </select>
                             </div>
@@ -96,8 +128,8 @@
                                 <label class="form-label">Negeri</label>
                             </div>
                             <div class="col-4">
-                                <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" >
-                                    <option selected>Pilih Negeri</option>
+                                <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Negeri</option>
                                     
                                 </select>
                             </div>
@@ -106,8 +138,8 @@
                                 <label class="form-label">Daerah</label>
                             </div>
                             <div class="col-4">
-                                <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example" >
-                                    <option selected>Pilih Daerah</option>
+                                <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example"required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Daerah</option>
                                 </select>
                             </div>
 
@@ -117,45 +149,50 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                             <div class="col-sm-10">
-                                <input class="form-label" type="text" name="no_tel" />
+                                <input class="form-label" type="number" name="no_tel" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"/>
                             </div>
                         </div>
 
 
                         <!--Akses Ternakan-->
                         <div class="mb-3 row">
+
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Ruminan Besar" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Ruminan Besar" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Ruminan Kecil" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Ruminan Kecil" />
                             </div>
                             <label class="col"></label>
-                            <div class="col ">Ayam/Itik
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Unggas" />
+                            <div class="col ">Ayam
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Unggas" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Itik
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Itik" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Babi
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Babi" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Babi" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Telur
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Telur" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Telur" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Susu
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Susu" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Susu" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Tambah Nilai
-                                <input class="form-label" type="checkbox" name="akses_ternakan" value="Susu" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Susu" />
                             </div>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-success" type="submit">Daftar</button>
+                            <button class="btn btn-success" type="submit" value="submit" >Daftar</button>
                         </div>
 
 
@@ -177,32 +214,32 @@
 
 <script>
     var stateObject = {
-    "Zon Utara": { "Perak": ["Kampar", "Kuala Kangsar","Kinta"],
-    "Pulau Pinang": ["Seberang Perai Selatan", "Seberang Perai Utara"],
-    "Kedah": ["Kuala Muda", "Kota Setar","Langkawi"],
+    "Zon Utara": { "Perak": ["Bagan Datuk","Batang Padang","Hulu Perak","Hilir Perak","Kinta","Kampar", "Kuala Kangsar","Kerian","Muallim","Manjung","Larut,Matang & Selama","Perak Tengah"],
+    "Pulau Pinang": ["Seberang Perai Utara", "Seberang Perai Selatan","Seberang Perai Tengah","Timur Laut Pulau Pinang","Barat Daya Pulau Pinang","Seberang Perai Selatan"],
+    "Kedah": ["Kuala Muda", "Kota Setar","Langkawi","Sungai Petani","Kulim","Kubang Pasu","Baling","Pendang","Yan","Sik","Padang Terap","Pokok Sena","Bandar Baharu"],
     "Perlis": ["Arau", "Kangar","Padang Besar"],
     },
     "Zon Tengah": {
-    "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang"],
-    "WP. Kuala Lumpur": ["Kuala Lumpur", "Sentul"],
-    "WP. Putrajaya": ["Putrajaya", "Sentul"],
-    "Melaka": ["Melaka Tengah", "Alor Gajah","Jasin"],
-    "Negeri Sembilan": ["Seremban", "Jempol","Port Dickson","Kuala Pilah"],
+    "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang","Hulu Langat","Klang","Kuala Langat","Hulu Selangor","Sabak Bernam"],
+    "WP. Kuala Lumpur": ["Kuala Lumpur"],
+    "WP. Putrajaya": ["Putrajaya"],
+    "Melaka": ["Alor Gajah","Jasin","Melaka Tengah"],
+    "Negeri Sembilan": ["Seremban", "Jempol","Port Dickson","Kuala Pilah","Tampin","Rembau","Jelebu"],
     }, 
     "Zon Timur": {
-    "Pahang": ["Cameron Highlands", "Bentong","Kuantan","Temerloh"],
-    "Terengganu": ["Kuala Terengganu", "Marang"],
-    "Kelantan": ["Kota Bharu", "Pasir Mas","Kuala Krai"],
+    "Pahang": ["Cameron Highlands", "Bentong","Kuantan","Temerloh","Maran","Rompin","Pekan","Bera","Raub","Jerantut","Lipis"],
+    "Terengganu": ["Kuala Terengganu","Kemaman","Dungun","Besut","Marang","Hulu Terengganu","Setiu","Kuala Nerus"],
+    "Kelantan": ["Kota Bharu", "Pasir Mas","Kuala Krai","Tumpat","Bachok","Tanah Merah","Pasir Puteh","Machang","Gua Musang","Jeli"],
     },
     "Zon Selatan": {
-        "Johor":["Johor Bahru","Batu Pahat","Kluang"],
+        "Johor":["Johor Bahru","Batu Pahat","Kluang","Kulai","Muar","Kota Tinggi","Segamat","Pontian","Tangkak","Mersing"],
     },
     "Sabah": {
-        "Sabah":["Kota Kinabalu","Tawau","Sandakan","Lahad Datu"],
+        "Sabah":["Kota Kinabalu","Tawau","Sandakan","Lahad Datu","Keningau","Kinabatangan","Semporna","Papar","Penampang","Beluran","Tuaran","Ranau","Kota Belud","Kudat","kota Marudu","Beaufort","Kunak","Tenom","Putatan","Pitas","Tambunan","Tongod","Sipitang","Nabawan","Kuala Penyu"],
         "Labuan":["Labuan"],
     },
     "Sarawak": {
-        "Sarawak": ["Kuching","Miri","Sibu","Bintulu"],
+        "Sarawak": ["Kuching","Miri","Sibu","Bintulu","Serian","Kota Samarahan","Sri Aman","Marudi","Betong","Sarikei","Kapit","Bau","Limbang","Saratok","Mukah","Simunjan","Lawas","Belaga","Lundu","Asajaya"],
     },
     }
     window.onload = function () {
@@ -230,6 +267,17 @@
     }
     }
     }
+</script>
+
+{{-- required checkbox --}}
+<script>
+  $('#perlu').on("submit", function (e) {
+    var arr = $(this).serialize().toString();
+    if(arr.indexOf("akses_ternakan") < 0){
+        e.preventDefault();
+        alert("Sila pilih jenis ternakan.");
+    }
+});
 </script>
 
 @endsection

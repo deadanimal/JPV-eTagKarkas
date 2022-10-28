@@ -58,23 +58,42 @@ class RumahSembelihController extends Controller
     } 
     
     public function cipta_rumah(Request $request) {
-        
+
+        // $request->validate([
+        //     'induk' => 'required',
+        //     'nama_rumah' => 'required',
+        //     'kod' => 'required',
+        //     'kategori' => 'required',
+        //     'alamat' => 'required',
+        //     'zon' => 'required',
+        //     'negeri' => 'required',
+        //     'daerah' => 'required',
+        //     'no_tel' => 'required',
+        //     'akses_ternakan' => 'required',
+           
+        // ], [
+        //     'induk.required' => ' Sila masukkan maklumat ini.',
+        //     'nama_rumah.required' => ' Sila masukkan maklumat ini.'
+        // ]);
+
+
+
         $rumah = New RumahSembelih;
         $rumah->induk = $request->induk;
         $rumah->nama_rumah = $request->nama_rumah;
         $rumah->kod = $request->kod;
         $rumah->kategori = $request->kategori;
         $rumah->alamat = $request->alamat;
+        $rumah->zon = $request->zon;
         $rumah->negeri = $request->negeri;
         $rumah->daerah = $request->daerah;
         $rumah->no_tel = $request->no_tel;
-        $rumah->emel = $request->emel;
-        $rumah->orang_dihubungi = $request->orang_dihubungi;
-        $rumah->zon = $request->zon;
-        $rumah['category'] = $request->akses_ternakan;
+        $rumah->akses_ternakan = implode(',', $request->akses_ternakan);
+       
         $rumah->save();
+        Alert::success('Daftar berjaya.', 'Pendaftaran anda telah berjaya.');   
 
-        return back();
+        return redirect('/rumah');
     }  
 
     public function kemaskini_rumah(Request $request) {

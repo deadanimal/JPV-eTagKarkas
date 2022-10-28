@@ -45,11 +45,11 @@
                     
                     @role('pentadbir')
 
-                    {{-- <li class="sidebar-item">
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="/pengguna">
                             <span class="align-middle">Profil Pengguna</span>
                         </a>
-                    </li>   --}}
+                    </li>  
                     
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
@@ -246,4 +246,6 @@
 
 </body>
 
+
 </html>
+

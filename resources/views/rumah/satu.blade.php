@@ -212,8 +212,8 @@
     var stateObject = {
     "Zon Utara": { "Perak": ["Kampar", "Kuala Kangsar","Kinta"],
     "Pulau Pinang": ["Seberang Perai Selatan", "Seberang Perai Utara"],
-    "Kedah": ["Kuala Muda", "Kota Setar","Langkawi"],
-    "Perlis": ["Arau", "Kangar","Padang Besar"],
+    "Kedah": ["Kuala Muda", "Kota Setar","Langkawi","Sungai Petani","Kulim","Kubang Pasu","Baling","Pendang","Yan","Sik","Padang Terap","Pokok Sena","Bandar Baharu"],
+    "Perlis": ["Perlis"],
     },
     "Zon Tengah": {
     "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang"],
