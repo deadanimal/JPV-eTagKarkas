@@ -43,10 +43,19 @@ class TagController extends Controller
 
         if($request->ajax()) {
             return DataTables::collection($tags)
+            ->addColumn('no_rujukan', function (Tag $tag) {
+                $date = $tag->created_at->format('Y');
+                if($tag->bil_kodbar_sah) {
+                    $html_button = 'RS-'.$date.'-'.sprintf('%03d', $tag->id);
+                } else {
+                    $html_button = '-';
+                }
+                return $html_button;
+            })             
             ->addColumn('no_tag', function (Tag $tag) {
                 $date = $tag->created_at->format('dmy');
                 if($tag->bil_kodbar_sah) {
-                    $html_button = 'R'.$tag->rumah_sembelih->id.'-'.$date.'-001 <br/>R'.$tag->rumah_sembelih->id.'-'.$date.'-'.sprintf('%03d', $tag->bil_kodbar_sah);
+                    $html_button = 'R'.$tag->rumah_sembelih->id.'-'.$date.'-001 <br/>R'.$tag->rumah_sembelih->id.'-'.$date.'-'.sprintf('%03d', $tag->bil_ternakan_sah);
                 } else {
                     $html_button = '-';
                 }
@@ -97,7 +106,7 @@ class TagController extends Controller
                     'timestamp' => ($tag->created_at && $tag->created_at != '0000-00-00 00:00:00') ? with(new Carbon($tag->created_at))->timestamp : ''
                 ];
             })        
-            ->rawColumns(['nama_premis', 'tindakan', 'no_tag'])    
+            ->rawColumns(['nama_premis', 'tindakan', 'no_tag', 'no_rujukan'])    
             ->make(true);
         }
 
