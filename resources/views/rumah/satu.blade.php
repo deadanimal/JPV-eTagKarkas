@@ -167,8 +167,12 @@
                                 <input class="form-label" type="checkbox" name="category[]" value="Ruminan Kecil" />
                             </div>
                             <label class="col"></label>
-                            <div class="col ">Ayam/Itik
-                                <input class="form-label" type="checkbox" name="category[]" value="Ayam/Itik" />
+                            <div class="col ">Ayam
+                                <input class="form-label" type="checkbox" name="category[]" value="Ayam" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Itik
+                                <input class="form-label" type="checkbox" name="category[]" value="Itik" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Babi
