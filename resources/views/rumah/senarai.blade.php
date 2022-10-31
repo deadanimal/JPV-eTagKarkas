@@ -85,8 +85,8 @@
                     name: 'kod'
                 },
                 {
-                    data: 'kategori',
-                    name: 'kategori'
+                    data: 'induk',
+                    name: 'induk'
                 },    
                 {
                     data: 'aktif',

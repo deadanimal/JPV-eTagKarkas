@@ -50,8 +50,8 @@
                                 <label class="col-form-label">Kategori Premis</label>
                             </div>
                             <div class="col-xl-10">
-                                <select class="form-select" aria-label="Default select example" name="induk" >
-                                    {{-- <option selected >{{ $rumah->induk}}</option> --}}
+                                <select class="form-select" aria-label="Default select example" name="induk" id="induk" onclick="indOpt()" >
+                                    <option selected class="ind">{{ $rumah->induk}}</option>
                                     <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
                                     <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                     <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
@@ -84,7 +84,13 @@
                                 <label class="form-label">Kategori Tag</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori}}" >
+                                {{-- <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori}}" > --}}
+                                <select class="form-select" aria-label="Default select example" name="kategori" id="s1" onclick="selOpt()" >
+                                    <option selected="Pilih Kategori Tag" class="kat">{{ $rumah->kategori }} </option>
+                                    <option value="K1">K1</option>
+                                    <option value="K2">K2</option>
+                                    <option value="K3">K3</option>
+                                </select>
                             </div>
                         </div>
 
@@ -108,23 +114,7 @@
                             </div>
                         </div>
 
-                        {{-- Negeri & Daerah --}}
-                        {{-- <div class="mb-3 row">
-                            <div class="col-2">
-                                <label class="form-label">Negeri</label>
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="negeri" value="{{ $rumah->negeri}}" >
-                            </div>
-
-                            <div class="col-2 text-end">
-                                <label class="form-label">Daerah</label>
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="daerah" value="{{ $rumah->daerah}}" >
-                            </div>
-
-                        </div> --}}
+                     
                         <div class="mb-3 row">
                             <div class="col-2">
                                 <label class="form-label">Negeri</label>
@@ -350,32 +340,32 @@
 
 <script>
     var stateObject = {
-    "Zon Utara": { "Perak": ["Kampar", "Kuala Kangsar","Kinta"],
-    "Pulau Pinang": ["Seberang Perai Selatan", "Seberang Perai Utara"],
+    "Zon Utara": { "Perak": ["Bagan Datuk","Batang Padang","Hulu Perak","Hilir Perak","Kinta","Kampar", "Kuala Kangsar","Kerian","Muallim","Manjung","Larut,Matang & Selama","Perak Tengah"],
+    "Pulau Pinang": ["Seberang Perai Utara", "Seberang Perai Selatan","Seberang Perai Tengah","Timur Laut Pulau Pinang","Barat Daya Pulau Pinang","Seberang Perai Selatan"],
     "Kedah": ["Kuala Muda", "Kota Setar","Langkawi","Sungai Petani","Kulim","Kubang Pasu","Baling","Pendang","Yan","Sik","Padang Terap","Pokok Sena","Bandar Baharu"],
-    "Perlis": ["Perlis"],
+    "Perlis": ["Arau", "Kangar","Padang Besar"],
     },
     "Zon Tengah": {
-    "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang"],
-    "WP. Kuala Lumpur": ["Kuala Lumpur", "Sentul"],
-    "WP. Putrajaya": ["Putrajaya", "Sentul"],
-    "Melaka": ["Melaka Tengah", "Alor Gajah","Jasin"],
-    "Negeri Sembilan": ["Seremban", "Jempol","Port Dickson","Kuala Pilah"],
+    "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang","Hulu Langat","Klang","Kuala Langat","Hulu Selangor","Sabak Bernam"],
+    "WP. Kuala Lumpur": ["Kuala Lumpur"],
+    "WP. Putrajaya": ["Putrajaya"],
+    "Melaka": ["Alor Gajah","Jasin","Melaka Tengah"],
+    "Negeri Sembilan": ["Seremban", "Jempol","Port Dickson","Kuala Pilah","Tampin","Rembau","Jelebu"],
     }, 
     "Zon Timur": {
-    "Pahang": ["Cameron Highlands", "Bentong","Kuantan","Temerloh"],
-    "Terengganu": ["Kuala Terengganu", "Marang"],
-    "Kelantan": ["Kota Bharu", "Pasir Mas","Kuala Krai"],
+    "Pahang": ["Cameron Highlands", "Bentong","Kuantan","Temerloh","Maran","Rompin","Pekan","Bera","Raub","Jerantut","Lipis"],
+    "Terengganu": ["Kuala Terengganu","Kemaman","Dungun","Besut","Marang","Hulu Terengganu","Setiu","Kuala Nerus"],
+    "Kelantan": ["Kota Bharu", "Pasir Mas","Kuala Krai","Tumpat","Bachok","Tanah Merah","Pasir Puteh","Machang","Gua Musang","Jeli"],
     },
     "Zon Selatan": {
-        "Johor":["Johor Bahru","Batu Pahat","Kluang"],
+        "Johor":["Johor Bahru","Batu Pahat","Kluang","Kulai","Muar","Kota Tinggi","Segamat","Pontian","Tangkak","Mersing"],
     },
     "Sabah": {
-        "Sabah":["Kota Kinabalu","Tawau","Sandakan","Lahad Datu"],
+        "Sabah":["Kota Kinabalu","Tawau","Sandakan","Lahad Datu","Keningau","Kinabatangan","Semporna","Papar","Penampang","Beluran","Tuaran","Ranau","Kota Belud","Kudat","kota Marudu","Beaufort","Kunak","Tenom","Putatan","Pitas","Tambunan","Tongod","Sipitang","Nabawan","Kuala Penyu"],
         "Labuan":["Labuan"],
     },
     "Sarawak": {
-        "Sarawak": ["Kuching","Miri","Sibu","Bintulu"],
+        "Sarawak": ["Kuching","Miri","Sibu","Bintulu","Serian","Kota Samarahan","Sri Aman","Marudi","Betong","Sarikei","Kapit","Bau","Limbang","Saratok","Mukah","Simunjan","Lawas","Belaga","Lundu","Asajaya"],
     },
     }
     window.onload = function () {
@@ -404,5 +394,25 @@
     }
     }
 </script>
+
+{{-- kategori premis --}}
+<script type="text/javascript">
+    function indOpt() {
+       selEl = document.querySelector('#induk');
+       ind = selEl.value;
+       document.querySelector('.ind').textContent = op;
+    }
+ </script>
+
+{{-- kategori tag --}}
+<script type="text/javascript">
+    function selOpt() {
+       selEl = document.querySelector('#s1');
+       kat = selEl.value;
+       document.querySelector('.kat').textContent = op;
+    }
+ </script>
+
+
 
 @endsection
