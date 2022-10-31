@@ -49,7 +49,8 @@
                                 <label class="col-form-label">Kategori Premis</label>
                             </div>
                             <div class="col-xl-10">
-                                {{-- <select class="form-select" aria-label="Default select example" name="induk" >
+                                <select class="form-select" aria-label="Default select example" name="induk" >
+                                    {{-- <option selected >{{ $rumah->induk}}</option> --}}
                                     <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
                                     <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                     <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
@@ -60,16 +61,13 @@
                                     <option value="LOJI PEMPROSESAN PRODUK">LOJI PEMPROSESAN PRODUK</option>
                                     <option value="LADANG MyGap">LADANG MyGap</option>
                                     <option value="LADANG MyOrganic">LADANG MyOrganic</option>
-                                </select> --}}
-                                <input  type="text" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" value="{{ $rumah->induk}}" readonly >
-                                {{-- <input class="form-label"  name="induk" value="{{ $rumah->induk}}" readonly > --}}
-
+                                </select>
                             </div>
                             <div class="col-xl-2">
                                 <label class="form-label">Nama Premis</label>
                             </div>
                             <div class="col-xl-10">
-                                <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah}}" readonly >
+                                <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah}}" >
                             </div>
 
                         </div>
@@ -79,13 +77,13 @@
                                 <label class="form-label">Kod Premis</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kod" value="{{ $rumah->kod}}" readonly >
+                                <input class="form-label" type="text" name="kod" value="{{ $rumah->kod}}" >
                             </div>
                             <div class="col-2 text-end">
                                 <label class="form-label">Kategori Tag</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori}}" readonly >
+                                <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori}}" >
                             </div>
                         </div>
 
@@ -93,7 +91,7 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
-                                <textarea class="form-label" name="alamat" cols="93" rows="5" readonly>{{ $rumah->alamat }}</textarea>
+                                <textarea class="form-label" name="alamat" cols="93" rows="5" >{{ $rumah->alamat }}</textarea>
                             </div>
                         </div>
 
@@ -102,12 +100,10 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Zon</label>
                             <div class="col-xl-4">
-                                {{-- <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" >
+                                <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" >
                                     <option selected>{{ $rumah->zon }}</option>
                                     
-                                </select> --}}
-                                <input type="text" name="zon" value="{{ $rumah->zon}}" >
-
+                                </select>
                             </div>
                         </div>
 
@@ -133,23 +129,19 @@
                                 <label class="form-label">Negeri</label>
                             </div>
                             <div class="col-4">
-                                {{-- <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" >
-                                    <option selected >{{ $rumah->negeri}}</option>
+                                <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" >
+                                    <option selected>{{ $rumah->negeri}}</option>
                                     
-                                </select> --}}
-                                <input type="text" name="negeri" value="{{ $rumah->negeri}}" >
-
+                                </select>
                             </div>
 
                             <div class="col-2 text-end">
                                 <label class="form-label">Daerah</label>
                             </div>
                             <div class="col-4">
-                                {{-- <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example" >
+                                <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example" >
                                     <option selected>{{ $rumah->daerah}}</option>
-                                </select> --}}
-                                <input type="text" name="daerah" value="{{ $rumah->daerah}}" >
-
+                                </select>
                             </div>
 
                         </div>
@@ -158,7 +150,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                             <div class="col-sm-10">
-                                <input class="form-label" type="text" name="no_tel" value="{{ $rumah->no_tel }}" readonly />
+                                <input class="form-label" type="text" name="no_tel" value="{{ $rumah->no_tel }}" />
                             </div>
                         </div>
 
@@ -196,7 +188,7 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            {{-- <button class="btn btn-success" type="submit">Simpan</button> --}}
+                            <button class="btn btn-success" type="submit">Simpan</button>
                         </div>
 
 
@@ -271,21 +263,6 @@
     }
     }
     }
-</script>
-
-<script>
-    $('input').css('width', ((
-  input.getAttribute('placeholder').length + 1) * 8) + 'px');
-$("input").focusout(function() {
-    if (this.value.length > 0) {
-        this.style.width = 
-          ((this.value.length + 1) * 8) + 'px';
-    } else {
-        this.style.width = 
-          ((this.getAttribute('placeholder').length + 1) * 8)
-        + 'px';
-    }
-});
 </script>
 
 @endsection
