@@ -78,7 +78,7 @@
                                 <label class="form-label">Kod Premis</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kod" value="{{ $rumah->kod}}" >
+                                <input class="form-control" type="text" name="kod" value="{{ $rumah->kod}}" >
                             </div>
                             <div class="col-2 text-end">
                                 <label class="form-label">Kategori Tag</label>
@@ -98,7 +98,7 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
-                                <textarea class="form-label" name="alamat" cols="93" rows="5" >{{ $rumah->alamat }}</textarea>
+                                <textarea class="form-control" name="alamat" cols="93" rows="5" >{{ $rumah->alamat }}</textarea>
                             </div>
                         </div>
 
@@ -150,7 +150,12 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input class="form-label" type="checkbox" name="category[]" value="Ruminan Besar" />
+                                @if($rumah->jenis1) 
+                                    <input class="form-label" type="checkbox" name="jenis1" checked/>
+                                @else
+                                    <input class="form-label" type="checkbox" name="jenis1"/>
+                                @endif
+                                                         
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil

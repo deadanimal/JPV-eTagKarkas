@@ -21,7 +21,7 @@ class RumahSembelihController extends Controller
             $rumah = RumahSembelih::find($id);
             return view('rumah.satu', compact('rumah'));
         } else {
-            $rumahs = RumahSembelih::all();
+            $rumahs = RumahSembelih::orderBy('created_at', 'desc')->get();
                 if($request->ajax()) {
                     return DataTables::collection($rumahs)
                     ->addIndexColumn()
@@ -82,13 +82,21 @@ class RumahSembelihController extends Controller
         $rumah->induk = $request->induk;
         $rumah->nama_rumah = $request->nama_rumah;
         $rumah->kod = $request->kod;
-        $rumah->kategori = $request->kategori;
+        if($request->kategori) {
+            $rumah->kategori = $request->kategori;
+        }    
         $rumah->alamat = $request->alamat;
         $rumah->zon = $request->zon;
         $rumah->negeri = $request->negeri;
         $rumah->daerah = $request->daerah;
         $rumah->no_tel = $request->no_tel;
-        $rumah->akses_ternakan = implode(',', $request->akses_ternakan);
+        if($request->jenis1 == "on") {
+            $rumah->jenis1 = true;
+        } else {
+            $rumah->jenis1 = false;
+        }
+
+        // $rumah->akses_ternakan = implode(',', $request->akses_ternakan);
        
         $rumah->save();
         Alert::success('Daftar berjaya.', 'Pendaftaran anda telah berjaya.');   
@@ -112,7 +120,11 @@ class RumahSembelihController extends Controller
         $rumah->emel = $request->emel;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
         $rumah->zon = $request->zon;
-        $rumah->akses_ternakan = $request->input('akses_ternakan');
+        if($request->jenis1 == "on") {
+            $rumah->jenis1 = true;
+        } else {
+            $rumah->jenis1 = false;
+        }
         
         $rumah->save();
 

@@ -4,13 +4,13 @@
     /* remove arrow in input number */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
     input[type=number] {
-    -moz-appearance: textfield;
-}
+        -moz-appearance: textfield;
+    }
 </style>
 
 
@@ -31,13 +31,13 @@
                     <b class="text-center">Pendaftaran Premis</b>
                 </div>
 
-                @if(Session::has('success'))
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                    @php
-                        Session::forget('success');
-                    @endphp
-                </div>
+                @if (Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                        @php
+                            Session::forget('success');
+                        @endphp
+                    </div>
                 @endif
 
                 <form action="/rumah" method="post" enctype="multipart/form-data" id="perlu">
@@ -54,9 +54,12 @@
                             </div>
                             <div class="col-sm-10">
 
-                                <select class="form-select" aria-label="Default select example" name="induk" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                                <select class="form-select" id="induk" name="induk" required onchange="changeInduk()"
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')">
                                     <option selected disabled value="">Pilih Kategori Premis</option>
-                                    <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
+                                    <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)
+                                    </option>
                                     <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                     <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
                                     <option value="RUMAH SEMBELIH SWASTA (BABI)">RUMAH SEMBELIH SWASTA (BABI)</option>
@@ -73,12 +76,13 @@
                                 <label class="form-label">Nama Premis</label>
                             </div>
                             <div class="col-sm-10">
-                                <input class="form-label" type="text" name="nama_rumah" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"  />
-                                
+                                <input class="form-control" type="text" name="nama_rumah" required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" />
                             </div>
-                             
-                            
-                            
+
+
+
                         </div>
                         <!--Induk-->
                         <div class="mb-3 row">
@@ -86,13 +90,18 @@
                                 <label class="form-label">Kod Premis</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kod" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')" />
+                                <input class="form-label" type="text" name="kod" required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')" />
                             </div>
-                            <div class="col-2 text-end">
+                            
+                            <div class="col-2 text-end" id="tag1">
                                 <label class="form-label">Kategori Tag</label>
                             </div>
-                            <div class="col-4">
-                                <select class="form-select" aria-label="Default select example" name="kategori" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                            <div class="col-4" id="tag2">
+                                <select class="form-select" aria-label="Default select example" name="kategori" required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')">
                                     <option selected="Pilih Kategori Tag">Pilih Kategori Tag</option>
                                     <option value="K1">K1</option>
                                     <option value="K2">K2</option>
@@ -105,8 +114,8 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
-                                <textarea class="form-label" name="alamat" cols="93" rows="5" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
-                                oninput="this.setCustomValidity('')"></textarea>
+                                <textarea class="form-label" name="alamat" cols="93" rows="5" required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"></textarea>
                             </div>
                         </div>
 
@@ -114,9 +123,12 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Zon</label>
                             <div class="col-xl-4">
-                                <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')" >
+                                <select name="zon" id="countySel" size="1" class="form-select"
+                                    aria-label="Default select example" required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')">
                                     <option selected value="">Pilih Zon</option>
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -127,9 +139,12 @@
                                 <label class="form-label">Negeri</label>
                             </div>
                             <div class="col-4">
-                                <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                                <select name="negeri" id="stateSel" size="1" class="form-select"
+                                    aria-label="Default select example" required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')">
                                     <option selected value="">Pilih Negeri</option>
-                                    
+
                                 </select>
                             </div>
 
@@ -137,7 +152,10 @@
                                 <label class="form-label">Daerah</label>
                             </div>
                             <div class="col-4">
-                                <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example"required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')">
+                                <select name="daerah" id="districtSel" size="1" class="form-select"
+                                    aria-label="Default select example"required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')">
                                     <option selected value="">Pilih Daerah</option>
                                 </select>
                             </div>
@@ -148,7 +166,10 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                             <div class="col-sm-10">
-                                <input class="form-label" type="number" name="no_tel" required oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"/>
+                                <input class="form-label" type="number" name="no_tel" required
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninput="this.setCustomValidity('')"
+                                    onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                             </div>
                         </div>
 
@@ -158,11 +179,12 @@
 
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Ruminan Besar" />
+                                <input class="form-label" type="checkbox" name="jenis1"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Ruminan Kecil" />
+                                <input class="form-label" type="checkbox" name="akses_ternakan[]"
+                                    value="Ruminan Kecil" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ayam
@@ -191,7 +213,7 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-success" type="submit" value="submit" >Daftar</button>
+                            <button class="btn btn-success" type="submit" value="submit">Daftar</button>
                         </div>
 
 
@@ -210,73 +232,109 @@
 
 
 @section('script')
+    <script>
+        var stateObject = {
+            "Zon Utara": {
+                "Perak": ["Bagan Datuk", "Batang Padang", "Hulu Perak", "Hilir Perak", "Kinta", "Kampar",
+                    "Kuala Kangsar", "Kerian", "Muallim", "Manjung", "Larut,Matang & Selama", "Perak Tengah"
+                ],
+                "Pulau Pinang": ["Seberang Perai Utara", "Seberang Perai Selatan", "Seberang Perai Tengah",
+                    "Timur Laut Pulau Pinang", "Barat Daya Pulau Pinang", "Seberang Perai Selatan"
+                ],
+                "Kedah": ["Kuala Muda", "Kota Setar", "Langkawi", "Sungai Petani", "Kulim", "Kubang Pasu", "Baling",
+                    "Pendang", "Yan", "Sik", "Padang Terap", "Pokok Sena", "Bandar Baharu"
+                ],
+                "Perlis": ["Arau", "Kangar", "Padang Besar"],
+            },
+            "Zon Tengah": {
+                "Selangor": ["Kuala Selangor", "Gombak", "Petaling", "Sepang", "Hulu Langat", "Klang", "Kuala Langat",
+                    "Hulu Selangor", "Sabak Bernam"
+                ],
+                "WP. Kuala Lumpur": ["Kuala Lumpur"],
+                "WP. Putrajaya": ["Putrajaya"],
+                "Melaka": ["Alor Gajah", "Jasin", "Melaka Tengah"],
+                "Negeri Sembilan": ["Seremban", "Jempol", "Port Dickson", "Kuala Pilah", "Tampin", "Rembau", "Jelebu"],
+            },
+            "Zon Timur": {
+                "Pahang": ["Cameron Highlands", "Bentong", "Kuantan", "Temerloh", "Maran", "Rompin", "Pekan", "Bera",
+                    "Raub", "Jerantut", "Lipis"
+                ],
+                "Terengganu": ["Kuala Terengganu", "Kemaman", "Dungun", "Besut", "Marang", "Hulu Terengganu", "Setiu",
+                    "Kuala Nerus"
+                ],
+                "Kelantan": ["Kota Bharu", "Pasir Mas", "Kuala Krai", "Tumpat", "Bachok", "Tanah Merah", "Pasir Puteh",
+                    "Machang", "Gua Musang", "Jeli"
+                ],
+            },
+            "Zon Selatan": {
+                "Johor": ["Johor Bahru", "Batu Pahat", "Kluang", "Kulai", "Muar", "Kota Tinggi", "Segamat", "Pontian",
+                    "Tangkak", "Mersing"
+                ],
+            },
+            "Sabah": {
+                "Sabah": ["Kota Kinabalu", "Tawau", "Sandakan", "Lahad Datu", "Keningau", "Kinabatangan", "Semporna",
+                    "Papar", "Penampang", "Beluran", "Tuaran", "Ranau", "Kota Belud", "Kudat", "kota Marudu",
+                    "Beaufort", "Kunak", "Tenom", "Putatan", "Pitas", "Tambunan", "Tongod", "Sipitang", "Nabawan",
+                    "Kuala Penyu"
+                ],
+                "Labuan": ["Labuan"],
+            },
+            "Sarawak": {
+                "Sarawak": ["Kuching", "Miri", "Sibu", "Bintulu", "Serian", "Kota Samarahan", "Sri Aman", "Marudi",
+                    "Betong", "Sarikei", "Kapit", "Bau", "Limbang", "Saratok", "Mukah", "Simunjan", "Lawas",
+                    "Belaga", "Lundu", "Asajaya"
+                ],
+            },
+        }
+        window.onload = function() {
+            var countySel = document.getElementById("countySel"),
+                stateSel = document.getElementById("stateSel"),
+                districtSel = document.getElementById("districtSel");
+            for (var zon in stateObject) {
+                countySel.options[countySel.options.length] = new Option(zon, zon);
+            }
+            countySel.onchange = function() {
+                stateSel.length = 1; // remove all options bar first
+                districtSel.length = 1; // remove all options bar first
+                if (this.selectedIndex < 1) return; // done 
+                for (var negeri in stateObject[this.value]) {
+                    stateSel.options[stateSel.options.length] = new Option(negeri, negeri);
+                }
+            }
+            countySel.onchange(); // reset in case page is reloaded
+            stateSel.onchange = function() {
+                districtSel.length = 1; // remove all options bar first
+                if (this.selectedIndex < 1) return; // done 
+                var daerah = stateObject[countySel.value][this.value];
+                for (var i = 0; i < daerah.length; i++) {
+                    districtSel.options[districtSel.options.length] = new Option(daerah[i], daerah[i]);
+                }
+            }
+        }
 
-<script>
-    var stateObject = {
-    "Zon Utara": { "Perak": ["Bagan Datuk","Batang Padang","Hulu Perak","Hilir Perak","Kinta","Kampar", "Kuala Kangsar","Kerian","Muallim","Manjung","Larut,Matang & Selama","Perak Tengah"],
-    "Pulau Pinang": ["Seberang Perai Utara", "Seberang Perai Selatan","Seberang Perai Tengah","Timur Laut Pulau Pinang","Barat Daya Pulau Pinang","Seberang Perai Selatan"],
-    "Kedah": ["Kuala Muda", "Kota Setar","Langkawi","Sungai Petani","Kulim","Kubang Pasu","Baling","Pendang","Yan","Sik","Padang Terap","Pokok Sena","Bandar Baharu"],
-    "Perlis": ["Arau", "Kangar","Padang Besar"],
-    },
-    "Zon Tengah": {
-    "Selangor": ["Kuala Selangor", "Gombak","Petaling","Sepang","Hulu Langat","Klang","Kuala Langat","Hulu Selangor","Sabak Bernam"],
-    "WP. Kuala Lumpur": ["Kuala Lumpur"],
-    "WP. Putrajaya": ["Putrajaya"],
-    "Melaka": ["Alor Gajah","Jasin","Melaka Tengah"],
-    "Negeri Sembilan": ["Seremban", "Jempol","Port Dickson","Kuala Pilah","Tampin","Rembau","Jelebu"],
-    }, 
-    "Zon Timur": {
-    "Pahang": ["Cameron Highlands", "Bentong","Kuantan","Temerloh","Maran","Rompin","Pekan","Bera","Raub","Jerantut","Lipis"],
-    "Terengganu": ["Kuala Terengganu","Kemaman","Dungun","Besut","Marang","Hulu Terengganu","Setiu","Kuala Nerus"],
-    "Kelantan": ["Kota Bharu", "Pasir Mas","Kuala Krai","Tumpat","Bachok","Tanah Merah","Pasir Puteh","Machang","Gua Musang","Jeli"],
-    },
-    "Zon Selatan": {
-        "Johor":["Johor Bahru","Batu Pahat","Kluang","Kulai","Muar","Kota Tinggi","Segamat","Pontian","Tangkak","Mersing"],
-    },
-    "Sabah": {
-        "Sabah":["Kota Kinabalu","Tawau","Sandakan","Lahad Datu","Keningau","Kinabatangan","Semporna","Papar","Penampang","Beluran","Tuaran","Ranau","Kota Belud","Kudat","kota Marudu","Beaufort","Kunak","Tenom","Putatan","Pitas","Tambunan","Tongod","Sipitang","Nabawan","Kuala Penyu"],
-        "Labuan":["Labuan"],
-    },
-    "Sarawak": {
-        "Sarawak": ["Kuching","Miri","Sibu","Bintulu","Serian","Kota Samarahan","Sri Aman","Marudi","Betong","Sarikei","Kapit","Bau","Limbang","Saratok","Mukah","Simunjan","Lawas","Belaga","Lundu","Asajaya"],
-    },
-    }
-    window.onload = function () {
-    var countySel = document.getElementById("countySel"),
-    stateSel = document.getElementById("stateSel"),
-    districtSel = document.getElementById("districtSel");
-    for (var zon in stateObject) {
-    countySel.options[countySel.options.length] = new Option(zon, zon);
-    }
-    countySel.onchange = function () {
-    stateSel.length = 1; // remove all options bar first
-    districtSel.length = 1; // remove all options bar first
-    if (this.selectedIndex < 1) return; // done 
-    for (var negeri in stateObject[this.value]) {
-    stateSel.options[stateSel.options.length] = new Option(negeri, negeri);
-    }
-    }
-    countySel.onchange(); // reset in case page is reloaded
-    stateSel.onchange = function () {
-    districtSel.length = 1; // remove all options bar first
-    if (this.selectedIndex < 1) return; // done 
-    var daerah = stateObject[countySel.value][this.value];
-    for (var i = 0; i < daerah.length; i++) {
-    districtSel.options[districtSel.options.length] = new Option(daerah[i], daerah[i]);
-    }
-    }
-    }
-</script>
+    </script>
 
-{{-- required checkbox --}}
-<script>
-  $('#perlu').on("submit", function (e) {
-    var arr = $(this).serialize().toString();
-    if(arr.indexOf("akses_ternakan") < 0){
-        e.preventDefault();
-        alert("Sila pilih jenis ternakan.");
-    }
-});
-</script>
+    {{-- required checkbox --}}
+    <script>
+        // $('#perlu').on("submit", function(e) {
+        //     var arr = $(this).serialize().toString();
+        //     if (arr.indexOf("akses_ternakan") < 0) {
+        //         e.preventDefault();
+        //         alert("Sila pilih jenis ternakan.");
+        //     }
+        // });
+    </script>
 
+    <script>
+        function changeInduk() {
+            var induk = document.getElementById("induk").value
+            if (induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
+                document.getElementById("tag1").style.display = "none";
+                document.getElementById("tag2").style.display = "none";
+            } else {
+                document.getElementById("tag1").style.display = "block";
+                document.getElementById("tag2").style.display = "block";
+            }
+        }        
+    </script>
 @endsection
