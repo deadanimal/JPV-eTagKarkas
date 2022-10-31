@@ -93,21 +93,22 @@
                         {{-- must be generate automitaclly according to R.Besar n R.Kecil --}}
                         
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
+                            {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                            <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="bil_kodbar_sah" id="bil_kodbar_sah"
                                     value="{{ $tag->bil_kodbar }}" readonly />
                             </div>
                         </div>
 
-                        @if ($tag->status != 'Simpan')
+                        {{-- @if ($tag->status != 'Simpan')
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar </label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" placeholder="" id="bil_kodbar_sah" name="bil_kodbar_sah" value="{{ $tag->bil_kodbar_sah }}" readonly />
                             </div>                            
                         </div>
-                        @endif
+                        @endif --}}
 
                         <!--Cetakan Kod Bar-->
                         {{-- <div class="mb-3 row">

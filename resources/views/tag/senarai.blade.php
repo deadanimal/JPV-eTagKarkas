@@ -93,8 +93,8 @@
                     name: 'jenis_ternakan'
                 }, 
                 {
-                    data: 'bil_ternakan',
-                    name: 'bil_ternakan'
+                    data: 'bil_ternakan_sah',
+                    name: 'bil_ternakan_sah'
                 }, 
                 {
                     data: 'kategori_tag',
