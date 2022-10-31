@@ -57,7 +57,8 @@
                                     name="jenis_ternakan">
                                     <option selected value="Ruminan Besar">Ruminan Besar</option>
                                     <option value="Ruminan Kecil">Ruminan Kecil</option>
-                                    <option value="Ayam/Itik">Ayam/Itik</option>
+                                    <option value="Ayam">Ayam</option>
+                                    <option value="Itik">Itik</option>
                                     <option value="Babi">Babi</option>
                                 </select>
                             </div>
