@@ -61,8 +61,8 @@
                                         Besar</option>
                                     <option value="Ruminan Kecil" @if ($tag->jenis_ternakan == 'Ruminan Kecil') selected @endif>Ruminan
                                         Kecil</option>
-                                    <option value="Ayam/Itik" @if ($tag->jenis_ternakan == 'Ayam/Itik') selected @endif>Ayam/Itik
-                                    </option>
+                                    <option value="Ayam" @if ($tag->jenis_ternakan == 'Ayam') selected @endif>Ayam</option>
+                                    <option value="Itik" @if ($tag->jenis_ternakan == 'Itik') selected @endif>Itik</option>
                                     <option value="Babi" @if ($tag->jenis_ternakan == 'Babi') selected @endif>Babi</option>
                                 </select>
                             </div>

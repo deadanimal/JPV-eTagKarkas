@@ -30,7 +30,7 @@ class TagController extends Controller
     }    
 
     public function senarai_tag(Request $request) {
-        // $tags = Tag::all();
+        $tags = Tag::all();
         $user = $request->user();
         if($user->hasRole('pentadbir|ketua-seksyen')) {
             $tags = Tag::all();
