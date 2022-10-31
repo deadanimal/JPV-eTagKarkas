@@ -49,8 +49,7 @@
                                 <label class="col-form-label">Kategori Premis</label>
                             </div>
                             <div class="col-xl-10">
-                                <select class="form-select" aria-label="Default select example" name="induk" >
-                                    {{-- <option selected >{{ $rumah->induk}}</option> --}}
+                                {{-- <select class="form-select" aria-label="Default select example" name="induk" >
                                     <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
                                     <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                     <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
@@ -61,7 +60,10 @@
                                     <option value="LOJI PEMPROSESAN PRODUK">LOJI PEMPROSESAN PRODUK</option>
                                     <option value="LADANG MyGap">LADANG MyGap</option>
                                     <option value="LADANG MyOrganic">LADANG MyOrganic</option>
-                                </select>
+                                </select> --}}
+                                <input  type="text" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" value="{{ $rumah->induk}}" readonly >
+                                {{-- <input class="form-label"  name="induk" value="{{ $rumah->induk}}" readonly > --}}
+
                             </div>
                             <div class="col-xl-2">
                                 <label class="form-label">Nama Premis</label>
@@ -100,10 +102,12 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Zon</label>
                             <div class="col-xl-4">
-                                <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" >
+                                {{-- <select name="zon" id="countySel" size="1" class="form-select" aria-label="Default select example" >
                                     <option selected>{{ $rumah->zon }}</option>
                                     
-                                </select>
+                                </select> --}}
+                                <input type="text" name="zon" value="{{ $rumah->zon}}" >
+
                             </div>
                         </div>
 
@@ -129,19 +133,23 @@
                                 <label class="form-label">Negeri</label>
                             </div>
                             <div class="col-4">
-                                <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" >
+                                {{-- <select name="negeri" id="stateSel" size="1" class="form-select" aria-label="Default select example" >
                                     <option selected >{{ $rumah->negeri}}</option>
                                     
-                                </select>
+                                </select> --}}
+                                <input type="text" name="negeri" value="{{ $rumah->negeri}}" >
+
                             </div>
 
                             <div class="col-2 text-end">
                                 <label class="form-label">Daerah</label>
                             </div>
                             <div class="col-4">
-                                <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example" >
+                                {{-- <select name="daerah" id="districtSel" size="1" class="form-select" aria-label="Default select example" >
                                     <option selected>{{ $rumah->daerah}}</option>
-                                </select>
+                                </select> --}}
+                                <input type="text" name="daerah" value="{{ $rumah->daerah}}" >
+
                             </div>
 
                         </div>
@@ -263,6 +271,21 @@
     }
     }
     }
+</script>
+
+<script>
+    $('input').css('width', ((
+  input.getAttribute('placeholder').length + 1) * 8) + 'px');
+$("input").focusout(function() {
+    if (this.value.length > 0) {
+        this.style.width = 
+          ((this.value.length + 1) * 8) + 'px';
+    } else {
+        this.style.width = 
+          ((this.getAttribute('placeholder').length + 1) * 8)
+        + 'px';
+    }
+});
 </script>
 
 @endsection
