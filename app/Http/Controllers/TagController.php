@@ -43,7 +43,7 @@ class TagController extends Controller
 
         if($request->ajax()) {
             return DataTables::collection($tags)
-            ->addColumn('no_rujukan', function (Tag $tag) {
+            ->addColumn('no_tag', function (Tag $tag) {
                 $date = $tag->created_at->format('dmy');
                 if($tag->bil_kodbar_sah) {
                     $html_button = 'R'.$tag->rumah_sembelih->id.'-'.$date.'-001 <br/>R'.$tag->rumah_sembelih->id.'-'.$date.'-'.sprintf('%03d', $tag->bil_kodbar_sah);
@@ -83,7 +83,7 @@ class TagController extends Controller
                 $user = $request->user();
                 if($tag->status == "Simpan") {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
-                } else if($tag->status == "Lulus" && $user->hasRole('pentadbir')) {                    
+                } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual' && $user->hasRole('pentadbir')) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
                 } else {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a>';
@@ -97,7 +97,7 @@ class TagController extends Controller
                     'timestamp' => ($tag->created_at && $tag->created_at != '0000-00-00 00:00:00') ? with(new Carbon($tag->created_at))->timestamp : ''
                 ];
             })        
-            ->rawColumns(['nama_premis', 'tindakan', 'no_rujukan'])    
+            ->rawColumns(['nama_premis', 'tindakan', 'no_tag'])    
             ->make(true);
         }
 
@@ -124,7 +124,7 @@ class TagController extends Controller
         }
         //Alert::html('Html Title', 'Html Code', 'Type');
 
-        return back();
+        return redirect('/tag');
     } 
     
     // fungsi padam - zach buat
@@ -180,7 +180,7 @@ class TagController extends Controller
             Alert::error('Tag ditolak', 'Tag telah ditolak.');
         }    
                        
-        return back();
+        return redirect('/tag');
     }
 
     // public function cipta_kemaskini_tag(Request $request) {

@@ -72,7 +72,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan"
+                                <input class="form-control" type="text" min=1 name="bil_ternakan_sah"
                                     value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
                                     @if ($tag->status != 'Simpan') readonly @endif />
                             </div>
@@ -83,7 +83,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah" placeholder="16" />
+                                <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  />
                             </div>                            
                         </div>
                         @endif
@@ -95,7 +95,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="bil_kodbar" id="bilangan_kodbar"
+                                <input class="form-control" type="text" name="bil_kodbar_sah" id="bil_kodbar_sah"
                                     value="{{ $tag->bil_kodbar }}" readonly />
                             </div>
                         </div>
@@ -104,13 +104,13 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar </label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" placeholder="" id="bil_kodbar_sah" name="bil_kodbar_sah" value="{{ $tag->bil_kodbar_sah }}" readonly placeholder="16" />
+                                <input class="form-control" type="text" placeholder="" id="bil_kodbar_sah" name="bil_kodbar_sah" value="{{ $tag->bil_kodbar_sah }}" readonly />
                             </div>                            
                         </div>
                         @endif
 
                         <!--Cetakan Kod Bar-->
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Kategori Tag</label>
                             <div class="col-sm-10">
                                 <select class="form-select" aria-label="Default select example" name="kategori"
@@ -120,7 +120,7 @@
                                     <option value="K3" @if ($tag->kategori == 'K3') selected @endif>K3</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
                         <!--Cetakan Kod Bar-->
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Jana Tag</label>
@@ -193,7 +193,7 @@
         </div>
 
         </div>
-
+s
 
 
     </main>

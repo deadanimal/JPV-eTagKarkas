@@ -91,7 +91,7 @@
 
                         @role('pengurus-rumah-sembelih')
                             <!--Cetakan Kod Bar-->
-                            <div class="mb-3 row">
+                            {{-- <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Kategori Tag</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="kategori">
@@ -100,7 +100,7 @@
                                         <option value="K3">K3</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--Cetakan Kod Bar-->
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Jana Tag</label>

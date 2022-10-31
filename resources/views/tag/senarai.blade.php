@@ -33,7 +33,8 @@
                     <table class="table table-responsive table-bordered tag-datatable">
                         <thead class="text-white bg-info ">
                             <tr>
-                                <th scope="col">Nombor Rujukan Permohonan</th>
+                                {{-- <th scope="col">Nombor Rujukan Permohonan</th> --}}
+                                <th scope="col">Nombor Tag</th>
                                 <th scope="col">Nama Premis</th>
                                 <th scope="col">Jenis Ternakan</th>
                                 <th scope="col">Bilangan Ternakan Yang Disyorkan</th>
@@ -80,8 +81,8 @@
             responsive: true,
             ajax: "/tag",
             columns: [{
-                    data: 'no_rujukan',
-                    name: 'no_rujukan'
+                    data: 'no_tag',
+                    name: 'no_tag'
                 },                                       
                 {
                     data: 'nama_premis',
