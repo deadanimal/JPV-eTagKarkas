@@ -39,7 +39,7 @@
                                     <label class="form-label">Nama Pengguna</label>
                                 </div>
                                 <div class="col-xl-10 ">
-                                    <input class="form-control" type="text" name="nama"  />
+                                    <input class="form-control" type="text" name="name"  />
                                 </div>
                                 <div class="col-xl-2 mb-3">
                                     <label class="col-form-label">Peranan</label>

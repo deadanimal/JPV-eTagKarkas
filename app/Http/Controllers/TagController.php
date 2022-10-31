@@ -82,11 +82,11 @@ class TagController extends Controller
                 $url3 = '/tag/'.$tag->id.'/jana';
                 $user = $request->user();
                 if($tag->status == "Simpan") {
-                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
-                } else if($tag->status == "Lulus" && $user->hasRole('ketua-seksyen')) {                    
-                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success">Jana</button></a>';    
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
+                } else if($tag->status == "Lulus" && $user->hasRole('pentadbir')) {                    
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
                 } else {
-                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a>';
                 }
                 return $html_button;
             })                                  

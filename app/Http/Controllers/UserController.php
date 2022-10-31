@@ -47,7 +47,7 @@ class UserController extends Controller
     public function cipta_pengguna(Request $request) {
         
         $user = User::create([
-            'name' => $request->nama,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -61,6 +61,8 @@ class UserController extends Controller
         $user->gred = $request->gred;
         $user->telefon = $request->telefon;
         $user->status = (int)$request->status;
+        Alert::success('Daftar pengguna berjaya.', 'Pendaftaran pengguna berjaya.');   
+
 
         $user->save();
 

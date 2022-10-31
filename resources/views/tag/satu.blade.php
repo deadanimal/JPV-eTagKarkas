@@ -137,6 +137,7 @@
                         </div>
 
                         {{-- Catatan --}}
+                        @role('ketua-seksyen')
                         @if ($tag->status == 'Sah' || $tag->status == 'Tolak')
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Catatan</label>
@@ -146,6 +147,7 @@
                             </div>
                         </div>
                         @endif
+                        @endrole
 
                 </div>
 
@@ -157,15 +159,25 @@
                         <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button>
                     </div>
                 @endif
+                @if ($tag->status == 'Lulus')
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-info">Kembali</a>
+                </div>
+                @endif
                 @endrole
 
                 @role('pentadbir')
-                @if ($tag->status == 'Hantar')
+                @if ($tag->status == 'Hantar' || $tag->status == 'Simpan')
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                         <button class="btn btn-success" type="submit" name="submitbutton" value="Sah">Sah</button>
                     
                     </div>
-                @endif   
+                @endif 
+                @if ($tag->status == 'Lulus' || $tag->status == 'Sah')
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-info">Kembali</a>
+                </div>
+                @endif  
                 @endrole
                 
                 @role('ketua-seksyen')
