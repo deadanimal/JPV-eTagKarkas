@@ -188,28 +188,27 @@
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ayam
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Unggas" />
+                                <input class="form-control" type="checkbox" name="jenis3"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Itik
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Itik" />
+                                <input class="form-control" type="checkbox" name="jenis4"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Babi
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Babi" />
+                                <input class="form-control" type="checkbox" name="jenis5"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Telur
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Telur" />
+                                <input class="form-control" type="checkbox" name="jenis6"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Susu
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Susu" />
+                                <input class="form-control" type="checkbox" name="jenis7"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Tambah Nilai
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]" value="Susu" />
-                            </div>
+                                <input class="form-control" type="checkbox" name="jenis8"/>                            </div>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">

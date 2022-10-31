@@ -70,7 +70,7 @@
                                     <label class="form-label">Nama Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah }}">
+                                    <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah }}" style="width: 100%">
                                 </div>
 
                             </div>
@@ -169,27 +169,51 @@
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Ayam
-                                    <input class="form-label" type="checkbox" name="category[]" value="Ayam" />
+                                    @if ($rumah->jenis3)
+                                    <input class="form-label" type="checkbox" name="jenis3" checked />
+                                @else
+                                    <input class="form-label" type="checkbox" name="jenis3" />
+                                @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Itik
-                                    <input class="form-label" type="checkbox" name="category[]" value="Itik" />
+                                    @if ($rumah->jenis4)
+                                    <input class="form-label" type="checkbox" name="jenis4" checked />
+                                @else
+                                    <input class="form-label" type="checkbox" name="jenis4" />
+                                @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Babi
-                                    <input class="form-label" type="checkbox" name="category[]" value="Babi" />
+                                    @if ($rumah->jenis5)
+                                    <input class="form-label" type="checkbox" name="jenis5" checked />
+                                @else
+                                    <input class="form-label" type="checkbox" name="jenis5" />
+                                @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Telur
-                                    <input class="form-label" type="checkbox" name="category[]" value="Telur" />
+                                    @if ($rumah->jenis6)
+                                    <input class="form-label" type="checkbox" name="jenis6" checked />
+                                @else
+                                    <input class="form-label" type="checkbox" name="jenis6" />
+                                @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Susu
-                                    <input class="form-label" type="checkbox" name="category[]" value="Susu" />
+                                    @if ($rumah->jenis7)
+                                    <input class="form-label" type="checkbox" name="jenis7" checked />
+                                @else
+                                    <input class="form-label" type="checkbox" name="jenis7" />
+                                @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Tambah Nilai
-                                    <input class="form-label" type="checkbox" name="category[]" value="Tambah Nilai" />
+                                    @if ($rumah->jenis8)
+                                    <input class="form-label" type="checkbox" name="jenis8" checked />
+                                @else
+                                    <input class="form-label" type="checkbox" name="jenis8" />
+                                @endif                                
                                 </div>
                             </div>
 
