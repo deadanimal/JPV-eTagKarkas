@@ -37,6 +37,7 @@
                 </div>
                 @endrole
 
+                @role('pentadbir')
                 <form action="/rumah/{{$rumah->id}}" method="POST" >
                     @method('PUT')
                     @csrf
@@ -194,6 +195,137 @@
 
                     </div>
                 </form>
+                @endrole
+
+                @role('pengurus-rumah-sembelih')
+                <form action="/rumah/{{$rumah->id}}" method="POST" >
+                    @method('PUT')
+                    @csrf
+                    <div class="card-body">
+
+                        <!--Nama Pengeluar-->
+                        <div class="mb-3 row">
+                            <div class="col-xl-2 mb-3">
+                                {{-- buat as table, editable in future --}}
+                                <label class="col-form-label">Kategori Premis</label>
+                            </div>
+                            <div class="col-xl-10">
+                                <input class="form-label" type="text" name="induk" value="{{ $rumah->induk}}" readonly >
+
+                            </div>
+                            <div class="col-xl-2">
+                                <label class="form-label">Nama Premis</label>
+                            </div>
+                            <div class="col-xl-10">
+                                <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah}}" readonly >
+                            </div>
+
+                        </div>
+                        <!--Induk-->
+                        <div class="mb-3 row">
+                            <div class="col-2">
+                                <label class="form-label">Kod Premis</label>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-label" type="text" name="kod" value="{{ $rumah->kod}}" readonly >
+                            </div>
+                            <div class="col-2 text-end">
+                                <label class="form-label">Kategori Tag</label>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori}}" readonly >
+                            </div>
+                        </div>
+
+                        {{-- Alamat --}}
+                        <div class="mb-3 row">
+                            <label class="col-xl-2 col-form-label">Alamat</label>
+                            <div class="col-xl-10">
+                                <textarea class="form-label" name="alamat" cols="93" rows="5" readonly>{{ $rumah->alamat }}</textarea>
+                            </div>
+                        </div>
+
+                        {{-- Zon --}}
+                       
+                        <div class="mb-3 row">
+                            <label class="col-xl-2 col-form-label">Zon</label>
+                            <div class="col-xl-4">
+                                <input class="form-label" type="text" name="zon" value="{{ $rumah->zon}}" readonly >
+
+                              
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <div class="col-2">
+                                <label class="form-label">Negeri</label>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-label" type="text" name="negeri" value="{{ $rumah->negeri}}" readonly >
+
+            
+                            </div>
+
+                            <div class="col-2 text-end">
+                                <label class="form-label">Daerah</label>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-label" type="text" name="daerah" value="{{ $rumah->daerah}}" readonly >
+
+                               
+                            </div>
+
+                        </div>
+
+                        {{-- Nombor Telefon --}}
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
+                            <div class="col-sm-10">
+                                <input class="form-label" type="text" name="no_tel" value="{{ $rumah->no_tel }}" readonly />
+                            </div>
+                        </div>
+
+
+                        <!--Akses Ternakan-->
+                        <div class="mb-3 row">
+                            <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
+                            <div class="col ">Ruminan Besar
+                                <input class="form-label" type="checkbox" name="category[]" value="Ruminan Besar" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Ruminan Kecil
+                                <input class="form-label" type="checkbox" name="category[]" value="Ruminan Kecil" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Ayam/Itik
+                                <input class="form-label" type="checkbox" name="category[]" value="Ayam/Itik" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Babi
+                                <input class="form-label" type="checkbox" name="category[]" value="Babi" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Telur
+                                <input class="form-label" type="checkbox" name="category[]" value="Telur" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Susu
+                                <input class="form-label" type="checkbox" name="category[]" value="Susu" />
+                            </div>
+                            <label class="col"></label>
+                            <div class="col ">Tambah Nilai
+                                <input class="form-label" type="checkbox" name="category[]" value="Tambah Nilai" />
+                            </div>
+                        </div>
+
+                        {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-success" type="submit">Simpan</button>
+                        </div> --}}
+
+
+                    </div>
+                </form>
+                @endrole
             </div>
         </div>
 
