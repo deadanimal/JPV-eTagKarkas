@@ -92,7 +92,7 @@
                             <div class="col-4">
                                 <input class="form-label" type="text" name="kod" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
-                                    oninput="this.setCustomValidity('')" />
+                                    oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"/>
                             </div>
                             
                             <div class="col-2 text-end" id="tag1">
@@ -115,7 +115,7 @@
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
                                 <textarea class="form-label" name="alamat" cols="93" rows="5" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"></textarea>
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"></textarea>
                             </div>
                         </div>
 
@@ -179,12 +179,12 @@
 
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input class="form-label" type="checkbox" name="jenis1"/>
+                                <input class="form-control" type="checkbox" name="jenis1"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil
-                                <input class="form-label" type="checkbox" name="akses_ternakan[]"
-                                    value="Ruminan Kecil" />
+                                <input class="form-control" type="checkbox" name="jenis2"/>
+
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ayam
@@ -328,7 +328,7 @@
     <script>
         function changeInduk() {
             var induk = document.getElementById("induk").value
-            if (induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
+            if (induk == "LOJI PENYEMBELIHAN AYAM" || induk == "LOJI PENYEMBELIHAN ITIK" || induk == "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
                 document.getElementById("tag1").style.display = "none";
                 document.getElementById("tag2").style.display = "none";
             } else {

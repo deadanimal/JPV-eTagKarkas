@@ -72,7 +72,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan_sah"
+                                <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
                                     value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
                                     @if ($tag->status != 'Simpan') readonly @endif />
                             </div>
@@ -213,5 +213,17 @@ s
                 document.getElementById("bil_kodbar_sah").value = bilanganTernakan * 2;
             }
         }
+
+        function calculate2() {
+            var jenisTernakan = document.getElementById("jenis_ternakan").value;
+            console.log(jenisTernakan);
+            var bilanganTernakan = document.getElementById("bilangan_ternakan").value;
+            console.log(bilanganTernakan);
+            if (jenisTernakan == 'Ruminan Besar') {
+                document.getElementById("bil_kodbar_sah").value = bilanganTernakan * 4;
+            } else {
+                document.getElementById("bil_kodbar_sah").value = bilanganTernakan * 2;
+            }
+        }        
     </script>
 @endsection

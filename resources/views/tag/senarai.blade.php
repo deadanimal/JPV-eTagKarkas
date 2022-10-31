@@ -41,6 +41,7 @@
 
                                 <th scope="col">Kategori Tag</th>
                                 <th scope="col">Tarikh Permohonan</th>
+                                <th scope="col">Tarikh Tindakan</th>
                                 <th scope="col">Nama Pemohon</th>
                                 <th scope="col">Cetakan Kod Bar</th>
                                 <th scope="col">Status</th>
@@ -79,6 +80,18 @@
             processing: true,
             serverSide: true,
             responsive: true,
+            order: [[7, 'desc']],
+            language: {
+                    "search": "Carian:",
+                    "lengthMenu": "Tunjuk _MENU_ informasi",
+                    "info": "Tunjuk _START_ ke _END_ dari _TOTAL_ informasi",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Akhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelum"
+                    },
+                },
             ajax: "/tag",
             columns: [{
                     data: 'no_rujukan',
@@ -112,6 +125,14 @@
                     },
                     name: 'created_at'
                 },
+                {
+                    data: {
+                        _:'updated_at.display',
+                        sort:'updated_at.timestamp',
+                        filter:'updated_at.display',
+                    },
+                    name: 'updated_at'
+                },                
                 {
                     data: 'pemohon_tag',
                     name: 'pemohon_tag'

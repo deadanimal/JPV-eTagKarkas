@@ -19,7 +19,7 @@ class RumahSembelihController extends Controller
         if ($user->hasRole('pengurus-rumah-sembelih')) {
             $id = $user->rumah_sembelih->id;
             $rumah = RumahSembelih::find($id);
-            return view('rumah.satu', compact('rumah'));
+            return view('rumah.satu', compact('rumah', 'user'));
         } else {
             $rumahs = RumahSembelih::orderBy('created_at', 'desc')->get();
                 if($request->ajax()) {
@@ -94,7 +94,12 @@ class RumahSembelihController extends Controller
             $rumah->jenis1 = true;
         } else {
             $rumah->jenis1 = false;
-        }
+        };
+        if($request->jenis2 == "on") {
+            $rumah->jenis2 = true;
+        } else {
+            $rumah->jenis2 = false;
+        };
 
         // $rumah->akses_ternakan = implode(',', $request->akses_ternakan);
        
@@ -112,7 +117,10 @@ class RumahSembelihController extends Controller
         $rumah->induk = $request->induk;
         $rumah->nama_rumah = $request->nama_rumah;
         $rumah->kod = $request->kod;
-        $rumah->kategori = $request->kategori;
+        // $rumah->kategori = $request->kategori;
+        if($request->kategori) {
+            $rumah->kategori = $request->kategori;
+        } 
         $rumah->alamat = $request->alamat;
         $rumah->negeri = $request->negeri;
         $rumah->daerah = $request->daerah;
@@ -124,17 +132,26 @@ class RumahSembelihController extends Controller
             $rumah->jenis1 = true;
         } else {
             $rumah->jenis1 = false;
-        }
+        };
+        if($request->jenis2 == "on") {
+            $rumah->jenis2 = true;
+        } else {
+            $rumah->jenis2 = false;
+        };
         
         $rumah->save();
+
+        Alert::success('Kemaskini berjaya.', 'Kemaskini anda telah berjaya.');   
+
 
         return redirect('/rumah');
     }   
 
     public function satu_rumah(Request $request) {
+        $user = $request->user();
         $id = (int)$request->route('id');
         $rumah = RumahSembelih::find($id);
-        return view('rumah.satu', compact('rumah'));
+        return view('rumah.satu', compact('rumah', 'user'));
     }  
     
     public function borang_rumah(Request $request) {

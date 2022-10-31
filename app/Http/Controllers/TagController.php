@@ -33,12 +33,15 @@ class TagController extends Controller
         $tags = Tag::all();
         $user = $request->user();
         if($user->hasRole('pentadbir|ketua-seksyen')) {
-            $tags = Tag::all();
+            // $tags = Tag::all();
+            $tags = Tag::where([
+                ['status','!=', 'Padam']
+            ])->orderBy('updated_at', 'desc')->get();
         } else if ($user->hasRole('pengurus-rumah-sembelih')) {
             $tags = Tag::where([
                 ['user_id','=', $user->id],
                 ['status','!=', 'Padam']
-            ])->get();
+            ])->orderBy('updated_at','desc')->get();
         }
 
         if($request->ajax()) {
@@ -94,12 +97,19 @@ class TagController extends Controller
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
                 } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual' && $user->hasRole('pentadbir')) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
+                } else if($tag->status == "Sah") {
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
                 } else {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a>';
                 }
                 return $html_button;
             })                                  
-            
+            ->editColumn('updated_at', function (Tag $tag) {
+                return [
+                    'display' => ($tag->updated_at && $tag->updated_at != '0000-00-00 00:00:00') ? with(new Carbon($tag->updated_at))->format('d F Y') : '',
+                    'timestamp' => ($tag->updated_at && $tag->updated_at != '0000-00-00 00:00:00') ? with(new Carbon($tag->updated_at))->timestamp : ''
+                ];
+            })              
             ->editColumn('created_at', function (Tag $tag) {
                 return [
                     'display' => ($tag->created_at && $tag->created_at != '0000-00-00 00:00:00') ? with(new Carbon($tag->created_at))->format('d F Y') : '',
