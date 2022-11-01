@@ -59,24 +59,6 @@ class RumahSembelihController extends Controller
     
     public function cipta_rumah(Request $request) {
 
-        // $request->validate([
-        //     'induk' => 'required',
-        //     'nama_rumah' => 'required',
-        //     'kod' => 'required',
-        //     'kategori' => 'required',
-        //     'alamat' => 'required',
-        //     'zon' => 'required',
-        //     'negeri' => 'required',
-        //     'daerah' => 'required',
-        //     'no_tel' => 'required',
-        //     'akses_ternakan' => 'required',
-           
-        // ], [
-        //     'induk.required' => ' Sila masukkan maklumat ini.',
-        //     'nama_rumah.required' => ' Sila masukkan maklumat ini.'
-        // ]);
-
-
 
         $rumah = New RumahSembelih;
         $rumah->induk = $request->induk;
@@ -167,6 +149,36 @@ class RumahSembelihController extends Controller
             $rumah->jenis2 = true;
         } else {
             $rumah->jenis2 = false;
+        };
+        if($request->jenis3 == "on") {
+            $rumah->jenis3 = true;
+        } else {
+            $rumah->jenis3 = false;
+        };
+        if($request->jenis4 == "on") {
+            $rumah->jenis4 = true;
+        } else {
+            $rumah->jenis4 = false;
+        };
+        if($request->jenis5 == "on") {
+            $rumah->jenis5 = true;
+        } else {
+            $rumah->jenis5 = false;
+        };
+        if($request->jenis6 == "on") {
+            $rumah->jenis6 = true;
+        } else {
+            $rumah->jenis6 = false;
+        };
+        if($request->jenis7 == "on") {
+            $rumah->jenis7 = true;
+        } else {
+            $rumah->jenis7 = false;
+        };
+        if($request->jenis8 == "on") {
+            $rumah->jenis8 = true;
+        } else {
+            $rumah->jenis8 = false;
         };
         
         
