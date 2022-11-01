@@ -84,7 +84,7 @@
 
                     @role('pengurus-rumah-sembelih|pemeriksa-daging')
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pemeriksaan">
+                        <a class="sidebar-link" href="/daging">
                             <span class="align-middle">Pemeriksaan Daging</span>
                         </a>
                     </li>  

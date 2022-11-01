@@ -3,116 +3,114 @@
 
 
 @section('content')
+    <main class="content">
 
-<div>
-    <div>
-        <div class="row mb-3">
-            <div class="col">
-                <nav style="--falcon-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23748194'/%3E%3C/svg%3E&#34;);"
-                    aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="#" class="text-secondary">Permohonan Tag Karkas</a>
-                        </li>
-                        <li class="breadcrumb-item text-dark-green-jkr" style="font-weight: 700" aria-current="page">
-                            Daftar Tag Karkas
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        
-        <hr class="text-primary mb-3">
-        
-        
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-header bg-oranje-jkr">
-                    <b>Permohonan Tag Karkas</b>
-                </div>
-                <div class="card-body">
-                        
-                   <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih->id}}" >
 
-                    <!--Nama Pengeluar-->
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="nama" value="{{$tag->rumah_sembelih->nama_rumah}}" readonly/>
-                    </div>
-                    </div>
-                    <!--Induk-->
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Induk:</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="induk" value="" readonly  />
-                    </div>
-                    </div>
-                    <!--Pejabat Pengeluar-->
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Pejabat Pengeluar:</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="pejabat" value="" readonly  />
-                    </div>
-                    </div>
-                    <!--Kategori Tag-->
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Kategori Tag</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="tag" value="" readonly />
-                    </div>
-                    </div>
+            <div class="header">
+                <h1 class="header-title">
+                    Pendaftaran Stok Tag Karkas
+                </h1>
+            </div>
 
-                                                
+        </div>
+    </main>
+
+{{-- 
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header bg-oranje-jkr">
+                        <b>Permohonan Tag Karkas</b>
+                    </div>
+                    <div class="card-body">
+
+                        <input type="hidden" name="rumah_sembelih_id" value="{{ $user->rumah_sembelih->id }}">
+
+                        <!--Nama Pengeluar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Nama Pengeluar:</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" autocapitalize="off" name="nama"
+                                    value="{{ $tag->rumah_sembelih->nama_rumah }}" readonly />
+                            </div>
+                        </div>
+                        <!--Induk-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Induk:</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" autocapitalize="off" name="induk"
+                                    value="" readonly />
+                            </div>
+                        </div>
+                        <!--Pejabat Pengeluar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Pejabat Pengeluar:</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" autocapitalize="off" name="pejabat"
+                                    value="" readonly />
+                            </div>
+                        </div>
+                        <!--Kategori Tag-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Kategori Tag</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" autocapitalize="off" name="tag"
+                                    value="" readonly />
+                            </div>
+                        </div>
+
+
                         <form action="" method="post" enctype="multipart/form-data">
                             @method('POST')
                             @csrf
                             <!--Jenis Ternakan-->
                             <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Jenis Ternakan</label>
-                            <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Ruminan Besar</option>
-                                    <option value="ruminan_kecil">Ruminan Kecil</option>
-                                    <option value="unggas">Unggas</option>
-                                    <option value="babi">Babi</option>
-                                </select>
-                            </div>
-                            </div>
-                            {{-- Bilangan Ternakan --}}
-                            <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" autocapitalize="off" name="bil_ternakan" placeholder="4"  />
+                                <label class="col-sm-3 col-form-label">Jenis Ternakan</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Ruminan Besar</option>
+                                        <option value="ruminan_kecil">Ruminan Kecil</option>
+                                        <option value="unggas">Unggas</option>
+                                        <option value="babi">Babi</option>
+                                    </select>
                                 </div>
                             </div>
-                            {{-- Bilangan Kod Bar Untuk Dijana --}}
-                            <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" autocapitalize="off" name="bil_kod" placeholder="16"  />
-                                </div>
-                            </div>
-
-                    <!--Cetakan Kod Bar-->
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Cetakan Kod Bar</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" autocapitalize="off" name="cetakan" placeholder="Manual" value="" readonly  />
-                    </div>
-                    </div>         
                             
-                    <!--Button-->
-                    <div align="right">
-                        <button class=“btn btn-primary” type=“submit”>Simpan</button>
-                        <button class=“btn btn-primary” type=“submit”>Hantar</button>
-                    </div>
-        
-                        </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" autocapitalize="off" name="bil_ternakan"
+                                        placeholder="4" />
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Bilangan Kod Bar Untuk Dijana</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" autocapitalize="off" name="bil_kod"
+                                        placeholder="16" />
+                                </div>
+                            </div>
 
-@endsection
+                            
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Cetakan Kod Bar</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" autocapitalize="off" name="cetakan"
+                                        placeholder="Manual" value="" readonly />
+                                </div>
+                            </div>
+
+                            
+                            <div align="right">
+                                <button class=“btn btn-primary” type=“submit”>Simpan</button>
+                                <button class=“btn btn-primary” type=“submit”>Hantar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div> --}}
+        {{-- </div>
+    </main> --}}
+    @endsection

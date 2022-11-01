@@ -20,40 +20,40 @@
                         @method('PUT')
                         <!--Nama Pengeluar-->
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Nama Pengeluar:</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->nama_rumah }}"
                                     readonly />
                             </div>
                         </div>
                         <!--Induk-->
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Premis:</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Premis:</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->induk }}"
                                     readonly />
                             </div>
                         </div>
                         <!--Pejabat Pengeluar-->
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Nama Premis:</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Nama Premis:</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->nama_rumah }}"
                                     readonly />
                             </div>
                         </div>
                         <!--Kategori Tag-->
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Kategori Tag</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Kategori Tag</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->kategori }}"
                                     readonly />
                             </div>
                         </div>
                         <!--Jenis Ternakan-->
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Jenis Ternakan</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Jenis Ternakan</label>
+                            <div class="col-sm-9">
                                 <select class="form-select" aria-label="Default select example" id="jenis_ternakan"
                                     name="jenis_ternakan" value="{{ $tag->jenis_ternakan }}"
                                     @if ($tag->status != 'Simpan') disabled @endif>
@@ -72,8 +72,8 @@
                         @role('pengurus-rumah-sembelih')
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
                                     value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
                                     @if ($tag->status != 'Simpan') readonly @endif />
@@ -82,8 +82,8 @@
 
                         <div class="mb-3 row">
                             {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
-                            <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
                                     value="{{ $tag->bil_kodbar }}" readonly />
                             </div>
@@ -96,8 +96,8 @@
                         @role('pentadbir')
                         {{-- Bilangan Ternakan --}}
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
                                     value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
                                     @if ($tag->status != 'Simpan') readonly @endif />
@@ -109,8 +109,8 @@
                         {{-- Pengesyoran Kuantiti --}}
                         @if ($tag->status != 'Simpan' )
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Pengesyoran Kuantiti</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  />
                             </div>                            
                         </div>
@@ -121,8 +121,8 @@
                         
                         <div class="mb-3 row">
                             {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
-                            <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar</label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" name="bil_kodbar_sah" id="bil_kodbar_sah"
                                     value="{{ $tag->bil_kodbar_sah }}" readonly />
                             </div>
@@ -133,8 +133,8 @@
 
                         @if($tag->status == 'Sah' || $tag->status == 'Lulus' )
                             <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
+                                <div class="col-sm-9">
                                     <input class="form-control" type="text" min=1 name="bil_ternakan" 
                                         value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
                                          readonly />
@@ -148,8 +148,8 @@
 
                         {{-- @if ($tag->status != 'Simpan')
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar </label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar </label>
+                            <div class="col-sm-9">
                                 <input class="form-control" type="text" placeholder="" id="bil_kodbar_sah" name="bil_kodbar_sah" value="{{ $tag->bil_kodbar_sah }}" readonly />
                             </div>                            
                         </div>
@@ -158,8 +158,8 @@
             
                         <!--Cetakan Kod Bar-->
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Jana Tag</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Jana Tag</label>
+                            <div class="col-sm-9">
                                 <select class="form-select" aria-label="Default select example" name="kodbar"
                                     @if ($tag->status != 'Simpan') disabled @endif>
                                     <option value="Manual" @if ($tag->kodbar == 'Manual') selected @endif>Manual
@@ -175,8 +175,8 @@
                         @role('ketua-seksyen')
                         @if ($tag->status == 'Sah' || $tag->status == 'Tolak')
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Catatan</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-3 col-form-label">Catatan</label>
+                            <div class="col-sm-9">
                                 <textarea placeholder="Isi jika tolak permohonan sahaja" class="form-control" name="catatan_tolak" cols="90" rows="5" >{{$tag->catatan_tolak}}</textarea>
 
                             </div>
@@ -194,16 +194,6 @@
                         {{-- <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button> --}}
                     </div>
                 @endif
-                @if ($tag->status == 'Lulus' || $tag->status == 'Hantar' || $tag->status == 'Sah' )
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    <a href="/tag" class="btn btn-info">Kembali</a>
-                </div>
-                @endif
-                @if ($tag->status == 'Hantar')
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    <a href="/tag" class="btn btn-info">Kembali</a>
-                </div>
-                @endif
                 @endrole
 
                 @role('pentadbir')
@@ -213,11 +203,6 @@
                     
                     </div>
                 @endif 
-                @if ($tag->status == 'Lulus' || $tag->status == 'Sah')
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    <a href="/tag" class="btn btn-info">Kembali</a>
-                </div>
-                @endif  
                 @endrole
                 
                 @role('ketua-seksyen')
@@ -227,12 +212,11 @@
                         <button class="btn btn-danger" type="submit" name="submitbutton" value="Tolak">Tolak</button>                    
                     </div>
                 @endif  
-                @if ($tag->status == 'Lulus')
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                        <a href="/tag" class="btn btn-info">Kembali</a>
-                    </div>
-                @endif 
-                @endrole                
+                @endrole   
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-info">Kembali</a>
+                </div>                
                 </form>
             </div>
         </div>

@@ -13,7 +13,7 @@
                     Permohonan Tag Karkas
                 </h1>
                 @role('pengurus-rumah-sembelih')
-                <a href="/tag-borang" class="btn float-end " style="width: fit-content"><button class="btn btn-warning btn-block">Tambah</button></a>
+                <a href="/tag/borang" class="btn float-end " style="width: fit-content"><button class="btn btn-warning btn-block">Tambah</button></a>
                 @endrole
             </div>
 

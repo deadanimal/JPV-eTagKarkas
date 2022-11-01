@@ -16,20 +16,20 @@ use Yajra\DataTables\Contracts\DataTable;
 class TagController extends Controller
 {
 
-    public function satu_tag(Request $request) {
+    public function satu(Request $request) {
         $id = (int)$request->route('id');
         $tag = Tag::find($id);        
         return view('tag.satu', compact('tag'));
     }
 
-    public function jana_tag(Request $request) {
+    public function jana(Request $request) {
         $id = (int)$request->route('id');
         $tag = Tag::find($id);     
         $date = $tag->created_at->format('dmy');   
         return view('tag.jana', compact('tag', 'date'));
     }    
 
-    public function senarai_tag(Request $request) {
+    public function senarai(Request $request) {
         $tags = Tag::all();
         $user = $request->user();
         if($user->hasRole('pentadbir|ketua-seksyen')) {
@@ -125,7 +125,7 @@ class TagController extends Controller
         return view('tag.senarai', compact('user','tags'));
     } 
  
-    public function cipta_tag(Request $request) {
+    public function cipta(Request $request) {
         $user = $request->user();
         $tags = New Tag;
         $tags->jenis_ternakan = $request->jenis_ternakan;
@@ -149,7 +149,7 @@ class TagController extends Controller
     } 
     
     // fungsi padam - zach buat
-    public function padam_tag(Request $request) {
+    public function padam(Request $request) {
         $id = (int)$request->route('id');
         $tag = Tag::find($id); 
         $tag->status = 'Padam';
@@ -163,7 +163,7 @@ class TagController extends Controller
     }
 
     // untuk kemaskini tag - zach tambah
-    public function kemaskini_tag(Request $request) {
+    public function kemaskini(Request $request) {
         $id = (int)$request->route('id');
         $tag = Tag::find($id); 
         $user = $request->user();
@@ -204,75 +204,11 @@ class TagController extends Controller
         return redirect('/tag');
     }
 
-    // public function cipta_kemaskini_tag(Request $request) {
-    //     $id = (int)$request->route('id');
 
-    //     $tag = Tag::find($id);
-    //     // dd($tag);
 
-    //     $tag->jenis_ternakan = $request->jenis_ternakan;
-    //     $tag->bil_ternakan = $request->bil_ternakan;
-    //     $tag->bil_kodbar = $request->bil_kodbar;
-    //     $tag->save();
-    //     return back();
-    // } 
-
-    public function borang_tag(Request $request) {
+    public function borang(Request $request) {
         $user = $request->user();    
         return view('tag.borang_tag', compact('user'));
     }   
-
-    public function senarai_stok_tag(Request $request) {
-
-        $user = $request->user();
-
-        $stoks = StokTag::all();
-        if($request->ajax()) {
-            return DataTables::collection($stoks)
-            // ->addColumn('tindakan', function (Stok_tag $stok) {
-            //     $url = '/tag/senarai_tag/stok/'.$stok->id;
-            //     return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-            // })                        
-            ->make(true);
-        }
-        
-        return view('tag.senarai_stok', compact('stoks','user'));
-    } 
-
-    public function cipta_stok_tag(Request $request) {
-        $stoks = New StokTag;
-        $stoks->tarikh_tag_terima = $request->tarikh_tag_terima;
-        $stoks->tag_diterima = $request->tag_diterima;
-        $stoks->tag_rosak = $request->tag_rosak;
-        $stoks->tag_bolehpakai = $request->tag_bolehpakai;
-        $stoks->tarikh_tag_rosak = $request->tarikh_tag_rosak;
-        $stoks->catatan = $request->catatan;
-        $stoks->save();
-        Alert::success('Stok Tag Dicipta', 'Info Stok Tag dicipta');
-        return redirect('');
-    } 
-
-
-    public function satu_stok_tag(Request $request) {
-        $id = (int)$request->route('id');
-        $stoks = StokTag::find($id);        
-        return view('tag.satu_stok', compact('stoks'));
-    }
-
-    public function kemaskini_stok_tag(Request $request) {
-        $id = (int)$request->route('id');
-
-        $stoks = StokTag::find($id);
-        $stoks->tag_diterima = $request->tag_diterima;
-        $stoks->tag_rosak = $request->tag_rosak;
-        $stoks->catatan = $request->catatan;
-        $stoks->save();
-        return back();
-    } 
-
-    public function borang_stok(Request $request) {
-        $user = $request->user();
-        return view('tag.borang_stok');
-    }  
 
 }

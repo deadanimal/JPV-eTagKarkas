@@ -23,20 +23,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('rumah/{id}/gugur/{pengguna_id}', [RumahSembelihController::class, 'gugur_pengguna']);
     
     Route::get('daging', [DagingController::class, 'senarai_daging']);    
-    Route::post('daging', [DagingController::class, 'cipta_daging']);
-    Route::get('daging/satu_ruminan', [DagingController::class, 'satu_daging']);
+    Route::post('daging', [DagingController::class, 'daftar']);
+    Route::post('daging/semak', [DagingController::class, 'semak']);
+    Route::get('daging/{id}', [DagingController::class, 'satu']);
     Route::put('daging/{id}', [DagingController::class, 'kemaskini_daging']);
     Route::post('daging/{id}/sebelum-sembelih', [DagingController::class, 'cipta_sebelum_sembelih']);
     Route::post('daging/{id}/selepas-sembelih', [DagingController::class, 'cipta_selepas_sembelih']);
     Route::post('daging/{id}/laporan', [DagingController::class, 'cipta_laporan']);
     
-    Route::get('tag', [TagController::class, 'senarai_tag']);
-    Route::get('tag-borang', [TagController::class, 'borang_tag']);
-    Route::get('tag/{id}', [TagController::class, 'satu_tag']);
-    Route::post('tag', [TagController::class, 'cipta_tag']);   
-    Route::put('tag/{id}', [TagController::class, 'kemaskini_tag']);
-    Route::get('tag/{id}/jana', [TagController::class, 'jana_tag']);
-    Route::get('tag/{id}/delete', [TagController::class, 'padam_tag']);
+    Route::get('tag', [TagController::class, 'senarai']);
+    Route::get('tag/borang', [TagController::class, 'borang']);
+    Route::get('tag/{id}', [TagController::class, 'satu']);
+    Route::post('tag', [TagController::class, 'cipta']);   
+    Route::put('tag/{id}', [TagController::class, 'kemaskini']);
+    Route::get('tag/{id}/jana', [TagController::class, 'jana']);
+    Route::get('tag/{id}/delete', [TagController::class, 'padam']);
 
     // pendaftaran stok tag - zach tambah
     Route::get('stok-tag', [StokTagController::class, 'senarai']);
@@ -44,9 +45,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('stok-tag', [StokTagController::class, 'cipta']);
     Route::get('stok-tag/{id}', [StokTagController::class, 'satu']);
     Route::put('stok-tag/{id}', [StokTagController::class, 'kemaskini']);
-
-    
-
     
     Route::get('profil', [UserController::class, 'senarai_profil']);
     Route::put('profil', [UserController::class, 'kemaskini_profil']);
