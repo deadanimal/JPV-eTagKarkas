@@ -98,11 +98,16 @@
                                 </div>
 
                     
-                                @if($rumah->induk == 'RUMAH SEMBELIH JABATAN (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH JABATAN (BABI)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (BABI)' || $rumah->induk == 'SEMBELIHAN LUAR' )
-                                <div class="col-2 text-end" id="tag1">
+                                <?php
+                                $t = "block";
+                                if($rumah->induk == "LADANG MyOrganic" || $rumah->induk == "LADANG MyGap" || $rumah->induk == "LOJI PENYEMBELIHAN ITIK" || $rumah->induk == "LOJI PENYEMBELIHAN AYAM" || $rumah->induk == "LOJI PEMPROSESAN PRODUK"|| $rumah->induk == 'RUMAH SEMBELIH JABATAN (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH JABATAN (BABI)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (BABI)' || $rumah->induk == 'SEMBELIHAN LUAR' ){
+                                    $t = "none";
+                                }
+                                ?>
+                                <div class="col-2 text-end" id="tag1" style="display:{{$t}};">
                                     <label class="form-label">Kategori Tag</label>
                                 </div>
-                                <div class="col-4" id="tag2">
+                                <div class="col-4" id="tag2" style="display:{{$t}};">
                                     <select class="form-select" aria-label="Default select example" name="kategori"
                                         id="s1" onclick="selOpt()">
                                         <option selected="Pilih Kategori Tag" class="kat">{{ $rumah->kategori }} </option>
@@ -111,9 +116,9 @@
                                         <option value="K3">K3</option>
                                     </select>
                                 </div>
-                                @else
-                                        <input name="kategori" value="0" type="hidden"> 
-                                @endif
+                                {{-- @else
+                                        <input name="kategori" id="tag3" value="0" type="hidden">  --}}
+                                {{-- @endif --}}
                             </div>
 
                             {{-- Alamat --}}
@@ -553,8 +558,9 @@
     <script>
         function changeInduk() {
             var induk = document.getElementById("induk").value
+            console.log(induk)
             if (induk == "LOJI PENYEMBELIHAN AYAM" || induk == "LOJI PENYEMBELIHAN ITIK" || induk ==
-                "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
+                "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic" ) {
                 document.getElementById("tag1").style.display = "none";
                 document.getElementById("tag2").style.display = "none";
             } else {
