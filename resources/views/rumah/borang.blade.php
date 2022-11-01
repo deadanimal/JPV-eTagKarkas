@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-<style>
-    /* remove arrow in input number */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
-</style>
 
 
 @section('content')
@@ -90,7 +78,7 @@
                                 <label class="form-label">Kod Premis</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-label" type="text" name="kod" required
+                                <input class="form-control" type="text" name="kod" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"/>
                             </div>
@@ -102,7 +90,7 @@
                                 <select class="form-select" aria-label="Default select example" name="kategori" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
-                                    <option selected="Pilih Kategori Tag">Pilih Kategori Tag</option>
+                                    <option disabled selected>Pilih Kategori Tag</option>                                    
                                     <option value="K1">K1</option>
                                     <option value="K2">K2</option>
                                     <option value="K3">K3</option>
@@ -114,7 +102,7 @@
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
-                                <textarea class="form-label" name="alamat" cols="93" rows="5" required
+                                <textarea class="form-control" name="alamat" cols="93" rows="5" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"></textarea>
                             </div>
                         </div>
@@ -166,7 +154,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                             <div class="col-sm-10">
-                                <input class="form-label" type="number" name="no_tel" required
+                                <input class="form-control" type="number" name="no_tel" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')"
                                     onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
@@ -179,35 +167,35 @@
 
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input class="form-label" type="checkbox" name="jenis1"/>
+                                <input type="checkbox" name="jenis1"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil
-                                <input class="form-label" type="checkbox" name="jenis2"/>
+                                <input type="checkbox" name="jenis2"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ayam
-                                <input class="form-label" type="checkbox" name="jenis3"/>
+                                <input type="checkbox" name="jenis3"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Itik
-                                <input class="form-label" type="checkbox" name="jenis4"/>
+                                <input type="checkbox" name="jenis4"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Babi
-                                <input class="form-label" type="checkbox" name="jenis5"/>
+                                <input type="checkbox" name="jenis5"/>
                             </div>
                             <label class="col"></label>
-                            <div class="col ">Telur
-                                <input class="form-label" type="checkbox" name="jenis6"/>
+                            <div class="col">Telur
+                                <input type="checkbox" name="jenis6"/>
                             </div>
                             <label class="col"></label>
-                            <div class="col ">Susu
-                                <input class="form-label" type="checkbox" name="jenis7"/>
+                            <div class="col">Susu
+                                <input type="checkbox" name="jenis7"/>
                             </div>
                             <label class="col"></label>
-                            <div class="col ">Tambah Nilai
-                                <input class="form-label" type="checkbox" name="jenis"/>                            
+                            <div class="col">Tambah Nilai
+                                <input type="checkbox" name="jenis8"/>                            
                             </div>
                         </div>
 

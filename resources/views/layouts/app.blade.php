@@ -39,7 +39,7 @@
 
                     <li class="sidebar-item ">
                         <a class="sidebar-link" href="/">
-                            <span class="align-middle">Dashboard</span>
+                            <span class="align-middle">Paparan Utama</span>
                         </a>
                     </li> 
                     
@@ -56,6 +56,12 @@
                             <span class="align-middle">Pendaftaran Premis</span>
                         </a>
                     </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/stok-tag">
+                            <span class="align-middle">Pendaftaran Stok Tag Karkas</span>
+                        </a>
+                    </li>                       
             
                     @endrole  
 
@@ -68,24 +74,24 @@
                     @endrole
 
                     
-
+                    @role('pengurus-rumah-sembelih|pentadbir')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
                             <span class="align-middle">Permohonan Tag</span>
                         </a>
                     </li>  
+                    @endrole
 
-                    
-                    
-                    @role('pentadbir')
-
+                    @role('pengurus-rumah-sembelih|pemeriksa-daging')
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="/tag/senarai_tag/stok">
-                            <span class="align-middle">Pendaftaran Stok Tag Karkas</span>
+                        <a class="sidebar-link" href="/pemeriksaan">
+                            <span class="align-middle">Pemeriksaan Daging</span>
                         </a>
-                    </li>           
-            
-                    @endrole  
+                    </li>  
+                    @endrole                    
+
+                    
+                     
                     
                     {{-- <li class="sidebar-item">
                         <a class="sidebar-link" href="/daging">

@@ -1,17 +1,19 @@
 @extends('layouts.app')
 
-<style>
-    /* remove arrow in input number */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+@section('styles')
+    <style>
+        /* remove arrow in input number */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
-</style>
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+@endsection
 
 
 
@@ -21,34 +23,31 @@
         <div class="container-fluid">
 
             <div class="header">
-                @role('pentadbir')
-                    <h1 class="header-title">
+                <h1 class="header-title">
+                    @role('pentadbir')
                         Pendaftaran Premis
-                    </h1>
-                @endrole
+                    @endrole
+
+                    @role('pengurus-rumah-sembelih')
+                        Maklumat Premis
+                    @endrole
+                </h1>
             </div>
 
-            @role('pengurus-rumah-sembelih')
-                <div class="header">
-                    <h1 class="header-title">
-                        Maklumat Premis
-                    </h1>
-                </div>
-            @endrole
 
 
             <div class="card">
-                @role('pentadbir')
-                    <div class="card-header bg-info text-white">
-                        <b class="text-center">Pendaftaran Premis</b>
-                    </div>
-                @endrole
 
-                @role('pengurus-rumah-sembelih')
-                    <div class="card-header bg-info text-white">
-                        <b class="text-center">Maklumat Premis</b>
-                    </div>
-                @endrole
+                <div class="card-header bg-info text-white">
+                    <b class="text-center">
+                        @role('pentadbir')
+                            Pendaftaran Premis
+                        @endrole
+                        @role('pengurus-rumah-sembelih')
+                            Maklumat Premis
+                        @endrole
+                    </b>
+                </div>
 
                 @role('pentadbir')
                     <form action="/rumah/{{ $rumah->id }}" method="POST">
@@ -56,16 +55,18 @@
                         @csrf
                         <div class="card-body">
 
-                            <!--Nama Pengeluar-->
+                            
                             <div class="mb-3 row">
+                                
                                 <div class="col-xl-2 mb-3">
-                                    {{-- buat as table, editable in future --}}
+                                    
                                     <label class="col-form-label">Kategori Premis</label>
                                 </div>
+
                                 <div class="col-xl-10">
-                                    <select class="form-select" aria-label="Default select example" name="induk"
-                                        id="induk" onclick="indOpt()" onchange="changeInduk()">
-                                        <option selected class="ind">{{ $rumah->induk }}</option>
+                                    <select class="form-select" name="induk"
+                                        id="induk" onchange="changeInduk()">
+                                        <option value="{{$rumah->induk}}" selected disabled>{{$rumah->induk}}</option>
                                         <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
                                         <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                         <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
@@ -78,12 +79,13 @@
                                         <option value="LADANG MyOrganic">LADANG MyOrganic</option>
                                     </select>
                                 </div>
+
                                 <div class="col-xl-2">
                                     <label class="form-label">Nama Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah }}" style="width: 100%"
-                                    onkeyup="this.value = this.value.toUpperCase();">
+                                    <input class="form-control" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah }}"
+                                        style="width: 100%" onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
 
                             </div>
@@ -94,23 +96,18 @@
                                 </div>
                                 <div class="col-4">
                                     <input class="form-control" type="text" name="kod" value="{{ $rumah->kod }}"
-                                    onkeyup="this.value = this.value.toUpperCase();">
+                                        onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
 
-                    
-                                <?php
-                                $t = "block";
-                                if($rumah->induk == "LADANG MyOrganic" || $rumah->induk == "LADANG MyGap" || $rumah->induk == "LOJI PENYEMBELIHAN ITIK" || $rumah->induk == "LOJI PENYEMBELIHAN AYAM" || $rumah->induk == "LOJI PEMPROSESAN PRODUK"|| $rumah->induk == 'RUMAH SEMBELIH JABATAN (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH JABATAN (BABI)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (BABI)' || $rumah->induk == 'SEMBELIHAN LUAR' ){
-                                    $t = "none";
-                                }
-                                ?>
-                                <div class="col-2 text-end" id="tag1" style="display:{{$t}};">
+
+                          
+                                <div class="col-2 text-end" id="tag1">
                                     <label class="form-label">Kategori Tag</label>
                                 </div>
-                                <div class="col-4" id="tag2" style="display:{{$t}};">
+                                <div class="col-4" id="tag2">
                                     <select class="form-select" aria-label="Default select example" name="kategori"
-                                        id="s1" onclick="selOpt()">
-                                        <option selected="Pilih Kategori Tag" class="kat">{{ $rumah->kategori }} </option>
+                                        id="s1">
+                                        <option value="{{$rumah->kategori}}" selected disabled>{{$rumah->kategori}}</option>
                                         <option value="K1">K1</option>
                                         <option value="K2">K2</option>
                                         <option value="K3">K3</option>
@@ -125,7 +122,8 @@
                             <div class="mb-3 row">
                                 <label class="col-xl-2 col-form-label">Alamat</label>
                                 <div class="col-xl-10">
-                                    <textarea class="form-control" name="alamat" cols="93" rows="5" onkeyup="this.value = this.value.toUpperCase();">{{ $rumah->alamat }} </textarea>
+                                    <textarea class="form-control" name="alamat" cols="93" rows="5"
+                                        onkeyup="this.value = this.value.toUpperCase();">{{ $rumah->alamat }} </textarea>
                                 </div>
                             </div>
 
@@ -135,7 +133,7 @@
                                 <label class="col-xl-2 col-form-label">Zon</label>
                                 <div class="col-xl-4">
                                     <select name="zon" id="countySel" size="1" class="form-select">
-                                        <option>{{ $rumah->zon }} 	&#10003;</option>
+                                        <option>{{ $rumah->zon }} &#10003;</option>
                                     </select>
                                 </div>
                             </div>
@@ -147,7 +145,7 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="negeri" id="stateSel" size="1" class="form-select">
-                                        <option>{{ $rumah->negeri }} 	&#10003;</option>
+                                        <option>{{ $rumah->negeri }} &#10003;</option>
 
                                     </select>
                                 </div>
@@ -157,7 +155,7 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="daerah" id="districtSel" size="1" class="form-select">
-                                        <option>{{ $rumah->daerah }} 	&#10003;</option>
+                                        <option>{{ $rumah->daerah }} &#10003;</option>
                                     </select>
                                 </div>
 
@@ -167,8 +165,8 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                                 <div class="col-sm-10">
-                                    <input class="form-label" type="number" name="no_tel" value="{{ $rumah->no_tel }}" 
-                                    onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"/>
+                                    <input class="form-control" type="number" name="no_tel" value="{{ $rumah->no_tel }}"
+                                        onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                 </div>
                             </div>
 
@@ -195,50 +193,50 @@
                                 <label class="col"></label>
                                 <div class="col ">Ayam
                                     @if ($rumah->jenis3)
-                                    <input class="form-label" type="checkbox" name="jenis3" checked />
+                                        <input class="form-label" type="checkbox" name="jenis3" checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis3" />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis3" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Itik
                                     @if ($rumah->jenis4)
-                                    <input class="form-label" type="checkbox" name="jenis4" checked />
+                                        <input class="form-label" type="checkbox" name="jenis4" checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis4" />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis4" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Babi
                                     @if ($rumah->jenis5)
-                                    <input class="form-label" type="checkbox" name="jenis5" checked />
+                                        <input class="form-label" type="checkbox" name="jenis5" checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis5" />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis5" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Telur
                                     @if ($rumah->jenis6)
-                                    <input class="form-label" type="checkbox" name="jenis6" checked />
+                                        <input class="form-label" type="checkbox" name="jenis6" checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis6" />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis6" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Susu
                                     @if ($rumah->jenis7)
-                                    <input class="form-label" type="checkbox" name="jenis7" checked />
+                                        <input class="form-label" type="checkbox" name="jenis7" checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis7" />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis7" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Tambah Nilai
                                     @if ($rumah->jenis8)
-                                    <input class="form-label" type="checkbox" name="jenis8" checked />
+                                        <input class="form-label" type="checkbox" name="jenis8" checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis8" />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis8" />
+                                    @endif
                                 </div>
                             </div>
 
@@ -264,15 +262,16 @@
                                     <label class="col-form-label">Kategori Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-label" type="text" name="induk" value="{{ $rumah->induk }}" style="width: 100%" readonly>
+                                    <input class="form-control" type="text" name="induk" value="{{ $rumah->induk }}"
+                                        style="width: 100%" readonly>
 
                                 </div>
                                 <div class="col-xl-2">
                                     <label class="form-label">Nama Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-label" type="text" name="nama_rumah"
-                                        value="{{ $rumah->nama_rumah }}" style="width: 100%" readonly>
+                                    <input class="form-control" type="text" name="nama_rumah"
+                                        value="{{ $rumah->nama_rumah }}" readonly>
                                 </div>
 
                             </div>
@@ -282,13 +281,15 @@
                                     <label class="form-label">Kod Premis</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="kod" value="{{ $rumah->kod }}" readonly>
+                                    <input class="form-label" type="text" name="kod" value="{{ $rumah->kod }}"
+                                        readonly>
                                 </div>
                                 <div class="col-2 text-end">
                                     <label class="form-label">Kategori Tag</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori }}" readonly>
+                                    <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori }}"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -296,7 +297,7 @@
                             <div class="mb-3 row">
                                 <label class="col-xl-2 col-form-label">Alamat</label>
                                 <div class="col-xl-10">
-                                    <textarea class="form-label" name="alamat" cols="93" rows="5" readonly>{{ $rumah->alamat }}</textarea>
+                                    <textarea class="form-control" name="alamat" cols="93" rows="5" readonly>{{ $rumah->alamat }}</textarea>
                                 </div>
                             </div>
 
@@ -305,7 +306,8 @@
                             <div class="mb-3 row">
                                 <label class="col-xl-2 col-form-label">Zon</label>
                                 <div class="col-xl-4">
-                                    <input class="form-label" type="text" name="zon" value="{{ $rumah->zon }}" readonly>
+                                    <input class="form-control" type="text" name="zon" value="{{ $rumah->zon }}"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -314,14 +316,16 @@
                                     <label class="form-label">Negeri</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="negeri" value="{{ $rumah->negeri }}" readonly>
+                                    <input class="form-control" type="text" name="negeri" value="{{ $rumah->negeri }}"
+                                        readonly>
                                 </div>
 
                                 <div class="col-2 text-end">
                                     <label class="form-label">Daerah</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="daerah" value="{{ $rumah->daerah }}" readonly>
+                                    <input class="form-control" type="text" name="daerah" value="{{ $rumah->daerah }}"
+                                        readonly>
                                 </div>
 
                             </div>
@@ -330,7 +334,8 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                                 <div class="col-sm-10">
-                                    <input class="form-label" type="text" name="no_tel" value="{{ $rumah->no_tel }}" readonly />
+                                    <input class="form-control" type="text" name="no_tel" value="{{ $rumah->no_tel }}"
+                                        readonly />
                                 </div>
                             </div>
 
@@ -340,67 +345,75 @@
                                 <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                                 <div class="col ">Ruminan Besar
                                     @if ($rumah->jenis1)
-                                        <input class="form-label" type="checkbox" name="jenis1"  onclick="return false;" checked />
+                                        <input class="form-label" type="checkbox" name="jenis1" onclick="return false;"
+                                            checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis1"  onclick="return false;" />
+                                        <input class="form-label" type="checkbox" name="jenis1" onclick="return false;" />
                                     @endif
 
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Ruminan Kecil
                                     @if ($rumah->jenis2)
-                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;"  checked />
+                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;"
+                                            checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;"  />
+                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;" />
                                     @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Ayam
                                     @if ($rumah->jenis3)
-                                    <input class="form-label" type="checkbox" name="jenis3" onclick="return false;"  checked />
+                                        <input class="form-label" type="checkbox" name="jenis3" onclick="return false;"
+                                            checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis3" onclick="return false;"  />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis3" onclick="return false;" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Itik
                                     @if ($rumah->jenis4)
-                                    <input class="form-label" type="checkbox" name="jenis4" onclick="return false;"  checked />
+                                        <input class="form-label" type="checkbox" name="jenis4" onclick="return false;"
+                                            checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis4" onclick="return false;"  />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis4" onclick="return false;" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Babi
                                     @if ($rumah->jenis5)
-                                    <input class="form-label" type="checkbox" name="jenis5" onclick="return false;"  checked />
+                                        <input class="form-label" type="checkbox" name="jenis5" onclick="return false;"
+                                            checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis5" onclick="return false;"  />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis5" onclick="return false;" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Telur
                                     @if ($rumah->jenis6)
-                                    <input class="form-label" type="checkbox" name="jenis6" onclick="return false;"  checked />
+                                        <input class="form-label" type="checkbox" name="jenis6" onclick="return false;"
+                                            checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis6" onclick="return false;"  />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis6" onclick="return false;" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Susu
                                     @if ($rumah->jenis7)
-                                    <input class="form-label" type="checkbox" name="jenis7" onclick="return false;"  checked />
+                                        <input class="form-label" type="checkbox" name="jenis7" onclick="return false;"
+                                            checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis7" onclick="return false;"  />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis7" onclick="return false;" />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Tambah Nilai
                                     @if ($rumah->jenis8)
-                                    <input class="form-label" type="checkbox" name="jenis8" onclick="return false;"  checked />
+                                        <input class="form-label" type="checkbox" name="jenis8" onclick="return false;"
+                                            checked />
                                     @else
-                                    <input class="form-label" type="checkbox" name="jenis8" onclick="return false;"  />
-                                    @endif                                
+                                        <input class="form-label" type="checkbox" name="jenis8" onclick="return false;" />
+                                    @endif
                                 </div>
                             </div>
 
@@ -411,39 +424,52 @@
 
                         </div>
                     </form>
+                @endrole
+
             </div>
 
-            <div class="card">
-                <div class="card-header bg-info text-white">
-                    <b class="text-center">Senarai Pengguna</b>
-                </div>
+            @role('pentadbir|pengurus-rumah-sembelih')
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <b class="text-center">Senarai Pengguna</b>
+                    </div>
 
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Nombor Telefon</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->telefon}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->status}}</td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-            
-            </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Nombor Telefon</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($rumah->users as $usera)
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{ $usera->name }}</td>
+                                <td>{{ $usera->telefon }}</td>
+                                <td>{{ $usera->email }}</td>
+                                <td>{{ $usera->status }}</td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <th scope="row">-</th>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>                            
+                            @endforelse
+
+                        </tbody>
+                    </table>
+
+                </div>                
             @endrole
 
-        </div>
+            
 
 
 
@@ -512,24 +538,24 @@
         window.onload = function() {
             var countySel = document.getElementById("countySel"),
                 stateSel = document.getElementById("stateSel"),
-                districtSel = document.getElementById("districtSel");                
+                districtSel = document.getElementById("districtSel");
             for (var zon in stateObject) {
                 countySel.options[countySel.options.length] = new Option(zon, zon);
             }
-            countySel.onchange = function() {                
+            countySel.onchange = function() {
                 stateSel.length = 1; // remove all options bar first
                 districtSel.length = 1; // remove all options bar first
                 if (this.selectedIndex < 1) return; // done 
                 console.log(stateSel.options)
                 for (var negeri in stateObject[this.value]) {
                     stateSel.options[stateSel.options.length] = new Option(negeri, negeri);
-                }                
+                }
             }
             //countySel.onchange(); // reset in case page is reloaded
             stateSel.onchange = function() {
                 districtSel.length = 1; // remove all options bar first
                 if (this.selectedIndex < 1) return; // done 
-                var daerah = stateObject[countySel.value][this.value];        
+                var daerah = stateObject[countySel.value][this.value];
                 for (var i = 0; i < daerah.length; i++) {
                     districtSel.options[districtSel.options.length] = new Option(daerah[i], daerah[i]);
                 }
@@ -537,30 +563,14 @@
         }
     </script>
 
-    {{-- kategori premis --}}
-    <script type="text/javascript">
-        function indOpt() {
-            selEl = document.querySelector('#induk');
-            ind = selEl.value;
-            document.querySelector('.ind').textContent = op;
-        }
-    </script>
-
-    {{-- kategori tag --}}
-    <script type="text/javascript">
-        function selOpt() {
-            selEl = document.querySelector('#s1');
-            kat = selEl.value;
-            document.querySelector('.kat').textContent = op;
-        }
-    </script>
 
     <script>
+        changeInduk();
         function changeInduk() {
             var induk = document.getElementById("induk").value
             console.log(induk)
             if (induk == "LOJI PENYEMBELIHAN AYAM" || induk == "LOJI PENYEMBELIHAN ITIK" || induk ==
-                "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic" ) {
+                "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
                 document.getElementById("tag1").style.display = "none";
                 document.getElementById("tag2").style.display = "none";
             } else {

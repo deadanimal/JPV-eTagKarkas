@@ -15,49 +15,53 @@ use App\Models\RumahSembelih;
 class UserController extends Controller
 {
 
-    public function home(Request $request) {
+    public function home(Request $request) {    
         return view('home');
     }
 
-    public function senarai_profil(Request $request) {
-        $user = $request->user;
-        return view('pengguna.profil', compact('user'));
-    }
-
-    public function kemaskini_profil(Request $request) {
-        $user = $request->user;
-
-        // tambah yang nak edit
-        $user->name = $request->name;
-
-
-        $user->save();
-
-        return back();        
-    }
-
-    public function senarai_pengguna(Request $request) {
-        
+    public function senarai(Request $request) {    
         $user = $request->user();
-
         $pengguna = User::all();
             if($request->ajax()) {
                 return DataTables::collection($pengguna)
-                ->addIndexColumn()
+                ->addIndexColumn()   
+                ->addColumn('rumah', function (User $user) {
+                    if($user->rumah) {
+                        $html_ = $user->rumah->nama;
+                    } else {
+                        $html_ = '-';
+                    }
+                    return $html_;
+                })                  
+                ->addColumn('tindakan', function (User $user) {
+                    $url = '/pengguna/'.$user->id;
+                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Kemaskini</a>';
+                })    
+                ->addColumn('status', function (User $user) {
+                    if($user->status) {
+                        return 'Aktif';
+                    } else {
+                        return 'Tidak Aktif';
+                    }                        
+                })                      
+                ->rawColumns(['tindakan', 'status', 'rumah'])                          
                 ->make(true);
             }
 
         return view('pengguna.senarai', compact('pengguna', 'user'));
     }
 
-    public function satu_pengguna(Request $request) {
+    public function borang() {
+        return view('pengguna.borang');        
+    }
+
+    public function satu(Request $request) {
         $id = (int)$request->route('id');
         $user = User::find($id);
-
         return view('pengguna.satu', compact('user'));        
     }
 
-    public function cipta_pengguna(Request $request) {      
+    public function cipta(Request $request) {      
 
         $customMessages = [
             'required' => 'Kesemua info perlu diletakkan',
@@ -82,14 +86,39 @@ class UserController extends Controller
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
         $user->telefon = $request->telefon;
-        $user->status = (int)$request->status;        
-        $user->save();
-
+        $user->status = true;                
         $role = Role::find((int)$request->peranan);
+        $user->peranan = $role->display_name;
+        $user->save();
         $user->attachRole($role);
 
         Alert::success('Daftar pengguna berjaya.', 'Pendaftaran pengguna berjaya.');   
 
         return back();
     }
+
+    public function kemaskini(Request $request) {      
+
+        $id = (int)$request->route('id');
+        $user = User::find($id);
+        
+        $user->name = $request->name;
+        $user->pejabat = $request->pejabat;
+        $user->alamat = $request->alamat;
+        $user->unit = $request->unit;
+        $user->cawangan = $request->cawangan;
+        $user->jawatan = $request->jawatan;
+        $user->gred = $request->gred;
+        $user->telefon = $request->telefon;
+        $user->status = true;                
+        $role = Role::find((int)$request->peranan);
+        $user->detachRoles();
+        $user->peranan = $role->display_name;
+        $user->save();
+        $user->attachRole($role);
+
+        Alert::success('Kemaskini pengguna berjaya.', 'Kemaskini pengguna berjaya.');   
+
+        return back();
+    }    
 }

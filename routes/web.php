@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RumahSembelihController;
 use App\Http\Controllers\DagingController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\StokTagController;
 
 
 Route::middleware(['auth'])->group(function () {
@@ -36,11 +37,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('tag/{id}/delete', [TagController::class, 'padam_tag']);
 
     // pendaftaran stok tag - zach tambah
-    Route::get('tag/senarai_tag/stok', [TagController::class, 'senarai_stok_tag']);
-    Route::get('tag/senarai_tag/stok-borang', [TagController::class, 'borang_stok']);
-    Route::post('tag/senarai_tag/stok', [TagController::class, 'cipta_stok_tag']);
-    Route::get('tag/senarai_tag/stok/{id}', [TagController::class, 'satu_stok_tag']);
-    Route::put('tag/senarai_tag/stok/{id}', [TagController::class, 'kemaskini_stok_tag']);
+    Route::get('stok-tag', [StokTagController::class, 'senarai']);
+    Route::get('stok-tag/borang', [StokTagController::class, 'borang']);
+    Route::post('stok-tag', [StokTagController::class, 'cipta']);
+    Route::get('stok-tag/{id}', [StokTagController::class, 'satu']);
+    Route::put('stok-tag/{id}', [StokTagController::class, 'kemaskini']);
 
     
 
@@ -54,9 +55,11 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['role:pentadbir'])->group(function () {
 
-    Route::get('pengguna', [UserController::class, 'senarai_pengguna']);
-    Route::get('pengguna/{id}', [UserController::class, 'satu_pengguna']);
-    Route::post('pengguna', [UserController::class, 'cipta_pengguna']);    
+    Route::get('pengguna', [UserController::class, 'senarai']);
+    Route::get('pengguna/borang', [UserController::class, 'borang']);
+    Route::get('pengguna/{id}', [UserController::class, 'satu']);
+    Route::put('pengguna/{id}', [UserController::class, 'kemaskini']);
+    Route::post('pengguna', [UserController::class, 'cipta']);    
 
 });
 

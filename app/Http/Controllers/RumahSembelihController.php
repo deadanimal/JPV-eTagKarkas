@@ -19,7 +19,8 @@ class RumahSembelihController extends Controller
         if ($user->hasRole('pengurus-rumah-sembelih')) {
             $id = $user->rumah_sembelih->id;
             $rumah = RumahSembelih::find($id);
-            return view('rumah.satu', compact('rumah', 'user'));
+            $url = '/rumah/'.$rumah->id;
+            return redirect($url);
         } else {
             $rumahs = RumahSembelih::orderBy('created_at', 'desc')->get();
                 if($request->ajax()) {
@@ -58,6 +59,15 @@ class RumahSembelihController extends Controller
     } 
     
     public function cipta_rumah(Request $request) {
+
+        $customMessages = [
+            'required' => 'Kesemua info perlu diletakkan',
+            'unique' => 'Kod yang diberikan perlu unik.',
+        ];    
+        
+        $request->validate([
+            'kod' => 'required|unique:rumah_sembelihs',
+        ], $customMessages);              
 
 
         $rumah = New RumahSembelih;
@@ -112,8 +122,6 @@ class RumahSembelihController extends Controller
         } else {
             $rumah->jenis8 = false;
         };
-
-        // $rumah->akses_ternakan = implode(',', $request->akses_ternakan);
        
         $rumah->save();
         Alert::success('Daftar berjaya.', 'Pendaftaran anda telah berjaya.');   
@@ -122,14 +130,26 @@ class RumahSembelihController extends Controller
     }  
 
     public function kemaskini_rumah(Request $request) {
+
+        $customMessages = [
+            'required' => 'Kesemua info perlu diletakkan',
+            'unique' => 'Kod yang diberikan perlu unik.',
+        ];    
+        
+        
         
         $id = (int)$request->route('id');
         $rumah = RumahSembelih::find($id);
-
         $rumah->induk = $request->induk;
         $rumah->nama_rumah = $request->nama_rumah;
-        $rumah->kod = $request->kod;
-        // $rumah->kategori = $request->kategori;
+        if($request->kod != $rumah->kod) {
+            $request->validate([
+                'kod' => 'required|unique:rumah_sembelihs',
+            ], $customMessages);   
+            Alert::error('Kod tidak unik', 'Kemaskini anda tidak berjaya.');   
+            return back();
+        }
+
         if($request->kategori) {
             $rumah->kategori = $request->kategori;
         } 

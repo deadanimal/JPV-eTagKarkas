@@ -11,57 +11,65 @@
                 <h1 class="header-title">
                     Senarai Pengguna
                 </h1>
-                <a href="/pengguna-borang" class="btn float-end " style="width: fit-content"><button
+                <a href="/pengguna/borang" class="btn float-end " style="width: fit-content"><button
                         class="btn btn-warning btn-block">Tambah</button></a>
             </div>
 
+            {{-- align button tambah --}}
+            <div class="card" style="width: fit-content">
+
+            </div>
 
 
-      
+            @role('pentadbir')
+                <div class="card">
 
-    
+                    {{-- datatable --}}
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <table class="table table-bordered rumah-datatable">
+                                <thead class="text-white bg-info ">
+                                    <tr>
+                                        <th>Bil.</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Peranan</th>
+                                        <th scope="col">Pejabat</th>
+                                        <th scope="col">Rumah Sembelih</th>
+                                        <th scope="col">Emel</th>
+                                        <th scope="col">Telefon</th>
+                                        <th scope="col">Jawatan</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Tindakan</th>
 
-                        <div class="card">
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                            {{-- datatable --}}
-                            <div class="card-body">
-                                <div class="justify-content-center">
-                                    <table class="table table-bordered pengguna-datatable">
-                                        <thead class="text-white bg-info ">
-                                            <tr>
-                                                <th>Bil.</th>
-                                                <th scope="col">Nama</th>
-                                                <th scope="col">Peranan</th>
-                                                <th scope="col">Pejabat</th>
-                                                <th scope="col">Rumah Sembelih</th>
-                                                <th scope="col">Emel</th>
-                                                <th scope="col">Telefon</th>
-                                                <th scope="col">Jawatan</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Tindakan</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
+                                </tbody>
+                            </table>
 
 
-                                </div>
-                            </div>
                         </div>
+                    </div>
+                </div>
+            @endrole
 
+            @role('pengurus-rumah-sembelih')
+            @endrole
 
         </div>
+
+
     </main>
 @endsection
+
+
 
 @section('script')
     <script type="text/javascript">
         $(function() {
 
-            var table = $('.pengguna-datatable').DataTable({
+            var table = $('.rumah-datatable').DataTable({
                 processing: true,
                 serverSide: true,
                 responsive: true,
@@ -94,8 +102,8 @@
                         name: 'pejabat'
                     },
                     {
-                        data: 'alamat',
-                        name: 'alamat'
+                        data: 'rumah',
+                        name: 'rumah'
                     },
                     {
                         data: 'email',
@@ -113,6 +121,10 @@
                         data: 'status',
                         name: 'status'
                     },
+                    {
+                        data: 'tindakan',
+                        name: 'tindakan'
+                    },                    
 
                 ]
             });

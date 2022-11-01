@@ -10,7 +10,7 @@
 
         <div class="header">
             <h1 class="header-title">
-                Dashboard
+                Paparan Utama
             </h1>
         </div>
 
