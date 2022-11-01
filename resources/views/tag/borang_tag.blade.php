@@ -91,17 +91,7 @@
             </div> --}}
 
                         @role('pengurus-rumah-sembelih')
-                            <!--Cetakan Kod Bar-->
-                            {{-- <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Kategori Tag</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example" name="kategori">
-                                        <option value="K1">K1</option>
-                                        <option value="K2">K2</option>
-                                        <option value="K3">K3</option>
-                                    </select>
-                                </div>
-                            </div> --}}
+                           
                             <!--Cetakan Kod Bar-->
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Jana Tag</label>
@@ -119,7 +109,7 @@
 
                 <!--Button-->
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    <button class="btn btn-success" type="submit" name="submitbutton" value="Simpan">Simpan</button>
+                    {{-- <button class="btn btn-success" type="submit" name="submitbutton" value="Simpan">Simpan</button> --}}
                     <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button>
                 </div>
                 </form>

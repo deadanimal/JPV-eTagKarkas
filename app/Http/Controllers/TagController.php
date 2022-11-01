@@ -96,9 +96,11 @@ class TagController extends Controller
                 if($tag->status == "Simpan") {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
                 } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual' && $user->hasRole('pentadbir')) {                    
-                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
-                } else if($tag->status == "Sah") {
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
+                } else if($tag->status == "Lulus") {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
+                } else if($tag->status == "Sah" && $user->hasRole('ketua-seksyen')) {
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Sahkan</button></a>';
                 } else {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a>';
                 }

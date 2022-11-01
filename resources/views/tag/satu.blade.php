@@ -68,6 +68,32 @@
                             </div>
 
                         </div>
+
+                        @role('pengurus-rumah-sembelih')
+
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
+                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
+                                    @if ($tag->status != 'Simpan') readonly @endif />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                            <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
+                                    value="{{ $tag->bil_kodbar }}" readonly />
+                            </div>
+                        </div>
+
+                        @endrole
+
+                        
+
+                        @role('pentadbir')
                         {{-- Bilangan Ternakan --}}
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
@@ -77,9 +103,11 @@
                                     @if ($tag->status != 'Simpan') readonly @endif />
                             </div>
                         </div>
-                       
+
+    
+                        
                         {{-- Pengesyoran Kuantiti --}}
-                        @if ($tag->status != 'Simpan')
+                        @if ($tag->status != 'Simpan' )
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
                             <div class="col-sm-10">
@@ -87,8 +115,7 @@
                             </div>                            
                         </div>
                         @endif
-                        
-                        
+
                         {{-- Bilangan Kod Bar Untuk Dijana --}}
                         {{-- must be generate automitaclly according to R.Besar n R.Kecil --}}
                         
@@ -97,9 +124,27 @@
                             <label class="col-sm-2 col-form-label">Bilangan Pengesyoran Kodbar</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="bil_kodbar_sah" id="bil_kodbar_sah"
-                                    value="{{ $tag->bil_kodbar }}" readonly />
+                                    value="{{ $tag->bil_kodbar_sah }}" readonly />
                             </div>
                         </div>
+                        @endrole
+
+                        @role('ketua-seksyen')
+
+                        @if($tag->status == 'Sah' || $tag->status == 'Lulus' )
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                        value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
+                                         readonly />
+                                </div>
+                            </div>
+                        @endif 
+                        @endrole
+                        
+                        
+                        
 
                         {{-- @if ($tag->status != 'Simpan')
                         <div class="mb-3 row">
@@ -110,18 +155,7 @@
                         </div>
                         @endif --}}
 
-                        <!--Cetakan Kod Bar-->
-                        {{-- <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Kategori Tag</label>
-                            <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example" name="kategori"
-                                    @if ($tag->status != 'Simpan') disabled @endif>
-                                    <option value="K1" @if ($tag->kategori == 'K1') selected @endif>K1</option>
-                                    <option value="K2" @if ($tag->kategori == 'K2') selected @endif>K2</option>
-                                    <option value="K3" @if ($tag->kategori == 'K3') selected @endif>K3</option>
-                                </select>
-                            </div>
-                        </div> --}}
+            
                         <!--Cetakan Kod Bar-->
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Jana Tag</label>
@@ -143,7 +177,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Catatan</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="catatan_tolak" cols="90" rows="5" >{{$tag->catatan_tolak}}</textarea>
+                                <textarea placeholder="Isi jika tolak permohonan sahaja" class="form-control" name="catatan_tolak" cols="90" rows="5" >{{$tag->catatan_tolak}}</textarea>
 
                             </div>
                         </div>
@@ -156,11 +190,16 @@
                 @role('pengurus-rumah-sembelih')
                 @if ($tag->status == 'Simpan')
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                        <button class="btn btn-success" type="submit" name="submitbutton" value="Simpan">Simpan</button>
-                        <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button>
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Simpan">Hantar</button>
+                        {{-- <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button> --}}
                     </div>
                 @endif
-                @if ($tag->status == 'Lulus')
+                @if ($tag->status == 'Lulus' || $tag->status == 'Hantar' || $tag->status == 'Sah' )
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-info">Kembali</a>
+                </div>
+                @endif
+                @if ($tag->status == 'Hantar')
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-info">Kembali</a>
                 </div>
@@ -170,7 +209,7 @@
                 @role('pentadbir')
                 @if ($tag->status == 'Hantar' || $tag->status == 'Simpan')
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                        <button class="btn btn-success" type="submit" name="submitbutton" value="Sah">Sah</button>
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Sah">Sahkan</button>
                     
                     </div>
                 @endif 
@@ -187,7 +226,12 @@
                         <button class="btn btn-success" type="submit" name="submitbutton" value="Lulus">Lulus</button>
                         <button class="btn btn-danger" type="submit" name="submitbutton" value="Tolak">Tolak</button>                    
                     </div>
-                @endif   
+                @endif  
+                @if ($tag->status == 'Lulus')
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                        <a href="/tag" class="btn btn-info">Kembali</a>
+                    </div>
+                @endif 
                 @endrole                
                 </form>
             </div>
