@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DataTables;
+use DateTime;
+use Carbon\Carbon;
+use Alert;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
@@ -38,9 +41,9 @@ class UserController extends Controller
         $user = $request->user();
 
         $pengguna = User::all();
-        // $pengguna = User::orderBy('created_at','desc')->get();
             if($request->ajax()) {
                 return DataTables::collection($pengguna)
+                ->addIndexColumn()
                 ->make(true);
             }
 
@@ -54,7 +57,17 @@ class UserController extends Controller
         return view('pengguna.satu', compact('user'));        
     }
 
-    public function cipta_pengguna(Request $request) {
+    public function cipta_pengguna(Request $request) {      
+
+        $customMessages = [
+            'required' => 'Kesemua info perlu diletakkan',
+            'unique' => 'Email yang diberikan perlu unik.',
+        ];    
+        
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|unique:users',
+        ], $customMessages);          
         
         $user = User::create([
             'name' => $request->name,
@@ -62,7 +75,6 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         
-        $user->peranan = $request->peranan;
         $user->pejabat = $request->pejabat;
         $user->alamat = $request->alamat;
         $user->unit = $request->unit;
@@ -70,21 +82,13 @@ class UserController extends Controller
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
         $user->telefon = $request->telefon;
-        $user->status = (int)$request->status;
-        Alert::success('Daftar pengguna berjaya.', 'Pendaftaran pengguna berjaya.');   
-
-
+        $user->status = (int)$request->status;        
         $user->save();
 
         $role = Role::find((int)$request->peranan);
         $user->attachRole($role);
 
-        if ($request->peranan == 'pengurus-rumah-sembelih') {
-            $rumah = New RumahSembelih;
-            $rumah->save();            
-            $user->rumah_sembelih_id = $rumah->id;
-            $user->save();
-        }
+        Alert::success('Daftar pengguna berjaya.', 'Pendaftaran pengguna berjaya.');   
 
         return back();
     }
