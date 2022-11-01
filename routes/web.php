@@ -19,6 +19,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('rumah/{id}', [RumahSembelihController::class, 'satu_rumah']);
     Route::get('rumah/{id}/aktif', [RumahSembelihController::class, 'aktif_rumah']);
     Route::put('rumah/{id}', [RumahSembelihController::class, 'kemaskini_rumah']);
+    Route::post('rumah/{id}/tambah', [RumahSembelihController::class, 'tambah_pengguna']);
+    Route::get('rumah/{id}/gugur/{pengguna_id}', [RumahSembelihController::class, 'gugur_pengguna']);
     
     Route::get('daging', [DagingController::class, 'senarai_daging']);    
     Route::post('daging', [DagingController::class, 'cipta_daging']);

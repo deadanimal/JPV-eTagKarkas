@@ -90,7 +90,7 @@
                                 <select class="form-select" aria-label="Default select example" name="kategori" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
-                                    <option disabled selected>Pilih Kategori Tag</option>                                    
+                                    <option selected disabled value="">Pilih Kategori Tag</option>                                    
                                     <option value="K1">K1</option>
                                     <option value="K2">K2</option>
                                     <option value="K3">K3</option>
@@ -115,7 +115,7 @@
                                     aria-label="Default select example" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
-                                    <option selected value="">Pilih Zon</option>
+                                    <option selected disabled value="">Pilih Zon</option>
 
                                 </select>
                             </div>
@@ -131,7 +131,7 @@
                                     aria-label="Default select example" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
-                                    <option selected value="">Pilih Negeri</option>
+                                    <option selected disabled value="">Pilih Negeri</option>
 
                                 </select>
                             </div>
@@ -144,7 +144,7 @@
                                     aria-label="Default select example"required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
-                                    <option selected value="">Pilih Daerah</option>
+                                    <option selected disabled value="">Pilih Daerah</option>
                                 </select>
                             </div>
 

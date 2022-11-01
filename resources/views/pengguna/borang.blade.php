@@ -23,7 +23,7 @@
                                     <label class="form-label">Nama</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-control" type="text" name="name" />
+                                    <input class="form-control" type="text" name="name" onkeyup="this.value = this.value.toUpperCase();"/ />
                                 </div>
 
                                 <div class="col-2">
@@ -46,7 +46,7 @@
                                     <label class="form-label">Ibu Pejabat</label>
                                 </div>
                                 <div class="col-4 mt-3">
-                                    <input class="form-control" type="text" name="pejabat" />
+                                    <input class="form-control" type="text" name="pejabat" onkeyup="this.value = this.value.toUpperCase();"/ />
                                 </div>
 
                                 <div class="col-2 mt-3">
@@ -62,7 +62,7 @@
                                     <label class="form-label">Alamat</label>
                                 </div>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows=5 name="alamat"></textarea>
+                                    <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();"/></textarea>
                                 </div>
                             </div>
                         </div>
@@ -91,13 +91,13 @@
                                 <label class="form-label">Unit</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-control" type="text" name="unit" />
+                                <input class="form-control" type="text" name="unit" onkeyup="this.value = this.value.toUpperCase();"/ />
                             </div>
                             <div class="col-2">
                                 <label class="form-label">Cawangan</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-control" type="text" name="cawangan" />
+                                <input class="form-control" type="text" name="cawangan" onkeyup="this.value = this.value.toUpperCase();"/ />
                             </div>
 
                         </div>
@@ -106,7 +106,7 @@
                                 <label class="form-label">Jawatan</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-control" type="text" name="jawatan" />
+                                <input class="form-control" type="text" name="jawatan" onkeyup="this.value = this.value.toUpperCase();"/ />
                             </div>
                             <div class="col-2">
                                 <label class="form-label">Gred</label>
@@ -121,12 +121,6 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Nombor Telefon</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="number" name="telefon" />
-                            </div>
-                        </div>
                         <button class="btn btn-success" type="submit">Daftar</button>
 
                     </form>

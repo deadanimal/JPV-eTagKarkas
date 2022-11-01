@@ -25,10 +25,12 @@ class StokTagController extends Controller {
         $stoks = StokTag::all();
         if($request->ajax()) {
             return DataTables::collection($stoks)
-            // ->addColumn('tindakan', function (Stok_tag $stok) {
-            //     $url = '/tag/senarai_tag/stok/'.$stok->id;
-            //     return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-            // })                        
+            ->addIndexColumn()
+            ->addColumn('tindakan', function (StokTag $stok) {
+                $url = '/stok-tag/'.$stok->id;
+                return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
+            })          
+            ->rawColumns(['tindakan'])              
             ->make(true);
         }
         
@@ -36,11 +38,11 @@ class StokTagController extends Controller {
     } 
 
     public function cipta(Request $request) {
-        $stok = New StokTag;
-        $stok->tarikh_tag_terima = $request->tarikh_tag_terima;
+        $stok = New StokTag;        
         $stok->tag_diterima = $request->tag_diterima;
         $stok->tag_rosak = $request->tag_rosak;
         $stok->tag_bolehpakai = $request->tag_bolehpakai;
+        $stok->tarikh_tag_terima = $request->tarikh_tag_terima;
         $stok->tarikh_tag_rosak = $request->tarikh_tag_rosak;
         $stok->catatan = $request->catatan;
         $stok->save();
@@ -62,7 +64,8 @@ class StokTagController extends Controller {
         $stok->tag_bolehpakai = $request->tag_bolehpakai;
         $stok->catatan = $request->catatan;
         $stok->save();
-        return back();
+        Alert::success('Stok Tag Dikemaskini', 'Info Stok Tag dikemaskini');
+        return redirect('/stok-tag');
     } 
 
     public function borang(Request $request) {

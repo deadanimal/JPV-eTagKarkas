@@ -26,7 +26,7 @@
                                         <label class="form-label">Nama</label>
                                     </div>
                                     <div class="col-4">
-                                        <input class="form-control" type="text" name="name" value="{{$user->name}}" />
+                                        <input class="form-control" type="text" name="name" value="{{$user->name}}" onkeyup="this.value = this.value.toUpperCase();"/ />
                                     </div>
     
                                     <div class="col-2">
@@ -50,7 +50,7 @@
                                         <label class="form-label">Ibu Pejabat</label>
                                     </div>
                                     <div class="col-4 mt-3">
-                                        <input class="form-control" type="text" name="pejabat" value="{{$user->pejabat}}" />
+                                        <input class="form-control" type="text" name="pejabat" value="{{$user->pejabat}}" onkeyup="this.value = this.value.toUpperCase();"/ />
                                     </div>
     
                                     <div class="col-2 mt-3">
@@ -66,7 +66,7 @@
                                         <label class="form-label">Alamat</label>
                                     </div>
                                     <div class="col-10">
-                                        <textarea class="form-control" rows=5 name="alamat">{{$user->alamat}}</textarea>
+                                        <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();"/>{{$user->alamat}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -75,13 +75,13 @@
                                     <label class="form-label">Unit</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-control" type="text" name="unit" value="{{$user->unit}}" />
+                                    <input class="form-control" type="text" name="unit" value="{{$user->unit}}" onkeyup="this.value = this.value.toUpperCase();"/ />
                                 </div>
                                 <div class="col-2">
                                     <label class="form-label">Cawangan</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-control" type="text" name="cawangan" value="{{$user->cawangan}}" />
+                                    <input class="form-control" type="text" name="cawangan" value="{{$user->cawangan}}"  onkeyup="this.value = this.value.toUpperCase();"//>
                                 </div>
     
                             </div>
@@ -90,13 +90,14 @@
                                     <label class="form-label">Jawatan</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-control" type="text" name="jawatan" value="{{$user->jawatan}}" />
+                                    <input class="form-control" type="text" name="jawatan" value="{{$user->jawatan}}" onkeyup="this.value = this.value.toUpperCase();"/ />
                                 </div>
                                 <div class="col-2">
                                     <label class="form-label">Gred</label>
                                 </div>
                                 <div class="col-4">
                                     <select class="form-select" aria-label="Default select example" name="gred" value="{{$user->gred}}">
+                                        <option selected disabled>{{$user->gred}}</option>
                                         <option value="G29">G29</option>
                                         <option value="G41">G41</option>
                                         <option value="G44">G44</option>
@@ -105,12 +106,7 @@
                                 </div>
                             </div>
     
-                            <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Nombor Telefon</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="number" name="telefon" value="{{$user->telefon}}" />
-                                </div>
-                            </div>
+               
                             <button class="btn btn-primary" type="submit">Kemaskini</button>
     
                         </form>

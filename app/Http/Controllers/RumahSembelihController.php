@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RumahSembelih;
+use App\Models\User;
 use DataTables;
 use DateTime;
 use Carbon\Carbon;
@@ -66,6 +67,7 @@ class RumahSembelihController extends Controller
         ];    
         
         $request->validate([
+            'induk' => 'required',
             'kod' => 'required|unique:rumah_sembelihs',
         ], $customMessages);              
 
@@ -130,36 +132,38 @@ class RumahSembelihController extends Controller
     }  
 
     public function kemaskini_rumah(Request $request) {
-
-        $customMessages = [
-            'required' => 'Kesemua info perlu diletakkan',
-            'unique' => 'Kod yang diberikan perlu unik.',
-        ];    
-        
         
         
         $id = (int)$request->route('id');
         $rumah = RumahSembelih::find($id);
-        $rumah->induk = $request->induk;
-        $rumah->nama_rumah = $request->nama_rumah;
         if($request->kod != $rumah->kod) {
-            $request->validate([
-                'kod' => 'required|unique:rumah_sembelihs',
-            ], $customMessages);   
-            Alert::error('Kod tidak unik', 'Kemaskini anda tidak berjaya.');   
-            return back();
+            if(RumahSembelih::where('kod',$request->kod)->exists()) {
+                Alert::error('Kod tidak unik', 'Kemaskini anda tidak berjaya.');   
+                return back();
+            }
         }
 
         if($request->kategori) {
             $rumah->kategori = $request->kategori;
         } 
+        if($request->induk) {
+            $rumah->induk = $request->induk;
+        }
+        $rumah->nama_rumah = $request->nama_rumah;
         $rumah->alamat = $request->alamat;
-        $rumah->negeri = $request->negeri;
+        if($request->negeri) {
+            $rumah->negeri = $request->negeri;
+        }
+        if($request->daerah) {
+            $rumah->daerah = $request->daerah;
+        }
         $rumah->daerah = $request->daerah;
         $rumah->no_tel = $request->no_tel;
         $rumah->emel = $request->emel;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
-        $rumah->zon = $request->zon;
+        if($request->zon) {
+            $rumah->zon = $request->zon;
+        }        
         if($request->jenis1 == "on") {
             $rumah->jenis1 = true;
         } else {
@@ -214,7 +218,10 @@ class RumahSembelihController extends Controller
         $user = $request->user();
         $id = (int)$request->route('id');
         $rumah = RumahSembelih::find($id);
-        return view('rumah.satu', compact('rumah', 'user'));
+        $users = User::where([
+            ['rumah_sembelih_id','=', null]
+        ])->get();
+        return view('rumah.satu', compact('rumah', 'user', 'users'));
     }  
     
     public function borang_rumah(Request $request) {
@@ -227,6 +234,25 @@ class RumahSembelihController extends Controller
         $rumah = RumahSembelih::find($id);
         $rumah->aktif = !$rumah->aktif;
         $rumah->save();
+        return back();
+    }   
+    
+    public function tambah_pengguna(Request $request) {
+        $id = (int)$request->route('id');
+        $rumah = RumahSembelih::find($id);
+        $user = User::find($request->user_id);
+        $user->rumah_sembelih_id = $id;
+        $user->save();
+        Alert::success('Kemaskini berjaya.', 'Kemaskini anda telah berjaya.');   
+        return back();
+    }   
+    
+    public function gugur_pengguna(Request $request) {
+        $pengguna_id = (int)$request->route('pengguna_id');
+        $user = User::find($pengguna_id);
+        $user->rumah_sembelih_id = null;
+        $user->save();
+        Alert::success('Kemaskini berjaya.', 'Kemaskini anda telah berjaya.');   
         return back();
     }      
 }

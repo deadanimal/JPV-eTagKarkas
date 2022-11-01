@@ -21,7 +21,9 @@ class UserController extends Controller
 
     public function senarai(Request $request) {    
         $user = $request->user();
-        $pengguna = User::all();
+        $pengguna = User::where([
+            ['id', '!=', $user->id]
+        ])->get();
             if($request->ajax()) {
                 return DataTables::collection($pengguna)
                 ->addIndexColumn()   
@@ -110,12 +112,14 @@ class UserController extends Controller
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
         $user->telefon = $request->telefon;
-        $user->status = true;                
-        $role = Role::find((int)$request->peranan);
-        $user->detachRoles();
-        $user->peranan = $role->display_name;
+        $user->status = true;            
+        if($request->peranan){
+            $user->detachRoles();
+            $role = Role::find((int)$request->peranan);
+            $user->peranan = $role->display_name;
+            $user->attachRole($role);
+        }                 
         $user->save();
-        $user->attachRole($role);
 
         Alert::success('Kemaskini pengguna berjaya.', 'Kemaskini pengguna berjaya.');   
 

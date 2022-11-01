@@ -55,19 +55,19 @@
                         @csrf
                         <div class="card-body">
 
-                            
+
                             <div class="mb-3 row">
-                                
+
                                 <div class="col-xl-2 mb-3">
-                                    
+
                                     <label class="col-form-label">Kategori Premis</label>
                                 </div>
 
                                 <div class="col-xl-10">
-                                    <select class="form-select" name="induk"
-                                        id="induk" onchange="changeInduk()">
-                                        <option value="{{$rumah->induk}}" selected disabled>{{$rumah->induk}}</option>
-                                        <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
+                                    <select class="form-select" name="induk" id="induk" onchange="changeInduk()">
+                                        <option value="{{ $rumah->induk }}" selected disabled>{{ $rumah->induk }}</option>
+                                        <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)
+                                        </option>
                                         <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                         <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
                                         <option value="RUMAH SEMBELIH SWASTA (BABI)">RUMAH SEMBELIH SWASTA (BABI)</option>
@@ -84,8 +84,9 @@
                                     <label class="form-label">Nama Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-control" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah }}"
-                                        style="width: 100%" onkeyup="this.value = this.value.toUpperCase();">
+                                    <input class="form-control" type="text" name="nama_rumah"
+                                        value="{{ $rumah->nama_rumah }}" style="width: 100%"
+                                        onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
 
                             </div>
@@ -100,14 +101,14 @@
                                 </div>
 
 
-                          
+
                                 <div class="col-2 text-end" id="tag1">
                                     <label class="form-label">Kategori Tag</label>
                                 </div>
                                 <div class="col-4" id="tag2">
                                     <select class="form-select" aria-label="Default select example" name="kategori"
                                         id="s1">
-                                        <option value="{{$rumah->kategori}}" selected disabled>{{$rumah->kategori}}</option>
+                                        <option value="{{ $rumah->kategori }}" selected disabled>{{ $rumah->kategori }}</option>
                                         <option value="K1">K1</option>
                                         <option value="K2">K2</option>
                                         <option value="K3">K3</option>
@@ -133,7 +134,7 @@
                                 <label class="col-xl-2 col-form-label">Zon</label>
                                 <div class="col-xl-4">
                                     <select name="zon" id="countySel" size="1" class="form-select">
-                                        <option>{{ $rumah->zon }} &#10003;</option>
+                                        <option value="{{ $rumah->zon }}" selected disabled>{{ $rumah->zon }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -145,7 +146,8 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="negeri" id="stateSel" size="1" class="form-select">
-                                        <option>{{ $rumah->negeri }} &#10003;</option>
+                                        <option value="{{ $rumah->negeri }}" selected disabled>{{ $rumah->negeri }}</option>
+                                        <option>{{ $rumah->negeri }}</option>
 
                                     </select>
                                 </div>
@@ -155,7 +157,8 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="daerah" id="districtSel" size="1" class="form-select">
-                                        <option>{{ $rumah->daerah }} &#10003;</option>
+                                        <option value="{{ $rumah->daerah }}" selected disabled>{{ $rumah->daerah }}</option>
+                                        <option>{{ $rumah->daerah }}</option>
                                     </select>
                                 </div>
 
@@ -281,15 +284,15 @@
                                     <label class="form-label">Kod Premis</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="kod" value="{{ $rumah->kod }}"
+                                    <input class="form-control" type="text" name="kod" value="{{ $rumah->kod }}"
                                         readonly>
                                 </div>
                                 <div class="col-2 text-end">
                                     <label class="form-label">Kategori Tag</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori }}"
-                                        readonly>
+                                    <input class="form-control" type="text" name="kategori"
+                                        value="{{ $rumah->kategori }}" readonly>
                                 </div>
                             </div>
 
@@ -345,74 +348,82 @@
                                 <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                                 <div class="col ">Ruminan Besar
                                     @if ($rumah->jenis1)
-                                        <input class="form-label" type="checkbox" name="jenis1" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis1"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis1" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis1"
+                                            onclick="return false;" />
                                     @endif
 
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Ruminan Kecil
                                     @if ($rumah->jenis2)
-                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis2"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis2"
+                                            onclick="return false;" />
                                     @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Ayam
                                     @if ($rumah->jenis3)
-                                        <input class="form-label" type="checkbox" name="jenis3" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis3"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis3" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis3"
+                                            onclick="return false;" />
                                     @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Itik
                                     @if ($rumah->jenis4)
-                                        <input class="form-label" type="checkbox" name="jenis4" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis4"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis4" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis4"
+                                            onclick="return false;" />
                                     @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Babi
                                     @if ($rumah->jenis5)
-                                        <input class="form-label" type="checkbox" name="jenis5" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis5"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis5" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis5"
+                                            onclick="return false;" />
                                     @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Telur
                                     @if ($rumah->jenis6)
-                                        <input class="form-label" type="checkbox" name="jenis6" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis6"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis6" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis6"
+                                            onclick="return false;" />
                                     @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Susu
                                     @if ($rumah->jenis7)
-                                        <input class="form-label" type="checkbox" name="jenis7" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis7"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis7" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis7"
+                                            onclick="return false;" />
                                     @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Tambah Nilai
                                     @if ($rumah->jenis8)
-                                        <input class="form-label" type="checkbox" name="jenis8" onclick="return false;"
-                                            checked />
+                                        <input class="form-label" type="checkbox" disabled name="jenis8"
+                                            onclick="return false;" checked />
                                     @else
-                                        <input class="form-label" type="checkbox" name="jenis8" onclick="return false;" />
+                                        <input class="form-label" type="checkbox" disabled name="jenis8"
+                                            onclick="return false;" />
                                     @endif
                                 </div>
                             </div>
@@ -429,47 +440,94 @@
             </div>
 
             @role('pentadbir|pengurus-rumah-sembelih')
-                <div class="card">
-                    <div class="card-header bg-info text-white">
-                        <b class="text-center">Senarai Pengguna</b>
+                <div class="row">
+                    @role('pentadbir')
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <b class="text-center">Tambah Pengguna</b>
+                                </div>
+                                <div class="card-body">
+
+                                    <form action="/rumah/{{ $rumah->id }}/tambah" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+
+                                        <div class="mb-3">
+
+                                            <div class="row mb-3">
+                                                <div class="col-12">
+                                                    <label class="form-label">Nama</label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <select class="form-select" name="user_id">
+                                                        @foreach ($users as $user_)
+                                                            <option value="{{ $user_->id }}">{{ $user_->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                            <button class="btn btn-success" type="submit">Tambah</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    @endrole
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-header bg-info text-white">
+                                <b class="text-center">Senarai Pengguna</b>
+                            </div>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Nombor Telefon</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Jawatan</th>
+                                        @role('pentadbir')
+                                            <th scope="col"></th>
+                                        @endrole
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($rumah->users as $usera)
+                                        <tr>
+                                            <th scope="row">{{ $loop->index + 1 }}</th>
+                                            <td>{{ $usera->name }}</td>
+                                            <td>{{ $usera->telefon }}</td>
+                                            <td>{{ $usera->email }}</td>
+                                            <td>{{ $usera->jawatan }}</td>
+                                            @role('pentadbir')
+                                                <td><a href="/rumah/{{ $rumah->id }}/gugur/{{ $usera->id }}">Gugur</a></td>
+                                            @endrole
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <th scope="row">-</th>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    @endforelse
+
+                                </tbody>
+                            </table>
+
+                        </div>
                     </div>
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Nombor Telefon</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($rumah->users as $usera)
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>{{ $usera->name }}</td>
-                                <td>{{ $usera->telefon }}</td>
-                                <td>{{ $usera->email }}</td>
-                                <td>{{ $usera->status }}</td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <th scope="row">-</th>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>                            
-                            @endforelse
-
-                        </tbody>
-                    </table>
-
-                </div>                
+                </div>
             @endrole
 
-            
+
 
 
 
@@ -566,6 +624,7 @@
 
     <script>
         changeInduk();
+
         function changeInduk() {
             var induk = document.getElementById("induk").value
             console.log(induk)
