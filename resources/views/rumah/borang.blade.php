@@ -179,36 +179,36 @@
 
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input class="form-control" type="checkbox" name="jenis1"/>
+                                <input class="form-label" type="checkbox" name="jenis1"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil
-                                <input class="form-control" type="checkbox" name="jenis2"/>
-
+                                <input class="form-label" type="checkbox" name="jenis2"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ayam
-                                <input class="form-control" type="checkbox" name="jenis3"/>
+                                <input class="form-label" type="checkbox" name="jenis3"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Itik
-                                <input class="form-control" type="checkbox" name="jenis4"/>
+                                <input class="form-label" type="checkbox" name="jenis4"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Babi
-                                <input class="form-control" type="checkbox" name="jenis5"/>
+                                <input class="form-label" type="checkbox" name="jenis5"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Telur
-                                <input class="form-control" type="checkbox" name="jenis6"/>
+                                <input class="form-label" type="checkbox" name="jenis6"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Susu
-                                <input class="form-control" type="checkbox" name="jenis7"/>
+                                <input class="form-label" type="checkbox" name="jenis7"/>
                             </div>
                             <label class="col"></label>
                             <div class="col ">Tambah Nilai
-                                <input class="form-control" type="checkbox" name="jenis8"/>                            </div>
+                                <input class="form-label" type="checkbox" name="jenis"/>                            
+                            </div>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">

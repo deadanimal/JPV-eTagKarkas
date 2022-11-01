@@ -168,36 +168,7 @@ class RumahSembelihController extends Controller
         } else {
             $rumah->jenis2 = false;
         };
-        if($request->jenis3 == "on") {
-            $rumah->jenis3 = true;
-        } else {
-            $rumah->jenis3 = false;
-        };
-        if($request->jenis4 == "on") {
-            $rumah->jenis4 = true;
-        } else {
-            $rumah->jenis4 = false;
-        };
-        if($request->jenis5 == "on") {
-            $rumah->jenis5 = true;
-        } else {
-            $rumah->jenis5 = false;
-        };
-        if($request->jenis6 == "on") {
-            $rumah->jenis6 = true;
-        } else {
-            $rumah->jenis6 = false;
-        };
-        if($request->jenis7 == "on") {
-            $rumah->jenis7 = true;
-        } else {
-            $rumah->jenis7 = false;
-        };
-        if($request->jenis8 == "on") {
-            $rumah->jenis8 = true;
-        } else {
-            $rumah->jenis8 = false;
-        };
+        
         
         $rumah->save();
 

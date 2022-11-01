@@ -171,49 +171,49 @@
                                 <div class="col ">Ayam
                                     @if ($rumah->jenis3)
                                     <input class="form-label" type="checkbox" name="jenis3" checked />
-                                @else
+                                    @else
                                     <input class="form-label" type="checkbox" name="jenis3" />
-                                @endif                                
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Itik
                                     @if ($rumah->jenis4)
                                     <input class="form-label" type="checkbox" name="jenis4" checked />
-                                @else
+                                    @else
                                     <input class="form-label" type="checkbox" name="jenis4" />
-                                @endif                                
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Babi
                                     @if ($rumah->jenis5)
                                     <input class="form-label" type="checkbox" name="jenis5" checked />
-                                @else
+                                    @else
                                     <input class="form-label" type="checkbox" name="jenis5" />
-                                @endif                                
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Telur
                                     @if ($rumah->jenis6)
                                     <input class="form-label" type="checkbox" name="jenis6" checked />
-                                @else
+                                    @else
                                     <input class="form-label" type="checkbox" name="jenis6" />
-                                @endif                                
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Susu
                                     @if ($rumah->jenis7)
                                     <input class="form-label" type="checkbox" name="jenis7" checked />
-                                @else
+                                    @else
                                     <input class="form-label" type="checkbox" name="jenis7" />
-                                @endif                                
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Tambah Nilai
                                     @if ($rumah->jenis8)
                                     <input class="form-label" type="checkbox" name="jenis8" checked />
-                                @else
+                                    @else
                                     <input class="form-label" type="checkbox" name="jenis8" />
-                                @endif                                
+                                    @endif                                
                                 </div>
                             </div>
 
@@ -239,7 +239,7 @@
                                     <label class="col-form-label">Kategori Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-label" type="text" name="induk" value="{{ $rumah->induk }}"
+                                    <input class="form-label" type="text" name="induk" value="{{ $rumah->induk }}" style="width: 100%"
                                         readonly>
 
                                 </div>
@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="col-xl-10">
                                     <input class="form-label" type="text" name="nama_rumah"
-                                        value="{{ $rumah->nama_rumah }}" readonly>
+                                        value="{{ $rumah->nama_rumah }}" style="width: 100%" readonly>
                                 </div>
 
                             </div>
@@ -327,35 +327,68 @@
                             <div class="mb-3 row">
                                 <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                                 <div class="col ">Ruminan Besar
-                                    <input class="form-label" type="checkbox" name="category[]" value="Ruminan Besar" />
+                                    @if ($rumah->jenis1)
+                                        <input class="form-label" type="checkbox" name="jenis1"  onclick="return false;" checked />
+                                    @else
+                                        <input class="form-label" type="checkbox" name="jenis1"  onclick="return false;" />
+                                    @endif
+
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Ruminan Kecil
-                                    <input class="form-label" type="checkbox" name="category[]" value="Ruminan Kecil" />
+                                    @if ($rumah->jenis2)
+                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;"  checked />
+                                    @else
+                                        <input class="form-label" type="checkbox" name="jenis2" onclick="return false;"  />
+                                    @endif
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Ayam
-                                    <input class="form-label" type="checkbox" name="category[]" value="Ayam" />
+                                    @if ($rumah->jenis3)
+                                    <input class="form-label" type="checkbox" name="jenis3" onclick="return false;"  checked />
+                                    @else
+                                    <input class="form-label" type="checkbox" name="jenis3" onclick="return false;"  />
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Itik
-                                    <input class="form-label" type="checkbox" name="category[]" value="Itik" />
+                                    @if ($rumah->jenis4)
+                                    <input class="form-label" type="checkbox" name="jenis4" onclick="return false;"  checked />
+                                    @else
+                                    <input class="form-label" type="checkbox" name="jenis4" onclick="return false;"  />
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Babi
-                                    <input class="form-label" type="checkbox" name="category[]" value="Babi" />
+                                    @if ($rumah->jenis5)
+                                    <input class="form-label" type="checkbox" name="jenis5" onclick="return false;"  checked />
+                                    @else
+                                    <input class="form-label" type="checkbox" name="jenis5" onclick="return false;"  />
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Telur
-                                    <input class="form-label" type="checkbox" name="category[]" value="Telur" />
+                                    @if ($rumah->jenis6)
+                                    <input class="form-label" type="checkbox" name="jenis6" onclick="return false;"  checked />
+                                    @else
+                                    <input class="form-label" type="checkbox" name="jenis6" onclick="return false;"  />
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Susu
-                                    <input class="form-label" type="checkbox" name="category[]" value="Susu" />
+                                    @if ($rumah->jenis7)
+                                    <input class="form-label" type="checkbox" name="jenis7" onclick="return false;"  checked />
+                                    @else
+                                    <input class="form-label" type="checkbox" name="jenis7" onclick="return false;"  />
+                                    @endif                                
                                 </div>
                                 <label class="col"></label>
                                 <div class="col ">Tambah Nilai
-                                    <input class="form-label" type="checkbox" name="category[]" value="Tambah Nilai" />
+                                    @if ($rumah->jenis8)
+                                    <input class="form-label" type="checkbox" name="jenis8" onclick="return false;"  checked />
+                                    @else
+                                    <input class="form-label" type="checkbox" name="jenis8" onclick="return false;"  />
+                                    @endif                                
                                 </div>
                             </div>
 
