@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Stok_tag;
+use App\Models\StokTag;
 use Illuminate\Cache\TaggedCache;
 use Illuminate\Http\Request;
 use App\Models\Tag;
@@ -226,16 +226,13 @@ class TagController extends Controller
 
         $user = $request->user();
 
-        $stoks = Stok_tag::all();
+        $stoks = StokTag::all();
         if($request->ajax()) {
             return DataTables::collection($stoks)
             // ->addColumn('tindakan', function (Stok_tag $stok) {
             //     $url = '/tag/senarai_tag/stok/'.$stok->id;
             //     return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-            // })
-
-            
-            
+            // })                        
             ->make(true);
         }
         
@@ -243,30 +240,29 @@ class TagController extends Controller
     } 
 
     public function cipta_stok_tag(Request $request) {
-        $stoks = New Stok_tag;
-        // dd($stoks);
-        $stoks->tarikh = $request->tarikh;
+        $stoks = New StokTag;
+        $stoks->tarikh_tag_terima = $request->tarikh_tag_terima;
         $stoks->tag_diterima = $request->tag_diterima;
         $stoks->tag_rosak = $request->tag_rosak;
+        $stoks->tag_bolehpakai = $request->tag_bolehpakai;
         $stoks->tarikh_tag_rosak = $request->tarikh_tag_rosak;
         $stoks->catatan = $request->catatan;
         $stoks->save();
-        return back();
+        Alert::success('Stok Tag Dicipta', 'Info Stok Tag dicipta');
+        return redirect('');
     } 
 
 
     public function satu_stok_tag(Request $request) {
         $id = (int)$request->route('id');
-        $stoks = Stok_tag::find($id);        
+        $stoks = StokTag::find($id);        
         return view('tag.satu_stok', compact('stoks'));
     }
 
     public function kemaskini_stok_tag(Request $request) {
         $id = (int)$request->route('id');
 
-        $stoks = Stok_tag::find($id);
-        // dd($stoks);
-
+        $stoks = StokTag::find($id);
         $stoks->tag_diterima = $request->tag_diterima;
         $stoks->tag_rosak = $request->tag_rosak;
         $stoks->catatan = $request->catatan;
