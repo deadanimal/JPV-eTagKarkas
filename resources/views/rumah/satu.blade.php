@@ -403,8 +403,29 @@
             </div>
 
             <div class="card">
-                <h1>Senarai Kakitangan</h1>
-                Nama: {{$user->name}}
+                <h1>Senarai Pengguna</h1>
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Nombor Telefon</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->telefon}}</td>
+                        <td>{{$user->email}}</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            
             </div>
         </div>
 
