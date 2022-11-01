@@ -59,24 +59,6 @@ class RumahSembelihController extends Controller
     
     public function cipta_rumah(Request $request) {
 
-        // $request->validate([
-        //     'induk' => 'required',
-        //     'nama_rumah' => 'required',
-        //     'kod' => 'required',
-        //     'kategori' => 'required',
-        //     'alamat' => 'required',
-        //     'zon' => 'required',
-        //     'negeri' => 'required',
-        //     'daerah' => 'required',
-        //     'no_tel' => 'required',
-        //     'akses_ternakan' => 'required',
-           
-        // ], [
-        //     'induk.required' => ' Sila masukkan maklumat ini.',
-        //     'nama_rumah.required' => ' Sila masukkan maklumat ini.'
-        // ]);
-
-
 
         $rumah = New RumahSembelih;
         $rumah->induk = $request->induk;

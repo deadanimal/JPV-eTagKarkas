@@ -402,11 +402,12 @@
 
                         </div>
                     </form>
-                @endrole
             </div>
 
             <div class="card">
-                <h1>Senarai Pengguna</h1>
+                <div class="card-header bg-info text-white">
+                    <b class="text-center">Senarai Pengguna</b>
+                </div>
 
                 <table class="table">
                     <thead>
@@ -424,12 +425,15 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->telefon}}</td>
                         <td>{{$user->email}}</td>
+                        <td>{{$user->status}}</td>
                       </tr>
                       
                     </tbody>
                   </table>
             
             </div>
+            @endrole
+
         </div>
 
 
