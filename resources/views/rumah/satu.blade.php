@@ -66,8 +66,7 @@
                                     <select class="form-select" aria-label="Default select example" name="induk"
                                         id="induk" onclick="indOpt()" onchange="changeInduk()">
                                         <option selected class="ind">{{ $rumah->induk }}</option>
-                                        <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)
-                                        </option>
+                                        <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)</option>
                                         <option value="RUMAH SEMBELIH JABATAN (BABI)">RUMAH SEMBELIH JABATAN (BABI)</option>
                                         <option value="RUMAH SEMBELIH SWASTA (RUMINAN)">RUMAH SEMBELIH SWASTA (RUMINAN)</option>
                                         <option value="RUMAH SEMBELIH SWASTA (BABI)">RUMAH SEMBELIH SWASTA (BABI)</option>
@@ -97,11 +96,13 @@
                                     <input class="form-control" type="text" name="kod" value="{{ $rumah->kod }}"
                                     onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
+
+                    
+                                @if($rumah->induk == 'RUMAH SEMBELIH JABATAN (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH JABATAN (BABI)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (RUMINAN)' || $rumah->induk == 'RUMAH SEMBELIH SWASTA (BABI)' || $rumah->induk == 'SEMBELIHAN LUAR' )
                                 <div class="col-2 text-end" id="tag1">
                                     <label class="form-label">Kategori Tag</label>
                                 </div>
                                 <div class="col-4" id="tag2">
-                                    {{-- <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori}}" > --}}
                                     <select class="form-select" aria-label="Default select example" name="kategori"
                                         id="s1" onclick="selOpt()">
                                         <option selected="Pilih Kategori Tag" class="kat">{{ $rumah->kategori }} </option>
@@ -110,6 +111,9 @@
                                         <option value="K3">K3</option>
                                     </select>
                                 </div>
+                                @else
+                                        <input name="kategori" value="0" type="hidden"> 
+                                @endif
                             </div>
 
                             {{-- Alamat --}}
