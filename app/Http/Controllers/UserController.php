@@ -34,13 +34,23 @@ class UserController extends Controller
     }
 
     public function senarai_pengguna(Request $request) {
-        $users = User::all();
-        return view('pengguna.senarai', compact('users'));
+        
+        $user = $request->user();
+
+        $pengguna = User::all();
+        // $pengguna = User::orderBy('created_at','desc')->get();
+            if($request->ajax()) {
+                return DataTables::collection($pengguna)
+                ->make(true);
+            }
+
+        return view('pengguna.senarai', compact('pengguna', 'user'));
     }
 
     public function satu_pengguna(Request $request) {
         $id = (int)$request->route('id');
         $user = User::find($id);
+
         return view('pengguna.satu', compact('user'));        
     }
 
