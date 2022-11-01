@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DataTables;
+use DateTime;
+use Carbon\Carbon;
 use Alert;
 use App\Models\User;
 use App\Models\Role;
@@ -38,9 +41,9 @@ class UserController extends Controller
         $user = $request->user();
 
         $pengguna = User::all();
-        // $pengguna = User::orderBy('created_at','desc')->get();
             if($request->ajax()) {
                 return DataTables::collection($pengguna)
+                ->addIndexColumn()
                 ->make(true);
             }
 
