@@ -1,5 +1,18 @@
 @extends('layouts.app')
 
+<style>
+    /* remove arrow in input number */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+
 
 
 @section('content')
@@ -70,7 +83,8 @@
                                     <label class="form-label">Nama Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah }}" style="width: 100%">
+                                    <input class="form-label" type="text" name="nama_rumah" value="{{ $rumah->nama_rumah }}" style="width: 100%"
+                                    onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
 
                             </div>
@@ -80,7 +94,8 @@
                                     <label class="form-label">Kod Premis</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-control" type="text" name="kod" value="{{ $rumah->kod }}">
+                                    <input class="form-control" type="text" name="kod" value="{{ $rumah->kod }}"
+                                    onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
                                 <div class="col-2 text-end" id="tag1">
                                     <label class="form-label">Kategori Tag</label>
@@ -101,7 +116,7 @@
                             <div class="mb-3 row">
                                 <label class="col-xl-2 col-form-label">Alamat</label>
                                 <div class="col-xl-10">
-                                    <textarea class="form-control" name="alamat" cols="93" rows="5">{{ $rumah->alamat }}</textarea>
+                                    <textarea class="form-control" name="alamat" cols="93" rows="5" onkeyup="this.value = this.value.toUpperCase();">{{ $rumah->alamat }} </textarea>
                                 </div>
                             </div>
 
@@ -143,7 +158,8 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                                 <div class="col-sm-10">
-                                    <input class="form-label" type="text" name="no_tel" value="{{ $rumah->no_tel }}" />
+                                    <input class="form-label" type="number" name="no_tel" value="{{ $rumah->no_tel }}" 
+                                    onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"/>
                                 </div>
                             </div>
 
@@ -239,8 +255,7 @@
                                     <label class="col-form-label">Kategori Premis</label>
                                 </div>
                                 <div class="col-xl-10">
-                                    <input class="form-label" type="text" name="induk" value="{{ $rumah->induk }}" style="width: 100%"
-                                        readonly>
+                                    <input class="form-label" type="text" name="induk" value="{{ $rumah->induk }}" style="width: 100%" readonly>
 
                                 </div>
                                 <div class="col-xl-2">
@@ -258,15 +273,13 @@
                                     <label class="form-label">Kod Premis</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="kod" value="{{ $rumah->kod }}"
-                                        readonly>
+                                    <input class="form-label" type="text" name="kod" value="{{ $rumah->kod }}" readonly>
                                 </div>
                                 <div class="col-2 text-end">
                                     <label class="form-label">Kategori Tag</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori }}"
-                                        readonly>
+                                    <input class="form-label" type="text" name="kategori" value="{{ $rumah->kategori }}" readonly>
                                 </div>
                             </div>
 
@@ -283,10 +296,7 @@
                             <div class="mb-3 row">
                                 <label class="col-xl-2 col-form-label">Zon</label>
                                 <div class="col-xl-4">
-                                    <input class="form-label" type="text" name="zon" value="{{ $rumah->zon }}"
-                                        readonly>
-
-
+                                    <input class="form-label" type="text" name="zon" value="{{ $rumah->zon }}" readonly>
                                 </div>
                             </div>
 
@@ -295,20 +305,14 @@
                                     <label class="form-label">Negeri</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="negeri" value="{{ $rumah->negeri }}"
-                                        readonly>
-
-
+                                    <input class="form-label" type="text" name="negeri" value="{{ $rumah->negeri }}" readonly>
                                 </div>
 
                                 <div class="col-2 text-end">
                                     <label class="form-label">Daerah</label>
                                 </div>
                                 <div class="col-4">
-                                    <input class="form-label" type="text" name="daerah" value="{{ $rumah->daerah }}"
-                                        readonly>
-
-
+                                    <input class="form-label" type="text" name="daerah" value="{{ $rumah->daerah }}" readonly>
                                 </div>
 
                             </div>
@@ -317,8 +321,7 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                                 <div class="col-sm-10">
-                                    <input class="form-label" type="text" name="no_tel" value="{{ $rumah->no_tel }}"
-                                        readonly />
+                                    <input class="form-label" type="text" name="no_tel" value="{{ $rumah->no_tel }}" readonly />
                                 </div>
                             </div>
 
