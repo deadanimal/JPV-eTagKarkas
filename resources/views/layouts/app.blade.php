@@ -93,11 +93,11 @@
                     
                      
                     
-                    {{-- <li class="sidebar-item">
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="/daging">
                             <span class="align-middle">Pemeriksaan Daging</span>
                         </a>
-                    </li>  --}}
+                    </li> 
 
                     {{-- <li class="sidebar-item">
                         <a class="sidebar-link" href="/profil">
