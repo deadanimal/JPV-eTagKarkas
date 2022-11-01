@@ -39,7 +39,7 @@ class TagController extends Controller
             ])->orderBy('updated_at', 'desc')->get();
         } else if ($user->hasRole('pengurus-rumah-sembelih')) {
             $tags = Tag::where([
-                ['user_id','=', $user->id],
+                ['rumah_sembelih_id','=', 56],
                 ['status','!=', 'Padam']
             ])->orderBy('updated_at','desc')->get();
         }
