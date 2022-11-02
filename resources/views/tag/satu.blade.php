@@ -174,7 +174,7 @@
 
                         {{-- Catatan --}}
                         @role('ketua-seksyen')
-                        @if ($tag->status == 'Sah' || $tag->status == 'Tolak')
+                        @if ($tag->status == 'Sah')
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Catatan</label>
                             <div class="col-sm-9">
@@ -184,6 +184,20 @@
                         </div>
                         @endif
                         @endrole
+
+                        @role('ketua-seksyen')
+                        @if ($tag->status == 'Tolak')
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Catatan</label>
+                            <div class="col-sm-9">
+                                <textarea placeholder="Isi jika tolak permohonan sahaja" class="form-control" name="catatan_tolak" cols="90" rows="5" readonly>{{$tag->catatan_tolak}}</textarea>
+
+                            </div>
+                        </div>
+                        @endif
+                        @endrole
+
+                 
 
                 </div>
 
@@ -232,7 +246,7 @@
                         <button class="btn btn-danger" type="submit" name="submitbutton" value="Tolak">Tolak</button>                    
                     </div>
                 @endif 
-                @if ($tag->status == 'Lulus' )
+                @if ($tag->status == 'Lulus' || $tag->status == 'Tolak'  )
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-success" type="button">Kembali</a>
                 </div>

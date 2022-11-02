@@ -5,7 +5,7 @@
 @section('content')
 
 
-    @for ($i = 1; $i < $tag->bil_kodbar_sah + 1; $i++)
+    @for ($i = 1; $i < $tag->bil_ternakan_sah + 1; $i++)
     <div class="row px-6">
 
         <div class="col-12 col-md-6 col-lg-4">
