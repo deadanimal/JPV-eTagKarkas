@@ -91,7 +91,7 @@
                     @endrole
 
                     
-                    @role('pengurus-rumah-sembelih | ketua-seksyen')
+                    @role('ketua-seksyen')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
                             <span class="align-middle">Permohonan Tag</span>
