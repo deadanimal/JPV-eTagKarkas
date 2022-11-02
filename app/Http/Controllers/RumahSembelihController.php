@@ -73,7 +73,10 @@ class RumahSembelihController extends Controller
 
 
         $rumah = New RumahSembelih;
-        $rumah->induk = $request->induk;
+        // $rumah->induk = $request->induk;
+        if($request->induk) {
+            $rumah->induk = $request->induk;
+        }
         $rumah->nama_rumah = $request->nama_rumah;
         $rumah->kod = $request->kod;
         if($request->kategori) {
