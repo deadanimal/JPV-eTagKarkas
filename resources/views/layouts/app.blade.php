@@ -77,6 +77,17 @@
                             <span class="align-middle">Maklumat Premis</span>
                         </a>
                     </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/tag">
+                            <span class="align-middle">Permohonan Tag</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/daging">
+                            <span class="align-middle">Pemeriksaan Daging</span>
+                        </a>
+                    </li>  
                     @endrole
 
                     
@@ -88,7 +99,7 @@
                     </li>  
                     @endrole
 
-                    @role('pengurus-rumah-sembelih|pemeriksa-daging')
+                    @role('pengurus-rumah-sembelih | pemeriksa-daging')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/daging">
                             <span class="align-middle">Pemeriksaan Daging</span>
