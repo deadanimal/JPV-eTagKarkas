@@ -107,11 +107,12 @@
     
                         
                         {{-- Pengesyoran Kuantiti --}}
-                        @if ($tag->status != 'Simpan' )
+                        @if ($tag->status != 'Simpan' || $tag->status != 'Sah' )
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Pengesyoran Kuantiti</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  />
+                                <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif 
+                                    value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  />
                             </div>                            
                         </div>
                         @endif
@@ -194,14 +195,33 @@
                         {{-- <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button> --}}
                     </div>
                 @endif
+                @if ($tag->status == 'Sah' )
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
+                </div>
+                @endif
+                @if ($tag->status == 'Lulus' )
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
+                </div>
+                @endif  
                 @endrole
 
                 @role('pentadbir')
                 @if ($tag->status == 'Hantar' || $tag->status == 'Simpan')
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                         <button class="btn btn-success" type="submit" name="submitbutton" value="Sah">Sahkan</button>
-                    
                     </div>
+                @endif 
+                @if ($tag->status == 'Sah' )
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
+                </div>
+                @endif 
+                @if ($tag->status == 'Lulus' )
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
+                </div>
                 @endif 
                 @endrole
                 
@@ -211,12 +231,17 @@
                         <button class="btn btn-success" type="submit" name="submitbutton" value="Lulus">Lulus</button>
                         <button class="btn btn-danger" type="submit" name="submitbutton" value="Tolak">Tolak</button>                    
                     </div>
+                @endif 
+                @if ($tag->status == 'Lulus' )
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
+                </div>
                 @endif  
                 @endrole   
                 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-info">Kembali</a>
-                </div>                
+                </div>                 --}}
                 </form>
             </div>
         </div>

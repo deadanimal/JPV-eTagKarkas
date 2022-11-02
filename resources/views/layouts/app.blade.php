@@ -58,6 +58,12 @@
                     </li>
 
                     <li class="sidebar-item">
+                        <a class="sidebar-link" href="/tag">
+                            <span class="align-middle">Permohonan Tag</span>
+                        </a>
+                    </li> 
+
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="/stok-tag">
                             <span class="align-middle">Pendaftaran Stok Tag Karkas</span>
                         </a>
@@ -74,7 +80,7 @@
                     @endrole
 
                     
-                    @role('pengurus-rumah-sembelih|pentadbir')
+                    @role('pengurus-rumah-sembelih | ketua-seksyen')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
                             <span class="align-middle">Permohonan Tag</span>
