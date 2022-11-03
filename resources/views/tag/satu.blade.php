@@ -159,7 +159,9 @@
                         </div>
                             <div class="col-3">
                                 <input class="form-control" type="number" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif 
-                                    value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"/>
+                                    value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"
+                                    required oninvalid="this.setCustomValidity('Sila masukkan bilangan ternakan.')"
+                                    oninput="this.setCustomValidity('')"/>
                             </div>                            
                         
                         @endif
@@ -303,7 +305,7 @@
                 @role('pentadbir')
                 @if ($tag->status == 'Hantar' || $tag->status == 'Simpan')
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-success " data-bs-toggle="modal"  data-bs-target="#exampleModal">
                         Sahkan
                     </button>
 
@@ -319,7 +321,7 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                            <button class="btn btn-success " type="submit" value="submit">Ya</button>
+                            <button class="btn btn-success " type="submit" name="submitbutton" value="Sah">Ya</button>
                         </div>
                         </div>
                         </div>

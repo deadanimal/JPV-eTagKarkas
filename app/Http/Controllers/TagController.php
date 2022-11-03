@@ -103,8 +103,7 @@ class TagController extends Controller
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Sahkan</button></a>';
                 }else if($tag->status == "Sah" && $user->hasRole('pentadbir' || 'pengurus-rumah-sembelih')) {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
-                }
-                 else {
+                }else {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a>';
                 }
                 return $html_button;
@@ -177,14 +176,10 @@ class TagController extends Controller
             $tag->bil_kodbar = $request->bil_kodbar;
             $tag->kategori = $request->kategori;
             $tag->kodbar = $request->kodbar;                        
-        }
-
-        if($request->submitbutton == 'Sah') {
+        } else if($request->submitbutton == 'Sah') {
             $tag->bil_ternakan_sah = $request->bil_ternakan_sah;
             $tag->bil_kodbar_sah = $request->bil_kodbar_sah;
-        }
-
-        if($request->submitbutton == 'Tolak') {        
+        } else if($request->submitbutton == 'Tolak') {        
             $tag->catatan_tolak = $request->catatan_tolak;
         }        
 
