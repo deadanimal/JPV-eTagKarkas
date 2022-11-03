@@ -22,11 +22,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('rumah/{id}/tambah', [RumahSembelihController::class, 'tambah_pengguna']);
     Route::get('rumah/{id}/gugur/{pengguna_id}', [RumahSembelihController::class, 'gugur_pengguna']);
     
-    Route::get('daging', [DagingController::class, 'senarai_daging']);    
+    Route::get('daging', [DagingController::class, 'senarai']);    
     Route::post('daging', [DagingController::class, 'daftar']);
     Route::post('daging/semak', [DagingController::class, 'semak']);
     Route::get('daging/{id}', [DagingController::class, 'satu']);
-    Route::put('daging/{id}', [DagingController::class, 'kemaskini_daging']);
+    Route::put('daging/{id}', [DagingController::class, 'kemaskini']);
     Route::post('daging/{id}/sebelum-sembelih', [DagingController::class, 'cipta_sebelum_sembelih']);
     Route::post('daging/{id}/selepas-sembelih', [DagingController::class, 'cipta_selepas_sembelih']);
     Route::post('daging/{id}/laporan', [DagingController::class, 'cipta_laporan']);

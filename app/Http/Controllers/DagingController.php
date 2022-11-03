@@ -49,24 +49,19 @@ class DagingController extends Controller
                     ['jenis', '=', $request->jenis],
                     ['no_skv', '=', $request->no_skv],
                 ])->first();
-                Alert::success('Haiwan dijumpai', 'Haiwan boleh dikenalpasti');
+                Alert::success('SKV dijumpai', 'SKV boleh dikenalpasti');
                 $url = '/daging/'.$daging->id;
                 return redirect($url);
             } else {
-                Alert::error('Haiwan tidak dijumpai', 'Haiwan tidak dijumpai dan data boleh dicipta');
+                Alert::error('SKV Tidak dijumpai', 'SKV Tidak dijumpai');
                 return redirect('/daging');
             }
         } else {
-            if (Haiwan::where([
-                ['jenis', '=', $request->jenis],
-                ['no_skv', '=', $request->no_skv],
-            ])->exists()) {
-                Alert::error('No SKV Unik', 'No SKV telah digunapakai');
-                return back();
-            }
+            $user = $request->user();
+            $rumah_id = $user->rumah_sembelih_id;
             $haiwan = new Haiwan;
             $haiwan->jenis = $request->jenis;
-            $haiwan->no_skv = $request->no_skv;
+            $haiwan->rumah_sembelih_id = $rumah_id;
             $haiwan->save();
             Alert::success('Daftar Berjaya', 'Haiwan berjaya didaftarkan');
             $url = '/daging/'.$haiwan->id;
@@ -89,9 +84,25 @@ class DagingController extends Controller
         }
     }
 
-
-    public function senarai_daging(Request $request)
+    public function kemaskini(Request $request)
     {
+        $id = (int)$request->route('id');
+        $haiwan = Haiwan::find($id);
+        if($request->nama_pemilik) {
+            $haiwan->nama_pemilik = $request->nama_pemilik;
+        }      
+        $haiwan->save();  
+        Alert::success('Kemaskini Berjaya', 'Kemaskini berjaya');
+        return back();;
+    }    
+
+
+    public function senarai(Request $request)
+    {
+        $user_id = $request->user()->id;
+        $haiwans = Haiwan::where([
+            ['rumah_sembelih_id', '=', $user_id]
+        ])->get();
         return view('daging.senarai');
     }
 
@@ -114,18 +125,4 @@ class DagingController extends Controller
         return back();
     }
 
-    public function cipta_sebelum_sembelih(Request $request)
-    {
-        return back();
-    }
-
-    public function cipta_selepas_sembelih(Request $request)
-    {
-        return back();
-    }
-
-    public function cipta_laporan(Request $request)
-    {
-        return back();
-    }
 }

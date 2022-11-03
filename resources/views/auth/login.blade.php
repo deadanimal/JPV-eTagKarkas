@@ -10,11 +10,20 @@
     <title>JPV - eTagKarkas</title>
 
 	<link href="https://goldpanda.pipeline.com.my/css/modern.css" rel="stylesheet">
+	<style>
+#bg-img { 
+  background: url('/img/cow-1509258.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}		
+	</style>
 
 </head>
 <!-- SET YOUR THEME -->
 
-<body class="theme-blue">
+<body class="theme-blue" id="bg-img">
 	<div class="splash active">
 		<div class="splash-icon"></div>
 	</div>
@@ -25,17 +34,19 @@
 				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
 					<div class="d-table-cell align-middle">
 
-						<div class="text-center mt-4">
-							<h1 class="h2">eTagKarkas</h1>
-							<p class="lead">
-                            Sistem Tag Karkas Haiwan
-
-							</p>
-						</div>
 
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
+
+									<div class="text-center mt-4">
+										<h1 class="h2">eTagKarkas</h1>
+										<p class="lead">
+										Sistem Tag Karkas Haiwan
+			
+										</p>
+									</div>
+																		
 									<!-- <div class="text-center">
 										<img src="/img/avatars/avatar.jpg" alt="Linda Miller" class="img-fluid rounded-circle" width="132" height="132" />
 									</div> -->
