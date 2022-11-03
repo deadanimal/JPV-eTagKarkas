@@ -23,7 +23,7 @@ class UserController extends Controller
         $user = $request->user();
         $pengguna = User::where([
             ['id', '!=', $user->id]
-        ])->get();
+        ])->orderBy('updated_at', 'desc')->get();
             if($request->ajax()) {
                 return DataTables::collection($pengguna)
                 ->addIndexColumn()   
@@ -96,7 +96,7 @@ class UserController extends Controller
 
         Alert::success('Daftar pengguna berjaya.', 'Pendaftaran pengguna berjaya.');   
 
-        return back();
+        return redirect('/pengguna');
     }
 
     public function kemaskini(Request $request) {      

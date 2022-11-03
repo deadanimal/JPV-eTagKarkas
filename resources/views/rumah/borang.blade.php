@@ -102,9 +102,7 @@
                                 <label class="form-label">Kategori Tag</label>
                             </div>
                             <div class="col-4" id="tag2">
-                                <select class="form-select" aria-label="Default select example" name="kategori" required
-                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                    oninput="this.setCustomValidity('')">
+                                <select class="form-select" aria-label="Default select example" name="kategori" >
                                     <option selected disabled value="">Pilih Kategori Tag</option>                                    
                                     <option value="K1">K1</option>
                                     <option value="K2">K2</option>
