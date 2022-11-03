@@ -6,11 +6,11 @@
 
     <div class="container-fluid">
 
-        <div class="header">
+        {{-- <div class="header">
             <h1 class="header-title" >
                 Pemeriksaan Daging
             </h1>
-        </div>
+        </div> --}}
 
         <div class="card">
             <div class="card-header">
@@ -43,7 +43,8 @@
 
                     <div>
                         <button class="btn btn-primary" type="submit" name="action" value="semak">Semak</button>
-                        <button type="submit" class="btn btn-primary" name="action" value="daftar">Daftar</a>
+                        <button type="submit" class="btn btn-success" name="action" value="daftar" disabled>Daftar Dengan SKV</button>
+                        <button type="submit" class="btn btn-dark" name="action" value="daftar">Daftar Tanpa SKV</button>
                     </div>
                 </form>
 

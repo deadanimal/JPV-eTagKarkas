@@ -35,7 +35,9 @@
                             <tr>
                                 <th scope="col">Nombor Rujukan Permohonan</th>
                                 <th scope="col">Nombor Tag</th>
+                                @role('pentadbir|ketua-seksyen')
                                 <th scope="col">Nama Premis</th>
+                                @endrole
                                 <th scope="col">Jenis Ternakan</th>
                                 <th scope="col">Bilangan Ternakan Yang Disyorkan</th>
 
@@ -73,6 +75,7 @@
 
 @section('script')
 
+@role('pentadbir|ketua-seksyen')
 <script type="text/javascript">
     $(function() {
 
@@ -158,6 +161,91 @@
 
     });
 </script>
+@endrole
+
+@role('pengurus-rumah-sembelih|pemeriksa-daging')
+<script type="text/javascript">
+    $(function() {
+
+        var table = $('.tag-datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            order: [[7, 'desc']],
+            language: {
+                    "search": "Carian:",
+                    "lengthMenu": "Tunjuk _MENU_ informasi",
+                    "info": "Tunjuk _START_ ke _END_ dari _TOTAL_ informasi",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Akhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelum"
+                    },
+                },
+            ajax: "/tag",
+            columns: [{
+                    data: 'no_rujukan',
+                    name: 'no_rujukan'
+                },
+                {
+                    data: 'no_tag',
+                    name: 'no_tag'
+                },                                                          
+                {
+                    data: 'jenis_ternakan',
+                    name: 'jenis_ternakan'
+                }, 
+                {
+                    data: 'bil_ternakan_sah',
+                    name: 'bil_ternakan_sah'
+                }, 
+                {
+                    data: 'kategori_tag',
+                    name: 'kategori_tag'
+                }, 
+                {
+                    data: {
+                        _:'created_at.display',
+                        sort:'created_at.timestamp',
+                        filter:'created_at.display',
+                    },
+                    name: 'created_at'
+                },
+                {
+                    data: {
+                        _:'updated_at.display',
+                        sort:'updated_at.timestamp',
+                        filter:'updated_at.display',
+                    },
+                    name: 'updated_at'
+                },                
+                {
+                    data: 'pemohon_tag',
+                    name: 'pemohon_tag'
+                }, 
+                {
+                    data: 'kodbar',
+                    name: 'kodbar'
+                },
+                {
+                    data: 'status',
+                    name: 'status'
+                },      
+                {
+                    data: 'tindakan',
+                    name: 'tindakan'
+                },                                                                        
+                
+               
+
+            ]
+        });
+
+
+    });
+</script>
+@endrole
 
 <script type="text/javascript">
     function calculate() {
