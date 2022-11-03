@@ -34,6 +34,16 @@
                     <b class="text-center">Pendaftaran Premis</b>
                 </div>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 @if (Session::has('success'))
                     <div class="alert alert-success">
                         {{ Session::get('success') }}
@@ -95,9 +105,9 @@
                             <div class="col-4">
                                 <input class="form-control" type="text" name="kod" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
-                                    oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" />
                             </div>
-                            
+
                             <div class="col-2 text-end" id="tag1">
                                 <label class="form-label">Kategori Tag</label>
                             </div>
@@ -105,7 +115,7 @@
                                 <select class="form-select" aria-label="Default select example" name="kategori" required
                                     oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
-                                    <option selected disabled value="">Pilih Kategori Tag</option>                                    
+                                    <option selected disabled value="">Pilih Kategori Tag</option>
                                     <option value="K1">K1</option>
                                     <option value="K2">K2</option>
                                     <option value="K3">K3</option>
@@ -118,7 +128,8 @@
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
                                 <textarea class="form-control" name="alamat" cols="93" rows="5" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"></textarea>
+                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"
+                                    onkeyup="this.value = this.value.toUpperCase();"></textarea>
                             </div>
                         </div>
 
@@ -182,35 +193,35 @@
 
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input type="checkbox" name="jenis1"/>
+                                <input type="checkbox" name="jenis1" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil
-                                <input type="checkbox" name="jenis2"/>
+                                <input type="checkbox" name="jenis2" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ayam
-                                <input type="checkbox" name="jenis3"/>
+                                <input type="checkbox" name="jenis3" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Itik
-                                <input type="checkbox" name="jenis4"/>
+                                <input type="checkbox" name="jenis4" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Babi
-                                <input type="checkbox" name="jenis5"/>
+                                <input type="checkbox" name="jenis5" />
                             </div>
                             <label class="col"></label>
                             <div class="col">Telur
-                                <input type="checkbox" name="jenis6"/>
+                                <input type="checkbox" name="jenis6" />
                             </div>
                             <label class="col"></label>
                             <div class="col">Susu
-                                <input type="checkbox" name="jenis7"/>
+                                <input type="checkbox" name="jenis7" />
                             </div>
                             <label class="col"></label>
                             <div class="col">Tambah Nilai
-                                <input type="checkbox" name="jenis8"/>                            
+                                <input type="checkbox" name="jenis8" />
                             </div>
                         </div>
 
@@ -313,7 +324,6 @@
                 }
             }
         }
-
     </script>
 
     {{-- required checkbox --}}
@@ -330,13 +340,14 @@
     <script>
         function changeInduk() {
             var induk = document.getElementById("induk").value
-            if (induk == "LOJI PENYEMBELIHAN AYAM" || induk == "LOJI PENYEMBELIHAN ITIK" || induk == "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
+            if (induk == "LOJI PENYEMBELIHAN AYAM" || induk == "LOJI PENYEMBELIHAN ITIK" || induk ==
+                "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
                 document.getElementById("tag1").style.display = "none";
                 document.getElementById("tag2").style.display = "none";
             } else {
                 document.getElementById("tag1").style.display = "block";
                 document.getElementById("tag2").style.display = "block";
             }
-        }        
+        }
     </script>
 @endsection
