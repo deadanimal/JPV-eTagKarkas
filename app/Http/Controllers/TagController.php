@@ -48,7 +48,7 @@ class TagController extends Controller
             return DataTables::collection($tags)
             ->addColumn('no_rujukan', function (Tag $tag) {
                 $date = $tag->created_at->format('Y');
-                if($tag->bil_kodbar_sah) {
+                if($tag->bil_kodbar) {
                     $html_button = 'RS-'.$date.'-'.sprintf('%03d', $tag->id);
                 } else {
                     $html_button = '-';
