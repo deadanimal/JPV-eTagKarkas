@@ -69,7 +69,8 @@
                             <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" min=1 name="bil_ternakan"
-                                    id="bilangan_ternakan" onchange="calculate()" />
+                                    id="bilangan_ternakan" onchange="calculate()" required oninvalid="this.setCustomValidity('Sila masukkan bilangan ternakan.')"
+                                    oninput="this.setCustomValidity('')"/>
                             </div>
                         </div>
                         {{-- Bilangan Kod Bar Untuk Dijana --}}
@@ -83,12 +84,12 @@
                         </div>
                         {{-- Pengesyoran Kuantiti --}}
                         {{-- <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="text" placeholder="" name="bil_kod" placeholder="16"
-                         />
-                </div>
-            </div> --}}
+                        <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" placeholder="" name="bil_kod" placeholder="16"
+                                />
+                        </div>
+                        </div> --}}
 
                         @role('pengurus-rumah-sembelih')
                            
@@ -101,17 +102,37 @@
                                         <option value="Auto">Auto</option>
                                     </select>
                                 </div>
-
-
                             </div>
                         @endrole
                 </div>
 
-                <!--Button-->
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    {{-- <button class="btn btn-success" type="submit" name="submitbutton" value="Simpan">Simpan</button> --}}
-                    <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Hantar
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        Adakah anda ingin menghantar permohonan tag baharu?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Ya</button>
+                    </div>
+                    </div>
+                    </div>
                 </div>
+
+                <!--Button-->
+                {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                    <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button>
+                </div> --}}
                 </form>
             </div>
         </div>

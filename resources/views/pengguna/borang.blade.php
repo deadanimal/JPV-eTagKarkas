@@ -1,5 +1,21 @@
 @extends('layouts.app')
 
+@section('styles')
+    <style>
+        /* remove arrow in input number */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    
+@endsection
+
 @section('content')
     <main class="content">
 
@@ -121,7 +137,7 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-success" type="submit">Daftar</button>
+                        <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button>
 
                     </form>
                 </div>

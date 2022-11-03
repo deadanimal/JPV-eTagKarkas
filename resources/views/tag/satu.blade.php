@@ -72,22 +72,55 @@
                         @role('pengurus-rumah-sembelih')
 
                         <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
-                            <div class="col-sm-9">
+                            <div class="col-3">
+                                <label class="form-label">Bilangan Ternakan</label>
+
+                            </div>
+                            <div class="col-3">
                                 <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
                                     value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
                                     @if ($tag->status != 'Simpan') readonly @endif />
                             </div>
+
+                            <div class="col-3">
+                                {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                                <label class="form-label">Bilangan Pengesyoran Kodbar</label>
+                            </div>
+                                <div class="col-3">
+                                    <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
+                                        value="{{ $tag->bil_kodbar }}" readonly />
+                                </div>
+                            
                         </div>
 
+                        
                         <div class="mb-3 row">
-                            {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
-                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
-                                    value="{{ $tag->bil_kodbar }}" readonly />
+                            @if($tag->status == 'Lulus' )
+                            <div class="col-3 ">
+                                <label class="form-label">Pengesyoran Kuantiti</label>
                             </div>
+                            <div class="col-3">
+                                <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                    value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
+                                        readonly />
+                            </div>
+                            @endif
+
+                            @if($tag->status == 'Lulus' )
+                            <div class="col-3">
+                                <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
+                            </div>
+                                <div class="col-3">
+                                <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                    value="{{ $tag->bil_kodbar_sah }}" id="bilangan_ternakan"
+                                    readonly />
+                                </div>
+                            @endif
+                            
+                            
                         </div>
+                        
+                        
 
                         @endrole
 
@@ -95,66 +128,117 @@
 
                         @role('pentadbir')
                         {{-- Bilangan Ternakan --}}
+
                         <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
-                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
-                                    @if ($tag->status != 'Simpan') readonly @endif />
+                            <div class="col-3 ">
+                                <label class="form-label">Bilangan Ternakan</label>
                             </div>
+                                <div class="col-3">
+                                    <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
+                                        value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
+                                        @if ($tag->status != 'Simpan') readonly @endif />
+                                </div>
+                            
+
+                            <div class="col-3 ">
+                                {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                                <label class="form-label">Bilangan Pengesyoran Kodbar</label>
+                            </div>
+                                <div class="col-3">
+                                    <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
+                                        value="{{ $tag->bil_kodbar }}" readonly />
+                                </div>
                         </div>
 
-    
-                        
-                        {{-- Pengesyoran Kuantiti --}}
-                        @if ($tag->status != 'Simpan' || $tag->status != 'Sah' )
                         <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Pengesyoran Kuantiti</label>
-                            <div class="col-sm-9">
+
+                            {{-- Pengesyoran Kuantiti --}}
+                        @if ($tag->status != 'Simpan' || $tag->status != 'Sah' )
+                        <div class="col-3">
+                            <label class="form-label">Pengesyoran Kuantiti</label>
+                        </div>
+                            <div class="col-3">
                                 <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif 
                                     value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  />
                             </div>                            
-                        </div>
-                        @endif
-
-                        {{-- Bilangan Kod Bar Untuk Dijana --}}
-                        {{-- must be generate automitaclly according to R.Besar n R.Kecil --}}
                         
-                        <div class="mb-3 row">
+                        @endif
+                        
+                        <div class="col-3">
                             {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
-                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar</label>
-                            <div class="col-sm-9">
+                            <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
+                        </div>
+                            <div class="col-3">
                                 <input class="form-control" type="text" name="bil_kodbar_sah" id="bil_kodbar_sah"
                                     value="{{ $tag->bil_kodbar_sah }}" readonly />
                             </div>
+                        
+
                         </div>
+
                         @endrole
 
                         @role('ketua-seksyen')
 
+                        <div class="mb-3 row">
+
+                            @if($tag->status == 'Sah' || $tag->status == 'Lulus' )
+                        <div class="col-3">
+                            <label class="form-label">Bilangan Ternakan</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
+                                    readonly />
+                        </div>
+                        
+                        @endif
+
                         @if($tag->status == 'Sah' || $tag->status == 'Lulus' )
-                            <div class="mb-3 row">
-                                <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="text" min=1 name="bil_ternakan" 
-                                        value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
-                                         readonly />
-                                </div>
+                        <div class="col-3 ">
+                            <label class="form-label">Bilangan Pengesyoran Kodbar</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-control" type="text" min=1 name="bil_kodbar" 
+                                value="{{ $tag->bil_kodbar }}" id="bilangan_ternakan"
+                                    readonly />
+                        </div>
+                        
+                        @endif
+
+                        </div>
+
+                        <div class="mb-3 row">
+
+                        @if($tag->status == 'Sah' || $tag->status == 'Lulus' )
+                        <div class="col-3">
+                            <label class="form-label">Pengesyoran Kuantiti</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
+                                    readonly />
+                        </div>
+                        
+                        @endif
+
+                        @if($tag->status == 'Sah' || $tag->status == 'Lulus' )
+                        <div class="col-3">
+                            <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
+                        </div>
+                            <div class="col-3">
+                                <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                    value="{{ $tag->bil_kodbar_sah }}" id="bilangan_ternakan"
+                                     readonly />
                             </div>
-                        @endif 
+                        
+                        @endif
+
+                        </div>
+
+                        
                         @endrole
                         
-                        
-                        
-
-                        {{-- @if ($tag->status != 'Simpan')
-                        <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar </label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="" id="bil_kodbar_sah" name="bil_kodbar_sah" value="{{ $tag->bil_kodbar_sah }}" readonly />
-                            </div>                            
-                        </div>
-                        @endif --}}
 
             
                         <!--Cetakan Kod Bar-->
@@ -209,16 +293,11 @@
                         {{-- <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button> --}}
                     </div>
                 @endif
-                @if ($tag->status == 'Sah' )
+                @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Hantar' )
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-success" type="button">Kembali</a>
                 </div>
                 @endif
-                @if ($tag->status == 'Lulus' )
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
-                </div>
-                @endif  
                 @endrole
 
                 @role('pentadbir')

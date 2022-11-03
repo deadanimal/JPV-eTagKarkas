@@ -243,9 +243,32 @@
                                 </div>
                             </div>
 
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button class="btn btn-success" type="submit">Simpan</button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Simpan
+                            </button>
+
+                             <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Adakah anda ingin mengemaskini permohonan?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                    <button class="btn btn-success " type="submit" value="submit">Ya</button>
+                                </div>
+                                </div>
+                                </div>
                             </div>
+
+                            {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                <button class="btn btn-success" type="submit">Simpan</button>
+                            </div> --}}
 
 
                         </div>
