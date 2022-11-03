@@ -68,9 +68,9 @@
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Bilangan Ternakan</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan"
+                                <input class="form-control" type="number" min=1 name="bil_ternakan"
                                     id="bilangan_ternakan" onchange="calculate()" required oninvalid="this.setCustomValidity('Sila masukkan bilangan ternakan.')"
-                                    oninput="this.setCustomValidity('')"/>
+                                    oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"/>
                             </div>
                         </div>
                         {{-- Bilangan Kod Bar Untuk Dijana --}}
@@ -91,10 +91,10 @@
                         </div>
                         </div> --}}
 
-                        @role('pengurus-rumah-sembelih')
+                        {{-- @role('pengurus-rumah-sembelih') --}}
                            
                             <!--Cetakan Kod Bar-->
-                            <div class="mb-3 row">
+                            {{-- <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Jana Tag</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="kodbar">
@@ -103,7 +103,7 @@
                                     </select>
                                 </div>
                             </div>
-                        @endrole
+                        @endrole --}}
                 </div>
 
                 <!-- Button trigger modal -->

@@ -132,7 +132,7 @@ class TagController extends Controller
         $tags->bil_ternakan = $request->bil_ternakan;
         $tags->bil_kodbar = $request->bil_kodbar;
         $tags->kategori = $request->kategori;
-        $tags->kodbar = $request->kodbar;
+        // $tags->kodbar = $request->kodbar;
         $tags->status = $request->submitbutton;
         $tags->user_id = $user->id;
         $tags->rumah_sembelih_id = $user->rumah_sembelih->id;
