@@ -174,6 +174,17 @@
                             </div>
                         </div>
 
+                        <!--Cetakan Kod Bar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Jana Tag</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" name="kodbar">
+                                    <option value="Manual" selected>Manual</option>
+                                    <option value="Auto">Auto</option>
+                                </select>
+                            </div>
+                        </div>
+
 
                         <!--Akses Ternakan-->
                         <div class="mb-3 row">

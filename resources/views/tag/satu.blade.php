@@ -77,8 +77,8 @@
 
                             </div>
                             <div class="col-3">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
-                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
+                                <input class="form-control" type="number" min=1 name="bil_ternakan" onchange="calculate2()"
+                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"
                                     @if ($tag->status != 'Simpan') readonly @endif />
                             </div>
 
@@ -87,7 +87,7 @@
                                 <label class="form-label">Bilangan Pengesyoran Kodbar</label>
                             </div>
                                 <div class="col-3">
-                                    <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
+                                    <input class="form-control" type="number" name="bil_kodbar" id="bil_kodbar"
                                         value="{{ $tag->bil_kodbar }}" readonly />
                                 </div>
                             
@@ -100,9 +100,9 @@
                                 <label class="form-label">Pengesyoran Kuantiti</label>
                             </div>
                             <div class="col-3">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                <input class="form-control" type="number" min=1 name="bil_ternakan" 
                                     value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
-                                        readonly />
+                                        readonly onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"/>
                             </div>
                             @endif
 
@@ -111,7 +111,7 @@
                                 <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
                             </div>
                                 <div class="col-3">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                <input class="form-control" type="number" min=1 name="bil_ternakan" 
                                     value="{{ $tag->bil_kodbar_sah }}" id="bilangan_ternakan"
                                     readonly />
                                 </div>
@@ -134,8 +134,8 @@
                                 <label class="form-label">Bilangan Ternakan</label>
                             </div>
                                 <div class="col-3">
-                                    <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
-                                        value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
+                                    <input class="form-control" type="number" min=1 name="bil_ternakan" onchange="calculate2()"
+                                        value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan" 
                                         @if ($tag->status != 'Simpan') readonly @endif />
                                 </div>
                             
@@ -145,7 +145,7 @@
                                 <label class="form-label">Bilangan Pengesyoran Kodbar</label>
                             </div>
                                 <div class="col-3">
-                                    <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
+                                    <input class="form-control" type="number" name="bil_kodbar" id="bil_kodbar"
                                         value="{{ $tag->bil_kodbar }}" readonly />
                                 </div>
                         </div>
@@ -158,8 +158,8 @@
                             <label class="form-label">Pengesyoran Kuantiti</label>
                         </div>
                             <div class="col-3">
-                                <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif 
-                                    value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  />
+                                <input class="form-control" type="number" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif 
+                                    value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"/>
                             </div>                            
                         
                         @endif
@@ -169,7 +169,7 @@
                             <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
                         </div>
                             <div class="col-3">
-                                <input class="form-control" type="text" name="bil_kodbar_sah" id="bil_kodbar_sah"
+                                <input class="form-control" type="number" name="bil_kodbar_sah" id="bil_kodbar_sah"
                                     value="{{ $tag->bil_kodbar_sah }}" readonly />
                             </div>
                         
@@ -187,7 +187,7 @@
                             <label class="form-label">Bilangan Ternakan</label>
                         </div>
                         <div class="col-3">
-                            <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                            <input class="form-control" type="number" min=1 name="bil_ternakan" 
                                 value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
                                     readonly />
                         </div>
@@ -199,7 +199,7 @@
                             <label class="form-label">Bilangan Pengesyoran Kodbar</label>
                         </div>
                         <div class="col-3">
-                            <input class="form-control" type="text" min=1 name="bil_kodbar" 
+                            <input class="form-control" type="number" min=1 name="bil_kodbar" 
                                 value="{{ $tag->bil_kodbar }}" id="bilangan_ternakan"
                                     readonly />
                         </div>
@@ -215,9 +215,9 @@
                             <label class="form-label">Pengesyoran Kuantiti</label>
                         </div>
                         <div class="col-3">
-                            <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                            <input class="form-control" type="number" min=1 name="bil_ternakan" 
                                 value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
-                                    readonly />
+                                     />
                         </div>
                         
                         @endif
@@ -227,7 +227,7 @@
                             <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
                         </div>
                             <div class="col-3">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan" 
+                                <input class="form-control" type="number" min=1 name="bil_ternakan" 
                                     value="{{ $tag->bil_kodbar_sah }}" id="bilangan_ternakan"
                                      readonly />
                             </div>
