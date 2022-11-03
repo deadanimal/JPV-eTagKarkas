@@ -21,6 +21,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     @yield('styles')
+
+	<style>
+        #bg-img { 
+          background: url('/img/goat-4366206_1920.jpg') no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }		
+    </style>    
 </head>
 
 <body>
@@ -119,7 +129,7 @@
             </div>
         </nav>
 
-        <div class="main">
+        <div class="main" id="bg-img">
 
             @include('sweetalert::alert')
             <nav class="navbar navbar-expand navbar-theme">

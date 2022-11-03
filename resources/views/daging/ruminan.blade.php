@@ -38,12 +38,16 @@
 
                         <div class="mb-3 col-md-3">
                             <label for="">Masa Ternakan Tiba Dipremis</label>
-                            <input class="form-control" type="time" name="tiba">
+                            <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker-minimum">
+                                <div class="input-group-text" data-target="#datetimepicker-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div>
+                            </div>                            
+                            {{-- <input class="form-control" type="datetime" name="tiba"> --}}
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="">Masa Ternakan Disembelih</label>
-                            <input class="form-control" type="time" name="disembelih">
+                            <input class="form-control" type="datetime" name="disembelih">
                         </div>
 
                     </div>
