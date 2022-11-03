@@ -215,9 +215,9 @@
                             <label class="form-label">Pengesyoran Kuantiti</label>
                         </div>
                         <div class="col-3">
-                            <input class="form-control" type="number" min=1 name="bil_ternakan" 
-                                value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
-                                     />
+                            <input class="form-control" type="number" min=1 name="bil_ternakan_sah" 
+                                value="{{ $tag->bil_ternakan_sah }}" id="bil_ternakan_sah"
+                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" onchange="calculate()"    />
                         </div>
                         
                         @endif
@@ -227,8 +227,8 @@
                             <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
                         </div>
                             <div class="col-3">
-                                <input class="form-control" type="number" min=1 name="bil_ternakan" 
-                                    value="{{ $tag->bil_kodbar_sah }}" id="bilangan_ternakan"
+                                <input class="form-control" type="number" min=1 name="bil_kodbar_sah" 
+                                    value="{{ $tag->bil_kodbar_sah }}" id="bil_kodbar_sah"
                                      readonly />
                             </div>
                         
