@@ -5,9 +5,13 @@
 @section('content')
 
 @if($tag->jenis_ternakan == 'Ruminan Besar')
-    @php($y=4)
+    @php
+    $y=4
+    @endphp
 @else
-    @php($y=2)
+    @php
+    $y=2
+    @endphp
 @endif
 
 <div class="row ">
@@ -18,14 +22,14 @@
 
                 {{--  --}}
                 <div class="col-5">
-                    <div class="card">
+                    <div class="card" style="width: 20rem">
                         <div class="card-header">
                             <img src="/img/Veterinar-Logo.png" style="width: 50px;height:50px;" >
 
                             <h5 class="card-title mb-0">Jabatan Perkhidmatan Veterinar</h5>
                         </div>
                         <div class="card-body">
-                            {!! QrCode::size(50)->backgroundColor(255,255,255)->generate('R'.$tag->rumah_sembelih->id.'-'.$date.'-'.sprintf('%03d',$i )) !!}
+                            {!! QrCode::size(100)->backgroundColor(255,255,255)->generate('R'.$tag->rumah_sembelih->id.'-'.$date.'-'.sprintf('%03d',$i )) !!}
                             <h6>R{{ $tag->rumah_sembelih->id.'-'.$date.'-'.sprintf('%03d',$i ) }}</h6>     
                             <p class="card-text">Tarikh Sembelih:</p>     
                         </div>

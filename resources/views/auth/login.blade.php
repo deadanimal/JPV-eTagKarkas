@@ -66,12 +66,24 @@
 									</form>
 								</div>
 							</div>
+
+							{{-- zach tambah untuk reset password --}}
+							<div class="text-center mt-3" >
+								@if (Route::has('password.request'))
+								<a class="underline text-md text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}" >
+									{{ __('Lupa Katalaluan?') }}
+								</a>
+							@endif
+							
+							</div>
 						</div>
 
 					</div>
 				</div>
 			</div>
 		</div>
+
+
 	</main>
 
 	<svg width="0" height="0" style="position:absolute">
