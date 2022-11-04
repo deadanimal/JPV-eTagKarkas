@@ -246,9 +246,14 @@
                             </div>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Simpan
-                            </button>
+
+                            <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                                <button type="button" class="btn btn-primary mb-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">
+                                    Simpan
+                                </button>
+                            </div>
+
+                            
 
                              <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -531,7 +536,7 @@
                                             <td>{{ $usera->email }}</td>
                                             <td>{{ $usera->jawatan }}</td>
                                             @role('pentadbir')
-                                                <td><a href="/rumah/{{ $rumah->id }}/gugur/{{ $usera->id }}">Gugur</a></td>
+                                                <td><a href="/rumah/{{ $rumah->id }}/gugur/{{ $usera->id }}" class="btn btn-danger">Gugur</a></td>
                                             @endrole
                                         </tr>
                                     @empty

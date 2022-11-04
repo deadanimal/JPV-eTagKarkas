@@ -123,6 +123,6 @@ class UserController extends Controller
 
         Alert::success('Kemaskini pengguna berjaya.', 'Kemaskini pengguna berjaya.');   
 
-        return back();
+        return redirect('/pengguna');
     }    
 }
