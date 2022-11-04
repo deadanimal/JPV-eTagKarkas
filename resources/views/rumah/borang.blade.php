@@ -234,9 +234,13 @@
                         </div>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Daftar
-                        </button>
+
+                        <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                            <button type="button" class="btn btn-lg btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Hantar
+                            </button>
+                        </div>
+                        
                         
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

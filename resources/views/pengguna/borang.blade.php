@@ -78,7 +78,7 @@
                                 <div class="col-4 mt-3">
                                     <input class="form-control" type="number" name="telefon" required
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                    oninput="this.setCustomValidity('')" />
+                                    oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -160,9 +160,14 @@
                         </div>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">
-                            Daftar
-                        </button>
+
+                        <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                            <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">
+                                Daftar
+                            </button>
+                        </div>
+
+                       
                         
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -172,12 +177,12 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                Adakah anda ingin mendaftar pengguna baharu?
+                                    Adakah anda ingin mendaftar pengguna baharu?
                                 </div>
                                 <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button>
-                    </div>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                    <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button>
+                                </div>
                             </div>
                             </div>
                         </div>
