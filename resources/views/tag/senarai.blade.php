@@ -95,6 +95,11 @@
                         "previous": "Sebelum"
                     },
                 },
+            columnDefs: [ {
+                className: 'dtr-control',
+                orderable: false,
+                targets:   0
+            } ],
             ajax: "/tag",
             columns: [{
                     data: 'no_rujukan',
@@ -113,8 +118,8 @@
                     name: 'jenis_ternakan'
                 }, 
                 {
-                    data: 'bil_ternakan_sah',
-                    name: 'bil_ternakan_sah'
+                    data: 'bil_ternakan_sah_ketua',
+                    name: 'bil_ternakan_sah_ketua'
                 }, 
                 {
                     data: 'kategori_tag',
@@ -197,8 +202,8 @@
                     name: 'jenis_ternakan'
                 }, 
                 {
-                    data: 'bil_ternakan_sah',
-                    name: 'bil_ternakan_sah'
+                    data: 'bil_ternakan_sah_ketua',
+                    name: 'bil_ternakan_sah_ketua'
                 }, 
                 {
                     data: 'kategori_tag',
