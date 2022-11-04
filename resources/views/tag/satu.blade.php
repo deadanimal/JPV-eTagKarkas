@@ -114,6 +114,7 @@
                                     readonly />
                                 </div>
                             @endif
+
                             @if ($tag->status == 'Tolak')
                             <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Catatan</label>
@@ -378,7 +379,6 @@
 
 
                 @if ($tag->status == 'Sah')
-                
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                         <!-- Button trigger modal -->
@@ -405,22 +405,23 @@
                                     </div>
                             </div>
                         </div>
+                        
                         <!-- Button trigger modal -->
                         <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
-                            <button type="button" class="btn btn-danger text-center" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                            <button type="button" class="btn btn-danger text-center" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
                                 Tolak
                             </button>
                         </div>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     <div class="modal-header">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                    Adakah anda ingin meluluskan permohonan tag ini?
+                                    Adakah anda ingin menolak permohonan tag ini?
                                     </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
@@ -431,6 +432,7 @@
                         </div>
                     </div>
                 @endif 
+
                 @if ($tag->status == 'Lulus' || $tag->status == 'Tolak'  )
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-success" type="button">Kembali</a>
