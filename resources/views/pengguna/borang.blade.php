@@ -159,6 +159,24 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <div class="col-2">
+                                <label class="form-label">Premis</label>
+                            </div>
+                            <div class="col-10">
+                                <select class="form-select" aria-label="Default select example" name="rumah_sembelih_id" required
+                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected>Pilih Premis</option>
+                                    <option value="">DVS</option>
+
+                                    @foreach ($rumahs as $rumah)
+                                        <option value="{{ $rumah->id }}">{{ $rumah->nama_rumah }}</option>
+                                    @endforeach
+                                    
+                                </select>
+                            </div>
+                        </div>
+
                         <!-- Button trigger modal -->
 
                         <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
