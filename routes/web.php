@@ -46,8 +46,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('stok-tag/{id}', [StokTagController::class, 'satu']);
     Route::put('stok-tag/{id}', [StokTagController::class, 'kemaskini']);
     
-    Route::get('profil', [UserController::class, 'senarai_profil']);
-    Route::put('profil', [UserController::class, 'kemaskini_profil']);
+    Route::get('profil', [UserController::class, 'profil']);
+    Route::put('profil_katalaluan', [UserController::class, 'profil_katalaluan']);
 
   
 

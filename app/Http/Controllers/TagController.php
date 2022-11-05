@@ -32,17 +32,77 @@ class TagController extends Controller
     public function senarai(Request $request) {
         $tags = Tag::all();
         $user = $request->user();
-        if($user->hasRole('pentadbir|ketua-seksyen')) {
-            // $tags = Tag::all();
+        if($user->hasRole('pentadbir')) {
+
             $tags = Tag::where([
                 ['status','!=', 'Padam']
             ])->orderBy('updated_at', 'desc')->get();
-        } else if ($user->hasRole('pengurus-rumah-sembelih')) {
+
+            // notifikasi kad
+            $jumlah_permohonan = Tag::all()->count();
+            $jumlah_permohonan_hantar = Tag::where([
+                ['status','=', 'Hantar']
+            ])->count();
+            $jumlah_permohonan_sah = Tag::where([
+                ['status','=', 'Sah']
+            ])->count();
+            $jumlah_permohonan_lulus = Tag::where([
+                ['status','=', 'Lulus']
+            ])->count(); 
+            $jumlah_permohonan_tolak = Tag::where([
+                ['status','=', 'Tolak']
+            ])->count();                        
+
+        } else if ($user->hasRole('ketua-seksyen')) {
+
             $tags = Tag::where([
-                ['user_id','=', $user->id],
+                ['status','=', 'Sah']
+            ])->orWhere([
+                ['status','=', 'Lulus']
+            ])->orderBy('updated_at','desc')->get();
+
+            // notifikasi kad
+            $jumlah_permohonan = Tag::all()->count();
+            $jumlah_permohonan_hantar = Tag::where([
+                ['status','=', 'Hantar']
+            ])->count();
+            $jumlah_permohonan_sah = Tag::where([
+                ['status','=', 'Sah']
+            ])->count();
+            $jumlah_permohonan_lulus = Tag::where([
+                ['status','=', 'Lulus']
+            ])->count(); 
+            $jumlah_permohonan_tolak = Tag::where([
+                ['status','=', 'Tolak']
+            ])->count(); 
+
+        } else if ($user->hasRole('pengurus-rumah-sembelih')) {
+
+            $rumah_sembelih_id = $user->rumah_sembelih_id;
+            $tags = Tag::where([
+                ['rumah_sembelih_id','=', $rumah_sembelih_id],
                 ['status','!=', 'Padam']
             ])->orderBy('updated_at','desc')->get();
-        }
+
+            $jumlah_permohonan = Tag::all()->count();
+            $jumlah_permohonan_hantar = Tag::where([
+                ['rumah_sembelih_id','=', $rumah_sembelih_id],
+                ['status','=', 'Hantar']
+            ])->count();
+            $jumlah_permohonan_sah = Tag::where([
+                ['rumah_sembelih_id','=', $rumah_sembelih_id],
+                ['status','=', 'Sah']
+            ])->count();
+            $jumlah_permohonan_lulus = Tag::where([
+                ['rumah_sembelih_id','=', $rumah_sembelih_id],
+                ['status','=', 'Lulus']
+            ])->count(); 
+            $jumlah_permohonan_tolak = Tag::where([
+                ['rumah_sembelih_id','=', $rumah_sembelih_id],
+                ['status','=', 'Tolak']
+            ])->count();             
+
+        } 
 
         if($request->ajax()) {
             return DataTables::collection($tags)
@@ -98,7 +158,7 @@ class TagController extends Controller
                 } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual') {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="';    
                 } else if($user->hasRole('pentadbir') && $tag->status == "Lulus" ) {                    
-                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success" onClick="printJS()">Cetak</button></a>';    
                 } else if($tag->status == "Tolak" ) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';    
                 } else if($tag->status == "Sah" && $user->hasRole('ketua-seksyen')) {
@@ -128,7 +188,8 @@ class TagController extends Controller
             ->make(true);
         }
 
-        return view('tag.senarai', compact('user','tags'));
+        return view('tag.senarai', compact('user','tags','jumlah_permohonan','jumlah_permohonan_hantar','jumlah_permohonan_sah',
+        'jumlah_permohonan_lulus','jumlah_permohonan_tolak'));
     } 
  
     public function cipta(Request $request) {

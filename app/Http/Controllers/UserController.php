@@ -21,6 +21,7 @@ class UserController extends Controller
 
     public function senarai(Request $request) {    
         $user = $request->user();
+        $rumahs = RumahSembelih::all();
         $pengguna = User::where([
             ['id', '!=', $user->id]
         ])->orderBy('updated_at', 'desc')->get();
@@ -50,11 +51,14 @@ class UserController extends Controller
                 ->make(true);
             }
 
-        return view('pengguna.senarai', compact('pengguna', 'user'));
+        return view('pengguna.senarai', compact('pengguna', 'user', 'rumahs'));
     }
 
     public function borang() {
-        return view('pengguna.borang');        
+        //zach tambah
+        $rumahs = RumahSembelih::all();
+
+        return view('pengguna.borang',compact('rumahs'));        
     }
 
     public function satu(Request $request) {
@@ -62,6 +66,21 @@ class UserController extends Controller
         $user = User::find($id);
         return view('pengguna.satu', compact('user'));        
     }
+
+    public function profil(Request $request) {
+        $user = $request->user();
+        $user = User::find($user->id);
+        return view('pengguna.profil', compact('user'));        
+    }    
+
+    public function profil_katalaluan(Request $request) {
+        $user = $request->user();
+        $user = User::find($user->id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+        Alert::success('Kemaskini Katalaluan', 'Kemaskini katalaluan berjaya');   
+        return back();        
+    }        
 
     public function cipta(Request $request) {      
 
@@ -87,8 +106,12 @@ class UserController extends Controller
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
+        //$user->premis = $request->premis;
         $user->telefon = $request->telefon;
-        $user->status = true;                
+        $user->status = true;      
+        if($request->rumah_sembelih_id) {
+            $user->rumah_sembelih_id = $request->rumah_sembelih_id;
+        }          
         $role = Role::find((int)$request->peranan);
         $user->peranan = $role->display_name;
         $user->save();

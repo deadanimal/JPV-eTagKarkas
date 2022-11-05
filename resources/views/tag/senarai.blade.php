@@ -1,13 +1,19 @@
 @extends('layouts.app')
 
+@section('styles')
 
+    <script src="print.js"></script>
+    <link rel="stylesheet" type="text/css" href="print.css">
+
+    
+
+@endsection
 
 @section('content')
     <main class="content">
 
         <div class="container-fluid">
 
-            {{-- @role('pengurus-rumah-sembelih') --}}
             <div class="header">
                 <h1 class="header-title">
                     Permohonan Tag Karkas
@@ -22,11 +28,75 @@
 
             </div>
 
+            {{-- kad notifikasi --}}
+            @role('pentadbir|ketua-seksyen|pengurus-rumah-sembelih')
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mt-0">
+                                    <h5 class="card-title text-black">Jumlah Permohonan</h5>
+                                </div>
+                                    <h1 class="display-5 mt-2 mb-3">{{$jumlah_permohonan}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mt-0">
+                                    <h5 class="card-title text-black">Jumlah Permohonan Hantar</h5>
+                                </div>
+                                    <h1 class="display-5 mt-2 mb-3">{{$jumlah_permohonan_hantar}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mt-0">
+                                    <h5 class="card-title text-black">Jumlah Permohonan Sah</h5>
+                                </div>
+                                    <h1 class="display-5 mt-2 mb-3">{{$jumlah_permohonan_sah}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mt-0">
+                                    <h5 class="card-title text-black">Jumlah Permohonan Lulus</h5>
+                                </div>
+                                    <h1 class="display-5 mt-2 mb-3">{{$jumlah_permohonan_lulus}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mt-0">
+                                    <h5 class="card-title text-black">Jumlah Permohonan Tolak</h5>
+                                </div>
+                                    <h1 class="display-5 mt-2 mb-3">{{$jumlah_permohonan_tolak}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
 
-            {{-- @endrole --}}
 
+            @endrole
 
-
+           {{-- Datatable --}}
            <div class="card">
             <div class="card-body">
                 <div class="row justify-content-center">
@@ -56,9 +126,7 @@
                             <tr>
     
                             </tr>
-                            
-    
-    
+                        
                         </tbody>
                     </table>
                 </div>
@@ -95,11 +163,6 @@
                         "previous": "Sebelum"
                     },
                 },
-            columnDefs: [ {
-                className: 'dtr-control',
-                orderable: false,
-                targets:   0
-            } ],
             ajax: "/tag",
             columns: [{
                     data: 'no_rujukan',
@@ -264,4 +327,6 @@
         }
     }
 </script>
+
+
 @endsection
