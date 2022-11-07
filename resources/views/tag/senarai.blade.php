@@ -29,8 +29,9 @@
             </div>
 
             {{-- kad notifikasi --}}
-            @role('pentadbir|ketua-seksyen|pengurus-rumah-sembelih')
             <div class="row">
+                @role('pentadbir|ketua-seksyen')
+
                 <div class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
@@ -43,6 +44,9 @@
                         </div>
                     </div>
                 </div>
+                @endrole
+
+                @role('pentadbir|ketua-seksyen|pengurus-rumah-sembelih')
                 <div class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
@@ -91,10 +95,10 @@
                         </div>
                     </div>
                 </div>
+                @endrole
             </div> 
 
-
-            @endrole
+           
 
            {{-- Datatable --}}
            <div class="card">

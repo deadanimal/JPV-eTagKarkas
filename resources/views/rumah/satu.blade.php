@@ -471,7 +471,7 @@
 
             @role('pentadbir|pengurus-rumah-sembelih')
                 <div class="row">
-                    @role('pentadbir')
+                    {{-- @role('pentadbir')
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-header bg-info text-white">
@@ -507,8 +507,8 @@
                                 </div>
                             </div>
                         </div>
-                    @endrole
-                    <div class="col-8">
+                    @endrole --}}
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-info text-white">
                                 <b class="text-center">Senarai Pengguna</b>
