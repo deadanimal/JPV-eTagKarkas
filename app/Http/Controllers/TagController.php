@@ -56,9 +56,11 @@ class TagController extends Controller
         } else if ($user->hasRole('ketua-seksyen')) {
 
             $tags = Tag::where([
-                ['status','=', 'Sah']
+                ['status','=', 'Sah'],
             ])->orWhere([
                 ['status','=', 'Lulus']
+            ])->orWhere([
+                ['status','=', 'Tolak']
             ])->orderBy('updated_at','desc')->get();
 
             // notifikasi kad
