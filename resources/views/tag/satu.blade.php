@@ -93,7 +93,7 @@
 
                         
                         <div class="mb-3 row">
-                            @if($tag->status == 'Lulus' || $tag->status == 'Tolak' )
+                            @if($tag->status == 'Lulus' )
                             <div class="col-3 ">
                                 <label class="form-label">Pengesyoran Kuantiti</label>
                             </div>
@@ -104,7 +104,7 @@
                             </div>
                             @endif
 
-                            @if($tag->status == 'Lulus' || $tag->status == 'Tolak' )
+                            @if($tag->status == 'Lulus' )
                             <div class="col-3">
                                 <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
                             </div>
@@ -298,7 +298,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Catatan</label>
                             <div class="col-sm-9">
-                                <textarea placeholder="Isi jika tolak permohonan sahaja" class="form-control" name="catatan_tolak" cols="90" rows="5" >{{$tag->catatan_tolak}}</textarea>
+                                <textarea placeholder="Isi jika tolak permohonan sahaja" class="form-control" name="catatan_tolak" cols="90" rows="5" onkeyup="this.value = this.value.toUpperCase();">{{$tag->catatan_tolak}}</textarea>
 
                             </div>
                         </div>
