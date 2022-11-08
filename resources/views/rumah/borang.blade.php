@@ -107,7 +107,7 @@
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"/>
                             </div>
-                            
+
                             <div class="col-2 text-end" id="tag1">
                                 <label class="form-label">Kategori Tag</label>
                             </div>
@@ -201,35 +201,35 @@
 
                             <label class="col-xl-2 col-form-label">Jenis Ternakan/Produk</label>
                             <div class="col ">Ruminan Besar
-                                <input type="checkbox" name="jenis1"/>
+                                <input type="checkbox" name="jenis1" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ruminan Kecil
-                                <input type="checkbox" name="jenis2"/>
+                                <input type="checkbox" name="jenis2" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Ayam
-                                <input type="checkbox" name="jenis3"/>
+                                <input type="checkbox" name="jenis3" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Itik
-                                <input type="checkbox" name="jenis4"/>
+                                <input type="checkbox" name="jenis4" />
                             </div>
                             <label class="col"></label>
                             <div class="col ">Babi
-                                <input type="checkbox" name="jenis5"/>
+                                <input type="checkbox" name="jenis5" />
                             </div>
                             <label class="col"></label>
                             <div class="col">Telur
-                                <input type="checkbox" name="jenis6"/>
+                                <input type="checkbox" name="jenis6" />
                             </div>
                             <label class="col"></label>
                             <div class="col">Susu
-                                <input type="checkbox" name="jenis7"/>
+                                <input type="checkbox" name="jenis7" />
                             </div>
                             <label class="col"></label>
                             <div class="col">Tambah Nilai
-                                <input type="checkbox" name="jenis8"/>                            
+                                <input type="checkbox" name="jenis8" />
                             </div>
                         </div>
 
@@ -359,7 +359,6 @@
                 }
             }
         }
-
     </script>
 
     {{-- required checkbox --}}
@@ -376,13 +375,14 @@
     <script>
         function changeInduk() {
             var induk = document.getElementById("induk").value
-            if (induk == "LOJI PENYEMBELIHAN AYAM" || induk == "LOJI PENYEMBELIHAN ITIK" || induk == "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
+            if (induk == "LOJI PENYEMBELIHAN AYAM" || induk == "LOJI PENYEMBELIHAN ITIK" || induk ==
+                "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
                 document.getElementById("tag1").style.display = "none";
                 document.getElementById("tag2").style.display = "none";
             } else {
                 document.getElementById("tag1").style.display = "block";
                 document.getElementById("tag2").style.display = "block";
             }
-        }        
+        }
     </script>
 @endsection
