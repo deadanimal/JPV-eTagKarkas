@@ -102,8 +102,8 @@
                         name: 'pejabat'
                     },
                     {
-                        data: 'rumah',
-                        name: 'rumah'
+                        data: 'premis',
+                        name: 'premis'
                     },
                     {
                         data: 'email',

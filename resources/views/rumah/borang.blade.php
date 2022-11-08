@@ -47,6 +47,16 @@
                     @method('POST')
                     @csrf
 
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <div class="card-body">
 
                         <!--Nama Pengeluar-->
@@ -58,7 +68,7 @@
                             <div class="col-sm-10">
 
                                 <select class="form-select" id="induk" name="induk" required onchange="changeInduk()"
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
                                     <option selected disabled value="">Pilih Kategori Premis</option>
                                     <option value="RUMAH SEMBELIH JABATAN (RUMINAN)">RUMAH SEMBELIH JABATAN (RUMINAN)
@@ -80,7 +90,7 @@
                             </div>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="nama_rumah" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" />
                             </div>
 
@@ -94,18 +104,16 @@
                             </div>
                             <div class="col-4">
                                 <input class="form-control" type="text" name="kod" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
-                                    oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" />
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                    oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"/>
                             </div>
 
                             <div class="col-2 text-end" id="tag1">
                                 <label class="form-label">Kategori Tag</label>
                             </div>
                             <div class="col-4" id="tag2">
-                                <select class="form-select" aria-label="Default select example" name="kategori" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
-                                    oninput="this.setCustomValidity('')">
-                                    <option selected disabled value="">Pilih Kategori Tag</option>
+                                <select class="form-select" aria-label="Default select example" name="kategori" >
+                                    <option selected disabled value="">Pilih Kategori Tag</option>                                    
                                     <option value="K1">K1</option>
                                     <option value="K2">K2</option>
                                     <option value="K3">K3</option>
@@ -118,8 +126,7 @@
                             <label class="col-xl-2 col-form-label">Alamat</label>
                             <div class="col-xl-10">
                                 <textarea class="form-control" name="alamat" cols="93" rows="5" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')" oninput="this.setCustomValidity('')"
-                                    onkeyup="this.value = this.value.toUpperCase();"></textarea>
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"></textarea>
                             </div>
                         </div>
 
@@ -129,7 +136,7 @@
                             <div class="col-xl-4">
                                 <select name="zon" id="countySel" size="1" class="form-select"
                                     aria-label="Default select example" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
                                     <option selected disabled value="">Pilih Zon</option>
 
@@ -145,7 +152,7 @@
                             <div class="col-4">
                                 <select name="negeri" id="stateSel" size="1" class="form-select"
                                     aria-label="Default select example" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
                                     <option selected disabled value="">Pilih Negeri</option>
 
@@ -158,7 +165,7 @@
                             <div class="col-4">
                                 <select name="daerah" id="districtSel" size="1" class="form-select"
                                     aria-label="Default select example"required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
                                     <option selected disabled value="">Pilih Daerah</option>
                                 </select>
@@ -171,9 +178,20 @@
                             <label class="col-sm-2 col-form-label">No. Telefon Premis</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="number" name="no_tel" required
-                                    oninvalid="this.setCustomValidity('Sila isi maklumat ini.')"
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')"
                                     onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                            </div>
+                        </div>
+
+                        <!--Cetakan Kod Bar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Jana Tag</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" name="kodbar">
+                                    <option value="Manual" selected>Manual</option>
+                                    <option value="Auto">Auto</option>
+                                </select>
                             </div>
                         </div>
 
@@ -215,9 +233,36 @@
                             </div>
                         </div>
 
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-success" type="submit" value="submit">Daftar</button>
+                        <!-- Button trigger modal -->
+
+                        <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                            <button type="button" class="btn btn-lg btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Hantar
+                            </button>
                         </div>
+                        
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                Adakah anda ingin mendaftar permohonan baru?
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                <button class="btn btn-success " type="submit" value="submit">Ya</button>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-success" type="submit" value="submit">Daftar</button>
+                        </div> --}}
 
 
                     </div>

@@ -72,89 +72,209 @@
                         @role('pengurus-rumah-sembelih')
 
                         <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
-                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
+                            <div class="col-3">
+                                <label class="form-label">Bilangan Ternakan</label>
+                            </div>
+                            <div class="col-3">
+                                <input class="form-control" type="number" min=1 name="bil_ternakan" onchange="calculate2()"
+                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"
                                     @if ($tag->status != 'Simpan') readonly @endif />
                             </div>
-                        </div>
 
-                        <div class="mb-3 row">
-                            {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
-                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" name="bil_kodbar" id="bil_kodbar"
-                                    value="{{ $tag->bil_kodbar }}" readonly />
+                            <div class="col-3">
+                                {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                                <label class="form-label">Bilangan Pengesyoran Kodbar</label>
                             </div>
+                                <div class="col-3">
+                                    <input class="form-control" type="number" name="bil_kodbar" id="bil_kodbar"
+                                        value="{{ $tag->bil_kodbar }}" readonly />
+                                </div>
                         </div>
 
+                        
+                        <div class="mb-3 row">
+                            @if($tag->status == 'Lulus' )
+                            <div class="col-3 ">
+                                <label class="form-label">Pengesyoran Kuantiti</label>
+                            </div>
+                            <div class="col-3">
+                                <input class="form-control" type="number" min=1 name="bil_ternakan" 
+                                    value="{{ $tag->bil_ternakan_sah_ketua }}" id="bilangan_ternakan"
+                                        readonly onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"/>
+                            </div>
+                            @endif
+
+                            @if($tag->status == 'Lulus' )
+                            <div class="col-3">
+                                <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
+                            </div>
+                                <div class="col-3">
+                                <input class="form-control" type="number" min=1 name="bil_ternakan" 
+                                    value="{{ $tag->bil_kodbar_sah_ketua }}" id="bilangan_ternakan"
+                                    readonly />
+                                </div>
+                            @endif
+
+                            @if ($tag->status == 'Tolak')
+                            <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Catatan</label>
+                            <div class="col-sm-9">
+                                <textarea  class="form-control" name="catatan_tolak" cols="90" rows="5" readonly>{{$tag->catatan_tolak}}</textarea>
+                            </div>
+                            </div>
+                            @endif                           
+                        </div>
                         @endrole
 
                         
 
                         @role('pentadbir')
                         {{-- Bilangan Ternakan --}}
+
                         <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" min=1 name="bil_ternakan" onchange="calculate2()"
-                                    value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan"
-                                    @if ($tag->status != 'Simpan') readonly @endif />
+                            <div class="col-3 ">
+                                <label class="form-label">Bilangan Ternakan</label>
                             </div>
+                                <div class="col-3">
+                                    <input class="form-control" type="number" min=1 name="bil_ternakan" onchange="calculate2()"
+                                        value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan" 
+                                        @if ($tag->status != 'Simpan') readonly @endif />
+                                </div>
+                            
+
+                            <div class="col-3 ">
+                                {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                                <label class="form-label">Bilangan Pengesyoran Kodbar</label>
+                            </div>
+                                <div class="col-3">
+                                    <input class="form-control" type="number" name="bil_kodbar" id="bil_kodbar"
+                                        value="{{ $tag->bil_kodbar }}" readonly />
+                                </div>
                         </div>
 
-    
-                        
-                        {{-- Pengesyoran Kuantiti --}}
-                        @if ($tag->status != 'Simpan' || $tag->status != 'Sah' )
                         <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Pengesyoran Kuantiti</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif 
-                                    value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  />
-                            </div>                            
-                        </div>
-                        @endif
 
-                        {{-- Bilangan Kod Bar Untuk Dijana --}}
-                        {{-- must be generate automitaclly according to R.Besar n R.Kecil --}}
-                        
-                        <div class="mb-3 row">
-                            {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
-                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" name="bil_kodbar_sah" id="bil_kodbar_sah"
+                            {{-- Pengesyoran Kuantiti --}}
+                            @if ($tag->status == 'Sah' || $tag->status == 'Hantar' )
+                            <div class="col-3">
+                                <label class="form-label">Pengesyoran Kuantiti</label>
+                            </div>
+                            <div class="col-3">
+                                <input class="form-control" type="number" min="0" placeholder="" @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak') disabled @endif 
+                                    value="{{$tag->bil_ternakan_sah}}" id="bil_ternakan_sah" onchange="calculate()" name="bil_ternakan_sah"  onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"
+                                    required oninvalid="this.setCustomValidity('Sila masukkan bilangan ternakan.')" 
+                                    oninput="this.setCustomValidity('')" />
+                            </div>
+                            <div class="col-3">
+                                {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                                <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
+                            </div>
+                            <div class="col-3">
+                                <input class="form-control" type="number" name="bil_kodbar_sah" id="bil_kodbar_sah"
                                     value="{{ $tag->bil_kodbar_sah }}" readonly />
+                            </div>                            
+                            @endif
+
+                            @if ($tag->status == 'Lulus' )
+                            <div class="col-3">
+                                <label class="form-label">Pengesyoran Kuantiti</label>
                             </div>
+                            <div class="col-3">
+                                <input class="form-control" type="number" placeholder=""  value="{{$tag->bil_ternakan_sah_ketua}}" id="bil_ternakan_sah" name="bil_ternakan_sah"  
+                                readonly/>
+                            </div>
+                            <div class="col-3">
+                                {{-- rename: Bilangan Kod Bar Untuk Dijana  --}}
+                                <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
+                            </div>
+                            <div class="col-3">
+                                <input class="form-control" type="number" name="bil_kodbar_sah" id="bil_kodbar_sah"
+                                    value="{{ $tag->bil_kodbar_sah_ketua }}" readonly />
+                            </div>                            
+                            @endif
+                            
+                            
+                                
+                            @if ($tag->status == 'Tolak')
+                            <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Catatan</label>
+                            <div class="col-sm-9">
+                                <textarea  class="form-control" name="catatan_tolak" cols="90" rows="5" readonly>{{$tag->catatan_tolak}}</textarea>
+                            </div>
+                            </div>
+                            @endif
                         </div>
+
                         @endrole
 
                         @role('ketua-seksyen')
 
-                        @if($tag->status == 'Sah' || $tag->status == 'Lulus' )
-                            <div class="mb-3 row">
-                                <label class="col-sm-3 col-form-label">Bilangan Ternakan</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="text" min=1 name="bil_ternakan" 
-                                        value="{{ $tag->bil_ternakan_sah }}" id="bilangan_ternakan"
-                                         readonly />
-                                </div>
+                        <div class="mb-3 row">
+
+                        @if($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak' )
+                        <div class="col-3">
+                            <label class="form-label">Bilangan Ternakan</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-control" type="number" min=1 name="bil_ternakan" 
+                                value="{{ $tag->bil_ternakan }}" id="bilangan_ternakan" readonly />
+                        </div>
+                        
+                        @endif
+
+                        @if($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak' )
+                        <div class="col-3 ">
+                            <label class="form-label">Bilangan Pengesyoran Kodbar</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-control" type="number" min=1 name="bil_kodbar" 
+                                value="{{ $tag->bil_kodbar }}" id="bilangan_ternakan" readonly />
+                        </div>
+                        
+                        @endif
+
+                        </div>
+
+                        <div class="mb-3 row">
+
+                        @if($tag->status == 'Sah' )
+                        <div class="col-3">
+                            <label class="form-label">Pengesyoran Kuantiti</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-control" type="number" min=1 name="bil_ternakan_sah_ketua" 
+                                value="{{ $tag->bil_ternakan_sah }}" id="bil_ternakan_sah_ketua"
+                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" onchange="calculate3()"    />
+                        </div>
+                        @endif
+
+                        @if($tag->status == 'Lulus' || $tag->status == 'Tolak' )
+                        <div class="col-3">
+                            <label class="form-label">Pengesyoran Kuantiti</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-control" type="number" min=1 name="bil_ternakan_sah" 
+                                value="{{ $tag->bil_ternakan_sah_ketua }}" id="bil_ternakan_sah"
+                                readonly   />
+                        </div>
+                        @endif
+
+                        @if($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak' )
+                        <div class="col-3">
+                            <label class="form-label">Bilangan Kodbar Untuk Dijana</label>
+                        </div>
+                            <div class="col-3">
+                                <input class="form-control" type="number" min=1 name="bil_kodbar_sah_ketua" 
+                                    value="{{ $tag->bil_kodbar_sah_ketua }}" id="bil_kodbar_sah_ketua" readonly />
                             </div>
-                        @endif 
+                        
+                        @endif
+
+                        </div>
+
+                        
                         @endrole
                         
-                        
-                        
-
-                        {{-- @if ($tag->status != 'Simpan')
-                        <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Bilangan Pengesyoran Kodbar </label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="" id="bil_kodbar_sah" name="bil_kodbar_sah" value="{{ $tag->bil_kodbar_sah }}" readonly />
-                            </div>                            
-                        </div>
-                        @endif --}}
 
             
                         <!--Cetakan Kod Bar-->
@@ -178,7 +298,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Catatan</label>
                             <div class="col-sm-9">
-                                <textarea placeholder="Isi jika tolak permohonan sahaja" class="form-control" name="catatan_tolak" cols="90" rows="5" >{{$tag->catatan_tolak}}</textarea>
+                                <textarea placeholder="Isi jika tolak permohonan sahaja" class="form-control" name="catatan_tolak" cols="90" rows="5" onkeyup="this.value = this.value.toUpperCase();">{{$tag->catatan_tolak}}</textarea>
 
                             </div>
                         </div>
@@ -205,34 +325,50 @@
                 @role('pengurus-rumah-sembelih')
                 @if ($tag->status == 'Simpan')
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                        <button class="btn btn-success" type="submit" name="submitbutton" value="Simpan">Hantar</button>
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button>
                         {{-- <button class="btn btn-success" type="submit" name="submitbutton" value="Hantar">Hantar</button> --}}
                     </div>
                 @endif
-                @if ($tag->status == 'Sah' )
+                @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Hantar' || $tag->status == 'Tolak' )
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-success" type="button">Kembali</a>
                 </div>
                 @endif
-                @if ($tag->status == 'Lulus' )
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
-                </div>
-                @endif  
                 @endrole
 
                 @role('pentadbir')
                 @if ($tag->status == 'Hantar' || $tag->status == 'Simpan')
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                        <button class="btn btn-success" type="submit" name="submitbutton" value="Sah">Sahkan</button>
+                    <!-- Button trigger modal -->
+
+                    <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                        <button type="button" class="btn btn-success " data-bs-toggle="modal"  data-bs-target="#exampleModal">
+                            Sahkan
+                        </button>
                     </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            Adakah anda pasti untuk mengesahkan permohonan?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                            <button class="btn btn-success " type="submit" name="submitbutton" value="Sah">Ya</button>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                        <button class="btn btn-success" type="submit" name="submitbutton" value="Sah">Sahkan</button>
+                    </div> --}}
                 @endif 
-                @if ($tag->status == 'Sah' )
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                    <a href="/tag" class="btn btn-success" type="button">Kembali</a>
-                </div>
-                @endif 
-                @if ($tag->status == 'Lulus' )
+                @if ($tag->status == 'Sah' || $tag->status == 'Lulus' || $tag->status == 'Tolak' )
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-success" type="button">Kembali</a>
                 </div>
@@ -241,11 +377,60 @@
                 
                 @role('ketua-seksyen')
                 @if ($tag->status == 'Sah')
+
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
-                        <button class="btn btn-success" type="submit" name="submitbutton" value="Lulus">Lulus</button>
-                        <button class="btn btn-danger" type="submit" name="submitbutton" value="Tolak">Tolak</button>                    
+                        <!-- Button trigger modal -->
+                        <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                            <button type="button" class="btn btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                Lulus
+                            </button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Adakah anda ingin meluluskan permohonan tag ini?
+                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                            <button class="btn btn-success" type="submit" name="submitbutton" value="Lulus">Ya</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Button trigger modal -->
+                        <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                            <button type="button" class="btn btn-danger text-center" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
+                                Tolak
+                            </button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Adakah anda ingin menolak permohonan tag ini?
+                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                            <button class="btn btn-success" type="submit" name="submitbutton" value="Tolak">Ya</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
                     </div>
                 @endif 
+
                 @if ($tag->status == 'Lulus' || $tag->status == 'Tolak'  )
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
                     <a href="/tag" class="btn btn-success" type="button">Kembali</a>
@@ -291,6 +476,17 @@ s
             } else {
                 document.getElementById("bil_kodbar_sah").value = bilanganTernakan * 2;
             }
-        }        
+        } 
+        function calculate3() {
+            var jenisTernakan = document.getElementById("jenis_ternakan").value;
+            console.log(jenisTernakan);
+            var bilanganTernakan = document.getElementById("bil_ternakan_sah_ketua").value;
+            console.log(bilanganTernakan);
+            if (jenisTernakan == 'Ruminan Besar') {
+                document.getElementById("bil_kodbar_sah_ketua").value = bilanganTernakan * 4;
+            } else {
+                document.getElementById("bil_kodbar_sah_ketua").value = bilanganTernakan * 2;
+            }
+        }       
     </script>
 @endsection

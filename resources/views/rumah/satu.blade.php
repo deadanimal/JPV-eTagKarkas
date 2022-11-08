@@ -134,7 +134,9 @@
                                 <label class="col-xl-2 col-form-label">Zon</label>
                                 <div class="col-xl-4">
                                     <select name="zon" id="countySel" size="1" class="form-select">
-                                        <option value="{{ $rumah->zon }}" selected disabled>{{ $rumah->zon }}</option>
+                                        <option selected disabled value="{{ $rumah->zon }}">Pilih Zon</option>
+
+                                        {{-- <option value="{{ $rumah->zon }}" selected disabled>{{ $rumah->zon }}</option> --}}
                                     </select>
                                 </div>
                             </div>
@@ -146,8 +148,8 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="negeri" id="stateSel" size="1" class="form-select">
-                                        <option value="{{ $rumah->negeri }}" selected disabled>{{ $rumah->negeri }}</option>
-                                        <option>{{ $rumah->negeri }}</option>
+                                        {{-- <option value="{{ $rumah->negeri }}" selected disabled>{{ $rumah->negeri }}</option> --}}
+                                        {{-- <option>{{ $rumah->negeri }}</option> --}}
 
                                     </select>
                                 </div>
@@ -157,8 +159,8 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="daerah" id="districtSel" size="1" class="form-select">
-                                        <option value="{{ $rumah->daerah }}" selected disabled>{{ $rumah->daerah }}</option>
-                                        <option>{{ $rumah->daerah }}</option>
+                                        {{-- <option value="{{ $rumah->daerah }}" selected disabled>{{ $rumah->daerah }}</option> --}}
+                                        {{-- <option>{{ $rumah->daerah }}</option> --}}
                                     </select>
                                 </div>
 
@@ -243,9 +245,37 @@
                                 </div>
                             </div>
 
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button class="btn btn-success" type="submit">Simpan</button>
+                            <!-- Button trigger modal -->
+
+                            <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                                <button type="button" class="btn btn-primary mb-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">
+                                    Simpan
+                                </button>
                             </div>
+
+                            
+
+                             <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Adakah anda ingin mengemaskini permohonan?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                    <button class="btn btn-success " type="submit" value="submit">Ya</button>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                <button class="btn btn-success" type="submit">Simpan</button>
+                            </div> --}}
 
 
                         </div>
@@ -441,7 +471,7 @@
 
             @role('pentadbir|pengurus-rumah-sembelih')
                 <div class="row">
-                    @role('pentadbir')
+                    {{-- @role('pentadbir')
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-header bg-info text-white">
@@ -477,8 +507,8 @@
                                 </div>
                             </div>
                         </div>
-                    @endrole
-                    <div class="col-8">
+                    @endrole --}}
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-info text-white">
                                 <b class="text-center">Senarai Pengguna</b>
@@ -506,7 +536,7 @@
                                             <td>{{ $usera->email }}</td>
                                             <td>{{ $usera->jawatan }}</td>
                                             @role('pentadbir')
-                                                <td><a href="/rumah/{{ $rumah->id }}/gugur/{{ $usera->id }}">Gugur</a></td>
+                                                <td><a href="/rumah/{{ $rumah->id }}/gugur/{{ $usera->id }}" class="btn btn-danger">Gugur</a></td>
                                             @endrole
                                         </tr>
                                     @empty

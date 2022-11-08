@@ -87,6 +87,7 @@ class RumahSembelihController extends Controller
         $rumah->negeri = $request->negeri;
         $rumah->daerah = $request->daerah;
         $rumah->no_tel = $request->no_tel;
+        $rumah->jana_tag = $request->jana_tag;
         if($request->jenis1 == "on") {
             $rumah->jenis1 = true;
         } else {
