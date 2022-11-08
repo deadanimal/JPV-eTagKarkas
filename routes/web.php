@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AnteMortemRuminanController;
+use App\Http\Controllers\HarianController;
+use App\Http\Controllers\PemeriksaanController;
+use App\Http\Controllers\PemeriksaanHarianController;
+use App\Http\Controllers\PostMortemRuminanController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
@@ -30,6 +35,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('daging/{id}/sebelum-sembelih', [DagingController::class, 'cipta_sebelum_sembelih']);
     Route::post('daging/{id}/selepas-sembelih', [DagingController::class, 'cipta_selepas_sembelih']);
     Route::post('daging/{id}/laporan', [DagingController::class, 'cipta_laporan']);
+
+    //zach tambah
+    Route::get('pemeriksaan', [PemeriksaanController::class, 'senarai']);
+    Route::post('pemeriksaan', [PemeriksaanController::class, 'cipta_pemeriksaan']);
+    Route::post('harian', [PemeriksaanHarianController::class, 'cipta_harian']);
+    Route::post('ante-mortem', [AnteMortemRuminanController::class, 'cipta_anteMortem']);
+    Route::post('post-mortem', [PostMortemRuminanController::class, 'cipta_postMortem']);
+    
+
     
     Route::get('tag', [TagController::class, 'senarai']);
     Route::get('tag/borang', [TagController::class, 'borang']);
