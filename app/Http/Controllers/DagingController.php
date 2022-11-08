@@ -117,6 +117,7 @@ class DagingController extends Controller
             $daging = new DagingBabi;
         } else {
             $daging = new DagingRuminan;
+
         }
 
         $daging->no_skv = $request->no_skv;

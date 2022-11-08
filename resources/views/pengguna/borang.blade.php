@@ -13,6 +13,7 @@
             -moz-appearance: textfield;
         }
     </style>
+
     
 @endsection
 
@@ -62,17 +63,6 @@
                                 </div>
 
                                 <div class="col-2 mt-3">
-
-                                    <label class="form-label">Ibu Pejabat</label>
-                                </div>
-                                <div class="col-4 mt-3">
-                                    <input class="form-control" type="text" name="pejabat" onkeyup="this.value = this.value.toUpperCase();" required
-                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                    oninput="this.setCustomValidity('')" />
-                                </div>
-
-                                <div class="col-2 mt-3">
-
                                     <label class="form-label">Nombor Telefon</label>
                                 </div>
                                 <div class="col-4 mt-3">
@@ -80,6 +70,18 @@
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                 </div>
+
+                                <div class="col-2 mt-3">
+                                    <label class="form-label">Emel</label>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <input class="form-control" type="email" name="email" required
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                    oninput="this.setCustomValidity('')" />
+                                </div>
+
+                                
+
                             </div>
                             <div class="row mb-3">
                                 <div class="col-2">
@@ -95,18 +97,20 @@
                         <div class="row mb-3">
 
                             <div class="col-2">
-                                <label class="form-label">Emel</label>
+                                <label class="form-label">Katalaluan</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-control" type="email" name="email" required
+                                <input  style="width: 90%" type="password" name="password" id="id_password" required
                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                 oninput="this.setCustomValidity('')" />
+                                <i class="far fa-eye" id="togglePassword" style="margin-left: 10px; cursor: pointer;"></i>
+
                             </div>
 
 
 
                             <div class="col-2">
-                                <label class="form-label">Katalaluan</label>
+                                <label class="form-label">Sahkan Katalaluan</label>
                             </div>
                             <div class="col-4">
                                 <input class="form-control" type="password" name="password" required
@@ -212,5 +216,22 @@
             </div>
         </div>
     </main>
+
+@endsection
+
+@section('script')
+
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#id_password');
+
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+    });
+</script>
 
 @endsection
