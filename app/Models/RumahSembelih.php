@@ -20,6 +20,10 @@ class RumahSembelih extends Model
     public function pemeriksaan_harian() {
         return $this->hasMany(PemeriksaanHarian::class);
     }  
+
+    public function pemeriksaan() {
+        return $this->hasMany(Pemeriksaan::class);
+    } 
     
     // public function setCategoryAttribute($value)
     // {

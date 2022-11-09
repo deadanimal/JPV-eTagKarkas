@@ -12,4 +12,8 @@ class Pemeriksaan extends Model
     public function pemeriksaan_harian() {
         return $this->hasMany(PemeriksaanHarian::class);
     }
+
+    public function rumah_sembelih() {
+        return $this->belongsTo(RumahSembelih::class);
+    }
 }

@@ -2,6 +2,9 @@
 
 <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
 <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
+<script src="https://unpkg.com/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/dselect.js"></script>
+
 
 
 @section('styles')
@@ -257,11 +260,14 @@
 </script>
 
 {{-- search in dropdown --}}
+<script src="https://unpkg.com/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/dselect.js"></script>
 <script>
 
-    dselect(document.querySelector('#select_box'))
-
-
+    dselect(document.querySelector('#select_box'), {
+      search: true
+    })
+    
 </script>
 
 @endsection
