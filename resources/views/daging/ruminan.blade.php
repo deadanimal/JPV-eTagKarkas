@@ -1,6 +1,10 @@
 @extends('daging.senarai')
 
+
 @section('sub-content')
+
+    @include('daging.senarai_ruminan')
+    
     <div class="tab mt-1">
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item" style="background-color: aquamarine"><a class="nav-link active" href="#tab-1"
@@ -47,10 +51,10 @@
 
                         <div class="mb-3 col-md-3">
                             <label for="">Masa Ternakan Disembelih</label>
-                            <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
-                                <input type="text" name="masa_disembelih" class="form-control datetimepicker-input" data-target="#datetimepicker-minimum">
-                                <div class="input-group-text" data-target="#datetimepicker-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div>
-                            </div>
+                            <div class="input-group date" id="datetimepicker-sembelih" data-target-input="nearest">
+                                <input type="text" name="masa_tiba" class="form-control datetimepicker-input" data-target="#datetimepicker-sembelih">
+                                <div class="input-group-text" data-target="#datetimepicker-sembelih" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div>
+                            </div>                           
                         </div>
 
                     </div>
@@ -111,7 +115,7 @@
 
                <form action="/harian" method="POST">
                 @csrf
-
+                        <input type="text" name="id" placeholder="ID" value="{{$pemeriksaan->id ?? ''}}">
                     <div class="row">
 
                         <div class="mb-3 col-md-3">
@@ -375,4 +379,10 @@
 @endsection
 
 @section('script')
+<script>
+    $('#datepicker').datepicker({
+    uiLibrary: 'bootstrap5'
+    });
+</script>
 @endsection
+

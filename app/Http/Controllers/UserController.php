@@ -64,7 +64,11 @@ class UserController extends Controller
     public function satu(Request $request) {
         $id = (int)$request->route('id');
         $user = User::find($id);
-        return view('pengguna.satu', compact('user'));        
+        $rumahs = RumahSembelih::all();
+
+        // dd($user->gred);
+
+        return view('pengguna.satu', compact('user','rumahs'));        
     }
 
     public function profil(Request $request) {
@@ -104,12 +108,11 @@ class UserController extends Controller
         // $user->password = Hash::make($request->password);
 
         $user->pejabat = $request->pejabat;
-        $user->alamat = $request->alamat;
+        $user->premis = $request->premis;
         $user->unit = $request->unit;
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
-        //$user->premis = $request->premis;
         $user->telefon = $request->telefon;
         $user->status = true;      
         if($request->rumah_sembelih_id) {
@@ -132,7 +135,7 @@ class UserController extends Controller
         
         $user->name = $request->name;
         $user->pejabat = $request->pejabat;
-        $user->alamat = $request->alamat;
+        $user->premis = $request->premis;
         $user->unit = $request->unit;
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;

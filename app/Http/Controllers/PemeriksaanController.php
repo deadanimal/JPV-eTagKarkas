@@ -13,6 +13,22 @@ class PemeriksaanController extends Controller
 {
 
     public function senarai(Request $request) {
+
+        $user = $request->user();
+
+        $pemeriksaans = Pemeriksaan::all();
+        if($request->ajax()) {
+            return DataTables::collection($pemeriksaans)
+            ->addIndexColumn()
+            ->addColumn('tindakan', function (Pemeriksaan $pemeriksaan) {
+                $url = '/pemeriksaan/'.$pemeriksaan->id;
+                return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
+            })
+            ->rawColumns(['tindakan'])                                  
+            ->make(true);
+        }
+        
+        return view('daging.senarai_ruminan', compact('pemeriksaans','user'));
       
 
     }
@@ -35,9 +51,11 @@ class PemeriksaanController extends Controller
 
         $pemeriksaan->save();
 
+
         Alert::success('Simpan berjaya.', 'Maklumat pengenalan ruminan telah disimpan.');
 
-        return back(); 
+        // return back(); 
+        return view(compact('pemeriksaan')); 
 
     }
     

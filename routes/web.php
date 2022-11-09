@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AnteMortemRuminanController;
-use App\Http\Controllers\HarianController;
 use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\PemeriksaanHarianController;
 use App\Http\Controllers\PostMortemRuminanController;

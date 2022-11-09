@@ -18,8 +18,6 @@
             </div>
             <div class="card-body">
 
-
-
                 <form action="/daging/semak" method="POST">
                     @csrf
                     <div class="mb-3 row">
@@ -49,95 +47,9 @@
                 </form>
 
             </div>
-        </div>        
-
-
+        </div>  
+              
         @yield('sub-content')
-{{-- 
-        <div class="card">
-            <div class="card-header">
-                <b>Pengenalan Ternakan</b>
-            </div>
-
-           <div class="card-body">
-
-            <form action="">
-
-                <div class="row">
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">Nama Pemilik</label>
-                        <input type="text" placeholder="Zachroy Anazfitry">
-                    </div>
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">No Kenderaan</label>
-                        <input type="text" placeholder="ABC 123">
-                    </div>
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">Masa Ternakan Tiba</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">Masa Ternakan Disembelih</label>
-                        <input type="text">
-                    </div>
-                   
-                </div>
-
-                <div class="row">
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">No Permit</label>
-                        <input type="text" placeholder="12345">
-                    </div>
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">Spesis</label>
-                        <input type="text" placeholder="Lembu">
-                    </div>
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">Bilangan Ternakan</label>
-                        <input type="text" placeholder="12">
-                    </div>
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">ID Permis</label>
-                        <input type="text">
-                    </div>
-                   
-                </div>
-
-                <div class="row">
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">Nama Premis</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="mb-3 col-md-3">
-                        <label for="">Alamat Premis</label>
-                        <input type="text">
-                    </div>
-
-                   
-                </div>
-                  
-
-            </div>
-
-                <!--Button-->
-                <div>
-                    <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: 0;">Kemaskini</button>
-                    <a href="#" type="submit" class="btn btn-primary" style="margin-left: auto;margin-right: 0;">Simpan</a>
-                </div>
-
-            </form>
-        </div>        --}}
-
 
     </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pemeriksaan;
 use App\Models\PemeriksaanHarian;
 use Illuminate\Http\Request;
 use DataTables;
@@ -22,6 +23,7 @@ class PemeriksaanHarianController extends Controller
         $harian->jumlah_disembelih = $request->jumlah_disembelih;
         $harian->baki_ternakan_belum_disembelih = $request->baki_ternakan_belum_disembelih;
         $harian->catatan = $request->catatan;
+        $harian->pemeriksaan_id = $request->id;
 
         $harian->save();
 
@@ -40,7 +42,7 @@ class PemeriksaanHarianController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan ruminan telah disimpan.');
 
-        return back(); 
+        return view('daging.ruminan'); 
 
     }
 }

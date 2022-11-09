@@ -16,7 +16,6 @@ class RumahSembelihController extends Controller
     public function senarai_rumah(Request $request) {
 
         $user = $request->user();
-
         if ($user->hasRole('pengurus-rumah-sembelih')) {
             $id = $user->rumah_sembelih->id;
             $rumah = RumahSembelih::find($id);
