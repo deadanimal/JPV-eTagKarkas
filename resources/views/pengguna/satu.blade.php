@@ -63,29 +63,49 @@
     
                                     <div class="col-2 mt-3">
     
-                                        <label class="form-label">Ibu Pejabat</label>
-                                    </div>
-                                    <div class="col-4 mt-3">
-                                        <input class="form-control" type="text" name="pejabat" value="{{$user->pejabat}}" onkeyup="this.value = this.value.toUpperCase();" />
-                                    </div>
-    
-                                    <div class="col-2 mt-3">
-    
                                         <label class="form-label">Nombor Telefon</label>
                                     </div>
                                     <div class="col-4 mt-3">
                                         <input class="form-control" type="number" pattern="[0-9]*" name="telefon" value="{{$user->telefon}}" 
                                         onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                     </div>
+
+                                    <div class="col-2 mt-3">
+    
+                                        <label class="form-label">Emel</label>
+                                    </div>
+                                    <div class="col-4 mt-3">
+                                        <input class="form-control" type="text" name="pejabat" value="{{$user->email}}" onkeyup="this.value = this.value.toUpperCase();" />
+                                    </div>
+
                                 </div>
-                                <div class="row mb-3">
+
+                                {{-- <div class="row mb-3">
                                     <div class="col-2">
                                         <label class="form-label">Alamat</label>
                                     </div>
                                     <div class="col-10">
                                         <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();">{{$user->alamat}}</textarea>
                                     </div>
+                                </div> --}}
+
+                                <div class="row mb-3">
+                                    <div class="col-2">
+                                        <label class="form-label">Premis</label>
+                                    </div>
+                                    <div class="col-10">
+                                        <select class="form-select" aria-label="Default select example" name="premis" id="select_box">
+                                            <option selected value="{{$user->premis}}">{{$user->premis}}</option>
+                                            {{-- <option value="">DVS</option> --}}
+                                            
+                                            @foreach ($rumahs as $rumah)
+                                                <option value="{{ $rumah->nama_rumah }}">{{ $rumah->nama_rumah }}</option>
+                                            @endforeach
+                                            
+                                        </select>
+                                    </div>
                                 </div>
+
                             </div>
                             <div class="mb-3 row">
                                 <div class="col-2">
@@ -113,8 +133,8 @@
                                     <label class="form-label">Gred</label>
                                 </div>
                                 <div class="col-4">
-                                    <select class="form-select" aria-label="Default select example" name="gred" value="{{$user->gred}}">
-                                        <option selected disabled>{{$user->gred}}</option>
+                                    <select class="form-select" name="gred" value="{{$user->gred}}">
+                                        <option selected disabled >{{$user->gred}}</option>
                                         <option value="G29">G29</option>
                                         <option value="G41">G41</option>
                                         <option value="G44">G44</option>
