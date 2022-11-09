@@ -23,6 +23,7 @@
                                     <th scope="col">No.</th>
                                     <th scope="col">Nama Pemilik</th>
                                     <th scope="col">Kenderaan</th>
+                                    <th scope="col">Tarikh Tiba</th>
                                     <th scope="col">Tindakan</th>
                                 </tr>
                             </thead>
@@ -72,6 +73,10 @@
                     {
                         data: 'kenderaan',
                         name: 'kenderaan'
+                    },
+                    {
+                        data: 'masa_tiba',
+                        name: 'masa_tiba'
                     },
                     {
                         data: 'tindakan',
