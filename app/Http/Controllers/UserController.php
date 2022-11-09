@@ -100,6 +100,9 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         
+        // $user->email = $request->email;
+        // $user->password = Hash::make($request->password);
+
         $user->pejabat = $request->pejabat;
         $user->alamat = $request->alamat;
         $user->unit = $request->unit;
