@@ -16,6 +16,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "@jarstone/dselect": "^1.0.4",
         "print-js": "^1.6.0"
     }
 }

@@ -82,6 +82,9 @@
                         "next": "Seterusnya",
                         "previous": "Sebelum"
                     },
+                    "zeroRecords": "Carian tidak dijumpai",
+                    "infoEmpty": "Tiada maklumat",
+                    "infoFiltered": "(carian dari _MAX_ jumlah rekod)"
                 },
                 ajax: "/rumah",
                 columns: [{

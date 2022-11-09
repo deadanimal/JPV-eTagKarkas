@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
+<script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
+
+
 @section('styles')
     <style>
         /* remove arrow in input number */
@@ -79,11 +83,9 @@
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')" />
                                 </div>
-
-                                
-
                             </div>
-                            <div class="row mb-3">
+
+                            {{-- <div class="row mb-3">
                                 <div class="col-2">
                                     <label class="form-label">Alamat</label>
                                 </div>
@@ -92,15 +94,35 @@
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')"></textarea>
                                 </div>
+                            </div> --}}
+
+                            <div class="row mb-3">
+                                <div class="col-2">
+                                    <label class="form-label">Premis</label>
+                                </div>
+                                <div class="col-10">
+                                    <select class="form-select" aria-label="Default select example" name="rumah_sembelih_id" id="select_box"
+                                     required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                        <option selected value="">Pilih Premis</option>
+                                        {{-- <option value="">DVS</option> --}}
+                                        
+                                        @foreach ($rumahs as $rumah)
+                                            <option value="{{ $rumah->id }}">{{ $rumah->nama_rumah }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                </div>
                             </div>
+
                         </div>
+
                         <div class="row mb-3">
 
                             <div class="col-2">
                                 <label class="form-label">Katalaluan</label>
                             </div>
                             <div class="col-4">
-                                <input  style="width: 90%" type="password" name="password" id="id_password" required
+                                <input  style="width: 90%"  type="password" name="password" id="id_password" required
                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                 oninput="this.setCustomValidity('')" />
                                 <i class="far fa-eye" id="togglePassword" style="margin-left: 10px; cursor: pointer;"></i>
@@ -113,9 +135,11 @@
                                 <label class="form-label">Sahkan Katalaluan</label>
                             </div>
                             <div class="col-4">
-                                <input class="form-control" type="password" name="password" required
+                                <input style="width: 90%" type="password" name="verifiedpassword" id="id_verifiedpassword" required
                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                 oninput="this.setCustomValidity('')" />
+                                <i class="far fa-eye" id="toggleVerifiedPassword" style="margin-left: 10px; cursor: pointer;"></i>
+
                             </div>
 
 
@@ -163,23 +187,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-2">
-                                <label class="form-label">Premis</label>
-                            </div>
-                            <div class="col-10">
-                                <select class="form-select" aria-label="Default select example" name="rumah_sembelih_id" required
-                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
-                                    <option selected>Pilih Premis</option>
-                                    <option value="">DVS</option>
-
-                                    @foreach ($rumahs as $rumah)
-                                        <option value="{{ $rumah->id }}">{{ $rumah->nama_rumah }}</option>
-                                    @endforeach
-                                    
-                                </select>
-                            </div>
-                        </div>
+                
 
                         <!-- Button trigger modal -->
 
@@ -232,6 +240,28 @@
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
     });
+</script>
+
+{{-- sahkan katalaluan --}}
+<script>
+    const toggleVerifiedPassword = document.querySelector('#toggleVerifiedPassword');
+  const verifiedpassword = document.querySelector('#id_verifiedpassword');
+
+  toggleVerifiedPassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = verifiedpassword.getAttribute('type') === 'password' ? 'text' : 'password';
+    verifiedpassword.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+    });
+</script>
+
+{{-- search in dropdown --}}
+<script>
+
+    dselect(document.querySelector('#select_box'))
+
+
 </script>
 
 @endsection
