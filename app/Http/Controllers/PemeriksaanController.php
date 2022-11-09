@@ -54,8 +54,7 @@ class PemeriksaanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat pengenalan ruminan telah disimpan.');
 
-        // return back(); 
-        return view(compact('pemeriksaan')); 
+        return back(); 
 
     }
     

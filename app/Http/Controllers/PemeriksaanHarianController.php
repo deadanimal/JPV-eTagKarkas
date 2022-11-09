@@ -42,7 +42,7 @@ class PemeriksaanHarianController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan ruminan telah disimpan.');
 
-        return view('daging.ruminan'); 
+        return back(); 
 
     }
 }
