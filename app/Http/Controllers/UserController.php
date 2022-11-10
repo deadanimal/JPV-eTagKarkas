@@ -114,6 +114,7 @@ class UserController extends Controller
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
         $user->telefon = $request->telefon;
+        $user->alamat = $request->alamat;
         $user->status = true;      
         if($request->rumah_sembelih_id) {
             $user->rumah_sembelih_id = $request->rumah_sembelih_id;
@@ -141,6 +142,7 @@ class UserController extends Controller
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
         $user->telefon = $request->telefon;
+        $user->alamat = $request->alamat;
         $user->status = true;            
         if($request->peranan){
             $user->detachRoles();
