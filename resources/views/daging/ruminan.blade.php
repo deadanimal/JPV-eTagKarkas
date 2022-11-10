@@ -52,7 +52,7 @@
                         <div class="mb-3 col-md-3">
                             <label for="">Masa Ternakan Disembelih</label>
                             <div class="input-group date" id="datetimepicker-sembelih" data-target-input="nearest">
-                                <input type="text" name="masa_tiba" class="form-control datetimepicker-input" data-target="#datetimepicker-sembelih">
+                                <input type="text" name="masa_disembelih" class="form-control datetimepicker-input" data-target="#datetimepicker-sembelih">
                                 <div class="input-group-text" data-target="#datetimepicker-sembelih" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div>
                             </div>                           
                         </div>
@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="mb-3 col-md-3">
-                            <label for="">ID Permis</label>
+                            <label for="">ID Premis</label>
                             <input class="form-control" type="number" name="id_permis">
                         </div>
 
@@ -101,21 +101,6 @@
 
                     </div>
 
-                    <!--Button-->
-                    <div class="mb-3">
-                        <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                    </div>
-
-                </form>
-
-            </div>
-
-            <div class="tab-pane" id="tab-2" role="tabpanel">
-
-
-               <form action="/harian" method="POST">
-                @csrf
-                        <input type="text" name="id" placeholder="ID" value="{{$pemeriksaan->id ?? ''}}">
                     <div class="row">
 
                         <div class="mb-3 col-md-3">
@@ -140,6 +125,21 @@
                         </div>
 
                     </div>
+
+                    <!--Button-->
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="tab-pane" id="tab-2" role="tabpanel">
+
+
+               <form action="/harian" method="POST">
+                @csrf
 
                     <div class="row">
 

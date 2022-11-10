@@ -15,15 +15,25 @@ class RumahSembelih extends Model
 
     public function tag() {
         return $this->hasMany(Tag::class);
-    }   
+    } 
+    
+    public function pemeriksaan() {
+        return $this->hasMany(Pemeriksaan::class);
+    } 
     
     public function pemeriksaan_harian() {
         return $this->hasMany(PemeriksaanHarian::class);
     }  
 
-    public function pemeriksaan() {
-        return $this->hasMany(Pemeriksaan::class);
+    public function ante_mortem_ruminan() {
+        return $this->hasMany(AnteMortemRuminan::class);
+    }  
+
+    public function post_mortem_ruminan() {
+        return $this->hasMany(PostMortemRuminan::class);
     } 
+
+    
     
     // public function setCategoryAttribute($value)
     // {

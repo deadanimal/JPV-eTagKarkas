@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class PostMortemRuminan extends Model
 {
     use HasFactory;
+
+    public function pemeriksaan() {
+        return $this->belongsTo(Pemeriksaan::class);
+    }  
+    
+    public function rumah_sembelih() {
+        return $this->belongsTo(RumahSembelih::class);
+    }
 }
