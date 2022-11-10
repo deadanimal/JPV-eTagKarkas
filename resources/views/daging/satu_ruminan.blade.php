@@ -6,16 +6,16 @@
     @include('daging.senarai_ruminan')
     
     <div class="tab mt-1">
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item" style="background-color: aquamarine"><a class="nav-link active" href="#tab-1"
+        <ul class="nav nav-tabs" role="tablist" style="width: 100%">
+            <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link active" href="#tab-1"
                     data-bs-toggle="tab" role="tab">Pengenalan Ternakan</a></li>
-            <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-2"
+            <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-2"
                     data-bs-toggle="tab" role="tab">Pemeriksaan Ternakan</a></li>
-            <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-3"
+            <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-3"
                     data-bs-toggle="tab" role="tab">Pemeriksaan Ante Mortem</a></li>
-            <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-4"
+            <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-4"
                     data-bs-toggle="tab" role="tab">Pemeriksaan Post Mortem</a></li>
-            <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-5"
+            <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-5"
                     data-bs-toggle="tab" role="tab">Tag Karkas</a></li>
         </ul>
 
@@ -205,9 +205,13 @@
                             <label for="">Penemuan Ante Mortem</label>
                             <select class="form-select" aria-label="Default select example" name="ante_mortem">
                                 <option selected></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="Anaemia">Anaemia</option>
+                                <option value="Comatose">Comatose</option>
+                                <option value="Dead Before Slaughter">Dead Before Slaughter</option>
+                                <option value="Diarrhea">Diarrhea</option>
+                                <option value="Dull & depressed">Dull & depressed</option>
+                                <option value="Emaciation(body score)">Emaciation(body score)</option>
+                                <option value="Heat stress">Emaciation(body score)</option>
                             </select>
                         </div>
     
@@ -229,7 +233,7 @@
                         <div class="mb-3 col-md-3">
                             <label for="">Catatan</label>
                             <textarea class="form-control" name="catatan_ante_mortem" cols="30" rows="5" onkeyup="this.value = this.value.toUpperCase();"></textarea>
-                            <button class="fas fa-upload" style="float: right"></button>
+                            {{-- <button class="fas fa-upload" style="float: right"></button> --}}
                         </div>
 
                         <hr>
@@ -276,9 +280,9 @@
                             <label for="">Bahagian</label>
                             <select class="form-select" aria-label="Default select example" name="bahagian">
                                 <option selected>Head</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="Tongue">Tongue</option>
+                                <option value="Thoracic Cavity">Thoracic Cavity</option>
+                                <option value="Abdominal cavity">Abdominal cavity</option>
                             </select>
                         </div>
     
@@ -286,9 +290,9 @@
                             <label for="">Sebab Musnah</label>
                             <select class="form-select" aria-label="Default select example" name="musnah">
                                 <option selected>Lumps</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="Cysts">Cysts</option>
+                                <option value="Hernia">Hernia</option>
+                                <option value="Tumor">Tumor</option>
                             </select>
                         </div>
     
