@@ -88,17 +88,6 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="row mb-3">
-                                <div class="col-2">
-                                    <label class="form-label">Alamat</label>
-                                </div>
-                                <div class="col-10">
-                                    <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
-                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                    oninput="this.setCustomValidity('')"></textarea>
-                                </div>
-                            </div> --}}
-
                             <div class="row mb-3">
                                 <div class="col-2">
                                     <label class="form-label">Premis</label>
@@ -114,6 +103,17 @@
                                         @endforeach
                                         
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-2">
+                                    <label class="form-label">Alamat</label>
+                                </div>
+                                <div class="col-10">
+                                    <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                    oninput="this.setCustomValidity('')"></textarea>
                                 </div>
                             </div>
 
