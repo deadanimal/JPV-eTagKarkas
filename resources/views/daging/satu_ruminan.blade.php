@@ -172,13 +172,17 @@
         
                                 <div class="mb-3 col-md-3" style="margin-top: 22px">
                                     <label for="">Jumlah Yang Disembelih</label>
-                                    <input class="form-control" type="number"  min="0" name="jumlah_disembelih" 
+                                    <input class="form-control" type="number" id="j1"  min="0" name="jumlah_disembelih" oninput="calc()"
                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                 </div>
+
+                                {{-- tarik data dari pemeriksaan --}}
+                                    <input class="form-control" type="hidden" id="j2" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" oninput="calc()" readonly>
+                                
         
                                 <div class="mb-3 col-md-3">
                                     <label for="">Baki Ternakan Yang Belum Disembelih</label>
-                                    <input class="form-control" type="number" min="0" name="baki_ternakan_belum_disembelih"
+                                    <input class="form-control" type="number" id="minus" min="0" name="baki_ternakan_belum_disembelih"
                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                 </div>
         
@@ -426,6 +430,17 @@
     $('#datepicker').datepicker({
     uiLibrary: 'bootstrap5'
     });
+</script>
+
+<script>
+    function calc() {
+  var j1 = document.getElementById("j1").value;
+  var j1 = parseInt(j1, 10);
+  var j2 = document.getElementById("j2").value;
+  var j2 = parseInt(j2, 10);
+  var minus = j2 - j1;
+  document.getElementById("minus").value = minus;
+    }
 </script>
 
 @endsection

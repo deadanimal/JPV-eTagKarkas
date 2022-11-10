@@ -32,7 +32,7 @@ class PemeriksaanHarianController extends Controller
         ])->sum('jumlah_disembelih');
         //$baki_binatang - $jumlah_sembelihan_harian
             
-        return view('daging.satu_ruminan', compact('pemeriksaan','harians','user'));
+        return view('daging.satu_ruminan', compact('pemeriksaan','harians','user','baki_binatang'));
       
 
     }
