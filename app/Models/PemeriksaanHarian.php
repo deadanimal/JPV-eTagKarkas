@@ -15,4 +15,5 @@ class PemeriksaanHarian extends Model
     public function rumah_sembelih() {
         return $this->belongsTo(RumahSembelih::class);
     }
+
 }

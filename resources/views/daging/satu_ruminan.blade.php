@@ -31,30 +31,29 @@
 
                         <div class="mb-3 col-md-3">
                             <label for="">Nama Pemilik</label>
-                            <input class="form-control" type="text" placeholder="Nama pemilik" name="nama_pemilik"
-                                    onkeyup="this.value = this.value.toUpperCase();" value="{{$pemeriksaan->nama_pemilik}}">
+                            <input class="form-control" type="text" name="nama_pemilik"
+                            onkeyup="this.value = this.value.toUpperCase();" value="{{$pemeriksaan->nama_pemilik}}" readonly>
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="">No Kenderaan</label>
-                            <input class="form-control" type="text" placeholder="ABC 123" name="kenderaan"
-                                    onkeyup="this.value = this.value.toUpperCase();">
+                            <input class="form-control" type="text" name="kenderaan"
+                            onkeyup="this.value = this.value.toUpperCase();" value="{{$pemeriksaan->kenderaan}}" readonly>
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="">Masa Ternakan Tiba Dipremis</label>
                             <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
-                                <input type="text" name="masa_tiba" class="form-control datetimepicker-input" data-target="#datetimepicker-minimum">
-                                <div class="input-group-text" data-target="#datetimepicker-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div>
+                                <input type="text" name="masa_tiba" class="form-control datetimepicker-input" data-target="#datetimepicker-minimum" value="{{$pemeriksaan->masa_tiba}}" readonly>
+                                {{-- <div class="input-group-text" data-target="#datetimepicker-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div> --}}
                             </div>                            
-                            {{-- <input class="form-control" type="datetime" name="tiba"> --}}
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="">Masa Ternakan Disembelih</label>
                             <div class="input-group date" id="datetimepicker-sembelih" data-target-input="nearest">
-                                <input type="text" name="masa_tiba" class="form-control datetimepicker-input" data-target="#datetimepicker-sembelih">
-                                <div class="input-group-text" data-target="#datetimepicker-sembelih" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div>
+                                <input type="text" name="masa_disembelih" class="form-control datetimepicker-input" data-target="#datetimepicker-sembelih" value="{{$pemeriksaan->masa_disembelih}}" readonly>
+                                {{-- <div class="input-group-text" data-target="#datetimepicker-sembelih" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div> --}}
                             </div>                           
                         </div>
 
@@ -65,23 +64,23 @@
 
                         <div class="mb-3 col-md-3">
                             <label for="">Nombor Permit</label>
-                            <input class="form-control" type="number" placeholder="12345" name="permit">
+                            <input class="form-control" type="number" name="permit" value="{{$pemeriksaan->permit}}" readonly>
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="">Spesis Ternakan</label>
-                            <input class="form-control" type="text" placeholder="Lembu" name="spesis"
-                                    onkeyup="this.value = this.value.toUpperCase();">
+                            <input class="form-control" type="text"  name="spesis"
+                            onkeyup="this.value = this.value.toUpperCase();" value="{{$pemeriksaan->spesis}}" readonly>
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="">Bilangan Ternakan (Mengikut SKV)</label>
-                            <input class="form-control" type="number" min="0" placeholder="12" name="bil_ternakan_skv">
+                            <input class="form-control" type="number" min="0" name="bil_ternakan_skv" value="{{$pemeriksaan->bil_ternakan_skv}}" readonly>
                         </div>
 
                         <div class="mb-3 col-md-3">
-                            <label for="">ID Permis</label>
-                            <input class="form-control" type="number" name="id_permis">
+                            <label for="">ID Premis</label>
+                            <input class="form-control" type="number" name="id_permis" value="{{$pemeriksaan->id_permis}}" readonly>
                         </div>
 
                     </div>
@@ -91,20 +90,46 @@
                         <div class="mb-3 col-md-3">
                             <label for="">Nama Premis</label>
                             <input class="form-control" type="text" name="nama_premis"
-                                    onkeyup="this.value = this.value.toUpperCase();">
+                             value="{{$pemeriksaan->nama_premis}}" readonly>
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="">Alamat Premis</label>
                             <textarea class="form-control" name="alamat_premis" id="" cols="20" rows="3" 
-                                    onkeyup="this.value = this.value.toUpperCase();"></textarea>
+                            onkeyup="this.value = this.value.toUpperCase();" readonly>{{$pemeriksaan->alamat_premis}}</textarea>
                         </div>
 
                     </div>
 
+                    <div class="row">
+
+                        <div class="mb-3 col-md-3">
+                            <label for="">Bilangan Ternakan Yang Diterima</label>
+                            <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan->bil_ternakan_diterima}}" readonly>
+                        </div>
+
+                        <div class="mb-3 col-md-3">
+                            <label for="">Ternakan Yang Mati Semasa Tiba</label>
+                            <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan->ternakan_mati_semasa_tiba}}" readonly>
+                        </div>
+
+                        <div class="mb-3 col-md-3">
+                            <label for="">Jumlah Ternakan Yang Diperiksa</label>
+                            <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan->jumlah_ternakan_diperiksa}}" readonly>
+                        </div>
+
+                        <div class="mb-3 col-md-3">
+                            <label for="">Jumlah Binatang Layak Disembelih</label>
+                            <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" readonly>
+                        </div>
+
+                    </div>
+
+
+
                     <!--Button-->
                     <div class="mb-3">
-                        <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
+                        {{-- <button class="btn btn-primary" type="submit" style="float: right">Simpan</button> --}}
                     </div>
 
                 </form>
@@ -116,37 +141,12 @@
 
                <form action="/harian" method="POST">
                 @csrf
-                        <input type="text" name="id" placeholder="ID" value="{{$pemeriksaan->id ?? ''}}">
-                    <div class="row">
-
-                        <div class="mb-3 col-md-3">
-                            <label for="">Bilangan Ternakan Yang Diterima</label>
-                            <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" placeholder="2">
-                        </div>
-
-                        <div class="mb-3 col-md-3">
-                            <label for="">Ternakan Yang Mati Semasa Tiba</label>
-                            <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" placeholder="2">
-                        </div>
-
-                        <div class="mb-3 col-md-3">
-                            <label for="">Jumlah Ternakan Yang Diperiksa</label>
-                            <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" placeholder="2">
-                        </div>
-
-                        <div class="mb-3 col-md-3">
-                            <label for="">Jumlah Binatang Layak Disembelih</label>
-                            <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih"
-                                placeholder="2">
-                        </div>
-
-                    </div>
 
                     <div class="row">
 
                         <div class="mb-3 col-md-3">
                             <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi</label>
-                            <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi">
+                            <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi" >
                         </div>
 
                         <div class="mb-3 col-md-3">
@@ -182,6 +182,8 @@
                     </div>
 
                </form>
+
+               @include('daging.harian_table')
 
             </div>
 

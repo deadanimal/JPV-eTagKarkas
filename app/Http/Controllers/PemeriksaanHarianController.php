@@ -13,8 +13,32 @@ use Alert;
 class PemeriksaanHarianController extends Controller
 {
     //
+
+    public function satu_harian(Request $request) {
+
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $pemeriksaan = PemeriksaanHarian::find($id);
+        
+        //need to pass pemeriksaan_id?
+
+        // pass FK id
+        $pemeriksaan_id = $user->pemeriksaan_id;
+        $rumah_sembelih_id = $user->rumah_sembelih_id;
+        $harians = PemeriksaanHarian::where([
+            ['pemeriksaan_id','=', $pemeriksaan_id],
+            ['rumah_sembelih_id','=', $rumah_sembelih_id]
+        ])->get();
+        
+            
+        return view('daging.satu_ruminan', compact('pemeriksaan','harians','user'));
+      
+
+    }
     public function cipta_harian(Request $request){
 
+        $user = $request->user();
+       
         $harian = New PemeriksaanHarian;
 
         // pemeriksaan
@@ -23,26 +47,22 @@ class PemeriksaanHarianController extends Controller
         $harian->jumlah_disembelih = $request->jumlah_disembelih;
         $harian->baki_ternakan_belum_disembelih = $request->baki_ternakan_belum_disembelih;
         $harian->catatan = $request->catatan;
-        $harian->pemeriksaan_id = $request->id;
+        // save FK
+        $harian->pemeriksaan_id = $user->pemeriksaan->id;
+        $harian->rumah_sembelih_id = $user->rumah_sembelih->id;
 
         $harian->save();
-
-        //pengenalan
-        // $id = (int)$request->route('id');
-        $pemeriksaan = Pemeriksaan::find($request->id);  
-
-        $pemeriksaan->bil_ternakan_diterima = $request->bil_ternakan_diterima;
-        $pemeriksaan->ternakan_mati_semasa_tiba = $request->ternakan_mati_semasa_tiba;
-        $pemeriksaan->jumlah_ternakan_diperiksa = $request->jumlah_ternakan_diperiksa;
-        $pemeriksaan->jumlah_binatang_layak_disembelih = $request->jumlah_binatang_layak_disembelih;
-
-        $pemeriksaan->save();
-
-        
 
         Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan ruminan telah disimpan.');
 
         return back(); 
 
     }
+
+    // public function jadual_harian(){
+    //     $harians = PemeriksaanHarian::all();
+    //     return view('daging.harian_table',[
+    //         'harians'->$harians,
+    //     ]);
+    // }
 }

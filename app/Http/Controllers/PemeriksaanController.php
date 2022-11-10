@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PemeriksaanHarian;
 use App\Models\RumahSembelih;
 use Illuminate\Http\Request;
 use App\Models\Pemeriksaan;
@@ -14,15 +15,18 @@ class PemeriksaanController extends Controller
 {
 
     public function senarai(Request $request) {
-
+        
+        // call all pemeriksaan into datatable
+        $pemeriksaans = Pemeriksaan::all();
         $user = $request->user();
 
-        //
-        $id = $user->rumah_sembelih->id;
-        $rumah = RumahSembelih::find($id);
+        // pass rumah_sembelih_id
+        $rumah_sembelih_id = $user->rumah_sembelih_id;
+        $pemeriksaans = Pemeriksaan::where([
+            ['rumah_sembelih_id','=', $rumah_sembelih_id],
+        ])->orderBy('updated_at','desc')->get();
         
-
-        $pemeriksaans = Pemeriksaan::all();
+        // datatable
         if($request->ajax()) {
             return DataTables::collection($pemeriksaans)
             ->addIndexColumn()
@@ -34,12 +38,14 @@ class PemeriksaanController extends Controller
             ->make(true);
         }
         
-        return view('daging.senarai_ruminan', compact('id','rumah','pemeriksaans','user'));
+        return view('daging.senarai_ruminan', compact('pemeriksaans','user'));
       
 
     }
 
     public function cipta_pemeriksaan(Request $request){
+        
+        $user = $request->user();
 
         $pemeriksaan = New Pemeriksaan;
 
@@ -54,6 +60,14 @@ class PemeriksaanController extends Controller
         $pemeriksaan->id_permis = $request->id_permis;
         $pemeriksaan->nama_premis = $request->nama_premis;
         $pemeriksaan->alamat_premis = $request->alamat_premis;
+        //save rumah_sembelih_id
+        $pemeriksaan->rumah_sembelih_id = $user->rumah_sembelih->id;
+
+        $pemeriksaan->bil_ternakan_diterima = $request->bil_ternakan_diterima;
+        $pemeriksaan->ternakan_mati_semasa_tiba = $request->ternakan_mati_semasa_tiba;
+        $pemeriksaan->jumlah_ternakan_diperiksa = $request->jumlah_ternakan_diperiksa;
+        $pemeriksaan->jumlah_binatang_layak_disembelih = $request->jumlah_binatang_layak_disembelih;
+
 
         $pemeriksaan->save();
 
@@ -64,29 +78,15 @@ class PemeriksaanController extends Controller
 
     }
 
-    public function satu_pemeriksaan(Request $request){
-
-        $pemeriksaan = New Pemeriksaan;
-
-        // pengenalan
-        $pemeriksaan->nama_pemilik = $request->nama_pemilik;
-        $pemeriksaan->kenderaan = $request->kenderaan;
-        $pemeriksaan->masa_tiba = $request->masa_tiba;
-        $pemeriksaan->masa_disembelih = $request->masa_disembelih;
-        $pemeriksaan->permit = $request->permit;
-        $pemeriksaan->spesis = $request->spesis;
-        $pemeriksaan->bil_ternakan_skv = $request->bil_ternakan_skv;
-        $pemeriksaan->id_permis = $request->id_permis;
-        $pemeriksaan->nama_premis = $request->nama_premis;
-        $pemeriksaan->alamat_premis = $request->alamat_premis;
-
-        $pemeriksaan->save();
-
-
-        Alert::success('Simpan berjaya.', 'Maklumat pengenalan ruminan telah disimpan.');
-
-        return back(); 
-
+    public function satu_pemeriksaan(Request $request) {
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $pemeriksaan = Pemeriksaan::find($id); 
+        $harians = PemeriksaanHarian::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id]
+        ])->get();       
+        return view('daging.satu_ruminan', compact('pemeriksaan','harians'));
     }
+
     
 }
