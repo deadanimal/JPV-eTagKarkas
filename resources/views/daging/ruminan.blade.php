@@ -154,8 +154,8 @@
                                 placeholder="2">
                         </div>
 
-                        <div class="mb-3 col-md-3">
-                            <label for="">Jumlah Yang Disembelih</label>
+                        <div class="mb-3 col-md-3" style="margin-top: 22px">
+                            <label for="" >Jumlah Yang Disembelih</label>
                             <input class="form-control" type="number" min="0" name="jumlah_disembelih" placeholder="2">
                         </div>
 

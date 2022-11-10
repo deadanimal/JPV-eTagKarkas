@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnteMortemRuminan;
 use App\Models\PemeriksaanHarian;
+use App\Models\PostMortemRuminan;
 use App\Models\RumahSembelih;
 use Illuminate\Http\Request;
 use App\Models\Pemeriksaan;
@@ -84,8 +86,14 @@ class PemeriksaanController extends Controller
         $pemeriksaan = Pemeriksaan::find($id); 
         $harians = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $pemeriksaan->id]
+        ])->get();
+        $ante_mortems = AnteMortemRuminan::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id],
+        ])->get();
+        $post_mortems = PostMortemRuminan::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id],
         ])->get();       
-        return view('daging.satu_ruminan', compact('pemeriksaan','harians'));
+        return view('daging.satu_ruminan', compact('pemeriksaan','harians', 'user','ante_mortems','post_mortems'));
     }
 
     
