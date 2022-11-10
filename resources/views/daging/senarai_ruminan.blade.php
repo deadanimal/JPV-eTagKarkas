@@ -1,9 +1,9 @@
 
 
 
-    <main class="content">
+    <main class="content" style="padding-left: 0px;padding-right: 0px;">
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-left: 0px;margin-right: 0px;padding-left: 0px;padding-right: 0px;width:100%;">
 
             {{-- <div class="header">
                 <h1 class="header-title text-black">
@@ -11,7 +11,7 @@
                 </h1>
             </div> --}}
 
-            <div class="card">
+            <div class="card" style="padding-left: 0px;padding-right: 0px;margin-right: 0px;margin-left: 0px;">
                 <div class="card-body">
 
                     <div class="card-title">Senarai Pemeriksaan Ternakan</div>
