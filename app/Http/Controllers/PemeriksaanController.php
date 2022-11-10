@@ -36,6 +36,12 @@ class PemeriksaanController extends Controller
                 $url = '/pemeriksaan/'.$pemeriksaan->id;
                 return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
             })
+            // ->editColumn('masa_tiba', function (Pemeriksaan $pemeriksaan) {
+            //     return [
+            //         'display' => ($pemeriksaan->masa_tiba && $pemeriksaan->masa_tiba != '0000-00-00 00:00:00') ? with(new Carbon($pemeriksaan->masa_tiba))->format('d F Y') : '',
+            //         'timestamp' => ($pemeriksaan->masa_tiba && $pemeriksaan->masa_tiba != '0000-00-00 00:00:00') ? with(new Carbon($pemeriksaan->masa_tiba))->timestamp : ''
+            //     ];
+            // })
             ->rawColumns(['tindakan'])                                  
             ->make(true);
         }
@@ -74,9 +80,9 @@ class PemeriksaanController extends Controller
         $pemeriksaan->save();
 
 
-        Alert::success('Simpan berjaya.', 'Maklumat pengenalan ruminan telah disimpan.');
+        Alert::success('Simpan berjaya.', 'Maklumat pengenalan ternakan ruminan telah disimpan.');
 
-        return back(); 
+        return redirect('/pemeriksaan'); 
 
     }
 

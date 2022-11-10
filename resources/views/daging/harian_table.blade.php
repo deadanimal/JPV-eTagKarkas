@@ -21,7 +21,9 @@
                     <tbody>
 
                       <tr>
+                        @if($harians)
                         @foreach ($harians as $harian)
+                        
 
                         <td>{{$loop->iteration}}</td>
                         <td>{{$harian->bilangan_diasingkan_pemeriksaan_rapi}}</td>
@@ -33,6 +35,7 @@
                         
                       </tr>
                         @endforeach
+                        @endif
 
                       {{-- <tr>
                         <th scope="row">1</th>

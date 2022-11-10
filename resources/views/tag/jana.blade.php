@@ -13,36 +13,31 @@
         @endphp
     @endif
 
-    <div class="card" id="zach-hensem">
-
-        <div class="row ">
-            @for ($x = 1; $x <= $y; $x++)
-                <div class="col">
-                    @for ($i = 1; $i < $tag->bil_ternakan_sah_ketua + 1; $i++)
-                        <div class="row-6">
-
-                            {{--  --}}
-                            <div class="col-5">
-                                <div class="card" style="width: 20rem">
-                                    <div class="card-header">
-                                        <img src="/img/Veterinar-Logo.png" style="width: 50px;height:50px;">
-
-                                        <h5 class="card-title mb-0">Jabatan Perkhidmatan Veterinar</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        {!! QrCode::size(100)->backgroundColor(255, 255, 255)->generate('R' . $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i)) !!}
-                                        <h6>R{{ $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i) }}</h6>
-                                        <p class="card-text">Tarikh Sembelih:</p>
-                                    </div>
-                                </div>
-                            </div>
-
+    <div class="card" id="jana-tag" style="padding-left:30px;">
+        @for ($x = 1; $x <= $y; $x++)
+            <div class="row" style="padding-top:10px; padding-left:10px;">
+                @for ($i = 1; $i < $tag->bil_ternakan_sah_ketua + 1; $i++)
+                    <div class="row" style="border-style: solid; border-color: black; padding-top:10px; margin-bottom:10px; width:80%">
+                        <div class="column" style="width:12%;">
+                            <img src="/img/Veterinar-Logo.png" style="width: 50px;height:50px;">
                         </div>
-                    @endfor
-                </div>
-            @endfor
+                    
+                        <div class="column" style="width:20%;">
+                            <h5 class="card-title mb-0">Jabatan Perkhidmatan Veterinar</h5>
+                        </div>
+                        
+                        <div class="column" style="width:15%;">
+                            {!! QrCode::size(100)->backgroundColor(255, 255, 255)->generate('R' . $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i)) !!}
+                            <h6>R{{ $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i) }}</h6>
+                        </div>
 
-        </div>
+                        <div class="column"style="width:15%;">
+                            <p class="card-text">Tarikh Sembelih:</p>
+                        </div>
+                    </div>
+                @endfor
+            </div>
+        @endfor
     </div>
 
 
@@ -52,8 +47,11 @@
 
         <script>
             $(document).ready(function() {
-                printJS('zach-hensem', 'html')
+                // printJS('jana-tag')
+                window.print();
+
             });
         </script>
 
     @endsection
+

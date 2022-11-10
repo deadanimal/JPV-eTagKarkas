@@ -50,32 +50,22 @@
 									<!-- <div class="text-center">
 										<img src="/img/avatars/avatar.jpg" alt="Linda Miller" class="img-fluid rounded-circle" width="132" height="132" />
 									</div> -->
-                                    <form method="POST" action="/login">
+                                    <form method="POST" action="/lupa">
                                         @csrf
 										<div class="mb-3">
 											<label>Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
 										</div>
-										<div class="mb-3">
-											<label>Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />											
-										</div>
+										
 										<div class="text-center mt-3">											
-											<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+											<button type="submit" class="btn btn-lg btn-primary">Reset password</button>
 										</div>
 									</form>
 								</div>
 							</div>
 
 							{{-- zach tambah untuk reset password --}}
-							<div class="text-center mt-3" >
-								
-								<a class="underline text-md text-gray-600 hover:text-gray-900" href="/lupa" >
-									Lupa Katalaluan?
-								</a>
-								
 							
-							</div>
 						</div>
 
 					</div>
