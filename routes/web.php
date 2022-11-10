@@ -73,6 +73,11 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+Route::get('lupa', [UserController::class, 'tunjuk_lupa']);
+Route::post('lupa', [UserController::class, 'cipta_lupa']);
+
+
+
 Route::middleware(['role:pentadbir'])->group(function () {
 
     Route::get('pengguna', [UserController::class, 'senarai']);

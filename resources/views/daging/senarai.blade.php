@@ -49,7 +49,7 @@
             </div>
         </div>  
               
-        @yield('sub-content')
+        {{-- @yield('sub-content') --}}
 
     </div>
 

@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Models\RumahSembelih;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -155,5 +156,20 @@ class UserController extends Controller
         Alert::success('Kemaskini pengguna berjaya.', 'Kemaskini pengguna berjaya.');   
 
         return redirect('/pengguna');
-    }    
+    }  
+    
+    public function tunjuk_lupa(){
+
+        return view('auth.lupa');
+
+    }
+
+    public function cipta_lupa(Request $request){
+
+        $email = $request->email;
+        $user = User::where('email',$email)->first();
+        $user->password = Hash::make('SayaSayangEtag123');
+        $user->save();
+        
+    }
 }

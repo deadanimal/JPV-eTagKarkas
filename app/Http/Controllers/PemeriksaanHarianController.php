@@ -19,13 +19,18 @@ class PemeriksaanHarianController extends Controller
         $user = $request->user();
         $id = (int)$request->route('id');
         $pemeriksaan = PemeriksaanHarian::find($id);
+        $baki_binatang = $pemeriksaan->jumlah_binatang_layak_disembelih;
         
         // pass FK id       
         //
         $harians = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
         ])->get();
-        
+
+        $jumlah_sembelihan_harian = PemeriksaanHarian::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id],
+        ])->sum('jumlah_disembelih');
+        //$baki_binatang - $jumlah_sembelihan_harian
             
         return view('daging.satu_ruminan', compact('pemeriksaan','harians','user'));
       
@@ -33,7 +38,7 @@ class PemeriksaanHarianController extends Controller
     }
     public function cipta_harian(Request $request){
 
-        $user = $request->user();
+        // $user = $request->user();
        
         $harian = New PemeriksaanHarian;
 
