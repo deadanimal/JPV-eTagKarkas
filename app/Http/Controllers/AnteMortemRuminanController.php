@@ -12,6 +12,22 @@ use Alert;
 class AnteMortemRuminanController extends Controller
 {
     //
+    public function satu_ante_mortem(Request $request) {
+
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $pemeriksaan = AnteMortemRuminan::find($id);
+        
+        //
+        
+        $ante_mortems = AnteMortemRuminan::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id],
+        ])->get();
+        
+        return view('daging.satu_ruminan', compact('ante_mortems','pemeriksaan','user'));
+      
+
+    }
 
     public function cipta_anteMortem(Request $request){
 
@@ -23,6 +39,9 @@ class AnteMortemRuminanController extends Controller
         $ante_mortem->nombor_tag = $request->nombor_tag;
         $ante_mortem->catatan_ante_mortem = $request->catatan_ante_mortem;
         $ante_mortem->jumlah_dikondem = $request->jumlah_dikondem;
+
+        $ante_mortem->pemeriksaan_id = $request->pemeriksaan_id;
+        $ante_mortem->rumah_sembelih_id = $request->rumah_sembelih_id;
 
         $ante_mortem->save();
 

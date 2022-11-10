@@ -4,6 +4,7 @@ use App\Http\Controllers\AnteMortemRuminanController;
 use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\PemeriksaanHarianController;
 use App\Http\Controllers\PostMortemRuminanController;
+use App\Models\PostMortemRuminan;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
@@ -42,9 +43,10 @@ Route::middleware(['auth'])->group(function () {
     Route::put('pemeriksaan/{id}', [PemeriksaanController::class, 'kemaskini_pemeriksaan']);
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian']);
     Route::post('harian', [PemeriksaanHarianController::class, 'cipta_harian']);
-    // Route::post('harian', [PemeriksaanHarianController::class, 'jadual_harian']);
     Route::post('harian/{id}', [PemeriksaanHarianController::class, 'kemaskini_harian']);
+    Route::get('ante-mortem', [AnteMortemRuminanController::class, 'satu_ante_mortem']);
     Route::post('ante-mortem', [AnteMortemRuminanController::class, 'cipta_anteMortem']);
+    Route::get('post-mortem', [PostMortemRuminanController::class, 'satu_post_mortem']);
     Route::post('post-mortem', [PostMortemRuminanController::class, 'cipta_postMortem']);
     
 

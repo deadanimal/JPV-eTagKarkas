@@ -20,14 +20,10 @@ class PemeriksaanHarianController extends Controller
         $id = (int)$request->route('id');
         $pemeriksaan = PemeriksaanHarian::find($id);
         
-        //need to pass pemeriksaan_id?
-
-        // pass FK id
-        $pemeriksaan_id = $user->pemeriksaan_id;
-        $rumah_sembelih_id = $user->rumah_sembelih_id;
+        // pass FK id       
+        //
         $harians = PemeriksaanHarian::where([
-            ['pemeriksaan_id','=', $pemeriksaan_id],
-            ['rumah_sembelih_id','=', $rumah_sembelih_id]
+            ['pemeriksaan_id','=', $pemeriksaan->id],
         ])->get();
         
             
@@ -48,8 +44,8 @@ class PemeriksaanHarianController extends Controller
         $harian->baki_ternakan_belum_disembelih = $request->baki_ternakan_belum_disembelih;
         $harian->catatan = $request->catatan;
         // save FK
-        $harian->pemeriksaan_id = $user->pemeriksaan->id;
-        $harian->rumah_sembelih_id = $user->rumah_sembelih->id;
+        $harian->pemeriksaan_id = $request->pemeriksaan_id;
+        $harian->rumah_sembelih_id = $request->rumah_sembelih_id;
 
         $harian->save();
 
@@ -59,10 +55,4 @@ class PemeriksaanHarianController extends Controller
 
     }
 
-    // public function jadual_harian(){
-    //     $harians = PemeriksaanHarian::all();
-    //     return view('daging.harian_table',[
-    //         'harians'->$harians,
-    //     ]);
-    // }
 }

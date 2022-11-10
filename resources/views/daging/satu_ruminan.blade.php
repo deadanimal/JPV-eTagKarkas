@@ -142,6 +142,9 @@
                <form action="/harian" method="POST">
                 @csrf
 
+                    <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                    <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+
                     <div class="row">
 
                         <div class="mb-3 col-md-3">
@@ -155,7 +158,7 @@
                                 placeholder="2">
                         </div>
 
-                        <div class="mb-3 col-md-3">
+                        <div class="mb-3 col-md-3" style="margin-top: 22px">
                             <label for="">Jumlah Yang Disembelih</label>
                             <input class="form-control" type="number" min="0" name="jumlah_disembelih" placeholder="2">
                         </div>
@@ -192,6 +195,10 @@
 
                 <form action="/ante-mortem" method="POST">
                 @csrf
+
+                    <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                    <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+
                     <div class="row">
 
                         <div class="mb-3 col-md-3">
@@ -240,6 +247,8 @@
 
                 </form>
 
+                @include('daging.ante_mortem_table')
+
             </div>
 
 
@@ -247,6 +256,10 @@
 
                 <form action="/post-mortem" method="POST">
                 @csrf
+
+                    <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                    <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+
                     <div class="row">
 
                         <div class="mb-3 col-md-3">
@@ -310,6 +323,8 @@
                         <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
                     </div>
                 </form>
+
+                @include('daging.post_mortem_table')
 
             </div>
 
