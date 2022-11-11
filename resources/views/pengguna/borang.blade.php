@@ -61,6 +61,7 @@
                                     <select class="form-select" name="peranan" required
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                     oninput="this.setCustomValidity('')">
+                                        <option selected value="">Pilih Peranan</option>
                                         <option value=1>Pengurus Rumah Sembelih</option>
                                         <option value=2>Pemeriksa Daging</option>
                                         <option value=3>Pemeriksa Daging Negeri</option>
@@ -93,13 +94,13 @@
                                     <label class="form-label">Premis</label>
                                 </div>
                                 <div class="col-10">
-                                    <select class="form-select" aria-label="Default select example" name="nama_rumah" id="select_box"
+                                    <select class="form-select" aria-label="Default select example" name="rumah_sembelih_id" id="select_box"
                                      required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
                                         <option selected value="">Pilih Premis</option>
                                         {{-- <option value="">DVS</option> --}}
                                         
                                         @foreach ($rumahs as $rumah)
-                                            <option value="{{ $rumah->nama_rumah }}">{{ $rumah->nama_rumah }}</option>
+                                            <option value="{{ $rumah->id }}">{{ $rumah->nama_rumah }}</option>
                                         @endforeach
                                         
                                     </select>
@@ -182,6 +183,7 @@
                                 <select class="form-select" aria-label="Default select example" name="gred" required
                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                 oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Gred</option>
                                     <option value="G29">G29</option>
                                     <option value="G41">G41</option>
                                     <option value="G44">G44</option>

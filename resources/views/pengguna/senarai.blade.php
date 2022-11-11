@@ -33,7 +33,6 @@
                                         <th>Bil.</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">Peranan</th>
-                                        <th scope="col">Pejabat</th>
                                         <th scope="col">Premis</th>
                                         <th scope="col">Emel</th>
                                         <th scope="col">Telefon</th>
@@ -104,12 +103,8 @@
                         name: 'peranan'
                     },
                     {
-                        data: 'pejabat',
-                        name: 'pejabat'
-                    },
-                    {
-                        data: 'nama_rumah',
-                        name: 'nama_rumah'
+                        data: 'nama_premis',
+                        name: 'nama_premis'
                     },
                     {
                         data: 'email',

@@ -36,7 +36,16 @@ class UserController extends Controller
                         $html_ = '-';
                     }
                     return $html_;
-                })                  
+                })  
+                // zach tambah
+                ->addColumn('nama_premis', function (User $user) {
+
+                    $html_button = '-';
+                    if($user->rumah_sembelih) {
+                        $html_button = $user->rumah_sembelih->nama_rumah;
+                    }                 
+                    return $html_button;
+                })                
                 ->addColumn('tindakan', function (User $user) {
                     $url = '/pengguna/'.$user->id;
                     return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Kemaskini</a>';
@@ -48,11 +57,11 @@ class UserController extends Controller
                         return 'Tidak Aktif';
                     }                        
                 })                      
-                ->rawColumns(['tindakan', 'status', 'rumah'])                          
+                ->rawColumns(['tindakan', 'status', 'rumah','nama_premis'])                          
                 ->make(true);
             }
 
-        return view('pengguna.senarai', compact('pengguna', 'user', 'rumahs'));
+        return view('pengguna.senarai', compact('pengguna', 'user'));
     }
 
     public function borang() {
@@ -105,17 +114,14 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         
-        // $user->email = $request->email;
-        // $user->password = Hash::make($request->password);
-
         $user->pejabat = $request->pejabat;
-        $user->nama_rumah = $request->nama_rumah;
         $user->unit = $request->unit;
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;
         $user->gred = $request->gred;
         $user->telefon = $request->telefon;
         $user->alamat = $request->alamat;
+        // $user->rumah_sembelih_id = $request->rumah_sembelih_id;
         $user->status = true;      
         if($request->rumah_sembelih_id) {
             $user->rumah_sembelih_id = $request->rumah_sembelih_id;
@@ -138,7 +144,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->pejabat = $request->pejabat;
-        $user->nama_rumah = $request->nama_rumah;
+        $user->rumah_sembelih_id = $request->rumah_sembelih_id;
         $user->unit = $request->unit;
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;

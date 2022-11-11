@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
+<script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
+<script src="https://unpkg.com/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/dselect.js"></script>
+
 @section('styles')
     <style>
         /* remove arrow in input number */
@@ -75,7 +80,7 @@
                                         <label class="form-label">Emel</label>
                                     </div>
                                     <div class="col-4 mt-3">
-                                        <input class="form-control" type="text" name="pejabat" value="{{$user->email}}" onkeyup="this.value = this.value.toUpperCase();" />
+                                        <input class="form-control" type="text" name="email" value="{{$user->email}}" onkeyup="this.value = this.value.toUpperCase();" />
                                     </div>
 
                                 </div>
@@ -85,12 +90,12 @@
                                         <label class="form-label">Premis</label>
                                     </div>
                                     <div class="col-10">
-                                        <select class="form-select" aria-label="Default select example" name="nama_rumah" id="select_box">
-                                            <option selected value="{{$user->nama_rumah}}">{{$user->nama_rumah}}</option>
+                                        <select class="form-select" aria-label="Default select example" name="rumah_sembelih_id" id="select_box">
+                                            <option selected value="{{$user->rumah_sembelih_id ?? ''}}">{{$user->rumah_sembelih->nama_rumah ?? 'Pilih Premis'}}</option>
                                             {{-- <option value="">DVS</option> --}}
                                             
                                             @foreach ($rumahs as $rumah)
-                                                <option value="{{ $rumah->nama_rumah }}">{{ $rumah->nama_rumah }}</option>
+                                                <option value="{{ $rumah->id }}">{{ $rumah->nama_rumah }}</option>
                                             @endforeach
                                             
                                         </select>
@@ -185,5 +190,20 @@
 
         </div>
     </main>
+
+@endsection
+
+@section('script')
+
+{{-- search in dropdown --}}
+<script src="https://unpkg.com/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/dselect.js"></script>
+<script>
+
+    dselect(document.querySelector('#select_box'), {
+      search: true
+    })
+    
+</script>
 
 @endsection
