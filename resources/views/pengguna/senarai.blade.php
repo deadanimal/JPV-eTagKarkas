@@ -34,7 +34,7 @@
                                         <th scope="col">Nama</th>
                                         <th scope="col">Peranan</th>
                                         <th scope="col">Pejabat</th>
-                                        <th scope="col">Rumah Sembelih</th>
+                                        <th scope="col">Premis</th>
                                         <th scope="col">Emel</th>
                                         <th scope="col">Telefon</th>
                                         <th scope="col">Jawatan</th>
