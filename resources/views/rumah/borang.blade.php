@@ -184,11 +184,11 @@
                             </div>
                         </div>
 
-                        <!--Cetakan Kod Bar-->
+                        <!--Jana Tag-->
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label" id="tag3">Jana Tag</label>
                             <div class="col-sm-10">
-                                <select id="tag4" class="form-select" aria-label="Default select example" name="kodbar">
+                                <select id="tag4" class="form-select" aria-label="Default select example" name="jana_tag">
                                     <option value="Manual" selected>Manual</option>
                                     <option value="Auto">Auto</option>
                                 </select>

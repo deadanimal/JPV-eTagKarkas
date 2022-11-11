@@ -175,6 +175,18 @@
                                 </div>
                             </div>
 
+                            <!--Jana Tag-->
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label" id="tag3">Jana Tag</label>
+                                <div class="col-sm-10">
+                                    <select id="tag4" class="form-select" aria-label="Default select example" name="jana_tag">
+                                        <option value="{{ $rumah->jana_tag }}" selected disabled>{{ $rumah->jana_tag }}</option>
+                                        <option value="Manual" selected>Manual</option>
+                                        <option value="Auto">Auto</option>
+                                    </select>
+                                </div>
+                            </div>
+
 
                             <!--Akses Ternakan-->
                             <div class="mb-3 row">
@@ -662,9 +674,13 @@
                 "LOJI PEMPROSESAN PRODUK" || induk == "LADANG MyGap" || induk == "LADANG MyOrganic") {
                 document.getElementById("tag1").style.display = "none";
                 document.getElementById("tag2").style.display = "none";
+                document.getElementById("tag3").style.display = "none";
+                document.getElementById("tag4").style.display = "none";
             } else {
                 document.getElementById("tag1").style.display = "block";
                 document.getElementById("tag2").style.display = "block";
+                document.getElementById("tag3").style.display = "block";
+                document.getElementById("tag4").style.display = "block";
             }
         }
     </script>
