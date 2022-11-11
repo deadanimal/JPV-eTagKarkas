@@ -93,7 +93,7 @@
                                     <label class="form-label">Premis</label>
                                 </div>
                                 <div class="col-10">
-                                    <select class="form-select" aria-label="Default select example" name="premis" id="select_box"
+                                    <select class="form-select" aria-label="Default select example" name="nama_rumah" id="select_box"
                                      required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
                                         <option selected value="">Pilih Premis</option>
                                         {{-- <option value="">DVS</option> --}}

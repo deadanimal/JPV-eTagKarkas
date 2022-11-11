@@ -109,7 +109,7 @@ class UserController extends Controller
         // $user->password = Hash::make($request->password);
 
         $user->pejabat = $request->pejabat;
-        $user->premis = $request->premis;
+        $user->nama_rumah = $request->nama_rumah;
         $user->unit = $request->unit;
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;
@@ -137,7 +137,7 @@ class UserController extends Controller
         
         $user->name = $request->name;
         $user->pejabat = $request->pejabat;
-        $user->premis = $request->premis;
+        $user->nama_rumah = $request->nama_rumah;
         $user->unit = $request->unit;
         $user->cawangan = $request->cawangan;
         $user->jawatan = $request->jawatan;

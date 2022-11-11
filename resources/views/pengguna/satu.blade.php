@@ -85,8 +85,8 @@
                                         <label class="form-label">Premis</label>
                                     </div>
                                     <div class="col-10">
-                                        <select class="form-select" aria-label="Default select example" name="premis" id="select_box">
-                                            <option selected value="{{$user->premis}}">{{$user->premis}}</option>
+                                        <select class="form-select" aria-label="Default select example" name="nama_rumah" id="select_box">
+                                            <option selected value="{{$user->nama_rumah}}">{{$user->nama_rumah}}</option>
                                             {{-- <option value="">DVS</option> --}}
                                             
                                             @foreach ($rumahs as $rumah)
