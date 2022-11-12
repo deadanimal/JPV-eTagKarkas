@@ -114,7 +114,6 @@
                                 @endrole
                                 <th scope="col">Jenis Ternakan</th>
                                 <th scope="col">Bilangan Ternakan Yang Disyorkan</th>
-
                                 <th scope="col">Kategori Tag</th>
                                 <th scope="col">Tarikh Permohonan</th>
                                 <th scope="col">Tarikh Tindakan</th>

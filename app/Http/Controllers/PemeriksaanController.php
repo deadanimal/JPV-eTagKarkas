@@ -22,33 +22,59 @@ class PemeriksaanController extends Controller
         $pemeriksaans = Pemeriksaan::all();
         $user = $request->user();
 
-        // pass rumah_sembelih_id
-        $rumah_sembelih_id = $user->rumah_sembelih_id;
-        $pemeriksaans = Pemeriksaan::where([
-            ['rumah_sembelih_id','=', $rumah_sembelih_id],
-        ])->orderBy('updated_at','desc')->get();
-        
-        // datatable
-        if($request->ajax()) {
-            return DataTables::collection($pemeriksaans)
-            ->addIndexColumn()
-            ->addColumn('tindakan', function (Pemeriksaan $pemeriksaan) {
-                $url = '/pemeriksaan/'.$pemeriksaan->id;
-                return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
-            })
-            // ->editColumn('masa_tiba', function (Pemeriksaan $pemeriksaan) {
-            //     return [
-            //         'display' => ($pemeriksaan->masa_tiba && $pemeriksaan->masa_tiba != '0000-00-00 00:00:00') ? with(new Carbon($pemeriksaan->masa_tiba))->format('d F Y') : '',
-            //         'timestamp' => ($pemeriksaan->masa_tiba && $pemeriksaan->masa_tiba != '0000-00-00 00:00:00') ? with(new Carbon($pemeriksaan->masa_tiba))->timestamp : ''
-            //     ];
-            // })
-            ->rawColumns(['tindakan'])                                  
-            ->make(true);
+        if ($user->hasRole('pentadbir')) {
+            $rumah_sembelih_id = $user->rumah_sembelih_id;
+            $pemeriksaans = Pemeriksaan::all();
+
+                // datatable
+            if($request->ajax()) {
+                return DataTables::collection($pemeriksaans)
+                ->addIndexColumn()
+                ->addColumn('nama_premis', function (Pemeriksaan $pemeriksaan) {
+
+                    $html_button = '-';
+                    if($pemeriksaan->rumah_sembelih) {
+                        $html_button = $pemeriksaan->rumah_sembelih->nama_rumah;
+                    }                 
+                    return $html_button;
+                })
+                ->addColumn('tindakan', function (Pemeriksaan $pemeriksaan) {
+                    $url = '/pemeriksaan/'.$pemeriksaan->id;
+                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Lihat</a>';
+                })
+                ->rawColumns(['tindakan'])                                  
+                ->make(true);
+            }
+
+        } else{
+            // pass rumah_sembelih_id
+            $rumah_sembelih_id = $user->rumah_sembelih_id;
+            $pemeriksaans = Pemeriksaan::where([
+                ['rumah_sembelih_id','=', $rumah_sembelih_id],
+            ])->orderBy('updated_at','desc')->get();
+
+             // datatable
+            if($request->ajax()) {
+                return DataTables::collection($pemeriksaans)
+                ->addIndexColumn()
+                ->addColumn('tindakan', function (Pemeriksaan $pemeriksaan) {
+                    $url = '/pemeriksaan/'.$pemeriksaan->id;
+                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
+                })
+                // ->editColumn('masa_tiba', function (Pemeriksaan $pemeriksaan) {
+                //     return [
+                //         'display' => ($pemeriksaan->masa_tiba && $pemeriksaan->masa_tiba != '0000-00-00 00:00:00') ? with(new Carbon($pemeriksaan->masa_tiba))->format('d F Y') : '',
+                //         'timestamp' => ($pemeriksaan->masa_tiba && $pemeriksaan->masa_tiba != '0000-00-00 00:00:00') ? with(new Carbon($pemeriksaan->masa_tiba))->timestamp : ''
+                //     ];
+                // })
+                ->rawColumns(['tindakan'])                                  
+                ->make(true);
+            }
+
         }
         
         return view('daging.senarai_ruminan', compact('pemeriksaans','user'));
       
-
     }
 
     public function cipta_pemeriksaan(Request $request){
