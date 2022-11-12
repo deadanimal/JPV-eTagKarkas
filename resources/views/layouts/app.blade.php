@@ -77,7 +77,13 @@
                         <a class="sidebar-link" href="/stok-tag">
                             <span class="align-middle">Pendaftaran Stok Tag Karkas</span>
                         </a>
-                    </li>                       
+                    </li> 
+                    
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pemeriksaan">
+                            <span class="align-middle">Pemeriksaan Daging</span>
+                        </a>
+                    </li>  
             
                     @endrole  
 

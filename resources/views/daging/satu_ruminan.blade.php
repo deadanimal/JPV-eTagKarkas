@@ -149,7 +149,7 @@
         
                     <div class="tab-pane" id="tab-2" role="tabpanel">
         
-        
+                        @role('pengurus-rumah-sembelih')
                        <form action="/harian" method="POST">
                         @csrf
         
@@ -201,14 +201,17 @@
                                 <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
                             </div>
         
-                       </form>                     
+                       </form> 
+                       @endrole
+                            
+                            
                             @include('daging.harian_table')
 
                     </div>
         
                     <div class="tab-pane" id="tab-3" role="tabpanel">
         
-        
+                        @role('pengurus-rumah=sembelih')
                         <form action="/ante-mortem" method="POST">
                         @csrf
         
@@ -268,6 +271,7 @@
                             </div>
         
                         </form>
+                        @endrole
         
                         @include('daging.ante_mortem_table')
         
@@ -275,7 +279,8 @@
         
         
                     <div class="tab-pane" id="tab-4" role="tabpanel">
-        
+                        
+                        @role('pengurus-rumah-sembelih')
                         <form action="/post-mortem" method="POST">
                         @csrf
         
@@ -346,6 +351,7 @@
                                 <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
                             </div>
                         </form>
+                        @endrole
         
                         @include('daging.post_mortem_table')
         
