@@ -148,8 +148,8 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="negeri" id="stateSel" size="1" class="form-select">
-                                        {{-- <option value="{{ $rumah->negeri }}" selected disabled>{{ $rumah->negeri }}</option> --}}
-                                        {{-- <option>{{ $rumah->negeri }}</option> --}}
+                                        <option selected disabled value="">Pilih Negeri</option>
+
 
                                     </select>
                                 </div>
@@ -159,8 +159,8 @@
                                 </div>
                                 <div class="col-4">
                                     <select name="daerah" id="districtSel" size="1" class="form-select">
-                                        {{-- <option value="{{ $rumah->daerah }}" selected disabled>{{ $rumah->daerah }}</option> --}}
-                                        {{-- <option>{{ $rumah->daerah }}</option> --}}
+                                        <option selected disabled value="">Pilih Daerah</option>
+
                                     </select>
                                 </div>
 

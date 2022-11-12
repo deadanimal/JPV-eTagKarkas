@@ -23,7 +23,7 @@
                         </div>
                     
                         <div class="column" style="width:20%;">
-                            <h5 class="card-title mb-0">Jabatan Perkhidmatan Veterinar</h5>
+                            <h5 class="card-title mb-0">JABATAN PERKHIDMATAN VETERINAR</h5>
                         </div>
                         
                         <div class="column" style="width:15%;">

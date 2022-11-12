@@ -80,7 +80,7 @@
                                         <label class="form-label">Emel</label>
                                     </div>
                                     <div class="col-4 mt-3">
-                                        <input class="form-control" type="text" name="email" value="{{$user->email}}" onkeyup="this.value = this.value.toUpperCase();" />
+                                        <input class="form-control" type="text" name="email" value="{{$user->email}}" />
                                     </div>
 
                                 </div>
@@ -120,7 +120,7 @@
                                     <input class="form-control" type="text" name="unit" value="{{$user->unit}}" onkeyup="this.value = this.value.toUpperCase();" />
                                 </div>
                                 <div class="col-2">
-                                    <label class="form-label">Cawangan</label>
+                                    <label class="form-label">Bahagian</label>
                                 </div>
                                 <div class="col-4">
                                     <input class="form-control" type="text" name="cawangan" value="{{$user->cawangan}}"  onkeyup="this.value = this.value.toUpperCase();">
