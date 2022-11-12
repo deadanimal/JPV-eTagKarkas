@@ -27,6 +27,7 @@
 	<div class="splash active">
 		<div class="splash-icon"></div>
 	</div>
+	@include('sweetalert::alert')
 
 	<main class="main h-100 w-100">
 		<div class="container h-100">

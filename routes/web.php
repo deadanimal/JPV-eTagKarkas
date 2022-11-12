@@ -84,7 +84,9 @@ Route::middleware(['role:pentadbir'])->group(function () {
     Route::get('pengguna/borang', [UserController::class, 'borang']);
     Route::get('pengguna/{id}', [UserController::class, 'satu']);
     Route::put('pengguna/{id}', [UserController::class, 'kemaskini']);
-    Route::post('pengguna', [UserController::class, 'cipta']);    
+    Route::post('pengguna', [UserController::class, 'cipta']); 
+    Route::get('pengguna/{id}/aktif', [UserController::class, 'aktif_pengguna']);
+   
 
 });
 
