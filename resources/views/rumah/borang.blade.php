@@ -189,7 +189,8 @@
                             <label class="col-sm-2 col-form-label" id="tag3">Jana Tag</label>
                             <div class="col-sm-10">
                                 <select id="tag4" class="form-select" aria-label="Default select example" name="jana_tag">
-                                    <option value="Manual" selected>Manual</option>
+                                    <option selected disabled value="">Pilih Jana Tag</option>                                    
+                                    <option value="Manual">Manual</option>
                                     <option value="Auto">Auto</option>
                                 </select>
                             </div>
