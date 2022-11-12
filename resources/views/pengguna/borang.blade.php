@@ -158,7 +158,7 @@
                                 oninput="this.setCustomValidity('')" />
                             </div>
                             <div class="col-2">
-                                <label class="form-label">Cawangan</label>
+                                <label class="form-label">Bahagian</label>
                             </div>
                             <div class="col-4">
                                 <input class="form-control" type="text" name="cawangan" onkeyup="this.value = this.value.toUpperCase();" required
