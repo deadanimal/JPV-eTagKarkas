@@ -159,7 +159,7 @@ class TagController extends Controller
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
                 } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual') {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="';    
-                } else if($user->hasRole('pentadbir') && $tag->status == "Lulus" ) {                    
+                } else if($user->hasRole('pentadbir') && $tag->status == "Lulus" && $tag->kodbar == "Manual") {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success" onClick="printJS()">Cetak</button></a>';    
                 } else if($tag->status == "Tolak" ) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';    

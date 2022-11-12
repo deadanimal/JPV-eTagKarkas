@@ -160,10 +160,13 @@ class RumahSembelihController extends Controller
         if($request->daerah) {
             $rumah->daerah = $request->daerah;
         }
+        if($request->jana_tag) {
+            $rumah->jana_tag = $request->jana_tag;
+        }
         $rumah->daerah = $request->daerah;
         $rumah->no_tel = $request->no_tel;
         $rumah->emel = $request->emel;
-        $rumah->jana_tag = $request->jana_tag;
+        // $rumah->jana_tag = $request->jana_tag;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
         if($request->zon) {
             $rumah->zon = $request->zon;

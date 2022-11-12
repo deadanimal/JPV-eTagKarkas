@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\LupaKatalaluan;
 use Illuminate\Http\Request;
 use DataTables;
 use DateTime;
@@ -11,6 +12,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Models\RumahSembelih;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
@@ -177,6 +179,10 @@ class UserController extends Controller
         $user = User::where('email',$email)->first();
         $user->password = Hash::make('SayaSayangEtag123');
         $user->save();
+
+        Mail::to($user->email)->send(new LupaKatalaluan);
+
+        return redirect('/login');
         
     }
 }

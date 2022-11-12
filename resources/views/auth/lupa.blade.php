@@ -58,14 +58,11 @@
 										</div>
 										
 										<div class="text-center mt-3">											
-											<button type="submit" class="btn btn-lg btn-primary">Reset password</button>
+											<button type="submit" class="btn btn-lg btn-primary">Reset Katalaluan</button>
 										</div>
 									</form>
 								</div>
-							</div>
-
-							{{-- zach tambah untuk reset password --}}
-							
+							</div>							
 						</div>
 
 					</div>
