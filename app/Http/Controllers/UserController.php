@@ -50,16 +50,23 @@ class UserController extends Controller
                 })                
                 ->addColumn('tindakan', function (User $user) {
                     $url = '/pengguna/'.$user->id;
-                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Kemaskini</a>';
+                    $url2 = '/pengguna/'.$user->id.'/aktif';
+                    $html_button = '';
+                    if($user->status){
+                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Nyahaktif</button></a>';
+                    } else {
+                        $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-success">Aktifkan</button></a>';
+                    }                          
+                    return $html_button;
                 })    
                 ->addColumn('status', function (User $user) {
                     if($user->status) {
                         return 'Aktif';
                     } else {
                         return 'Tidak Aktif';
-                    }                        
+                    }                       
                 })                      
-                ->rawColumns(['tindakan', 'status', 'rumah','nama_premis'])                          
+                ->rawColumns(['tindakan', 'status', 'rumah','nama_premis','aktif'])                          
                 ->make(true);
             }
 
@@ -165,6 +172,14 @@ class UserController extends Controller
         Alert::success('Kemaskini pengguna berjaya.', 'Kemaskini pengguna berjaya.');   
 
         return redirect('/pengguna');
+    }
+    
+    public function aktif_pengguna(Request $request) {
+        $id = (int)$request->route('id');
+        $user = User::find($id);
+        $user->status = !$user->status;
+        $user->save();
+        return back();
     }  
     
     public function tunjuk_lupa(){
@@ -181,6 +196,9 @@ class UserController extends Controller
         $user->save();
 
         Mail::to($user->email)->send(new LupaKatalaluan);
+
+        Alert::error('Email tidak wujud', 'Email anda tidak dapat dikenalpasti.');   
+
 
         return redirect('/login');
         
