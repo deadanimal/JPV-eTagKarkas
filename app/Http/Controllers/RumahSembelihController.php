@@ -86,7 +86,9 @@ class RumahSembelihController extends Controller
         $rumah->negeri = $request->negeri;
         $rumah->daerah = $request->daerah;
         $rumah->no_tel = $request->no_tel;
-        $rumah->jana_tag = $request->jana_tag;
+        if($request->jana_tag) {
+            $rumah->jana_tag = $request->jana_tag;
+        }    
         if($request->jenis1 == "on") {
             $rumah->jenis1 = true;
         } else {
@@ -166,7 +168,6 @@ class RumahSembelihController extends Controller
         $rumah->daerah = $request->daerah;
         $rumah->no_tel = $request->no_tel;
         $rumah->emel = $request->emel;
-        // $rumah->jana_tag = $request->jana_tag;
         $rumah->orang_dihubungi = $request->orang_dihubungi;
         if($request->zon) {
             $rumah->zon = $request->zon;

@@ -18,15 +18,11 @@
                 <h1 class="header-title">
                     Permohonan Tag Karkas
                 </h1>
-                @role('pengurus-rumah-sembelih')
-                <a href="/tag/borang" class="btn float-end " style="width: fit-content"><button class="btn btn-warning btn-block">Tambah</button></a>
-                @endrole
+               
             </div>
 
-            {{-- align button tambah --}}
-            <div class="card" style="width: fit-content">
-
-            </div>
+           
+            
 
             {{-- kad notifikasi --}}
             <div class="row">
@@ -97,6 +93,17 @@
                 </div>
                 @endrole
             </div> 
+
+           
+
+             @role('pengurus-rumah-sembelih')
+                <a href="/tag/borang" style="width: fit-content"><button class="btn btn-warning btn-block" style="float: right">Tambah</button></a><br>
+            @endrole
+
+             {{-- align button tambah --}}
+             <div class="card" style="width: fit-content"></div>
+
+             
 
            
 
