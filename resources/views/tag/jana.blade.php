@@ -22,6 +22,16 @@
         }
     </style>
 
+<style> 
+    .div1 {
+      border: 2px solid;
+      padding: 2px; 
+      width: 1500px;
+      resize: both;
+      overflow: auto;
+    }
+    </style>
+
 @section('content')
 
     @if ($tag->jenis_ternakan == 'Ruminan Besar')
@@ -34,7 +44,7 @@
         @endphp
     @endif
 
-    <div class="card" id="jana-tag" style="padding-left:30px;">
+    <div class="card div1" id="jana-tag" style="padding-left:30px;">
         
         @for ($x = 1; $x <= $y; $x++)
             <div class="row" style="padding-top:10px; padding-left:10px;">
@@ -56,7 +66,8 @@
                         <div class="column" style="width:40%;">
                             <h5 class="card-text mb-0 jpv" style="display: inline">JABATAN PERKHIDMATAN VETERINAR</h5>
                             <p class="card-text mb-0">TELAH DIPERIKSA</p>
-                            {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR') !!}
+                            {{-- {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR') !!} --}}
+                            {!! '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('4', 'C39+') . '" alt="barcode"/>'; !!}
                             <h6>R{{ $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i) }}</h6>
                             
                         </div>
