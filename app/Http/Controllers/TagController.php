@@ -149,7 +149,15 @@ class TagController extends Controller
                     $html_button = $tag->user->name;
                 }                 
                 return $html_button;
-            })      
+            })
+            ->addColumn('kodbar', function (Tag $tag) {
+
+                $html_button = '-';
+                if($tag->user) {
+                    $html_button = $tag->rumah_sembelih->jana_tag;
+                }                 
+                return $html_button;
+            })       
             ->addColumn('tindakan', function (Tag $tag, Request $request) {            
                 $url = '/tag/'.$tag->id;
                 $url2 = '/tag/'.$tag->id.'/delete';
@@ -159,7 +167,7 @@ class TagController extends Controller
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
                 } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual') {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="';    
-                } else if($user->hasRole('pentadbir') && $tag->status == "Lulus" && $tag->kodbar == "Manual") {                    
+                } else if($user->hasRole('pentadbir') && $tag->status == "Lulus") {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success" onClick="printJS()">Cetak</button></a>';    
                 } else if($tag->status == "Tolak" ) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';    
@@ -186,7 +194,7 @@ class TagController extends Controller
                     'timestamp' => ($tag->created_at && $tag->created_at != '0000-00-00 00:00:00') ? with(new Carbon($tag->created_at))->timestamp : ''
                 ];
             })        
-            ->rawColumns(['nama_premis', 'tindakan', 'no_tag', 'no_rujukan'])    
+            ->rawColumns(['nama_premis', 'tindakan', 'no_tag', 'no_rujukan','kodbar'])    
             ->make(true);
         }
 

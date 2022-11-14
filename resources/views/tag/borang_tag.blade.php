@@ -17,14 +17,7 @@
 
                     <form action="/tag" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <!--Nama Pengeluar-->
-                        <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label">Nama Pengeluar:</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" value="{{ $user->rumah_sembelih->nama_rumah }}"
-                                    readonly />
-                            </div>
-                        </div>
+                      
                         <!--Induk-->
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label">Premis:</label>
@@ -82,28 +75,18 @@
                                     readonly />
                             </div>
                         </div>
-                        {{-- Pengesyoran Kuantiti --}}
-                        {{-- <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label">Pengesyoran Kuantiti</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="text" placeholder="" name="bil_kod" placeholder="16"
-                                />
-                        </div>
-                        </div> --}}
+                    
 
-                        {{-- @role('pengurus-rumah-sembelih') --}}
                            
-                            <!--Cetakan Kod Bar-->
-                            {{-- <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Jana Tag</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example" name="kodbar">
-                                        <option value="Manual" selected>Manual</option>
-                                        <option value="Auto">Auto</option>
-                                    </select>
-                                </div>
+                        <!--Cetakan Kod Bar-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label">Jana Tag</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{ $user->rumah_sembelih->jana_tag }}"
+                                    readonly />
                             </div>
-                        @endrole --}}
+                        </div> 
+                        
                 </div>
 
                 <!-- Button trigger modal -->

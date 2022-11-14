@@ -198,7 +198,7 @@ class UserController extends Controller
         Mail::to($user->email)->send(new LupaKatalaluan);
 
         Alert::error('Email tidak wujud', 'Email anda tidak dapat dikenalpasti.');   
-
+        // dd($user);
 
         return redirect('/login');
         

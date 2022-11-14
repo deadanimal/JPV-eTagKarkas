@@ -277,8 +277,8 @@
                         
 
             
-                        <!--Cetakan Kod Bar-->
-                        <div class="mb-3 row">
+                        <!--Jana Tag-->
+                        {{-- <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Jana Tag</label>
                             <div class="col-sm-9">
                                 <select class="form-select" aria-label="Default select example" name="kodbar"
@@ -288,8 +288,13 @@
                                     <option value="Auto" @if ($tag->kodbar == 'Auto') selected @endif>Auto</option>
                                 </select>
                             </div>
-
-
+                        </div> --}}
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Jana Tag</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" value="{{ $tag->rumah_sembelih->jana_tag }}"
+                                readonly />
+                            </div>
                         </div>
 
                         {{-- Catatan --}}
