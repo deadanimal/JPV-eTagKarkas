@@ -60,4 +60,20 @@ class PemeriksaanHarianController extends Controller
 
     }
 
+    public function periksa_rapi(Request $request){
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $periksa_harian = PemeriksaanHarian::find($id);
+
+        // $periksa = PemeriksaanHarian::where([
+        //     ['pemeriksaan_id','=', $periksa_harian->id],
+        // ])->get();
+
+        return view('daging.periksa_rapi', compact('user','periksa_harian'));
+    }
+
+    public function jana_borang_satu(){
+        return view('daging.borang-1');
+    }
+
 }
