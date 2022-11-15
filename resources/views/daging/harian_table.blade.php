@@ -52,4 +52,39 @@
         </div>
     </div>
 
+
+    {{-- Catatan Senarai Ternakan - daily editable table --}}
+    <div class="container-fluid">
+      <div class="card" style="border-width: 1px; border-color:black;">
+
+
+
+          <div class="card-body" >
+            <u><h4 class="text-center ">Catatan Senarai Ternakan </h4></u>
+              <table class="table text-center" style="border-width: 10px; border-color:green;">
+                  <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Nombor Tag</th>
+                      <th scope="col">Jantina</th>
+                      <th scope="col">Baka</th>
+                      <th scope="col">Tarikh Disembelih</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><input type="number"></td>
+                      <td><input type="text"></td>
+                      <td><input type="number"></td>
+                      <td><input type="date"></td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+          </div>
+      </div>
+  </div>
+
 </main>
