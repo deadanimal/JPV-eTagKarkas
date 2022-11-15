@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 <main class="content">
     <div class="container-fluid">
@@ -162,6 +161,7 @@
                                     <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi</label>
                                     <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" >
+                                    <a href="#" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
                                 </div>
         
                                 <div class="mb-3 col-md-3">

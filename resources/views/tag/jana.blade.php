@@ -67,7 +67,7 @@
                             <h5 class="card-text mb-0 jpv" style="display: inline">JABATAN PERKHIDMATAN VETERINAR</h5>
                             <p class="card-text mb-0">TELAH DIPERIKSA</p>
                             {{-- {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR') !!} --}}
-                            {!! '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('4', 'C39+') . '" alt="barcode"/>'; !!}
+                            {!! '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('4', 'C39+') . '" alt="barcode";/>' !!}
                             <h6>R{{ $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i) }}</h6>
                             
                         </div>
@@ -85,17 +85,16 @@
     </div>
 
 
-        <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
 
 
-        <script>
-            $(document).ready(function() {
-                // printJS('jana-tag')
-                window.print();
-
-            });
-        </script>
+<script>
+    $(document).ready(function() {
+        // printJS('jana-tag')
+        window.print();
+    });
+</script>
 
     @endsection
 
