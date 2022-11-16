@@ -73,7 +73,7 @@ class PemeriksaanHarianController extends Controller
     }
 
     public function jana_borang_satu(){
-        return view('daging.borang-1');
+        return view('daging.jana_borang');
     }
 
 }
