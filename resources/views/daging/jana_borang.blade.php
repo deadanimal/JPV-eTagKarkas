@@ -42,8 +42,8 @@
                     {{-- dynamic --}}
                 
                     <div>
-                        <br> Tarikh:
-                        <br><br> 1. Rumah Sembelih :
+                        <br> Tarikh: {{$periksa_rapi->created_at}}
+                        <br><br> 1. Rumah Sembelih : {{$periksa_rapi->pemeriksaan->nama_premis}}
                         <br><br> 2. Perihal Binatang-Binatang :
                         <br><br><div style="text-align: center">
                             <table style="width: 100%">

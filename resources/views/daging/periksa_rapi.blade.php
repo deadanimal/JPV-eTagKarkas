@@ -104,7 +104,7 @@
                             <!--Button-->
                             <div class="mb-3">
                                 <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                                <a href="/jana-rapi"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
+                                <a href="/jana-rapi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
                             </div>
         
                         </form>

@@ -63,17 +63,22 @@ class PemeriksaanHarianController extends Controller
     public function periksa_rapi(Request $request){
         $user = $request->user();
         $id = (int)$request->route('id');
-        $periksa_harian = PemeriksaanHarian::find($id);
+        $jana_rapi = PemeriksaanHarian::find($id);
 
-        // $periksa = PemeriksaanHarian::where([
-        //     ['pemeriksaan_id','=', $periksa_harian->id],
-        // ])->get();
+        $periksa = PemeriksaanHarian::where([
+            ['pemeriksaan_id','=', $jana_rapi->id],
+        ])->get();
 
-        return view('daging.periksa_rapi', compact('user','periksa_harian'));
+        return view('daging.periksa_rapi', compact('user','periksa','jana_rapi'));
     }
 
-    public function jana_borang_satu(){
-        return view('daging.jana_borang');
+    public function jana_borang(Request $request){
+
+        // tarik data dari cipta periksa rapi
+        $id = (int)$request->route('id');
+        $periksa_rapi = PemeriksaanHarian::find($id);
+
+        return view('daging.jana_borang', compact('periksa_rapi'));
     }
 
 }

@@ -115,9 +115,12 @@ class PemeriksaanController extends Controller
     public function satu_pemeriksaan(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
-        $pemeriksaan = Pemeriksaan::find($id); 
+        $pemeriksaan = Pemeriksaan::find($id);
+        $periksa_harian = PemeriksaanHarian::find($id);
+ 
         $harians = PemeriksaanHarian::where([
-            ['pemeriksaan_id','=', $pemeriksaan->id]
+            ['pemeriksaan_id','=', $pemeriksaan->id],
+            ['pemeriksaan_id','=', $periksa_harian->id],
         ])->get();
         $ante_mortems = AnteMortemRuminan::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
@@ -125,8 +128,10 @@ class PemeriksaanController extends Controller
         $post_mortems = PostMortemRuminan::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
         ])->get();       
-        return view('daging.satu_ruminan', compact('pemeriksaan','harians', 'user','ante_mortems','post_mortems'));
+        return view('daging.satu_ruminan', compact('pemeriksaan','harians', 'user','ante_mortems','post_mortems','periksa_harian'));
     }
+
+    
 
     
 }
