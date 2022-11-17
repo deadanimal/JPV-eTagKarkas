@@ -211,7 +211,7 @@
         
                     <div class="tab-pane" id="tab-3" role="tabpanel">
         
-                        @role('pengurus-rumah=sembelih')
+                        @role('pengurus-rumah-sembelih')
                         <form action="/ante-mortem" method="POST">
                         @csrf
         
