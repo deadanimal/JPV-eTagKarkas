@@ -41,7 +41,11 @@
 
         <nav id="sidebar" class="sidebar">
             <a class="sidebar-brand" href="/">
-                eTagKarkas
+                <div class="card" >
+                    <img src="/img/Veterinar-Logo.png" alt="JPV" style="width: 70px; height: 50px;">
+                </div>
+                <div>eTagKarkas</div>
+                
             </a>
             <div class="sidebar-content">
 
@@ -49,7 +53,7 @@
 
                     <li class="sidebar-item ">
                         <a class="sidebar-link" href="/">
-                            <span class="align-middle">Paparan Utama</span>
+                            <i class="align-middle me-2 fas fa-fw fa-home"></i><span class="align-middle">Paparan Utama</span>
                         </a>
                     </li> 
                     
@@ -57,31 +61,31 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/pengguna">
-                            <span class="align-middle">Profil Pengguna</span>
+                            <i class="align-middle me-2 fas fa-fw fa-users"></i><span class="align-middle">Profil Pengguna</span>
                         </a>
                     </li>  
                     
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
-                            <span class="align-middle">Pendaftaran Premis</span>
+                            <i class="align-middle me-2 fas fa-fw fa-warehouse"></i><span class="align-middle">Pendaftaran Premis</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
-                            <span class="align-middle">Permohonan Tag</span>
+                            <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan Tag</span>
                         </a>
                     </li> 
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/stok-tag">
-                            <span class="align-middle">Pendaftaran Stok Tag Karkas</span>
+                            <i class="align-middle me-2 fas fa-fw fa-tags"></i><span class="align-middle">Pendaftaran Stok Tag Karkas</span>
                         </a>
                     </li> 
                     
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/pemeriksaan">
-                            <span class="align-middle">Pemeriksaan Daging</span>
+                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
                         </a>
                     </li>  
             
@@ -90,18 +94,18 @@
                     @role('pengurus-rumah-sembelih')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/rumah">
-                            <span class="align-middle">Maklumat Premis</span>
+                            <i class="align-middle me-2 fas fa-fw fa-circle-info"></i><span class="align-middle">Maklumat Premis</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
-                            <span class="align-middle">Permohonan Tag</span>
+                            <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan Tag</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/pemeriksaan">
-                            <span class="align-middle">Pemeriksaan Daging</span>
+                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
                         </a>
                     </li>  
                     @endrole
@@ -110,7 +114,7 @@
                     @role('ketua-seksyen')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/tag">
-                            <span class="align-middle">Permohonan Tag</span>
+                            <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan Tag</span>
                         </a>
                     </li>  
                     @endrole
@@ -118,7 +122,7 @@
                     @role('pengurus-rumah-sembelih | pemeriksa-daging')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="/pemeriksaan">
-                            <span class="align-middle">Pemeriksaan Daging</span>
+                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
                         </a>
                     </li>  
                     @endrole                    
