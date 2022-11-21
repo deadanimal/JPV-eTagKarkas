@@ -12,7 +12,7 @@ use DataTables;
 use DateTime;
 use Carbon\Carbon;
 use Alert;
-use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class PemeriksaanController extends Controller
@@ -139,7 +139,7 @@ class PemeriksaanController extends Controller
 
         // tarik data dari cipta periksa rapi
         $id = (int)$request->route('id');
-        $jana_harian = Pemeriksaan::find($id);
+        $jana_harian = PemeriksaanHarian::find($id);
     
         return view('daging.borang_harian', compact('jana_harian'));
     }
@@ -151,7 +151,7 @@ class PemeriksaanController extends Controller
         $jana_harian = Pemeriksaan::find($id);
 
         // generate pdf using DomPDF
-        $pdf = FacadePDF::loadView('daging.borang_harian', compact('jana_harian'));
+        $pdf = Pdf::loadView('daging.borang_harian', compact('jana_harian'));
         return $pdf->download('borang_harian.pdf');
 
     }
