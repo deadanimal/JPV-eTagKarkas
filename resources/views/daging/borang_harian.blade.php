@@ -43,7 +43,7 @@
                 
                     <div>
                         <br> Tarikh: {{$jana_harian->created_at}}
-                        <br><br> 1. Rumah Sembelih : {{$jana_harian->nama_premis}}
+                        <br><br> 1. Rumah Sembelih : {{$jana_harian->pemeriksaan->nama_premis}}
                         <br><br> 2. Perihal Binatang-Binatang :
                         <br><br><div style="text-align: center">
                             <table style="width: 100%">
@@ -54,11 +54,11 @@
                             </table>
                         </div>
                         <br><br> 3. Keputusan Pemeriksaan :
-                        <br><br> a. Jumlah Binatang Yang Diperiksa :  {{$jana_harian->bil_ternakan_diterima}}
-                        <br><br> b. Jumlah Binatang Yang Diluluskan Sebagai Layak Untuk Disembelih : {{$jana_harian->jumlah_binatang_layak_disembelih}}
-                        <br><br> c. Jumlah Binatang Yang Dibenarkan Untuk Disembelih tetapi Berada Dibawah Pemeriksaan Rapi : 
-                        <br><br> d. Jumlah-Jumlah Binatang Yang Disembelih Kerana Sebab-Sebab Kecemasan : 
-                        <br><br> e. Jumlah-Jumlah Binatang Yang Dikondem Pada Pemeriksaan Ante-Mortem : 
+                        <br><br> a. Jumlah Binatang Yang Diperiksa :  {{$jana_harian->pemeriksaan->bil_ternakan_diterima}}
+                        <br><br> b. Jumlah Binatang Yang Diluluskan Sebagai Layak Untuk Disembelih : {{$jana_harian->pemeriksaan->jumlah_binatang_layak_disembelih}}
+                        <br><br> c. Jumlah Binatang Yang Dibenarkan Untuk Disembelih tetapi Berada Dibawah Pemeriksaan Rapi : {{$jana_harian->bilangan_diasingkan_pemeriksaan_rapi}}
+                        <br><br> d. Jumlah-Jumlah Binatang Yang Disembelih Kerana Sebab-Sebab Kecemasan : {{$jana_harian->jumlah_binatang_disembelih_kecemasan}}
+                        <br><br> e. Jumlah-Jumlah Binatang Yang Dikondem Pada Pemeriksaan Ante-Mortem : {{$jana_harian->jumlah_binatang_disembelih_kecemasan}}
                         <br><br> f. Lampiran A Disertakan (Individu) : 
                        
     
