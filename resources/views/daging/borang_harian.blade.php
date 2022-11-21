@@ -58,7 +58,7 @@
                         <br><br> b. Jumlah Binatang Yang Diluluskan Sebagai Layak Untuk Disembelih : {{$jana_harian->pemeriksaan->jumlah_binatang_layak_disembelih}}
                         <br><br> c. Jumlah Binatang Yang Dibenarkan Untuk Disembelih tetapi Berada Dibawah Pemeriksaan Rapi : {{$jana_harian->bilangan_diasingkan_pemeriksaan_rapi}}
                         <br><br> d. Jumlah-Jumlah Binatang Yang Disembelih Kerana Sebab-Sebab Kecemasan : {{$jana_harian->jumlah_binatang_disembelih_kecemasan}}
-                        <br><br> e. Jumlah-Jumlah Binatang Yang Dikondem Pada Pemeriksaan Ante-Mortem : {{$jana_harian->jumlah_binatang_disembelih_kecemasan}}
+                        <br><br> e. Jumlah-Jumlah Binatang Yang Dikondem Pada Pemeriksaan Ante-Mortem :
                         <br><br> f. Lampiran A Disertakan (Individu) : 
                        
     
