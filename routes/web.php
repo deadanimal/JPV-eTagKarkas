@@ -41,10 +41,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pemeriksaan/{id}', [PemeriksaanController::class, 'satu_pemeriksaan']);
     Route::post('pemeriksaan', [PemeriksaanController::class, 'cipta_pemeriksaan']);
     Route::put('pemeriksaan/{id}', [PemeriksaanController::class, 'kemaskini_pemeriksaan']);
+    Route::get('tunjuk-harian/{id}', [PemeriksaanController::class, 'tunjuk_harian']);
+    Route::get('jana-harian/{id}', [PemeriksaanController::class, 'jana_harian']);
+
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian']);
     Route::post('harian', [PemeriksaanHarianController::class, 'cipta_harian']);
     Route::get('periksa-rapi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi']);
-    Route::get('jana-rapi/{id}', [PemeriksaanHarianController::class, 'jana_borang']);
+    Route::get('jana-rapi/{id}', [PemeriksaanHarianController::class, 'jana_rapi']);
 
     Route::post('harian/{id}', [PemeriksaanHarianController::class, 'kemaskini_harian']);
     Route::get('ante-mortem', [AnteMortemRuminanController::class, 'satu_ante_mortem']);

@@ -111,6 +111,50 @@
         
                             </div>
         
+                            {{-- <div class="row">
+        
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Bilangan Ternakan Yang Diterima</label>
+                                    <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan->bil_ternakan_diterima}}" readonly>
+                                </div>
+        
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Ternakan Yang Mati Semasa Tiba</label>
+                                    <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan->ternakan_mati_semasa_tiba}}" readonly>
+                                </div>
+        
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Jumlah Ternakan Yang Diperiksa</label>
+                                    <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan->jumlah_ternakan_diperiksa}}" readonly>
+                                </div>
+        
+                                <div class="mb-3 col-md-3">
+                                    <label for="">Jumlah Binatang Layak Disembelih</label>
+                                    <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" readonly>
+                                </div>
+        
+                            </div> --}}
+        
+        
+        
+                            <!--Button-->
+                            <div class="mb-3">
+                                {{-- <button class="btn btn-primary" type="submit" style="float: right">Simpan</button> --}}
+                            </div>
+        
+                        </form>
+        
+                    </div>
+        
+                    <div class="tab-pane" id="tab-2" role="tabpanel">
+        
+                        @role('pengurus-rumah-sembelih')
+                       <form action="/harian" method="POST">
+                        @csrf
+        
+                            <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                            <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+                        
                             <div class="row">
         
                                 <div class="mb-3 col-md-3">
@@ -134,27 +178,7 @@
                                 </div>
         
                             </div>
-        
-        
-        
-                            <!--Button-->
-                            <div class="mb-3">
-                                {{-- <button class="btn btn-primary" type="submit" style="float: right">Simpan</button> --}}
-                            </div>
-        
-                        </form>
-        
-                    </div>
-        
-                    <div class="tab-pane" id="tab-2" role="tabpanel">
-        
-                        @role('pengurus-rumah-sembelih')
-                       <form action="/harian" method="POST">
-                        @csrf
-        
-                            <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
-                            <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
-        
+                            
                             <div class="row">
         
                                 <div class="mb-3 col-md-3">
