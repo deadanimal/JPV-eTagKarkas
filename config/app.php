@@ -197,6 +197,7 @@ return [
 
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
     ],
@@ -217,7 +218,8 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,    
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
-        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,    
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,    
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

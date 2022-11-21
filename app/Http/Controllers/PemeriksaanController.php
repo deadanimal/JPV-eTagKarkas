@@ -12,6 +12,8 @@ use DataTables;
 use DateTime;
 use Carbon\Carbon;
 use Alert;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+
 
 class PemeriksaanController extends Controller
 {
@@ -117,10 +119,12 @@ class PemeriksaanController extends Controller
         $id = (int)$request->route('id');
         $pemeriksaan = Pemeriksaan::find($id);
         $periksa_harian = PemeriksaanHarian::find($id);
+        $jana_harian = PemeriksaanHarian::find($id);
  
         $harians = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
             ['pemeriksaan_id','=', $periksa_harian->id],
+            ['pemeriksaan_id','=', $jana_harian->id],
         ])->get();
         $ante_mortems = AnteMortemRuminan::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
@@ -128,7 +132,28 @@ class PemeriksaanController extends Controller
         $post_mortems = PostMortemRuminan::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
         ])->get();       
-        return view('daging.satu_ruminan', compact('pemeriksaan','harians', 'user','ante_mortems','post_mortems','periksa_harian'));
+        return view('daging.satu_ruminan', compact('pemeriksaan','harians', 'user','ante_mortems','post_mortems','periksa_harian','jana_harian'));
+    }
+
+    public function tunjuk_harian(Request $request){
+
+        // tarik data dari cipta periksa rapi
+        $id = (int)$request->route('id');
+        $jana_harian = Pemeriksaan::find($id);
+    
+        return view('daging.borang_harian', compact('jana_harian'));
+    }
+
+    public function jana_harian(Request $request){
+
+        // tarik data dari cipta periksa rapi
+        $id = (int)$request->route('id');
+        $jana_harian = Pemeriksaan::find($id);
+
+        // generate pdf using DomPDF
+        $pdf = FacadePDF::loadView('daging.borang_harian', compact('jana_harian'));
+        return $pdf->download('borang_harian.pdf');
+
     }
 
     
