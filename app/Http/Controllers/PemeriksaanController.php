@@ -146,10 +146,13 @@ class PemeriksaanController extends Controller
 
         // tarik data dari cipta periksa rapi
         $id = (int)$request->route('id');
-        $jana_harian = Pemeriksaan::find($id);
+        $jana_harian = PemeriksaanHarian::find($id);
 
         // generate pdf using DomPDF
-        $pdf = Pdf::loadView('daging.borang_harian', compact('jana_harian'));
+        // $customPaper = array(0,0,720,1440);
+        // $pdf = Pdf::loadView('daging.borang_harian', compact('jana_harian'))->setPaper($customPaper,'portrait');
+        $pdf = Pdf::loadView('daging.mt_borang_harian', compact('jana_harian'));
+
         return $pdf->download('borang_harian.pdf');
 
     }
