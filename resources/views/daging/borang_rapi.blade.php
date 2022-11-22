@@ -13,7 +13,7 @@
             .cb {
             border: 2px solid;
             padding: 50px; 
-            width: 750px;
+            width: 600px;
             resize: both;
             overflow: auto;
             }

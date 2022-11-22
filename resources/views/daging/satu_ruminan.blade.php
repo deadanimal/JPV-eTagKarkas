@@ -247,14 +247,25 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="">Penemuan Ante Mortem</label>
                                     <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                        <option selected></option>
+                                        <option selected disabled>Sila Pilih </option>
+                                        <option value="Abnormal">Abnormal CNS signs</option>
                                         <option value="Anaemia">Anaemia</option>
                                         <option value="Comatose">Comatose</option>
                                         <option value="Dead Before Slaughter">Dead Before Slaughter</option>
                                         <option value="Diarrhea">Diarrhea</option>
                                         <option value="Dull & depressed">Dull & depressed</option>
                                         <option value="Emaciation(body score)">Emaciation(body score)</option>
-                                        <option value="Heat stress">Emaciation(body score)</option>
+                                        <option value="Heat stress">Heat stress</option>
+                                        <option value="Jaundice on mucosal">Jaundice on mucosal</option>
+                                        <option value="Lameness/Fracture">Lameness/Fracture</option>
+                                        <option value="Localized abscess">Localized abscess</option>
+                                        <option value="Oedema">Oedema</option>
+                                        <option value="Poor body condition">Poor body condition</option>
+                                        <option value="Post vaccination/treatment">Post vaccination/treatment(injection site)</option>
+                                        <option value="Runt">Runt(stunted growths)</option>
+                                        <option value="Skin lesions">Skin lesions</option>
+                                        <option value="Wounds">Wounds</option>
+                                        <option value="Others">Others(perlu sertakan gambar penemuan)</option>
                                     </select>
                                 </div>
             
@@ -266,12 +277,8 @@
             
                                 <div class="mb-3 col-md-3">
                                     <label for="">Nombor Tag</label>
-                                    <select class="form-select" aria-label="Default select example" name="nombor_tag">
-                                        <option selected></option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
+                                    <input class="form-control" type="text" min="0" name="nombor_tag"
+                                    onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
             
                                 <div class="mb-3 col-md-3">
@@ -316,20 +323,32 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="">Kategori</label>
                                     <select class="form-select" aria-label="Default select example" name="kategori_post_mortem">
-                                        <option selected>Karkas</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                        <option selected disabled>Pilih Kategori</option>
+                                        <option value="1">Karkass(Carcass)</option>
+                                        <option value="2">Esofagus(Esophagus)</option>
+                                        <option value="3">Jantung(Heart)</option>
+                                        <option value="4">Peparu(Lungs) & Trachea(Trakea)</option>
+                                        <option value="5">Hati(Liver)</option>
+                                        <option value="6">Buah Pinggang(Kidney)</option>
+                                        <option value="7">Limba(Spleen)</option>
+                                        <option value="8">Perut,Usus Kecil,Usus Besar(Guts-Stomach,Small & Large Intestine)</option>
+                                        <option value="9">Sistem Pembiakan Betina</option>
+                                        <option value="10">Udder</option>
+                                        <option value="11">Sistem Pembiakan Jantan</option>
+
                                     </select>
                                 </div>
             
                                 <div class="mb-3 col-md-3">
                                     <label for="">Bahagian</label>
                                     <select class="form-select" aria-label="Default select example" name="bahagian">
-                                        <option selected>Head</option>
+                                        <option selected disabled>Pilih Bahagian</option>
+                                        <option value="Generalized">Generalized</option>
+                                        <option value="Head">Head</option>
                                         <option value="Tongue">Tongue</option>
                                         <option value="Thoracic Cavity">Thoracic Cavity</option>
                                         <option value="Abdominal cavity">Abdominal cavity</option>
+                                        <option value="Pelvic cavity">Pelvic cavity</option>
                                     </select>
                                 </div>
             
