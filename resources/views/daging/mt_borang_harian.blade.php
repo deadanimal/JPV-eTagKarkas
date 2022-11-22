@@ -69,10 +69,6 @@
     
                     </div>
                     
-
-                    <div class="mb-3">
-                        <a href="/jana-harian/{{$jana_harian->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
-                    </div>
                 </body>
     
             </div>
