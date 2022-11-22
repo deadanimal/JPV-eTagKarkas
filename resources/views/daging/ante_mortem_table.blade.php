@@ -16,6 +16,7 @@
                         <th scope="col">Nombor Tag</th>
                         <th scope="col">Catatan</th>
                         <th scope="col">Jumlah Binatang Dikondem</th>
+                        <th scope="col">Jana</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,8 @@
                         <td>{{$ante_mortem->nombor_tag}}</td>
                         <td>{{$ante_mortem->catatan_ante_mortem}}</td>
                         <td>{{$ante_mortem->jumlah_dikondem}}</td>
+                        <td><a href="#"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
+                        </td>
                             
                       </tr>
                         @endforeach

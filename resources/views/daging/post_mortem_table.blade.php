@@ -17,6 +17,7 @@
                         <th scope="col">Bilangan Kes</th>
                         <th scope="col">Nombor Tag</th>
                         <th scope="col">Keputusan</th>
+                        <th scope="col">Jana</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,8 @@
                         <td>{{$post_mortem->kes_post_mortem}}</td>
                         <td>{{$post_mortem->nombor_tag_post}}</td>
                         <td>{{$post_mortem->keputusan}}</td>
+                        <td><a href="#"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
+                        </td>
                             
                       </tr>
                         @endforeach

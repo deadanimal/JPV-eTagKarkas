@@ -48,10 +48,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('harian', [PemeriksaanHarianController::class, 'cipta_harian']);
     Route::get('periksa-rapi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi']);
     Route::get('jana-rapi/{id}', [PemeriksaanHarianController::class, 'jana_rapi']);
-
     Route::post('harian/{id}', [PemeriksaanHarianController::class, 'kemaskini_harian']);
+
     Route::get('ante-mortem', [AnteMortemRuminanController::class, 'satu_ante_mortem']);
     Route::post('ante-mortem', [AnteMortemRuminanController::class, 'cipta_anteMortem']);
+    
+
     Route::get('post-mortem', [PostMortemRuminanController::class, 'satu_post_mortem']);
     Route::post('post-mortem', [PostMortemRuminanController::class, 'cipta_postMortem']);
     
