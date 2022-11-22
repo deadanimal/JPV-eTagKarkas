@@ -32,7 +32,7 @@
                         <td>{{$harian->jumlah_disembelih}}</td>
                         <td>{{$harian->baki_ternakan_belum_disembelih}}</td>
                         <td>{{$harian->catatan}}</td>
-                        <td><a href="/tunjuk-harian/{{$jana_harian->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
+                        <td><a href="/tunjuk-harian/{{$harian->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
                         </td>
                             
                         
