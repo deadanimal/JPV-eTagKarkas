@@ -50,4 +50,22 @@ class AnteMortemRuminanController extends Controller
         return back(); 
 
     }
+
+
+    public function kemaskini_am(Request $request){
+        $id = (int)$request->route('id');
+        $am = AnteMortemRuminan::find($id);
+
+        $am->ante_mortem = $request->ante_mortem;
+        $am->kes = $request->kes;
+        $am->nombor_tag = $request->nombor_tag;
+        $am->catatan_ante_mortem = $request->catatan_ante_mortem;
+        $am->jumlah_dikondem = $request->jumlah_dikondem;
+
+        $am->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat pemeriksaan ante-mortem ruminan telah dikemaskini.');
+
+        return back();
+    }
 }
