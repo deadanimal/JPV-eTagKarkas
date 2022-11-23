@@ -137,7 +137,8 @@ class PemeriksaanController extends Controller
 
         // tarik data dari cipta periksa rapi
         $id = (int)$request->route('id');
-        $jana_harian = PemeriksaanHarian::find($id);
+        $jana_harian = AnteMortemRuminan::find($id);
+        // dd($jana_harian->pemeriksaan->pemeriksaan_harian);
     
         return view('daging.borang_harian', compact('jana_harian'));
     }
@@ -146,7 +147,7 @@ class PemeriksaanController extends Controller
 
         // tarik data dari cipta periksa rapi
         $id = (int)$request->route('id');
-        $jana_harian = PemeriksaanHarian::find($id);
+        $jana_harian = AnteMortemRuminan::find($id);
 
         // generate pdf using DomPDF
         // $customPaper = array(0,0,720,1440);

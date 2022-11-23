@@ -16,7 +16,6 @@
                         <th scope="col">Jumlah Disembelih</th>
                         <th scope="col">Baki Belum Disembelih</th>
                         <th scope="col">Catatan</th>
-                        <th>Jana</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -32,8 +31,7 @@
                         <td>{{$harian->jumlah_disembelih}}</td>
                         <td>{{$harian->baki_ternakan_belum_disembelih}}</td>
                         <td>{{$harian->catatan}}</td>
-                        <td><a href="/tunjuk-harian/{{$harian->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
-                        </td>
+                       
                             
                         
                       </tr>
@@ -78,9 +76,9 @@
 
                     <tr>
                       <th scope="row">1</th>
-                      <td><input type="number"></td>
-                      <td><input type="text"></td>
-                      <td><input type="number"></td>
+                      <td><input type="text" onkeyup="this.value = this.value.toUpperCase();"></td>
+                      <td><input type="text" onkeyup="this.value = this.value.toUpperCase();" onkeydown="return /[a-z]/i.test(event.key)" ></td>
+                      <td><input type="text" onkeyup="this.value = this.value.toUpperCase();"></td>
                       <td><input type="date"></td>
                     </tr>
                     

@@ -52,10 +52,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('ante-mortem', [AnteMortemRuminanController::class, 'satu_ante_mortem']);
     Route::post('ante-mortem', [AnteMortemRuminanController::class, 'cipta_anteMortem']);
-    
+    Route::put('ante-mortem/{id}', [AnteMortemRuminanController::class, 'kemaskini_am']);
 
     Route::get('post-mortem', [PostMortemRuminanController::class, 'satu_post_mortem']);
     Route::post('post-mortem', [PostMortemRuminanController::class, 'cipta_postMortem']);
+    Route::put('post-mortem/{id}', [PostMortemRuminanController::class, 'kemaskini_pm']);
+
     
 
     
