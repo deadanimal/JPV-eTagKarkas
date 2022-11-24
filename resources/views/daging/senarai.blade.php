@@ -24,7 +24,8 @@
                         <label class="col-sm-2 col-form-label">Jenis Ternakan</label>
                         <div class="col-sm-10">
                             <select class="form-select" name="jenis">
-                                <option value="Ruminan" selected>Ruminan</option>
+                                <option selected disabled>Pilih Jenis Ternakan</option>
+                                <option value="Ruminan">Ruminan</option>
                                 <option value="Unggas">Unggas</option>
                                 <option value="Babi">Babi</option>
                             </select>
@@ -34,15 +35,16 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">No. SKV</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="no_skv" placeholder="Sila letakkan No. SKV" onkeyup="this.value = this.value.toUpperCase();" />
+                            <input class="form-control" type="text" name="no_skv" placeholder="Sila letakkan No. SKV" onkeyup="this.value = this.value.toUpperCase();" required
+                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')" />
                         </div>
                     </div>
 
 
                     <div>
                         <button class="btn btn-primary" type="submit" name="action" value="semak">Daftar</button>
-                        {{-- <button type="submit" class="btn btn-success" name="action" value="daftar" disabled>Daftar Dengan SKV</button>
-                        <button type="submit" class="btn btn-dark" name="action" value="daftar">Daftar Tanpa SKV</button> --}}
+                        {{-- <button type="submit" class="btn btn-success" name="action" value="daftar" disabled>Daftar Dengan SKV</button> --}}
+                        <button type="submit" class="btn btn-dark" name="action" value="daftar">Daftar Tanpa SKV</button>
                     </div>
                 </form>
 
