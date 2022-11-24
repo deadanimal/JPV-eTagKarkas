@@ -152,7 +152,7 @@ class PemeriksaanController extends Controller
         // generate pdf using DomPDF
         // $customPaper = array(0,0,720,1440);
         // $pdf = Pdf::loadView('daging.borang_harian', compact('jana_harian'))->setPaper($customPaper,'portrait');
-        $pdf = Pdf::loadView('daging.mt_borang_harian', compact('jana_harian'));
+        $pdf = Pdf::loadView('daging.final_borang_harian', compact('jana_harian'));
 
         return $pdf->download('borang_harian.pdf');
 

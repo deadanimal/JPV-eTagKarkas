@@ -103,22 +103,19 @@
                               
                                                   <div class="mb-3 col-md-3">
                                                       <label for="">Nombor Tag</label>
-                                                      <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
+                                                      <input class="form-control" type="text" min="0" name="nombor_tag"
+                                                      onkeyup="this.value = this.value.toUpperCase();">
+                                                      {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
                                                           <option selected>{{ $post_mortem->nombor_tag_post }}</option>
-                                                          <option value="1">1</option>
-                                                          <option value="2">2</option>
-                                                          <option value="3">3</option>
-                                                      </select>
+                                                      </select> --}}
                                                   </div>
                               
                                                   <div class="mb-3 col-md-3">
                                                       <label for="">Keputusan</label>
                                                       <select class="form-select" aria-label="Default select example" name="keputusan">
                                                           <option selected>{{ $post_mortem->keputusan }}</option>
-                                                          <option value="">Partial Condemn</option>
-                                                          <option value="1">1</option>
-                                                          <option value="2">2</option>
-                                                          <option value="3">3</option>
+                                                          <option value="Kondem Keseluruhan">Kondem Keseluruhan</option>
+                                                          <option value="Kondem Sebahagian">Kondem Sebahagian</option>
                                                       </select>
                                                   </div>
                               
@@ -137,7 +134,7 @@
                               </div>
                             </div> 
                             
-                        <td><a href="#"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
+                        <td><a href="/tunjuk-pm/{{$post_mortem->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
                             
                       </tr>
                         @endforeach

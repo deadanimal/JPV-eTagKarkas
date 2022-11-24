@@ -24,6 +24,7 @@
             <div class="card-body cb">
                 {{-- h1 dynamic --}}
                 <h1>Borang 1</h1>
+               <strong>
                 <div class="p1 div1">
                     <p>(Perenggan 6[1], Seksyen C, Bahagian 1)
                         <br>Ordinan Binatang 1953
@@ -36,27 +37,28 @@
                         <br>(Perenggan 6[1], Seksyen C, Bahagian 1, Jadual Ketiga)
                     </p>
                 </div>
+               </strong>
                 
     
                 <body class="content">
                     {{-- dynamic --}}
                 
                     <div>
-                        <br> Tarikh: {{$jana_harian->created_at->format('d/m/Y')}}
-                        <br><br> 1. Rumah Sembelih : {{$jana_harian->pemeriksaan->nama_premis}}
+                        <br> Tarikh: <b>{{$jana_harian->created_at->format('d/m/Y')}}</b>
+                        <br><br> 1. Rumah Sembelih : <b>{{$jana_harian->pemeriksaan->nama_premis}}</b>
                         <br><br> 2. Perihal Binatang-Binatang :
                         <br><br><div style="text-align: left">
                             <table style="width: 100%">
                                 <tr>
-                                    <th>Spesis: Ruminan Besar</th>
-                                    <th>Baka: </th>
+                                    <th style="width: 50%">Spesis: Ruminan Besar</th>
+                                    <th style="width: 50%">Baka: </th>
                                 </tr>
                             </table>
                         </div>
-                        <br><br> 3. Keputusan Pemeriksaan : {{$jana_harian->ante_mortem}}
-                        <br><br> a. Jumlah Binatang Yang Diperiksa :  {{$jana_harian->pemeriksaan->bil_ternakan_diterima}}
-                        <br><br> b. Jumlah Binatang Yang Diluluskan Sebagai Layak Untuk Disembelih : {{$jana_harian->pemeriksaan->jumlah_binatang_layak_disembelih}}
-                        <br><br> c. Jumlah Binatang Yang Dibenarkan Untuk Disembelih tetapi Berada Dibawah Pemeriksaan Rapi : {{$jana_harian->pemeriksaan->bilangan_diasingkan_pemeriksaan_rapi}}
+                        <br><br> 3. Keputusan Pemeriksaan : <b>{{$jana_harian->ante_mortem}}</b>
+                        <br><br> a. Jumlah Binatang Yang Diperiksa :  <b>{{$jana_harian->pemeriksaan->bil_ternakan_diterima}}</b>
+                        <br><br> b. Jumlah Binatang Yang Diluluskan Sebagai Layak Untuk Disembelih : <b>{{$jana_harian->pemeriksaan->jumlah_binatang_layak_disembelih}}</b>
+                        <br><br> c. Jumlah Binatang Yang Dibenarkan Untuk Disembelih tetapi Berada Dibawah Pemeriksaan Rapi : <b>{{$jana_harian->pemeriksaan->bilangan_diasingkan_pemeriksaan_rapi}}</b>
                         {{-- trying to call data from pemeriksaan_harian table --}}
                         {{-- <br><br> c. Jumlah Binatang Yang Dibenarkan Untuk Disembelih tetapi Berada Dibawah Pemeriksaan Rapi : 
                         <ul>
@@ -64,15 +66,15 @@
                                 <li>{{$abc->bilangan_diasingkan_pemeriksaan_rapi}}</li>
                             @endforeach
                         </ul> --}}
-                        <br><br> d. Jumlah-Jumlah Binatang Yang Disembelih Kerana Sebab-Sebab Kecemasan : {{$jana_harian->jumlah_binatang_disembelih_kecemasan}}
-                        <br><br> e. Jumlah-Jumlah Binatang Yang Dikondem Pada Pemeriksaan Ante-Mortem : {{$jana_harian->jumlah_dikondem}}
+                        <br><br> d. Jumlah-Jumlah Binatang Yang Disembelih Kerana Sebab-Sebab Kecemasan : <b>{{$jana_harian->jumlah_binatang_disembelih_kecemasan}}</b>
+                        <br><br> e. Jumlah-Jumlah Binatang Yang Dikondem Pada Pemeriksaan Ante-Mortem : <b>{{$jana_harian->jumlah_dikondem}}</b>
                         <br><br> f. Lampiran A Disertakan (Individu) 
                        
     
                         <br><br>Diperiksa Oleh : 
-                        <br><br>Nama : {{$jana_harian->pemeriksaan->nama_pemilik}}
+                        <br><br>Nama : <b>{{$jana_harian->pemeriksaan->nama_pemilik}}</b>
                         <br><br>Jawatan : Pemeriksa Daging
-                        <br><br>Tarikh : {{$jana_harian->created_at->format('d/m/Y')}}
+                        <br><br>Tarikh : <b>{{$jana_harian->created_at->format('d/m/Y')}}</b>
     
                     </div>
                     
@@ -84,9 +86,3 @@
     
    
 </html>
-
-<script>
-   
-    //   window.print();
-   
-</script>

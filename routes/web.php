@@ -57,6 +57,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('post-mortem', [PostMortemRuminanController::class, 'satu_post_mortem']);
     Route::post('post-mortem', [PostMortemRuminanController::class, 'cipta_postMortem']);
     Route::put('post-mortem/{id}', [PostMortemRuminanController::class, 'kemaskini_pm']);
+    Route::get('tunjuk-pm/{id}', [PostMortemRuminanController::class, 'tunjuk_pm']);
+    Route::get('jana-pm/{id}', [PostMortemRuminanController::class, 'jana_pm']);
+
+
 
     
 

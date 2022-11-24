@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PostMortemRuminan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use DataTables;
 use DateTime;
@@ -68,5 +69,25 @@ class PostMortemRuminanController extends Controller
         Alert::success('Kemaskini berjaya.', 'Maklumat pemeriksaan post-mortem ruminan telah dikemaskini.');
 
         return back();
+    }
+
+    public function tunjuk_pm(Request $request){
+        $id = (int)$request->route('id');
+        $jana_pm = PostMortemRuminan::find($id);
+
+        return view('daging.borang_pm', compact('jana_pm'));
+    }
+
+    public function jana_pm(Request $request){
+
+        // tarik data dari cipta periksa rapi
+        $id = (int)$request->route('id');
+        $jana_pm = PostMortemRuminan::find($id);
+
+        // generate pdf using DomPDF
+        $pdf = Pdf::loadView('daging.final_borang_pm', compact('jana_pm'));
+
+        return $pdf->download('borang_post-mortem.pdf');
+
     }
 }
