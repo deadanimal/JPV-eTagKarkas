@@ -247,7 +247,7 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="">Penemuan Ante Mortem</label>
                                     <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                        <option selected disabled>Sila Pilih </option>
+                                        <option selected disabled>Pilih Penemuan Ante Mortem </option>
                                         <option value="Abnormal">Abnormal CNS signs</option>
                                         <option value="Anaemia">Anaemia</option>
                                         <option value="Comatose">Comatose</option>
@@ -355,7 +355,7 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="">Sebab Musnah</label>
                                     <select class="form-select" aria-label="Default select example" name="musnah">
-                                        <option selected>Lumps</option>
+                                        <option selected>Pilih Sebab Musnah</option>
                                         <option value="Cysts">Cysts</option>
                                         <option value="Hernia">Hernia</option>
                                         <option value="Tumor">Tumor</option>
@@ -370,21 +370,22 @@
             
                                 <div class="mb-3 col-md-3">
                                     <label for="">Nombor Tag</label>
-                                    <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
+                                    <input class="form-control" type="text" min="0" name="nombor_tag"
+                                    onkeyup="this.value = this.value.toUpperCase();">
+                                    {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
                                         <option selected>XXXX</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
-                                    </select>
+                                    </select> --}}
                                 </div>
             
                                 <div class="mb-3 col-md-3">
                                     <label for="">Keputusan</label>
                                     <select class="form-select" aria-label="Default select example" name="keputusan">
-                                        <option selected>Partial Condemn</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                        <option selected>Pilih Keputusan</option>
+                                        <option value="Kondem Keseluruhan">Kondem Keseluruhan</option>
+                                        <option value="Kondem Sebahagian">Kondem Sebahagian</option>
                                     </select>
                                 </div>
             
