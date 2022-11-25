@@ -61,6 +61,7 @@ class DagingController extends Controller
             $rumah_id = $user->rumah_sembelih_id;
             $haiwan = new Haiwan;
             $haiwan->jenis = $request->jenis;
+            $haiwan->no_skv = $request->no_skv;
             $haiwan->rumah_sembelih_id = $rumah_id;
             $haiwan->save();
             Alert::success('Daftar Berjaya', 'Haiwan berjaya didaftarkan');
@@ -75,11 +76,14 @@ class DagingController extends Controller
     {
         $id = (int)$request->route('id');
         $haiwan = Haiwan::find($id);
+        // dd($haiwan->jenis);
         if ($haiwan->jenis == 'Unggas') {
             return view('daging.unggas', compact('haiwan'));
         } else if ($haiwan->jenis == 'Babi') {
+           
             return view('daging.babi', compact('haiwan'));
-        } else {
+        } else if ($haiwan->jenis == 'Ruminan') {
+            
             return view('daging.ruminan', compact('haiwan'));
         }
     }
@@ -103,7 +107,7 @@ class DagingController extends Controller
         $haiwans = Haiwan::where([
             ['rumah_sembelih_id', '=', $user_id]
         ])->get();
-        return view('daging.senarai');
+        return view('daging.senarai', compact('haiwans'));
     }
 
     public function cipta_daging(Request $request)
