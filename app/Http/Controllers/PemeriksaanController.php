@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnteMortemRuminan;
+use App\Models\Haiwan;
 use App\Models\PemeriksaanHarian;
+use App\Models\PemeriksaanUnggas;
 use App\Models\PostMortemRuminan;
 use App\Models\RumahSembelih;
+use App\Models\Unggas;
 use Illuminate\Http\Request;
 use App\Models\Pemeriksaan;
 use DataTables;
@@ -20,9 +23,11 @@ class PemeriksaanController extends Controller
 
     public function senarai(Request $request) {
         
+        $id = (int)$request->route('id');
         // call all pemeriksaan into datatable
         $pemeriksaans = Pemeriksaan::all();
         $user = $request->user();
+        $haiwans = Haiwan::find($id);
 
         if ($user->hasRole('pentadbir')) {
             $rumah_sembelih_id = $user->rumah_sembelih_id;
@@ -51,12 +56,16 @@ class PemeriksaanController extends Controller
         } else{
             // pass rumah_sembelih_id
             $rumah_sembelih_id = $user->rumah_sembelih_id;
+
             $pemeriksaans = Pemeriksaan::where([
                 ['rumah_sembelih_id','=', $rumah_sembelih_id],
             ])->orderBy('updated_at','desc')->get();
-
+            
+        
              // datatable
             if($request->ajax()) {
+                // $pemeriksaans = Pemeriksaan::where('jenis', 'Ruminan')->get();
+               
                 return DataTables::collection($pemeriksaans)
                 ->addIndexColumn()
                 ->addColumn('tindakan', function (Pemeriksaan $pemeriksaan) {
@@ -72,10 +81,23 @@ class PemeriksaanController extends Controller
                 ->rawColumns(['tindakan'])                                  
                 ->make(true);
             }
+            // elseif($request->ajax() && $haiwans->jenis == 'Unggas' ) {
+            //     $unggass = Unggas::where([
+            //         ['rumah_sembelih_id','=', $rumah_sembelih_id],
+            //     ])->orderBy('updated_at','desc')->get();
+            //     return DataTables::collection($unggass)
+            //     ->addIndexColumn()
+            //     ->addColumn('tindakan', function (Unggas $unggas) {
+            //         $url = '/pemeriksaan-unggas/'.$unggas->id;
+            //         return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini unggas</a>';
+            //     })
+            //     ->rawColumns(['tindakan'])                                  
+            //     ->make(true);
+            // }
 
         }
-        
-        return view('daging.senarai_ruminan', compact('pemeriksaans','user'));
+        // dd($pemeriksaans);
+        return view('daging.senarai_ruminan', compact('pemeriksaans','user','haiwans'));
       
     }
 
@@ -155,6 +177,111 @@ class PemeriksaanController extends Controller
         $pdf = Pdf::loadView('daging.final_borang_harian', compact('jana_harian'));
 
         return $pdf->download('borang_harian.pdf');
+
+    }
+
+    // Unggas
+
+    public function senarai_unggas(Request $request) {
+        
+        $id = (int)$request->route('id');
+        // call all pemeriksaan into datatable
+        $unggas = Unggas::all();
+        $user = $request->user();
+
+        // pass rumah_sembelih_id
+        $rumah_sembelih_id = $user->rumah_sembelih_id;
+
+        $unggass = Unggas::where([
+            ['rumah_sembelih_id','=', $rumah_sembelih_id],
+        ])->orderBy('updated_at','desc')->get();
+           
+     
+             // datatable
+            if($request->ajax()) {
+               
+                return DataTables::collection($unggass)
+                ->addIndexColumn()
+                ->addColumn('tindakan', function (Unggas $unggas) {
+                    $url = '/pemeriksaan-unggas/'.$unggas->id;
+                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
+                })
+               
+                ->rawColumns(['tindakan'])                                  
+                ->make(true);
+            }
+           
+
+        
+        // dd($pemeriksaans);
+        return view('daging.senarai_unggas', compact('unggass','user'));
+      
+    }
+
+
+    public function cipta_unggas(Request $request){
+        
+        $user = $request->user();
+
+        $unggas = New Unggas;
+
+        // pengenalan
+        $unggas->nama_ladang = $request->nama_ladang;
+        $unggas->nombor_kenderaan = $request->nombor_kenderaan;
+        $unggas->id_ladang = $request->id_ladang;
+        $unggas->alamat_ladang = $request->alamat_ladang;
+        $unggas->tarikh_terima = $request->tarikh_terima;
+        $unggas->rumah_sembelih_id = $user->rumah_sembelih->id;
+ 
+        $unggas->save();
+
+
+        Alert::success('Simpan berjaya.', 'Maklumat pengenalan ternakan unggas telah disimpan.');
+
+        return redirect('/pemeriksaan-unggas'); 
+
+    }
+
+    public function satu_pemeriksaan_unggas(Request $request) {
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $pemeriksaan_unggas = Unggas::find($id);
+        // $periksa_harian = PemeriksaanHarian::find($id);
+ 
+         $periksas = PemeriksaanUnggas::where([
+             ['unggas_id','=', $pemeriksaan_unggas->id],
+         ])->get();
+        // $ante_mortems_unggas = AnteMortemRuminan::where([
+        //     ['pemeriksaan_id','=', $pemeriksaan_unggas->id],
+        // ])->get();
+        // $post_mortems = PostMortemRuminan::where([
+        //     ['pemeriksaan_id','=', $pemeriksaan_unggas->id],
+        // ])->get();       
+        return view('daging.satu_unggas', compact('pemeriksaan_unggas','periksas'));
+    }
+
+    public function cipta_pemeriksaan_unggas(Request $request){
+        
+        $user = $request->user();
+
+        $periksa_unggas = New PemeriksaanUnggas;
+
+        // pengenalan
+        $periksa_unggas->bilangan_ternakan = $request->bilangan_ternakan;
+        $periksa_unggas->bilangan_mati = $request->bilangan_mati;
+        $periksa_unggas->jumlah_mati_dbs = $request->jumlah_mati_dbs;
+        $periksa_unggas->runt = $request->runt;
+        $periksa_unggas->salah_sembelih = $request->salah_sembelih;
+        $periksa_unggas->unggas_id = $request->unggas_id;
+
+        $periksa_unggas->rumah_sembelih_id = $user->rumah_sembelih->id;
+ 
+        $periksa_unggas->save();
+
+
+        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan ternakan unggas telah disimpan.');
+
+        return redirect('/pemeriksaan-unggas'); 
 
     }
 

@@ -14,14 +14,14 @@
             <div class="tab mt-1">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item" style="background-color: aquamarine"><a class="nav-link active" href="#tab-1"
-                            data-bs-toggle="tab" role="tab" style="background-color: aquamarine;">Pendaftaran Unggas</a></li>      
+                            data-bs-toggle="tab" role="tab" style="background-color: aquamarine;">Pengenalan Ternakan</a></li>      
                 </ul>
         
                 <div class="tab-content">
                    
                     <div class="tab-pane active" id="tab-1" role="tabpanel">
         
-                        <form action="" method="POST">
+                        <form action="/pemeriksaan-unggas" method="POST">
                             @csrf
                             
                                     <div class="row">
@@ -55,13 +55,14 @@
         
                                         <div class="mb-3 col-md-6">
                                             <label for="">Alamat Ladang</label><br>
-                                            <textarea name="alamat_ladang" id="alamat_ladang" cols="60" rows="5" placeholder="Setiawan,Perak"></textarea>
+                                            <textarea name="alamat_ladang" id="alamat_ladang" cols="60" rows="5"
+                                            onkeyup="this.value = this.value.toUpperCase();"></textarea>
                                         </div>
         
                                         <div class="mb-3 col-md-6">
                                             <label for="">Tarikh Terima Ternakan </label><br>
                                             <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
-                                                <input type="text" name="masa_tiba" class="form-control datetimepicker-input" data-target="#datetimepicker-minimum">
+                                                <input type="text" name="tarikh_terima" class="form-control datetimepicker-input" data-target="#datetimepicker-minimum">
                                                 <div class="input-group-text" data-target="#datetimepicker-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"></i></div>
                                             </div>  
                                         </div>
