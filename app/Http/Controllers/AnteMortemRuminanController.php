@@ -46,7 +46,7 @@ class AnteMortemRuminanController extends Controller
 
         $ante_mortem->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan ante-mortem ruminan telah disimpan.');
+        Alert::success('Simpan berjaya.', 'Maklumat penemuan ante-mortem ruminan telah disimpan.');
 
         return back(); 
 
@@ -65,7 +65,7 @@ class AnteMortemRuminanController extends Controller
 
         $am->save();
 
-        Alert::success('Kemaskini berjaya.', 'Maklumat pemeriksaan ante-mortem ruminan telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat penemuan ante-mortem ruminan telah dikemaskini.');
 
         return back();
     }
@@ -106,7 +106,7 @@ class AnteMortemRuminanController extends Controller
 
         $ante_mortem_unggas->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan ante-mortem unggas telah disimpan.');
+        Alert::success('Simpan berjaya.', 'Maklumat penemuan ante-mortem unggas telah disimpan.');
 
         return back(); 
 

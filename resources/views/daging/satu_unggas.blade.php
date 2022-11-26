@@ -262,9 +262,9 @@
                                         <hr class="text-primary mb-3">
         
                                         <div class="mb-3 col-md-4">
-                                            <label for="">Gastrointestinal Tract System</label>
+                                            <label for="">Gastrointestinal Tract Symptoms</label>
                                             <select class="form-select" aria-label="Default select example" name="gastro">
-                                                <option selected disabled> Pilih Gastrointestinal Tract System</option>
+                                                <option selected disabled> Pilih Gastrointestinal Tract Symptoms</option>
                                                 <option value="Bloody diarrhea">Bloody diarrhea</option>
                                                 <option value="Diarrhea">Diarrhea</option>
                                             </select>
@@ -301,82 +301,124 @@
                     </div>
         
                     <div class="tab-pane" id="tab-4" role="tabpanel">
-                        <form action="">
+                        <form action="/post-mortem-unggas" method="POST">
+                            @csrf
                             <div class="card">
-                                <div class="card-header">
+                                {{-- <div class="card-header">
                                     <b>Pemeriksaan Daging > Pemeriksaan Post Mortem</b>
-                                </div>
+                                </div> --}}
+
+                                <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                                <input type="hidden" name="unggas_id" value="{{$pemeriksaan_unggas->id}}">
+
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Bukan Lesi Semasa Post Mortem</label>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                            <select class="form-select" aria-label="Default select example" name="bukan_lesi">
+                                                <option selected disabled> Pilih Bukan Lesi Semasa Post Mortem</option>
+                                                <option value="Cadaver">Cadaver(Termasuk Red Bird)</option>
+                                                <option value="Inadequate bleeding">Inadequate bleeding</option>
+                                                <option value="Inadequate bleeding">Inadequate bleeding</option>
+                                                <option value="Over scalded">Over scalded</option>
                                             </select>
                                         </div>
-                                        <div class="mb-3 col-md-3">
+
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Bilangan Kes</label>
-                                            <input type="number">
+                                            <input type="number" min="0" class="form-control" name="bil_bukan_lesi"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                            
                                         </div>
-                                        <div class="mb-3 col-md-3">
-                                            <button>Tambah</button>
+
+                                        <div class="mb-3 col-md-4">
+                                            <label for=""></label><br>
+                                            <button type="button"  class="btn btn-primary btn-circle lg">
+                                                <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>        
                                         </div>
+
                                         <hr class="text-primary mb-3">
-                                        <div class="mb-3 col-md-3">
+
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Lesi Semasa Post Mortem</label>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected>Carcass</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                            <select class="form-select" aria-label="Default select example" name="lesi_semasa_carcass">
+                                                <option selected disabled>Pilih CARCASS</option>
+                                                <option value="Abscess">Abscess</option>
+                                                <option value="Bruised">Bruised</option>
+                                                <option value="Congestion">Congestion</option>
+                                                <option value="Emaciation">Emaciation</option>
+                                                <option value="Fracture">Fracture</option>
+                                                <option value="Hemorrhage">Hemorrhage</option>
+                                                <option value="Nodules">Nodules</option>
+                                                <option value="Oedema">Oedema</option>
+                                                <option value="Runt">Runt</option>
+                                                <option value="Skin lessions">Skin lessions(scab,dermatitis)</option>
                                             </select>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected>Abcess</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+
+                                            <label for=""></label>
+
+                                            <select class="form-select" aria-label="Default select example" name="lesi_semasa_viscera">
+                                                <option selected disabled>Pilih VISCERA</option>
+                                                <option value="Abcess">Abcess</option>
+                                                <option value="Air Sacculitis">Air Sacculitis</option>
+                                                <option value="Ascites">Ascites</option>
+                                                <option value="Congestion">Congestion</option>
+                                                <option value="Fatty Liver">Fatty liver</option>
+                                                <option value="Hemorrhage">Hemorrhage</option>
+                                                <option value="Hepatomegaly">Hepatomegaly</option>
+                                                <option value="Nodules">Nodules</option>
+                                                <option value="Oedema">Oedema</option>
+                                                <option value="Perihepatitis & Pericardiatis">Perihepatitis & Pericardiatis</option>
+                                                <option value="Peritonitis">Peritonitis </option>
+                                                <option value="Splenomegaly">Splenomegaly </option>
                                             </select>
                                         </div>
-                                        <div class="mb-3 col-md-3">
+
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Bilangan Kes</label>
-                                            <input type="number">
+                                            <input type="number" min="0" class="form-control" name="bil_lesi_semasa"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
-                                        <div class="mb-3 col-md-3">
-                                            <button>Tambah</button>
+
+                                        <div class="mb-3 col-md-4">
+                                            <label for=""></label><br>
+                                            <button type="button"  class="btn btn-primary btn-circle lg">
+                                                <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
                                         </div>
+
                                         <hr class="text-primary mb-3">
-                                        <div class="mb-3 col-md-3">
-                                            <label for="">Gastrointestinal Tract System</label>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+
+                                        <div class="mb-3 col-md-4">
+                                            <label for="">Gastrointestinal Tract Symptoms</label>
+                                            <select class="form-select" aria-label="Default select example" name="gastro_pm">
+                                                <option selected disabled> Pilih Gastrointestinal Tract Symptoms</option>
+                                                <option value="Bloody diarrhea">Bloody diarrhea</option>
+                                                <option value="Diarrhea">Diarrhea</option>
                                             </select>
                                         </div>
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Bilangan Kes</label>
-                                            <input type="number">
-                                        </div>
-                                        <div class="mb-3 col-md-3">
-                                            <button>Tambah</button>
+                                            <input type="number" min="0" class="form-control" name="bil_gastro_pm"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
+                                        <div class="mb-3 col-md-4">
+                                            <label for=""></label><br>
+                                            <button type="button"  class="btn btn-primary btn-circle lg">
+                                                <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
                                         </div>
         
                                         <hr class="text-primary mb-3">
         
         
                                         <!--Button-->
-                                        <div>
-                                            <button class="btn btn-primary" type="submit">Kemaskini</button>
-                                            <button class="btn btn-primary" type="submit">Simpan</button>
+                                        <div class="mb-3">
+                                            <button class="btn btn-primary" type="submit" style="float: right" >Simpan</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
+
+                        @include('daging.pm-unggas_table')
+
                     </div>
         
                 </div>

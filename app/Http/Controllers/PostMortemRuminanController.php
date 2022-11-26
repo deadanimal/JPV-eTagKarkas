@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PostMortemRuminan;
+use App\Models\PostMortemUnggas;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use DataTables;
@@ -47,7 +48,7 @@ class PostMortemRuminanController extends Controller
 
         $post_mortem->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan post-mortem ruminan telah disimpan.');
+        Alert::success('Simpan berjaya.', 'Maklumat penemuan post-mortem ruminan telah disimpan.');
 
         return back(); 
 
@@ -66,7 +67,7 @@ class PostMortemRuminanController extends Controller
 
         $pm->save();
 
-        Alert::success('Kemaskini berjaya.', 'Maklumat pemeriksaan post-mortem ruminan telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat penemuan post-mortem ruminan telah dikemaskini.');
 
         return back();
     }
@@ -88,6 +89,70 @@ class PostMortemRuminanController extends Controller
         $pdf = Pdf::loadView('daging.final_borang_pm', compact('jana_pm'));
 
         return $pdf->download('borang_post-mortem.pdf');
+
+    }
+
+    public function satu_pm_unggas(Request $request) {
+
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $pemeriksaan_unggas = PostMortemUnggas::find($id);
+        
+        //
+        
+        $post_mortems_unggas = PostMortemUnggas::where([
+            ['pemeriksaan_id','=', $pemeriksaan_unggas->id],
+        ])->get();
+        
+        return view('daging.satu_unggas', compact('post_mortems_unggas','pemeriksaan_unggas','user'));
+      
+
+    }
+
+    public function cipta_postMortemUnggas(Request $request){
+
+        $post_mortem_unggas = New PostMortemUnggas;
+
+        // 
+        $post_mortem_unggas->bukan_lesi = $request->bukan_lesi;
+        $post_mortem_unggas->bil_bukan_lesi = $request->bil_bukan_lesi;
+        $post_mortem_unggas->lesi_semasa_carcass = $request->lesi_semasa_carcass;
+        $post_mortem_unggas->lesi_semasa_viscera = $request->lesi_semasa_viscera;
+        $post_mortem_unggas->bil_lesi_semasa = $request->bil_lesi_semasa;
+        $post_mortem_unggas->gastro_pm = $request->gastro_pm;
+        $post_mortem_unggas->bil_gastro_pm = $request->bil_gastro_pm;
+
+        $post_mortem_unggas->unggas_id = $request->unggas_id;
+        $post_mortem_unggas->rumah_sembelih_id = $request->rumah_sembelih_id;
+
+        $post_mortem_unggas->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat penemuan post-mortem unggas telah disimpan.');
+
+        return back(); 
+
+    }
+
+    public function kemaskini_pm_unggas(Request $request){
+
+        $id = (int)$request->route('id');
+        $post_mortem_unggas = PostMortemUnggas::find($id);
+
+        // 
+        $post_mortem_unggas->bukan_lesi = $request->bukan_lesi;
+        $post_mortem_unggas->bil_bukan_lesi = $request->bil_bukan_lesi;
+        $post_mortem_unggas->lesi_semasa_carcass = $request->lesi_semasa_carcass;
+        $post_mortem_unggas->lesi_semasa_viscera = $request->lesi_semasa_viscera;
+        $post_mortem_unggas->bil_lesi_semasa = $request->bil_lesi_semasa;
+        $post_mortem_unggas->gastro_pm = $request->gastro_pm;
+        $post_mortem_unggas->bil_gastro_pm = $request->bil_gastro_pm;
+
+
+        $post_mortem_unggas->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat penemuan post-mortem unggas telah dikemaskini.');
+
+        return back(); 
 
     }
 }
