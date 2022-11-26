@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="header">
             <h1 class="header-title">
-                Pendaftaran Pemeriksaan Daging
+                Pendaftaran Ternakan Ruminan
             </h1>
         </div>
 
@@ -15,6 +15,7 @@
         <div class="card" style="width: fit-content">
 
         </div>
+        
         <div class="card">
 
             <div class="tab mt-1" >

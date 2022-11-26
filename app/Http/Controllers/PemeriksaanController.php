@@ -142,7 +142,7 @@ class PemeriksaanController extends Controller
         $user = $request->user();
         $id = (int)$request->route('id');
         $pemeriksaan = Pemeriksaan::find($id);
-        $periksa_harian = PemeriksaanHarian::find($id);
+        $periksa_harian = Pemeriksaan::find($id);
  
         $harians = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],

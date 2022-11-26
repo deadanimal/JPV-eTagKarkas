@@ -64,7 +64,8 @@ class PemeriksaanHarianController extends Controller
     public function periksa_rapi(Request $request){
         $user = $request->user();
         $id = (int)$request->route('id');
-        $jana_rapi = PemeriksaanHarian::find($id);
+        $jana_rapi = Pemeriksaan::find($id);
+        
 
         $periksa = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $jana_rapi->id],
