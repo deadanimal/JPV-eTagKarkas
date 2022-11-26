@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnteMortemRuminan;
+use App\Models\AnteMortemUnggas;
 use App\Models\Haiwan;
 use App\Models\PemeriksaanHarian;
 use App\Models\PemeriksaanUnggas;
@@ -251,13 +252,13 @@ class PemeriksaanController extends Controller
          $periksas = PemeriksaanUnggas::where([
              ['unggas_id','=', $pemeriksaan_unggas->id],
          ])->get();
-        // $ante_mortems_unggas = AnteMortemRuminan::where([
-        //     ['pemeriksaan_id','=', $pemeriksaan_unggas->id],
-        // ])->get();
+        $am_unggas = AnteMortemUnggas::where([
+            ['unggas_id','=', $pemeriksaan_unggas->id],
+        ])->get();
         // $post_mortems = PostMortemRuminan::where([
         //     ['pemeriksaan_id','=', $pemeriksaan_unggas->id],
         // ])->get();       
-        return view('daging.satu_unggas', compact('pemeriksaan_unggas','periksas'));
+        return view('daging.satu_unggas', compact('user','pemeriksaan_unggas','periksas','am_unggas'));
     }
 
     public function cipta_pemeriksaan_unggas(Request $request){
@@ -281,7 +282,7 @@ class PemeriksaanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan ternakan unggas telah disimpan.');
 
-        return redirect('/pemeriksaan-unggas'); 
+        return back(); 
 
     }
 

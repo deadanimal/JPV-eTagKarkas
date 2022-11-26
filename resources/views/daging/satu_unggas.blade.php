@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 
 <main class="content">
@@ -23,9 +24,9 @@
                     <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-2"
                             data-bs-toggle="tab" role="tab">Pemeriksaan Ternakan</a></li>
                     <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-3"
-                            data-bs-toggle="tab" role="tab">Pemeriksaan Ante Mortem</a></li>
+                            data-bs-toggle="tab" role="tab">Penemuan Ante Mortem</a></li>
                     <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-4"
-                            data-bs-toggle="tab" role="tab">Pemeriksaan Post Mortem</a></li>
+                            data-bs-toggle="tab" role="tab">Penemuan Post Mortem</a></li>
                     {{-- <li class="nav-item" style="background-color: aquamarine"><a class="nav-link " href="#tab-5"
                             data-bs-toggle="tab" role="tab">Jana Laporan</a></li> --}}
                 </ul>
@@ -100,8 +101,8 @@
                                     <b>Pemeriksaan Ternakan > Maklumat Unggas</b>
                                 </div> --}}
 
-                            {{-- <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
-                            <input type="hidden" name="pemeriksaan_id" value="{{$unggas->id}}"> --}}
+                            <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                            <input type="hidden" name="unggas_id" value="{{$pemeriksaan_unggas->id}}">
         
                                 <div class="card-body">
         
@@ -159,109 +160,144 @@
         
                     <div class="tab-pane" id="tab-3" role="tabpanel">
         
-                        <form action="">
+                        <form action="/ante-mortem-unggas" method="POST">
+                            @csrf
                             <div class="card">
-                                <div class="card-header">
+                                {{-- <div class="card-header">
                                     <b>Pemeriksaan Ternakan > Pemeriksaan Ante Mortem</b>
-                                </div>
+                                </div> --}}
+
+                                <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                                <input type="hidden" name="unggas_id" value="{{$pemeriksaan_unggas->id}}">
         
                                 <div class="card-body">
         
                                     <div class="row">
         
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">General Condition</label>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                            <select class="form-select" aria-label="Default select example" name="general">
+                                                <option selected disabled>Pilih General Condition</option>
+                                                <option value="Bruised">Bruised</option>
+                                                <option value="Cyanosis">Cyanosis</option>
+                                                <option value="Depressed/Lethargy">Depressed/Lethargy</option>
+                                                <option value="Dirty Ruffled/Poor defethering">Dirty Ruffled/Poor defethering</option>
+                                                <option value="Distended abdomen">Distended abdomen</option>
+                                                <option value="Emaciation">Emaciation</option>
+                                                <option value="Fracture">Fracture</option>
+                                                <option value="Herrmohage">Herrmohage</option>
+                                                <option value="Oedema">Oedema</option>
+                                                <option value="Pox lessions">Pox lessions</option>
+                                                <option value="Red eye">Red eye</option>
+                                                <option value="Runt">Runt</option>
+                                                <option value="Wounds">Wounds</option>
+
                                             </select>
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
-                                            <label for="">Bilangan Kes</label>
-                                            <input type="number">
+                                        <div class="mb-3 col-md-4">
+                                            <label for="">Bilangan Kes</label><br>
+                                            <input type="number" min="0" class="form-control" name="bil_kes_general"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
-                                            <button>Tambah</button>
+                                        <div class="mb-3 col-md-4">
+                                            <label for=""></label><br>
+                                            <button type="button"  class="btn btn-primary btn-circle lg">
+                                                <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>        
                                         </div>
         
                                         <hr class="text-primary mb-3">
         
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Respiratory System</label>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                            <select class="form-select" aria-label="Default select example" name="respiratory">
+                                                <option selected disabled>Pilih Respiratory System</option>
+                                                <option value="Discharge">Discharge (Eye,Nasal)</option>
+                                                <option value="Respiratory distress">Respiratory distress(Gasping,sneezing,coughing,rales,wheezing)</option>
+                                                <option value="Swollen">Swollen(Head,eye,face)</option>
                                             </select>
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Bilangan Kes</label>
-                                            <input type="number">
+                                            <input type="number" class="form-control" name="bil_kes_respiratory" min="0"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
-                                            <button>Tambah</button>
+                                        <div class="mb-3 col-md-4">
+                                            <label for=""></label><br>
+                                            <button type="button"  class="btn btn-primary btn-circle lg">
+                                                <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button> 
                                         </div>
         
                                         <hr class="text-primary mb-3">
         
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">CNS Symptoms</label>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                            <select class="form-select" aria-label="Default select example" name="cns">
+                                                <option selected disabled>Pilih CNS Symptoms</option>
+                                                <option value="Ataxia">Ataxia/Coordination</option>
+                                                <option value="Drooping wings">Drooping wings</option>
+                                                <option value="Lameness">Lameness</option>
+                                                <option value="Opisthotonus">Opisthotonus</option>
+                                                <option value="Paralysis">Paralysis</option>
+                                                <option value="Staggering">Staggering</option>
+                                                <option value="Torticolis">Torticolis</option>
                                             </select>
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Bilangan Kes</label>
-                                            <input type="number">
+                                            <input type="number" class="form-control" name="bil_kes_cns" min="0"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
-                                            <button>Tambah</button>
+                                        <div class="mb-3 col-md-4">
+                                            <label for=""></label><br>
+                                            <button type="button"  class="btn btn-primary btn-circle lg">
+                                                <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
                                         </div>
         
                                         <hr class="text-primary mb-3">
         
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Gastrointestinal Tract System</label>
-                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                                <option selected></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                            <select class="form-select" aria-label="Default select example" name="gastro">
+                                                <option selected disabled> Pilih Gastrointestinal Tract System</option>
+                                                <option value="Bloody diarrhea">Bloody diarrhea</option>
+                                                <option value="Diarrhea">Diarrhea</option>
                                             </select>
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label for="">Bilangan Kes</label>
-                                            <input type="number">
+                                            <input type="number" class="form-control" name="bil_kes_gastro" min="0"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-3">
-                                            <button>Tambah</button>
+                                        <div class="mb-3 col-md-4">
+                                            <label for=""></label><br>
+                                            <button type="button"  class="btn btn-primary btn-circle lg">
+                                                <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
                                         </div>
         
                                         <hr class="text-primary mb-3">
         
         
                                         <!--Button-->
-                                        <div>
-                                            <button class="btn btn-primary" type="submit">Simpan</button>
+                                        <div class="mb-3">
+                                            {{-- <button class="btn btn-primary" type="submit" >Kemaskini</button> --}}
+                                            <button class="btn btn-primary" type="submit" style="float: right" >Simpan</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
+
+                        @include('daging.am-unggas_table')
+
+
                     </div>
         
                     <div class="tab-pane" id="tab-4" role="tabpanel">
@@ -356,4 +392,6 @@
 @endsection
 
 @section('script')
+
+
 @endsection
