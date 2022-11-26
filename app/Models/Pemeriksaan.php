@@ -32,4 +32,8 @@ class Pemeriksaan extends Model
     public function ante_mortem_unggas() {
         return $this->hasMany(AnteMortemUnggas::class);
     } 
+
+    public function post_mortem_unggas() {
+        return $this->hasMany(PostMortemUnggas::class);
+    } 
 }
