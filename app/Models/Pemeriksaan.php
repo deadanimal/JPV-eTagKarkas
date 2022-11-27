@@ -36,4 +36,8 @@ class Pemeriksaan extends Model
     public function post_mortem_unggas() {
         return $this->hasMany(PostMortemUnggas::class);
     } 
+
+    public function pemeriksaan_babi() {
+        return $this->hasMany(PemeriksaanBabi::class);
+    }
 }

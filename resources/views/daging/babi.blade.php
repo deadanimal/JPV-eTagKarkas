@@ -59,69 +59,8 @@
                                             <label for="">ID Premis</label><br>
                                             <input class="form-control" type="number" name="id_premis_babi"
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                        </div>
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Bilangan Ternakan Yang Diterima</label>
-                                            <input class="form-control" type="number" id="bil1" min="0" name="bilangan_ternakan_diterima_babi" oninput="calc();"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                        </div>
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Ternakan Mati Semasa Tiba</label>
-                                            <input class="form-control" type="number" id="bil2" min="0" name="ternakan_mati_semasa_tiba_babi" oninput="calc();"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-        
+                                        </div>                                
                                     </div>
-        
-                                    <div class="row">
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Jumlah Ternakan Diperiksa</label><br>
-                                            <input class="form-control" type="number" id="diff" min="0" name="jumlah_diperiksa_babi"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi </label>
-                                            <input class="form-control" type="number" min="0" name="bilangan_rapi_babi"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Jumlah Binatang Disembelih Kerana Kecemasan</label>
-                                            <input class="form-control" type="number" min="0" name="jumlah_disembelih_kecemasan_babi"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-        
-                                    </div>
-        
-                                    <div class="row">
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Jumlah Binatang Yang Dikondem</label>
-                                            <input class="form-control" type="number" id="bil3" min="0" name="jumlah_dikondem_babi" oninput="calc2();"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Jumlah Yang Disembelih </label><br>
-                                            <input class="form-control" type="number" id="bil4" min="0" name="jumlah_disembelih_babi" oninput="calc2();"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Baki Ternakan Belum Disembelih</label>
-                                            <input class="form-control" type="number" id="diff2" min="0" name="baki_belum_disembelih_babi"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-        
-                                    </div>
-        
-        
-                                    <div class="row">
-                                        <div class="mb-3 col-md-3">
-                                            <label for="">Catatan</label><br>
-                                            <textarea class="form-control" name="catatan_babi" cols="100" rows="5"
-                                            onkeyup="this.value = this.value.toUpperCase();"></textarea>                                        </div>
-        
-                                    </div>
-        
-                                
         
                                <!--Button-->
                                 <div class="mb-3">
