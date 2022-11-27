@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\AnteMortemRuminan;
 use App\Models\AnteMortemUnggas;
+use App\Models\Babi;
 use App\Models\Haiwan;
+use App\Models\PemeriksaanBabi;
 use App\Models\PemeriksaanHarian;
 use App\Models\PemeriksaanUnggas;
 use App\Models\PostMortemRuminan;
@@ -286,6 +288,103 @@ class PemeriksaanController extends Controller
         return back(); 
 
     }
+
+    // babi
+
+    public function senarai_babi(Request $request) {
+        
+        $id = (int)$request->route('id');
+        // call all pemeriksaan into datatable
+        $babi = Babi::all();
+        $user = $request->user();
+
+        // pass rumah_sembelih_id
+        $rumah_sembelih_id = $user->rumah_sembelih_id;
+
+        $babis = Babi::where([
+            ['rumah_sembelih_id','=', $rumah_sembelih_id],
+        ])->orderBy('updated_at','desc')->get();
+           
+     
+             // datatable
+            if($request->ajax()) {
+               
+                return DataTables::collection($babis)
+                ->addIndexColumn()
+                ->addColumn('tindakan', function (Babi $babi) {
+                    $url = '/pemeriksaan-babi/'.$babi->id;
+                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
+                })
+               
+                ->rawColumns(['tindakan'])                                  
+                ->make(true);
+            }
+           
+
+        
+        // dd($pemeriksaans);
+        return view('daging.senarai_babi', compact('babis','user'));
+      
+    }
+
+    public function cipta_babi(Request $request){
+        
+        $user = $request->user();
+
+        $babi = New Babi;
+
+        // pengenalan
+        $babi->nama_pemilik_babi = $request->nama_pemilik_babi;
+        $babi->kenderaan_babi = $request->kenderaan_babi;
+        $babi->masa_tiba_babi = $request->masa_tiba_babi;
+        $babi->id_premis_babi = $request->id_premis_babi;
+        $babi->bilangan_ternakan_diterima_babi = $request->bilangan_ternakan_diterima_babi;
+        $babi->ternakan_mati_semasa_tiba_babi = $request->ternakan_mati_semasa_tiba_babi;
+        $babi->jumlah_diperiksa_babi = $request->jumlah_diperiksa_babi;
+        $babi->bilangan_rapi_babi = $request->bilangan_rapi_babi;
+        $babi->jumlah_dikondem_babi = $request->jumlah_dikondem_babi;
+        $babi->jumlah_disembelih_babi = $request->jumlah_disembelih_babi;
+        $babi->baki_belum_disembelih_babi = $request->baki_belum_disembelih_babi;
+        $babi->catatan_babi = $request->catatan_babi;
+        //save rumah_sembelih_id
+        $babi->rumah_sembelih_id = $user->rumah_sembelih->id;
+
+        $babi->save();
+
+
+        Alert::success('Simpan berjaya.', 'Maklumat pengenalan ternakan babi telah disimpan.');
+
+        return redirect('/pemeriksaan-babi'); 
+
+    }
+
+    public function satu_pemeriksaan_babi(Request $request) {
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $pemeriksaan_babi = Babi::find($id);
+        $periksa_harian = Pemeriksaan::find($id);
+ 
+         $harians = PemeriksaanBabi::where([
+             ['babi_id','=', $pemeriksaan_babi->id],
+             ['babi_id','=', $periksa_harian->id],
+
+         ])->get();
+         $ante_mortems = AnteMortemRuminan::where([
+            ['pemeriksaan_id','=', $pemeriksaan_babi->id],
+        ])->get();
+        $post_mortems = PostMortemRuminan::where([
+            ['pemeriksaan_id','=', $pemeriksaan_babi->id],
+        ])->get(); 
+        // $am_unggas = AnteMortemUnggas::where([
+        //     ['unggas_id','=', $pemeriksaan_babi->id],
+        // ])->get();
+        // $pm_unggas = PostMortemUnggas::where([
+        //     ['unggas_id','=', $pemeriksaan_babi->id],
+        // ])->get();       
+        return view('daging.satu_babi', compact('user','pemeriksaan_babi','harians','periksa_harian','ante_mortems','post_mortems'));
+    }
+
+
 
     
 

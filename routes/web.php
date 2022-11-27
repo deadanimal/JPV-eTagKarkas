@@ -47,6 +47,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('pemeriksaan-unggas', [PemeriksaanController::class, 'cipta_unggas']);
     Route::get('pemeriksaan-unggas/{id}', [PemeriksaanController::class, 'satu_pemeriksaan_unggas']);
     Route::post('periksa-unggas', [PemeriksaanController::class, 'cipta_pemeriksaan_unggas']);
+    Route::get('pemeriksaan-babi', [PemeriksaanController::class, 'senarai_babi']);
+    Route::post('pemeriksaan-babi', [PemeriksaanController::class, 'cipta_babi']);
+    Route::get('pemeriksaan-babi/{id}', [PemeriksaanController::class, 'satu_pemeriksaan_babi']);
+    Route::post('periksa-babi', [PemeriksaanController::class, 'cipta_pemeriksaan_babi']);
+
+
 
 
 

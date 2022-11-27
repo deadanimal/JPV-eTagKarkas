@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="header">
             <h1 class="header-title">
-                Pemeriksaan Daging
+                Pemeriksaan Daging Ternakan Ruminan
             </h1>
         </div>
 
@@ -22,9 +22,9 @@
                     <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-2"
                             data-bs-toggle="tab" role="tab">Pemeriksaan Ternakan</a></li>
                     <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-3"
-                            data-bs-toggle="tab" role="tab">Pemeriksaan Ante Mortem</a></li>
+                            data-bs-toggle="tab" role="tab">Penemuan Ante Mortem</a></li>
                     <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-4"
-                            data-bs-toggle="tab" role="tab">Pemeriksaan Post Mortem</a></li>
+                            data-bs-toggle="tab" role="tab">Penemuan Post Mortem</a></li>
                     <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-5"
                             data-bs-toggle="tab" role="tab">Tag Karkas</a></li>
                 </ul>
