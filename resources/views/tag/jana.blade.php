@@ -22,7 +22,7 @@
         }
     </style>
 
-<style> 
+    <style> 
     .div1 {
       border: 2px solid;
       padding: 2px; 
@@ -31,6 +31,12 @@
       overflow: auto;
     }
     </style>
+
+<style>
+    @media print {
+    .pb { page-break-inside: avoid; } /* page-break-after works, as well */
+}
+</style>
 
 @section('content')
 
@@ -49,7 +55,7 @@
         @for ($x = 1; $x <= $y; $x++)
             <div class="row" style="padding-top:10px; padding-left:10px;">
                 @for ($i = 1; $i < $tag->bil_ternakan_sah_ketua + 1; $i++)
-                    <div class="row bawah" style="border-style: solid; padding-top:10px; margin-bottom:5px; width:70%">
+                    <div class="row bawah pb" style="border-style: solid; padding-top:10px; margin-bottom:5px; width:70%">
 
                         {{-- KATEGORI TAG --}}
                         <div class="column" style="width:12%;">
@@ -58,7 +64,7 @@
 
                         {{-- LOGO --}}
                         <div class="column" style="width:12%;">
-                            <img src="/img/Veterinar-Logo.png" style="width: 80px;height:80px;">
+                            <img src="{{url('/img/Veterinar-Logo.png')}}" style="width: 80px;height:80px;">
                         </div>
                         
 
