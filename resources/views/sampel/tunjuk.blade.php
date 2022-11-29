@@ -18,8 +18,7 @@
                         <h5 class="card-title mb-0">Loji Penyembelihan Ayam</h5>
                     </div>
                     <div class="card-body">
-                        <button value="ayam" class="btn btn-primary"><a href="/pensampelan/borang-sampel" class="btn btn-primary">Pilih</a>
-                        </button>
+                        <a href="/pensampelan/borang-sampel" class="btn btn-primary" type="button">Pilih</a>
                     </div>
                 </div>
             </div>
@@ -28,10 +27,10 @@
                 <div class="card">
                     <img class="card-img-top" style="width: 337.633px; height:211.688px" src="/img/bnc.png" alt="Unsplash">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Rumah Sembelih Ruminan(Lembu/Kerbau)</h5>
+                        <h5 class="card-title mb-0">Rumah Sembelih Ruminan Besar</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/borang-sampel" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>
@@ -40,10 +39,10 @@
                 <div class="card">
                     <img class="card-img-top" style="width: 337.633px; height:211.688px" src="/img/gns.png" alt="Unsplash">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Rumah Sembelih Ruminan(Kambing/Bebiri)</h5>
+                        <h5 class="card-title mb-0">Rumah Sembelih Ruminan Kecil</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/borang-sampel" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +57,7 @@
                         <h5 class="card-title mb-0">Rumah Sembelih Babi</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/borang-sampel" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>

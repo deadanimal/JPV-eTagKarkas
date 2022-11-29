@@ -109,6 +109,7 @@ Route::middleware(['auth'])->group(function () {
 // Modul Pensampelan
     Route::get('pensampelan', [SampelController::class, 'tunjuk']);
     Route::get('pensampelan/borang-sampel', [SampelController::class, 'borang_sampel']);
+    Route::post('pensampelan/borang-sampel/{id}', [SampelController::class, 'cipta_sampel']);
 
 
   
