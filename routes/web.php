@@ -12,6 +12,7 @@ use App\Http\Controllers\RumahSembelihController;
 use App\Http\Controllers\DagingController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\StokTagController;
+use App\Http\Controllers\SampelController;
 
 
 Route::middleware(['auth'])->group(function () {
@@ -103,6 +104,12 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('profil', [UserController::class, 'profil']);
     Route::put('profil_katalaluan', [UserController::class, 'profil_katalaluan']);
+
+
+// Modul Pensampelan
+    Route::get('pensampelan', [SampelController::class, 'tunjuk']);
+    Route::get('pensampelan/borang-sampel', [SampelController::class, 'borang_sampel']);
+
 
   
 
