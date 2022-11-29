@@ -84,8 +84,6 @@ class PemeriksaanHarianController extends Controller
         $pdf = FacadePDF::loadView('daging.borang_rapi', compact('periksa_rapi'));
         return $pdf->download('borang_rapi.pdf');
 
-
-        // return view('daging.borang_rapi', compact('periksa_rapi'));
     }
 
 }

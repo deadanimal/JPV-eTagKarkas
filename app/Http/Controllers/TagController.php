@@ -13,6 +13,8 @@ use DateTime;
 use Carbon\Carbon;
 use Alert;
 use Yajra\DataTables\Contracts\DataTable;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+
 class TagController extends Controller
 {
 
@@ -22,12 +24,7 @@ class TagController extends Controller
         return view('tag.satu', compact('tag'));
     }
 
-    public function jana(Request $request) {
-        $id = (int)$request->route('id');
-        $tag = Tag::find($id);     
-        $date = $tag->created_at->format('dmy');   
-        return view('tag.jana', compact('tag', 'date'));
-    }    
+    
 
     public function senarai(Request $request) {
         $tags = Tag::all();
@@ -285,6 +282,20 @@ class TagController extends Controller
     public function borang(Request $request) {
         $user = $request->user();    
         return view('tag.borang_tag', compact('user'));
-    }   
+    }
+    
+    public function jana(Request $request) {
+        $id = (int)$request->route('id');
+        $tag = Tag::find($id);     
+        $date = $tag->created_at->format('dmy'); 
+        
+        // generate pdf using DomPDF
+        // $pdf = FacadePDF::loadView('tag.jana', compact('tag', 'date'));
+        // return $pdf->download('cetak_tags.pdf');
+
+        return view('tag.jana', compact('tag', 'date'));
+    } 
+    
+   
 
 }
