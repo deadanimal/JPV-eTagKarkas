@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Sampel extends Model
 {
     use HasFactory;
+
+    public function rumah_sembelih() {
+        return $this->belongsTo(RumahSembelih::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
