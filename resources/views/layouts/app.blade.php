@@ -131,7 +131,21 @@
                             <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
                         </a>
                     </li>  
-                    @endrole                    
+                    @endrole 
+                    
+                    @role('pentadbir-zon')
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pemeriksaan">
+                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
+                        </a>
+                    </li> 
+                    
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pensampelan">
+                            <i class="align-middle me-2 fas fa-fw fa-vial"></i><span class="align-middle">Pensampelan</span>
+                        </a>
+                    </li> 
+                    @endrole
 
 
                     {{-- <li class="sidebar-item">

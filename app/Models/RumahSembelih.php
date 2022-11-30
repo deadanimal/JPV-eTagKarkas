@@ -33,6 +33,10 @@ class RumahSembelih extends Model
         return $this->hasMany(PostMortemRuminan::class);
     } 
 
+    public function sampel() {
+        return $this->hasMany(Sampel::class);
+    } 
+
     
     
     // public function setCategoryAttribute($value)

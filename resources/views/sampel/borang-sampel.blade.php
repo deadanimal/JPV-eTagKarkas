@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                             <label for="tahun">Tahun</label>
-                            <select id="tahun" class="form-control" oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                            <select name="tahun" class="form-control" oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
                                 <option selected value="">Pilih Tahun</option>
                             </select>
                             </div>
@@ -57,18 +57,35 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                            <label for="tahun">Kod Premis</label>
-                            <input class="form-control" type="text" name="kod_premis" required
-                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                            oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"/>
+                                <label for="inputAddress">Nama Premis</label>
+
+                                <div class="col-12">
+                                    <select class="form-select" aria-label="Default select example" name="premis" id="rumah"
+                                     required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                        <option selected value="">Pilih Premis</option>
+                                        {{-- <option value="">DVS</option> --}}
+                                        
+                                        @foreach ($rumahs as $rumah)
+                                            <option value="{{ $rumah->id }}">{{ $rumah->nama_rumah }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3 col-md-6">
+                                <label for="tahun">Kod Premis</label>
+                                <input class="form-control" type="text" name="kod_premis" id="kod_premis"  value="{{$rumah->kod}}"
+                                 />
                            
                             </div>
-                            <div class="mb-3 col-md-6">
+                            {{-- <div class="mb-3 col-md-6">
                                 <label for="inputAddress">Nama Premis</label>
                                 <input class="form-control" type="text" name="premis" required
                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                 oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"/>
-                            </div>
+                            </div> --}}
+          
                         </div>
 
 
@@ -309,7 +326,19 @@
     }
     document.getElementById('jumlahUtara').value = tot;
   } 
-  </script>  
+  </script> 
+  
+  <script>
+    $('#rumah').change(function() {
+        var rumah_id = $('#rumah').val();
+        var role = @json($rumahs->toArray());
+        role.forEach(e => {
+            if (rumah_id == e.rumah_id) {
+                $('#kod_premis').val(e.kod_premis);
+            }
+        });
+    });
+</script>
 
 
 @endsection

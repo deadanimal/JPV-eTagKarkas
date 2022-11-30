@@ -50,5 +50,9 @@ class User extends Authenticatable
 
     public function tags() {
         return $this->hasMany(User::class);
-    }     
+    }  
+    
+    public function sampel() {
+        return $this->hasMany(Sampel::class);
+    } 
 }
