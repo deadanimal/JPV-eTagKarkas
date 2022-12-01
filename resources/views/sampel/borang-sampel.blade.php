@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                             <label for="tahun">Tahun</label>
-                            <select name="tahun" class="form-control" oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                            <select class="form-control" oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
                                 <option selected value="">Pilih Tahun</option>
                             </select>
                             </div>
@@ -75,7 +75,7 @@
                             
                             <div class="mb-3 col-md-6">
                                 <label for="tahun">Kod Premis</label>
-                                <input class="form-control" type="text" name="kod_premis" id="kod_premis"  value="{{$rumah->kod}}"
+                                <input class="form-control" type="text" name="kod_premis" id="kod_premis"  value="{{$rumah->kategori}}" readonly
                                  />
                            
                             </div>
@@ -153,7 +153,7 @@
                               <td >1</td>
                               <td >AyamPlus Food</td>
                               <td><input class="form-control"  type="number" name="sampel" min="0" oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                              <td><input class="form-control utara" onblur="TotalUtara()" type="number" name="1" min="0" oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                              <td><input class="form-control utara" onblur="TotalUtara()" type="number" name="1" min="0" oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{ $result['premis'] ?? ''}}"></td>
                               <td><input class="form-control utara" onblur="TotalUtara()" type="number" name="2" min="0" oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
                               <td><input class="form-control utara" onblur="TotalUtara()" type="number" name="3" min="0" oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
                               <td><input class="form-control utara" onblur="TotalUtara()" type="number" name="4" min="0" oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>

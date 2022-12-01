@@ -33,6 +33,8 @@ class PemeriksaanController extends Controller
         $user = $request->user();
         $haiwans = Haiwan::find($id);
 
+        // tambah column jenis_ternakan
+
         if ($user->hasRole('pentadbir')) {
             $rumah_sembelih_id = $user->rumah_sembelih_id;
             $pemeriksaans = Pemeriksaan::all();
@@ -383,6 +385,9 @@ class PemeriksaanController extends Controller
         // ])->get();       
         return view('daging.satu_babi', compact('user','pemeriksaan_babi','harians','periksa_harian','ante_mortems','post_mortems'));
     }
+
+    // tambah model notifikasi - id,message,user
+    // satu pemeriksaan & catatan ternakan has many p.rapi
 
 
 
