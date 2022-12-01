@@ -38,16 +38,12 @@ class SampelController extends Controller
     }
 
     public function borang_sampel(Request $request) {
+
         $id = (int)$request->route('id');
 
         $user = $request->user();
         // $sampel = Sampel::find($id); 
         $rumahs = RumahSembelih::all();
-
-        // $kod = RumahSembelih::where([
-        //     ['kod', '=', ]
-        // ])
-
         
         // if ($sampel->jenis == 'ayam' && 'ruminan_besar' && 'ruminan_kecil' && 'babi'){
         //     return view('sampel.borang-sampel', compact('sampel'));
@@ -56,14 +52,17 @@ class SampelController extends Controller
 
         // }
 
-        // dd($rumahs);
+       
         
         return view('sampel.borang-sampel', compact('user','rumahs'));
     }
 
     public function cipta_sampel(Request $request){
 
+      
+
         $user = $request->user();
+        $rumahs = RumahSembelih::all();
 
         $sampel = New Sampel;
 
@@ -78,7 +77,10 @@ class SampelController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat pensampelan telah disimpan.');
 
-        return back();
+        $utara['zon'] = $request->zon; 
+        $selatan['premis'] = $request->premis; 
+
+        return view('sampel.borang-sampel', compact('user','rumahs','utara'));
 
     }
 }
