@@ -11,7 +11,7 @@
                 <h1 class="header-title">
                     Pensampelan
                 </h1>
-                <a href="/pensampelan-tunjuk" class="btn float-end " style="width: fit-content"><button
+                <a href="/pensampelan-pilihan" class="btn float-end " style="width: fit-content"><button
                         class="btn btn-warning btn-block text-center">Tambah</button></a>
 
 
@@ -32,12 +32,13 @@
                             <thead class="text-white bg-info ">
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">Nama Premis</th>
+                                    <th scope="col">Kategori</th>
                                     <th scope="col">Kod Premis</th>
                                     <th scope="col">Zon</th>
-                                    <th scope="col">Pengambil Sampel 1</th>
+                                    {{-- <th scope="col">Pengambil Sampel 1</th>
                                     <th scope="col">Pengambil Sampel 2</th>
-                                    <th scope="col">Tarikh</th>
+                                    <th scope="col">Tarikh</th> --}}
+                                    <th scope="col">Tindakan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,8 +90,8 @@
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'premis',
-                        name: 'premis'
+                        data: 'pilihan',
+                        name: 'pilihan'
                     },
                     {
                         data: 'kod_premis',
@@ -104,6 +105,10 @@
                     //     data: 'created_at',
                     //     name: 'created_at'
                     // },
+                    {
+                        data: 'tindakan',
+                        name: 'tindakan'
+                    },
                                                   
                    
 

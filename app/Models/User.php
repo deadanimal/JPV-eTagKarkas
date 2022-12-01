@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function sampel() {
         return $this->hasMany(Sampel::class);
     } 
+
+    public function notifikasi() {
+        return $this->hasMany(Notifikasi::class);
+    } 
 }

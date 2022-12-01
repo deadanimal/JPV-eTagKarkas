@@ -53,11 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pemeriksaan-babi/{id}', [PemeriksaanController::class, 'satu_pemeriksaan_babi']);
     Route::post('periksa-babi', [PemeriksaanController::class, 'cipta_pemeriksaan_babi']);
 
-
-
-
-
-
+    
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian']);
     Route::post('harian', [PemeriksaanHarianController::class, 'cipta_harian']);
     Route::get('periksa-rapi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi']);
@@ -108,9 +104,13 @@ Route::middleware(['auth'])->group(function () {
 
 // Modul Pensampelan
     Route::get('/pensampelan', [SampelController::class, 'senarai']);
-    Route::get('/pensampelan-tunjuk', [SampelController::class, 'tunjuk']);
-    Route::get('/pensampelan/borang-sampel', [SampelController::class, 'borang_sampel']);
+    Route::get('/pensampelan-pilihan', [SampelController::class, 'pilihan']);
+    Route::get('/pensampelan-pilihan/{id}', [SampelController::class, 'satu_pilihan']);
+    // Route::get('/pensampelan/borang-sampel', [SampelController::class, 'borang_sampel']);
+    Route::get('/pensampelan/pilihan/{pilihan}', [SampelController::class, 'borang_sampel']);
     Route::post('/pensampelan/borang-sampel/{id}', [SampelController::class, 'cipta_sampel']);
+    // contoh sahaja
+
 
 
 });
