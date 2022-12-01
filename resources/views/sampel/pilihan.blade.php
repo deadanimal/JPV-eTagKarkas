@@ -69,7 +69,7 @@
                         <h5 class="card-title mb-0">Loji VHM</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/pilihan/VHM" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                         <h5 class="card-title mb-0">Ladang MyGAP/MYORGANIC</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/pilihan/MyGAP" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                         <h5 class="card-title mb-0">Loji GVHP</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/pilihan/GVHP" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                         <h5 class="card-title mb-0">IAT & PPIT</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/pilihan/IAT" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>

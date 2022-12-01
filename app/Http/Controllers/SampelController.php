@@ -55,7 +55,7 @@ class SampelController extends Controller
 
 
     public function borang_sampel(Request $request, $pilihan) {
-
+        // dd($pilihan);
         $id = (int)$request->route('id');
         
         $user = $request->user();
@@ -69,16 +69,15 @@ class SampelController extends Controller
 
         $sampels = Sampel::where('pilihan', $pilihan)->get();
         
-        // if ($sampel->jenis == 'ayam' && 'ruminan_besar' && 'ruminan_kecil' && 'babi'){
-        //     return view('sampel.borang-sampel', compact('sampel'));
-        // } else if ($sampel->jenis == 'vhm' && 'mygap' && 'gvhp'){
-        //     return view('sampel.borang-sampel2', compact('sampel'));
-
-        // }
+        if ($pilihan == "Ayam" || $pilihan =="Ruminan_Besar" || $pilihan =="Ruminan_Kecil" || $pilihan =="Babi"){
+            return view('sampel.borang-sampel', compact('user','rumahs','sampels', 'pilihan'));
+        } else {
+            return view('sampel.borang-sampel2', compact('user','rumahs','sampels', 'pilihan'));
+        }
 
        
         
-        return view('sampel.borang-sampel', compact('user','rumahs','sampels', 'pilihan'));
+        // return view('sampel.borang-sampel', compact('user','rumahs','sampels', 'pilihan'));
     }
 
     public function cipta_sampel(Request $request){
