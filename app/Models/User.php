@@ -59,4 +59,8 @@ class User extends Authenticatable
     public function notifikasi() {
         return $this->hasMany(Notifikasi::class);
     } 
+
+    public function survelan() {
+        return $this->hasMany(PemeriksaanDalamNegara::class);
+    }
 }

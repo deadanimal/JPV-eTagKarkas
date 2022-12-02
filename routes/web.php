@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AnteMortemRuminanController;
 use App\Http\Controllers\PemeriksaanController;
+use App\Http\Controllers\PemeriksaanDalamNegaraController;
 use App\Http\Controllers\PemeriksaanHarianController;
 use App\Http\Controllers\PostMortemRuminanController;
+use App\Models\PemeriksaanDalamNegara;
 use App\Models\PostMortemRuminan;
 use Illuminate\Support\Facades\Route;
 
@@ -91,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('tag/{id}/jana', [TagController::class, 'jana']);
     Route::get('tag/{id}/delete', [TagController::class, 'padam']);
 
-    // pendaftaran stok tag - zach tambah
+    // Pendaftaran stok tag - zach tambah
     Route::get('stok-tag', [StokTagController::class, 'senarai']);
     Route::get('stok-tag/borang', [StokTagController::class, 'borang']);
     Route::post('stok-tag', [StokTagController::class, 'cipta']);
@@ -110,6 +112,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pensampelan/pilihan/{pilihan}', [SampelController::class, 'borang_sampel']);
     Route::post('/pensampelan/borang-sampel/{id}', [SampelController::class, 'cipta_sampel']);
     // contoh sahaja
+
+// Modul PDN
+    Route::get('pdn', [PemeriksaanDalamNegaraController::class, 'senarai']);
+    Route::get('borang-survelan', [PemeriksaanDalamNegaraController::class, 'borang_survelan']);
+    Route::post('borang-survelan', [PemeriksaanDalamNegaraController::class, 'cipta_survelan']);
+    Route::get('jadual-survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jadual']);
+
+
 
 
 
