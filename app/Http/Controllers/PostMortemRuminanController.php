@@ -2,38 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notifikasi;
 use App\Models\PostMortemRuminan;
 use App\Models\PostMortemUnggas;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use DataTables;
 use DateTime;
 use Carbon\Carbon;
 use Alert;
+use Illuminate\Support\Facades\Auth;
 
 class PostMortemRuminanController extends Controller
 {
     //
-    public function satu_post_mortem(Request $request) {
+    public function satu_post_mortem(Request $request)
+    {
 
         $user = $request->user();
-        $id = (int)$request->route('id');
+        $id = (int) $request->route('id');
         $pemeriksaan = PostMortemRuminan::find($id);
-        
+
         //
-        
+
         $post_mortems = PostMortemRuminan::where([
-            ['pemeriksaan_id','=', $pemeriksaan->id],
+            ['pemeriksaan_id', '=', $pemeriksaan->id],
         ])->get();
-        
-        return view('daging.satu_ruminan', compact('post_mortems','pemeriksaan','user'));
-      
+
+        return view('daging.satu_ruminan', compact('post_mortems', 'pemeriksaan', 'user'));
+
 
     }
 
-    public function cipta_postMortem(Request $request){
+    public function cipta_postMortem(Request $request)
+    {
 
-        $post_mortem = New PostMortemRuminan;
+        $post_mortem = new PostMortemRuminan;
 
         // 
         $post_mortem->kategori_post_mortem = $request->kategori_post_mortem;
@@ -50,12 +55,13 @@ class PostMortemRuminanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat penemuan post-mortem ruminan telah disimpan.');
 
-        return back(); 
+        return back();
 
     }
 
-    public function kemaskini_pm(Request $request){
-        $id = (int)$request->route('id');
+    public function kemaskini_pm(Request $request)
+    {
+        $id = (int) $request->route('id');
         $pm = PostMortemRuminan::find($id);
 
         $pm->kategori_post_mortem = $request->kategori_post_mortem;
@@ -72,17 +78,19 @@ class PostMortemRuminanController extends Controller
         return back();
     }
 
-    public function tunjuk_pm(Request $request){
-        $id = (int)$request->route('id');
+    public function tunjuk_pm(Request $request)
+    {
+        $id = (int) $request->route('id');
         $jana_pm = PostMortemRuminan::find($id);
 
         return view('daging.borang_pm', compact('jana_pm'));
     }
 
-    public function jana_pm(Request $request){
+    public function jana_pm(Request $request)
+    {
 
         // tarik data dari cipta periksa rapi
-        $id = (int)$request->route('id');
+        $id = (int) $request->route('id');
         $jana_pm = PostMortemRuminan::find($id);
 
         // generate pdf using DomPDF
@@ -92,26 +100,28 @@ class PostMortemRuminanController extends Controller
 
     }
 
-    public function satu_pm_unggas(Request $request) {
+    public function satu_pm_unggas(Request $request)
+    {
 
         $user = $request->user();
-        $id = (int)$request->route('id');
+        $id = (int) $request->route('id');
         $pemeriksaan_unggas = PostMortemUnggas::find($id);
-        
+
         //
-        
+
         $post_mortems_unggas = PostMortemUnggas::where([
-            ['pemeriksaan_id','=', $pemeriksaan_unggas->id],
+            ['pemeriksaan_id', '=', $pemeriksaan_unggas->id],
         ])->get();
-        
-        return view('daging.satu_unggas', compact('post_mortems_unggas','pemeriksaan_unggas','user'));
-      
+
+        return view('daging.satu_unggas', compact('post_mortems_unggas', 'pemeriksaan_unggas', 'user'));
+
 
     }
 
-    public function cipta_postMortemUnggas(Request $request){
+    public function cipta_postMortemUnggas(Request $request)
+    {
 
-        $post_mortem_unggas = New PostMortemUnggas;
+        $post_mortem_unggas = new PostMortemUnggas;
 
         // 
         $post_mortem_unggas->bukan_lesi = $request->bukan_lesi;
@@ -129,13 +139,14 @@ class PostMortemRuminanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat penemuan post-mortem unggas telah disimpan.');
 
-        return back(); 
+        return back();
 
     }
 
-    public function kemaskini_pm_unggas(Request $request){
+    public function kemaskini_pm_unggas(Request $request)
+    {
 
-        $id = (int)$request->route('id');
+        $id = (int) $request->route('id');
         $post_mortem_unggas = PostMortemUnggas::find($id);
 
         // 
@@ -152,7 +163,7 @@ class PostMortemRuminanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat penemuan post-mortem unggas telah dikemaskini.');
 
-        return back(); 
+        return back();
 
     }
 }

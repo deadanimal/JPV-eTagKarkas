@@ -79,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('post-mortem-unggas', [PostMortemRuminanController::class, 'satu_pm_unggas']);
     Route::post('post-mortem-unggas', [PostMortemRuminanController::class, 'cipta_postMortemUnggas']);
     Route::put('post-mortem-unggas/{id}', [PostMortemRuminanController::class, 'kemaskini_pm_unggas']);
+    Route::get('/testjap', [PostMortemRuminanController::class, 'testjap']);
 
 
 

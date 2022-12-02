@@ -22,18 +22,28 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     @yield('styles')
 
-	<style>
-        #bg-img { 
-          background: url('/img/goat-4366206_1920.jpg') no-repeat center center fixed; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-        }		
-    </style>    
+    <style>
+        #bg-img {
+            background: url('/img/goat-4366206_1920.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
+    @php
+        use App\Models\Notifikasi;
+        use Illuminate\Support\Facades\Auth;
+        $noti = Notifikasi::where('user_id', Auth::id())->get();
+        $kira = count(
+            Notifikasi::where('user_id', Auth::id())
+                ->where('read', 0)
+                ->get(),
+        );
+    @endphp
 
     <div class="wrapper">
 
@@ -41,11 +51,11 @@
 
         <nav id="sidebar" class="sidebar">
             <a class="sidebar-brand" href="/">
-                <div class="card" >
+                <div class="card">
                     <img src="/img/Veterinar-Logo.png" alt="JPV" style="width: 70px; height: 50px;">
                 </div>
                 <div>eTagKarkas</div>
-                
+
             </a>
             <div class="sidebar-content">
 
@@ -53,115 +63,130 @@
 
                     <li class="sidebar-item ">
                         <a class="sidebar-link" href="/">
-                            <i class="align-middle me-2 fas fa-fw fa-home"></i><span class="align-middle">Paparan Utama</span>
+                            <i class="align-middle me-2 fas fa-fw fa-home"></i><span class="align-middle">Paparan
+                                Utama</span>
                         </a>
-                    </li> 
-                    
+                    </li>
+
                     @role('pentadbir')
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pengguna">
+                                <i class="align-middle me-2 fas fa-fw fa-users"></i><span class="align-middle">Profil
+                                    Pengguna</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pengguna">
-                            <i class="align-middle me-2 fas fa-fw fa-users"></i><span class="align-middle">Profil Pengguna</span>
-                        </a>
-                    </li>  
-                    
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/rumah">
-                            <i class="align-middle me-2 fas fa-fw fa-warehouse"></i><span class="align-middle">Pendaftaran Premis</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/rumah">
+                                <i class="align-middle me-2 fas fa-fw fa-warehouse"></i><span
+                                    class="align-middle">Pendaftaran Premis</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/tag">
-                            <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan Tag</span>
-                        </a>
-                    </li> 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/tag">
+                                <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan
+                                    Tag</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/stok-tag">
-                            <i class="align-middle me-2 fas fa-fw fa-tags"></i><span class="align-middle">Pendaftaran Stok Tag Karkas</span>
-                        </a>
-                    </li> 
-                    
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pemeriksaan">
-                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
-                        </a>
-                    </li>  
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/stok-tag">
+                                <i class="align-middle me-2 fas fa-fw fa-tags"></i><span class="align-middle">Pendaftaran
+                                    Stok Tag Karkas</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pensampelan">
-                            <i class="align-middle me-2 fas fa-fw fa-vial"></i><span class="align-middle">Pensampelan</span>
-                        </a>
-                    </li> 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pemeriksaan">
+                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
+                                    class="align-middle">Pemeriksaan Daging</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pdn">
-                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Dalam Negara</span>
-                        </a>
-                    </li> 
-            
-                    @endrole  
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pensampelan">
+                                <i class="align-middle me-2 fas fa-fw fa-vial"></i><span
+                                    class="align-middle">Pensampelan</span>
+                            </a>
+                        </li>
 
-                    @role('pengurus-rumah-sembelih')
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/rumah">
-                            <i class="align-middle me-2 fas fa-fw fa-circle-info"></i><span class="align-middle">Maklumat Premis</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/tag">
-                            <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan Tag</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/daging">
-                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pdn">
-                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Dalam Negara</span>
-                        </a>
-                    </li>   
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pdn">
+                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
+                                    class="align-middle">Pemeriksaan Dalam Negara</span>
+                            </a>
+                        </li>
                     @endrole
 
-                    
+                    @role('pengurus-rumah-sembelih')
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/rumah">
+                                <i class="align-middle me-2 fas fa-fw fa-circle-info"></i><span
+                                    class="align-middle">Maklumat Premis</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/tag">
+                                <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan
+                                    Tag</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/daging">
+                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
+                                    class="align-middle">Pemeriksaan Daging</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pdn">
+                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
+                                    class="align-middle">Pemeriksaan Dalam Negara</span>
+                            </a>
+                        </li>
+                    @endrole
+
+
                     @role('ketua-seksyen')
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/tag">
-                            <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan Tag</span>
-                        </a>
-                    </li>  
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/tag">
+                                <i class="align-middle me-2 fas fa-fw fa-book"></i><span class="align-middle">Permohonan
+                                    Tag</span>
+                            </a>
+                        </li>
                     @endrole
 
                     @role('pengurus-rumah-sembelih | pemeriksa-daging')
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pemeriksaan">
-                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
-                        </a>
-                    </li>  
-                    @endrole 
-                    
-                    @role('pentadbir-zon')
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pemeriksaan">
-                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Daging</span>
-                        </a>
-                    </li> 
-                    
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pensampelan">
-                            <i class="align-middle me-2 fas fa-fw fa-vial"></i><span class="align-middle">Pensampelan</span>
-                        </a>
-                    </li> 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pemeriksaan">
+                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
+                                    class="align-middle">Pemeriksaan Daging</span>
+                            </a>
+                        </li>
+                    @endrole
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="/pdn">
-                            <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span class="align-middle">Pemeriksaan Dalam Negara</span>
-                        </a>
-                    </li> 
+                    @role('pentadbir-zon')
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pemeriksaan">
+                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
+                                    class="align-middle">Pemeriksaan Daging</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pensampelan">
+                                <i class="align-middle me-2 fas fa-fw fa-vial"></i><span
+                                    class="align-middle">Pensampelan</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pdn">
+                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
+                                    class="align-middle">Pemeriksaan Dalam Negara</span>
+                            </a>
+                        </li>
                     @endrole
 
 
@@ -170,7 +195,7 @@
                             <span class="align-middle">Profil</span>
                         </a>
                     </li>                       --}}
-                    
+
 
                 </ul>
             </div>
@@ -188,62 +213,32 @@
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown ms-lg-2">
-                            <a class="nav-link dropdown-toggle position-relative" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle position-relative" href="#" id="alertsDropdown"
+                                data-bs-toggle="dropdown">
                                 <i class="align-middle fas fa-bell"></i>
                                 <span class="indicator"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+                                aria-labelledby="alertsDropdown">
                                 <div class="dropdown-menu-header">
-                                    4 Notifikasi Baru
+                                    {{$kira}} unread notifications
                                 </div>
                                 <div class="list-group">
+                                    @foreach ($noti as $n)
                                     <a href="#" class="list-group-item">
                                         <div class="row g-0 align-items-center">
                                             <div class="col-2">
                                                 <i class="ms-1 text-danger fas fa-fw fa-bell"></i>
                                             </div>
                                             <div class="col-10">
-                                                <div class="text-dark">Update completed</div>
-                                                <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-                                                <div class="text-muted small mt-1">2h ago</div>
+                                                {{-- <div class="text-dark">Update completed</div> --}}
+                                                <div class="text-dark">{{$n->mesej}}</div>
+                                                <div class="text-muted small mt-1">{{$n->created_at->format('H:i, d-m-Y')}}</div>
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="ms-1 text-warning fas fa-fw fa-envelope-open"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Lorem ipsum</div>
-                                                <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
-                                                <div class="text-muted small mt-1">6h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="ms-1 text-primary fas fa-fw fa-building"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Login from 192.186.1.1</div>
-                                                <div class="text-muted small mt-1">8h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="ms-1 text-success fas fa-fw fa-bell-slash"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">New connection</div>
-                                                <div class="text-muted small mt-1">Anna accepted your request.</div>
-                                                <div class="text-muted small mt-1">12h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
+                                    @endforeach
+                                    
                                 </div>
                                 <div class="dropdown-menu-footer">
                                     <a href="#" class="text-muted">Tunjuk semua notifikasi</a>
@@ -257,14 +252,14 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="/profil"><i
-                                    class="align-middle me-1 fas fa-fw fa-user"></i> Profil</a>                                
+                                        class="align-middle me-1 fas fa-fw fa-user"></i> Profil</a>
                                 <a class="dropdown-item" href="/logout"><i
                                         class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Log
                                     Keluar</a>
                             </div>
                         </li>
                     </ul>
-                   
+
                 </div>
             </nav>
 
@@ -278,11 +273,11 @@
                         <div class="col-8 text-start">
                             <ul class="list-inline">
 
-                                <!-- @role('admin')  
-                                    <li class="list-inline-item">
-                                        <a class="text-muted" href="/admin"></a>
-                                    </li>
-                                @endrole   -->
+                                <!-- @role('admin')
+    <li class="list-inline-item">
+                                            <a class="text-muted" href="/admin"></a>
+                                        </li>
+@endrole   -->
 
                             </ul>
                         </div>
@@ -326,7 +321,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Kemaskini Lokasi</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body m-3">
                         <p class="mb-3">Sila berikan "permission" untuk alat mengambil koordinat lokasi anda.</p>
@@ -365,18 +361,18 @@
     </div>
 
     <script>
-    function getCoords() {
+        function getCoords() {
 
-        navigator.geolocation.getCurrentPosition((position) => {
-            const p = position.coords;
-            document.getElementById("latitude_hidden").value = p.latitude;
-            document.getElementById("longitude_hidden").value = p.longitude;
-            document.getElementById('latitude').innerText = p.latitude;
-            document.getElementById('longitude').innerText = p.longitude;
-            console.log(p.latitude, p.longitude);
-        })
+            navigator.geolocation.getCurrentPosition((position) => {
+                const p = position.coords;
+                document.getElementById("latitude_hidden").value = p.latitude;
+                document.getElementById("longitude_hidden").value = p.longitude;
+                document.getElementById('latitude').innerText = p.latitude;
+                document.getElementById('longitude').innerText = p.longitude;
+                console.log(p.latitude, p.longitude);
+            })
 
-    }
+        }
     </script>
 
 
@@ -386,4 +382,3 @@
 
 
 </html>
-
