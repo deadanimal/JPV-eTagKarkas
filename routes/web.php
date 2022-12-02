@@ -118,6 +118,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('borang-survelan', [PemeriksaanDalamNegaraController::class, 'borang_survelan']);
     Route::post('borang-survelan', [PemeriksaanDalamNegaraController::class, 'cipta_survelan']);
     Route::get('jadual-survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jadual']);
+    Route::get('borang-pemeriksa', [PemeriksaanDalamNegaraController::class, 'borang_pemeriksa']);
+    Route::get('borang-pemeriksa/{id}', [PemeriksaanDalamNegaraController::class, 'borang_pemeriksa']);
+    Route::get('borang-log', [PemeriksaanDalamNegaraController::class, 'borang_log']);
+    Route::get('borang-log/{id}', [PemeriksaanDalamNegaraController::class, 'borang_log']);
+
 
 
 
