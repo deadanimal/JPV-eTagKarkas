@@ -49,24 +49,6 @@
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
             
-                                            {{-- <div class="col-2">
-                                                <label class="col-form-label">Peranan</label>
-                                            </div>
-            
-                                            <div class="col-4">
-            
-                                                <select class="form-select" name="peranan" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')">
-                                                    <option selected value="">Pilih Peranan</option>
-                                                    <option value=1>Pengurus Rumah Sembelih</option>
-                                                    <option value=2>Pemeriksa Daging</option>
-                                                    <option value=3>Pemeriksa Daging Negeri</option>
-                                                    <option value=4>Pentadbir</option>
-                                                    <option value=5>Ketua Seksyen</option>
-                                                </select>
-                                            </div> --}}
-            
                                             <div class="col-2 mt-3">
                                                 <label class="form-label">Nombor Telefon</label>
                                             </div>
@@ -103,8 +85,6 @@
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
 
-                                           
-
                                         </div>
 
                                        
@@ -119,8 +99,6 @@
                                             </div>
                                         </div>
                                         
-            
-            
                                         <div class="row mb-3">
                                             <div class="col-2">
                                                 <label class="form-label">Alamat</label>

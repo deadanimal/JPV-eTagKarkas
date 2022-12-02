@@ -57,5 +57,13 @@ class PemeriksaanDalamNegaraController extends Controller
         return view('pdn.jadual-survelan');        
     }
 
+    public function borang_pemeriksa(){
+        return view('pdn.borang-pemeriksa');
+    }
+
+    public function borang_log(){
+        return view('pdn.borang-log');
+    }
+
     
 }
