@@ -19,6 +19,7 @@
                         <th scope="col">Keputusan</th>
                         <th scope="col">Tindakan</th>
                         <th scope="col">Jana Borang</th>
+                        <th scope="col">Laporan</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -135,6 +136,15 @@
                             </div> 
                             
                         <td><a href="/tunjuk-pm/{{$post_mortem->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
+                        
+                          @if ($post_mortem->status == 1)
+                            <td>Hantar</td>
+                          @else
+                            <td>Belum Hantar</td>
+                              
+                          @endif
+                        
+
                             
                       </tr>
                         @endforeach

@@ -63,4 +63,8 @@ class User extends Authenticatable
     public function survelan() {
         return $this->hasMany(PemeriksaanDalamNegara::class);
     }
+
+    public function post_mortem_ruminan() {
+        return $this->hasMany(PostMortemRuminan::class);
+    }
 }
