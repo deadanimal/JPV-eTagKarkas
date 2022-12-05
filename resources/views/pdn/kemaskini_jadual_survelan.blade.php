@@ -21,13 +21,13 @@
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Jadual Survelan Audit Loji VHM/GVHP or MyGap</h5>
+                                <h5 class="card-title">Kemaskini Jadual Survelan Audit Loji VHM/GVHP or MyGap</h5>
                             </div>
 
                             <div class="card-body">
-                                <form action="/cipta_survelan_audit" method="POST" enctype="multipart/form-data">
+                                <form action="/simpan_kemaskini_jadual_survelan" method="POST" enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
-            
                                     <div class="mb-3">
             
                                         <div class="row mb-3">
@@ -35,54 +35,54 @@
                                                 <label class="form-label">Nombor VHM/MyGAP</label>
                                             </div>
                                             <div class="col-4">
-                                                <input class="form-control" type="number" name="nombor" required
+                                                <input class="form-control" type="number" name="nombor" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->nombor}}"/>
                                             </div>
 
                                             <div class="col-2">
                                                 <label class="form-label">Premis</label>
                                             </div>
                                             <div class="col-4">
-                                                <input class="form-control" type="text" name="premis" onkeyup="this.value = this.value.toUpperCase();" required
+                                                <input class="form-control" type="text" name="premis" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->premis}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
                                                 <label class="form-label">Nombor Telefon</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="telefon" required
+                                                <input class="form-control" type="number" name="telefon" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->telefon}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
                                                 <label class="form-label">Emel</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="email" name="email" required
+                                                <input class="form-control" type="email" name="email" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->email}}"/>
                                             </div>
 
                                             <div class="col-2 mt-3">
                                                 <label class="form-label">Faks</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="fax" required
+                                                <input class="form-control" type="number" name="fax" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->fax}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
                                                 <label class="form-label">Website</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="text" name="web" onkeyup="this.value = this.value.toUpperCase();" required
+                                                <input class="form-control" type="text" name="web" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->web}}"/>
                                             </div>
 
                                         </div>
@@ -93,9 +93,9 @@
                                                 <label class="form-label">Jenis Produk</label>
                                             </div>
                                             <div class="col-4">
-                                                <input class="form-control" type="text" name="jenis_produk" onkeyup="this.value = this.value.toUpperCase();" required
+                                                <input class="form-control" type="text" name="jenis_produk" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->jenis_produk}}"/>
                                             </div>
                                         </div>
                                         
@@ -104,9 +104,9 @@
                                                 <label class="form-label">Alamat</label>
                                             </div>
                                             <div class="col-10">
-                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')"></textarea>
+                                                oninput="this.setCustomValidity('')">{{$survelans->alamat}}</textarea>
                                             </div>
                                         </div>
             
@@ -214,9 +214,9 @@
                                             <label class="form-label">Catatan</label>
                                         </div>
                                         <div class="col-10">
-                                            <textarea class="form-control" rows=5 name="catatan" onkeyup="this.value = this.value.toUpperCase();" required
+                                            <textarea class="form-control" rows=5 name="catatan" onkeyup="this.value = this.value.toUpperCase();" readonly
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')"></textarea>
+                                            oninput="this.setCustomValidity('')">{{$survelans->catatan}}</textarea>
                                         </div>
                                     </div>
             

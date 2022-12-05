@@ -119,6 +119,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('borang-survelan', [PemeriksaanDalamNegaraController::class, 'borang_survelan']);
     Route::post('borang-survelan', [PemeriksaanDalamNegaraController::class, 'cipta_survelan']);
     Route::get('jadual-survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jadual']);
+    Route::post('cipta_survelan_audit', [PemeriksaanDalamNegaraController::class, 'cipta_survelan_audit']);
+    Route::get('kemaskini_jadual_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_survelan']);
+    Route::put('simpan_kemaskini_jadual_survelan', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_survelan']);
+    Route::delete('padam_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'padam_survelan']);
     Route::get('borang-pemeriksa', [PemeriksaanDalamNegaraController::class, 'borang_pemeriksa']);
     Route::get('borang-pemeriksa/{id}', [PemeriksaanDalamNegaraController::class, 'borang_pemeriksa']);
     Route::get('borang-log', [PemeriksaanDalamNegaraController::class, 'borang_log']);
