@@ -84,6 +84,8 @@
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-success" type="submit">Simpan</button>
+                            <a href="/stok-tag" class="btn btn-primary mx-2" style="float: right">Kembali</a>
+
                         </div>
 
 

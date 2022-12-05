@@ -260,9 +260,12 @@
                             <!-- Button trigger modal -->
 
                             <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
-                                <button type="button" class="btn btn-primary mb-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">
+                                <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">
                                     Simpan
                                 </button>
+
+                                <a href="/rumah" class="btn btn-primary mx-2" style="float: right">Kembali</a>
+
                             </div>
 
                             
