@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PemeriksaanDalamNegara;
 use Illuminate\Http\Request;
 use Alert;
-
+use App\Models\SurvelanAudit;
 
 class PemeriksaanDalamNegaraController extends Controller
 {
@@ -55,6 +55,76 @@ class PemeriksaanDalamNegaraController extends Controller
         // and pass to p1
 
         return view('pdn.jadual-survelan');        
+    }
+
+    public function cipta_survelan_audit(Request $request){
+
+        $survelans = New SurvelanAudit();
+        $survelans->nombor = $request->nombor;
+        $survelans->premis = $request->premis;
+        $survelans->telefon = $request->telefon;
+        $survelans->email = $request->email;
+        $survelans->fax = $request->fax;
+        $survelans->web = $request->web;
+        $survelans->jenis_produk = $request->jenis_produk;
+        $survelans->alamat = $request->alamat;
+        $survelans->negeri = $request->negeri;
+        $survelans->kaedah_audit = $request->kaedah_audit;
+        $survelans->pemeriksa_1 = $request->pemeriksa_1;
+        $survelans->pemeriksa_2 = $request->pemeriksa_2;
+        $survelans->pemeriksa_3 = $request->pemeriksa_3;
+        $survelans->pemeriksa_4 = $request->pemeriksa_4;
+        $survelans->catatan = $request->catatan;
+
+        $survelans->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
+
+        return redirect('/pdn');
+    }
+
+    public function kemaskini_jadual_survelan(Request $request){
+
+        $id = (int)$request->route('id'); 
+        $survelans = SurvelanAudit::find($id);
+
+        return view('pdn.kemaskini_jadual_survelan', compact('survelans'));
+    }
+
+    public function simpan_kemaskini_jadual_survelan(Request $request){
+
+        $id = (int)$request->route('id'); 
+        $survelans = SurvelanAudit::find($id);
+
+        $survelans->nombor = $request->nombor;
+        $survelans->premis = $request->premis;
+        $survelans->telefon = $request->telefon;
+        $survelans->email = $request->email;
+        $survelans->fax = $request->fax;
+        $survelans->web = $request->web;
+        $survelans->jenis_produk = $request->jenis_produk;
+        $survelans->alamat = $request->alamat;
+        $survelans->negeri = $request->negeri;
+        $survelans->kaedah_audit = $request->kaedah_audit;
+        $survelans->pemeriksa_1 = $request->pemeriksa_1;
+        $survelans->pemeriksa_2 = $request->pemeriksa_2;
+        $survelans->pemeriksa_3 = $request->pemeriksa_3;
+        $survelans->pemeriksa_4 = $request->pemeriksa_4;
+        $survelans->catatan = $request->catatan;
+
+        $survelans->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+
+        return redirect('/pdn');
+    }
+
+    public function padam_survelan(Request $request){
+        $id = (int)$request->route('id'); 
+        $survelans = PemeriksaanDalamNegara::find($id);
+        $survelans->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return back();
     }
 
     public function borang_pemeriksa(){

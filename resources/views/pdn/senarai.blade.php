@@ -66,8 +66,13 @@
                                     <td>{{$jadual->operasi}}</td>
                                     <td>{{$jadual->created_at->format('d/m/Y')}}</td>
                                     <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                        <a href="kemaskini_jadual_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                        <form action="/padam_survelan/{{ $jadual->id }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
+                                        </form>
+                                        {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
                                     </td>
                                     <td>Dihantar/Selesai</td>
                                     <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
