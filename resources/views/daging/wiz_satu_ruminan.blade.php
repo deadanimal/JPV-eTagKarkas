@@ -14,25 +14,23 @@
 
         </div>
 
-        <div class="card">
-            <div class="tab mt-1">
-                <ul class="nav nav-tabs" role="tablist" style="width: 100%">
-                    <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link active" href="#tab-1"
-                            data-bs-toggle="tab" role="tab">Pengenalan Ternakan</a></li>
-                    <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-2"
-                            data-bs-toggle="tab" role="tab">Pemeriksaan Ternakan</a></li>
-                    <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-3"
-                            data-bs-toggle="tab" role="tab">Penemuan Ante Mortem</a></li>
-                    <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-4"
-                            data-bs-toggle="tab" role="tab">Penemuan Post Mortem</a></li>
-                    <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-5"
-                            data-bs-toggle="tab" role="tab">Tag Karkas</a></li>
+       
+            <div id="smartwizard-arrows-success" class="wizard wizard-success mb-4">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="#arrows-success-step-1">Pengenalan Ternakan<br /><small>Step description</small></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#arrows-success-step-2">Pemeriksaan Ternakan<br /><small>Step description</small></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#arrows-success-step-3">Penemuan Ante Mortem<br /><small>Step description</small></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#arrows-success-step-4">Penemuan Post Mortem<br /><small>Step description</small></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#arrows-success-step-5">Tag Karkas<br /><small>Step description</small></a>
+                    </li>
                 </ul>
-        
+
                 <div class="tab-content">
-        
-                    <div class="tab-pane active show" id="tab-1" role="tabpanel">
-        
+                    <div id="arrows-success-step-1" class="tab-pane" role="tabpanel">
                         <form action="/pemeriksaan/{{$pemeriksaan->id}}" method="POST">
                             @method('PUT')
                             @csrf
@@ -143,98 +141,90 @@
                             </div>
         
                         </form>
-        
                     </div>
-        
-                    <div class="tab-pane" id="tab-2" role="tabpanel">
-        
+                    <div id="arrows-success-step-2" class="tab-pane" role="tabpanel">
                         @role('pengurus-rumah-sembelih')
-                       <form action="/harian" method="POST">
-                        @csrf
-        
-                            <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
-                            <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
-                        
-                            <div class="row">
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Bilangan Ternakan Yang Diterima</label>
-                                    <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan->bil_ternakan_diterima}}" readonly>
-                                </div>
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Ternakan Yang Mati Semasa Tiba</label>
-                                    <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan->ternakan_mati_semasa_tiba}}" readonly>
-                                </div>
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Ternakan Yang Diperiksa</label>
-                                    <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan->jumlah_ternakan_diperiksa}}" readonly>
-                                </div>
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Binatang Layak Disembelih</label>
-                                    <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" readonly>
-                                </div>
-        
-                            </div>
-                            
-                            <div class="row">
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi</label>
-                                    <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" >
-                                    <a href="/periksa-rapi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
-                                </div>
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Binatang Disembelih Kerana Kecemasan</label>
-                                    <input class="form-control" type="number" min="0" name="jumlah_binatang_disembelih_kecemasan"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                </div>
-        
-                                <div class="mb-3 col-md-3" style="margin-top: 22px">
-                                    <label for="">Jumlah Yang Disembelih</label>
-                                    <input class="form-control" type="number" id="j1"  min="0" name="jumlah_disembelih" oninput="calc()"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                </div>
-
-                                {{-- tarik data dari pemeriksaan --}}
-                                    <input class="form-control" type="hidden" id="j2" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" oninput="calc()" readonly>
-                                
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Baki Ternakan Yang Belum Disembelih</label>
-                                    <input class="form-control" type="number" id="minus" min="0" name="baki_ternakan_belum_disembelih"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                </div>
-        
-                            </div>
-        
-                            <div class="row">
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Catatan</label>
-                                    <textarea class="form-control" name="catatan" cols="60" rows="5"
-                                    onkeyup="this.value = this.value.toUpperCase();"></textarea>
-                                </div>
-                            </div>
-        
-                             <!--Button-->
-                             <div class="mb-3">
-                                <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                            </div>
-        
-                       </form> 
-                       @endrole
-                            
-                            
-                        @include('daging.harian_table')
-
+                        <form action="/harian" method="POST">
+                         @csrf
+         
+                             <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                             <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+                         
+                             <div class="row">
+         
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Bilangan Ternakan Yang Diterima</label>
+                                     <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan->bil_ternakan_diterima}}" readonly>
+                                 </div>
+         
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Ternakan Yang Mati Semasa Tiba</label>
+                                     <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan->ternakan_mati_semasa_tiba}}" readonly>
+                                 </div>
+         
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Jumlah Ternakan Yang Diperiksa</label>
+                                     <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan->jumlah_ternakan_diperiksa}}" readonly>
+                                 </div>
+         
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Jumlah Binatang Layak Disembelih</label>
+                                     <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" readonly>
+                                 </div>
+         
+                             </div>
+                             
+                             <div class="row">
+         
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi</label>
+                                     <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
+                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" >
+                                     <a href="/periksa-rapi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
+                                 </div>
+         
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Jumlah Binatang Disembelih Kerana Kecemasan</label>
+                                     <input class="form-control" type="number" min="0" name="jumlah_binatang_disembelih_kecemasan"
+                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                 </div>
+         
+                                 <div class="mb-3 col-md-3" style="margin-top: 22px">
+                                     <label for="">Jumlah Yang Disembelih</label>
+                                     <input class="form-control" type="number" id="j1"  min="0" name="jumlah_disembelih" oninput="calc()"
+                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                 </div>
+ 
+                                 {{-- tarik data dari pemeriksaan --}}
+                                     <input class="form-control" type="hidden" id="j2" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" oninput="calc()" readonly>
+                                 
+         
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Baki Ternakan Yang Belum Disembelih</label>
+                                     <input class="form-control" type="number" id="minus" min="0" name="baki_ternakan_belum_disembelih"
+                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                 </div>
+         
+                             </div>
+         
+                             <div class="row">
+                                 <div class="mb-3 col-md-3">
+                                     <label for="">Catatan</label>
+                                     <textarea class="form-control" name="catatan" cols="60" rows="5"
+                                     onkeyup="this.value = this.value.toUpperCase();"></textarea>
+                                 </div>
+                             </div>
+         
+                              <!--Button-->
+                              <div class="mb-3">
+                                 <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
+                             </div>
+         
+                        </form> 
+                        @endrole     
+                         @include('daging.harian_table')
                     </div>
-        
-                    <div class="tab-pane" id="tab-3" role="tabpanel">
-        
+                    <div id="arrows-success-step-3" class="tab-pane" role="tabpanel">
                         @role('pengurus-rumah-sembelih')
                         <form action="/ante-mortem" method="POST">
                             @csrf
@@ -305,12 +295,8 @@
                         @endrole
         
                         @include('daging.ante_mortem_table')
-        
                     </div>
-        
-        
-                    <div class="tab-pane" id="tab-4" role="tabpanel">
-                        
+                    <div id="arrows-success-step-4" class="tab-pane" role="tabpanel">
                         @role('pengurus-rumah-sembelih')
                         <form action="/post-mortem" method="POST">
                             @csrf
@@ -398,11 +384,8 @@
                         @endrole
         
                         @include('daging.post_mortem_table')
-        
                     </div>
-        
-                    <div class="tab-pane" id="tab-5" role="tabpanel">
-        
+                    <div id="arrows-success-step-5" class="tab-pane" role="tabpanel">
                         <div class="row d-flex justify-content-center">
                             <table class="table table-bordered">
                                 <thead class="text-black ">
@@ -462,13 +445,10 @@
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
                         </div>
-        
                     </div>
-        
                 </div>
             </div>
-
-        </div>
+       
     </div>
 </main>
     
@@ -492,6 +472,88 @@
   document.getElementById("minus").value = minus;
     }
 </script>
+
+<script src="js/app.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			$("#smartwizard-default-primary").smartWizard({
+				theme: "default",
+				showStepURLhash: false
+			});
+			$("#smartwizard-default-success").smartWizard({
+				theme: "default",
+				showStepURLhash: false
+			});
+			$("#smartwizard-default-danger").smartWizard({
+				theme: "default",
+				showStepURLhash: false
+			});
+			$("#smartwizard-default-warning").smartWizard({
+				theme: "default",
+				showStepURLhash: false
+			});
+			$("#smartwizard-arrows-primary").smartWizard({
+				theme: "arrows",
+				showStepURLhash: false
+			});
+			$("#smartwizard-arrows-success").smartWizard({
+				theme: "arrows",
+				showStepURLhash: false
+			});
+			$("#smartwizard-arrows-danger").smartWizard({
+				theme: "arrows",
+				showStepURLhash: false
+			});
+			$("#smartwizard-arrows-warning").smartWizard({
+				theme: "arrows",
+				showStepURLhash: false
+			});
+			// Validation
+			var $validationForm = $("#smartwizard-validation");
+			$validationForm.validate({
+				errorPlacement: function errorPlacement(error, element) {
+					$(element).parents(".error-placeholder").append(
+						error.addClass("invalid-feedback small d-block")
+					)
+				},
+				highlight: function(element) {
+					$(element).addClass("is-invalid");
+				},
+				unhighlight: function(element) {
+					$(element).removeClass("is-invalid");
+				},
+				rules: {
+					"wizard-confirm": {
+						equalTo: "input[name=\"wizard-password\"]"
+					}
+				}
+			});
+			$validationForm
+				.smartWizard({
+					autoAdjustHeight: false,
+					backButtonSupport: false,
+					useURLhash: false,
+					showStepURLhash: false,
+					toolbarSettings: {
+						toolbarExtraButtons: [$("<button class=\"btn btn-submit btn-primary\" type=\"button\">Finish</button>")]
+					}
+				})
+				.on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+					if (stepDirection === 1) {
+						return $validationForm.valid();
+					}
+					return true;
+				});
+			$validationForm.find(".btn-submit").on("click", function() {
+				if (!$validationForm.valid()) {
+					return;
+				}
+				alert("Great! The form is valid and ready to submit.");
+				return false;
+			});
+		});
+	</script>
 
 @endsection
 

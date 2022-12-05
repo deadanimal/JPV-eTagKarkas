@@ -48,7 +48,7 @@ class Kernel extends ConsoleKernel
             if ($kira_pm != 0) {
                 $noti = new Notifikasi;
                 $noti->user_id = $p->id;
-                $noti->mesej = $kira_pm . ' laporan belum dihantar';
+                $noti->mesej = $kira_pm . ' Laporan belum dihantar';
                 $noti->read = "0";
                 $noti->save();
             }

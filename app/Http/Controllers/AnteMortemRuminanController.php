@@ -48,7 +48,8 @@ class AnteMortemRuminanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat penemuan ante-mortem ruminan telah disimpan.');
 
-        return back(); 
+        return back();
+
 
     }
 
@@ -67,7 +68,9 @@ class AnteMortemRuminanController extends Controller
 
         Alert::success('Kemaskini berjaya.', 'Maklumat penemuan ante-mortem ruminan telah dikemaskini.');
 
-        return back();
+        // return back();
+        return redirect()->back()->withInput();
+
     }
 
     public function satu_am_unggas(Request $request) {
@@ -130,6 +133,7 @@ class AnteMortemRuminanController extends Controller
         Alert::success('Kemaskini berjaya.', 'Maklumat penemuan ante-mortem unggas telah dikemaskini.');
 
         return back();
+        
     }
 
     
