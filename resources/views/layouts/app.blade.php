@@ -111,11 +111,25 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a class="sidebar-link" href="/pdn">
                                 <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
                                     class="align-middle">Pemeriksaan Dalam Negara</span>
                             </a>
+                        </li> --}}
+                        <li class="sidebar-item">
+                            <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
+                                <i class="align-middle me-1 fas fa-fw fa-square-check"></i> <span class="align-middle">Pemeriksaan Dalam 
+                                   <br><span style="margin-left:26px;">Negara</span></span>
+                            </a>
+                            <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link" href="/pdn">Pemeriksaan Survelan Audit</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="#">Permohonan Eksport Luar Negara</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="#">Permohonan Eksport Selain Singapura</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="#">Permohonan Pemeriksaan Veterinar</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="#">Pemeriksaan Veterinar - Verifikasi Import Keratan Ayam</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="#">Pemeriksaan Susu Tepung</a></li>
+                            </ul>
                         </li>
                     @endrole
 

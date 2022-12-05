@@ -98,7 +98,7 @@ class SampelController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat pensampelan telah disimpan.');
 
-        return redirect('/pensampelan-pilihan');
+        return redirect('/pensampelan');
 
     }
 }

@@ -32,6 +32,7 @@
                             <thead class="text-white bg-info ">
                                 <tr>
                                     <th scope="col">No.</th>
+                                    <th scope="col">Nama Premis</th>
                                     <th scope="col">Kategori</th>
                                     <th scope="col">Kod Premis</th>
                                     <th scope="col">Zon</th>
@@ -88,6 +89,10 @@
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'premis',
+                        name: 'premis'
                     },
                     {
                         data: 'pilihan',
