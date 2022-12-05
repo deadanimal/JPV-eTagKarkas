@@ -74,10 +74,7 @@ class SampelController extends Controller
         } else {
             return view('sampel.borang-sampel2', compact('user','rumahs','sampels', 'pilihan'));
         }
-
-       
         
-        // return view('sampel.borang-sampel', compact('user','rumahs','sampels', 'pilihan'));
     }
 
     public function cipta_sampel(Request $request){
@@ -101,10 +98,6 @@ class SampelController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat pensampelan telah disimpan.');
 
-        // $utara['zon'] = $request->zon; 
-        // $selatan['premis'] = $request->premis; 
-
-        // return view('sampel.borang-sampel', compact('user','rumahs','utara'));
         return redirect('/pensampelan-pilihan');
 
     }

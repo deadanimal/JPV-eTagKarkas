@@ -154,6 +154,9 @@
                             <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">
                                 Kemaskini
                             </button>
+
+                            <a href="/pengguna" class="btn btn-primary mx-2" style="float: right">Kembali</a>
+
                         </div>
 
                        
@@ -182,6 +185,8 @@
                         </form>
                     </div>
                 </div>
+
+               
     
        
 
