@@ -27,10 +27,29 @@
                     <form action="/stok-tag" method="POST" enctype="multipart/form-data">
                         @csrf
 
+                        <div class="row mb-3">
+                            <div class="col-2">
+                                <label class="form-label">Premis</label>
+                            </div>
+                            <div class="col-10">
+                                <select class="form-select" aria-label="Default select example" name="nama_rumah" id="select_box"
+                                 required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Premis</option>
+                                    {{-- <option value="">DVS</option> --}}
+                                    
+                                    @foreach ($rumahs as $rumah)
+                                        <option value="{{ $rumah->nama_rumah }}">{{ $rumah->nama_rumah }}</option>
+                                    @endforeach
+                                    
+                                </select>
+                            </div>
+                        </div>
+
+
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Jumlah Tag Diterima</label>
                             <div class="col-xl-10">
-                                <input class="form-control" type="number" name="tag_diterima" id="tag_diterima" value=100
+                                <input class="form-control" type="number" name="tag_diterima" id="tag_diterima" value=0
                                     onchange="changeTag()" />
                             </div>
                         </div>
@@ -69,7 +88,9 @@
                         <div class="mb-3 row">
                             <label class="col-2 col-form-label">Catatan</label>
                             <div class="col-10">
-                                <textarea name="catatan" class="form-control" style="min-width: 100%" rows="5"></textarea>
+                                {{-- <textarea name="catatan" class="form-control" style="min-width: 100%" rows="5"></textarea> --}}
+                                <textarea class="form-control" name="catatan" cols="93" rows="5"
+                                onkeyup="this.value = this.value.toUpperCase();"></textarea>
                             </div>
                         </div>
 

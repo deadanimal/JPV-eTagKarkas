@@ -32,8 +32,10 @@
                             <thead class="text-white bg-info ">
                                 <tr>
                                     <th scope="col">No.</th>
+                                    {{-- use tarikh tindakan from tag --}}
+                                    <th scope="col">Nama Premis</th>
                                     <th scope="col">Tarikh Tag Diterima</th>
-                                    <th scope="col">Jumlah Tag Diterima</th>
+                                    <th scope="col">Bilangan Kodbar Dijana</th>
                                     <th scope="col">Tarikh Tag Rosak</th>
                                     <th scope="col">Jumlah Tag Rosak</th>                            
                                     <th scope="col">Jumlah Tag Bolehpakai</th>                            
@@ -87,6 +89,10 @@
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'nama_rumah',
+                        name: 'nama_rumah'
                     },
                     {
                         data: 'tarikh_tag_terima',
