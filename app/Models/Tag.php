@@ -15,5 +15,9 @@ class Tag extends Model
     
     public function rumah_sembelih() {
         return $this->belongsTo(RumahSembelih::class);
-    }     
+    }
+    public function stok_tag() {
+        return $this->hasMany(StokTag::class);
+    }  
+    
 }

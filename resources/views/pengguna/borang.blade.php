@@ -128,7 +128,7 @@
                             <div class="col-4">
                                 <input  style="width: 90%"  type="password" name="password" id="id_password" required
                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                oninput="this.setCustomValidity('')" />
+                                oninput="this.setCustomValidity('')" onkeyup='check();' />
                                 <i class="far fa-eye" id="togglePassword" style="margin-left: 10px; cursor: pointer;"></i>
 
                             </div>
@@ -141,8 +141,9 @@
                             <div class="col-4">
                                 <input style="width: 90%" type="password" name="verifiedpassword" id="id_verifiedpassword" required
                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                oninput="this.setCustomValidity('')" />
+                                oninput="this.setCustomValidity('')" onkeyup='check();' />
                                 <i class="far fa-eye" id="toggleVerifiedPassword" style="margin-left: 10px; cursor: pointer;"></i>
+                                <span id='message'></span>
 
                             </div>
 
@@ -259,6 +260,20 @@
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
     });
+</script>
+
+{{-- check pw --}}
+<script>
+    var check = function() {
+  if (document.getElementById('id_password').value ==
+    document.getElementById('id_verifiedpassword').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Katalaluan sah';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Katalaluan tidak sah';
+  }
+}
 </script>
 
 {{-- search in dropdown --}}

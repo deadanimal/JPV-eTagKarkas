@@ -16,6 +16,10 @@ class RumahSembelih extends Model
     public function tag() {
         return $this->hasMany(Tag::class);
     } 
+
+    public function stok_tag() {
+        return $this->hasMany(StokTag::class);
+    } 
     
     public function pemeriksaan() {
         return $this->hasMany(Pemeriksaan::class);

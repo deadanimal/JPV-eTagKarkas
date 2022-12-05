@@ -28,11 +28,18 @@
                         @method('PUT')
                         @csrf
 
+
+                        <div class="mb-3 row">
+                            <label class="col-xl-2 col-form-label">Nama Premis</label>
+                            <div class="col-xl-10">
+                                <input class="form-control" type="text"  maxlength="20" name="nama_rumah" value="{{$stok->nama_rumah}}" readonly />
+                            </div>
+                        </div>
+
                         <div class="mb-3 row">
                             <label class="col-xl-2 col-form-label">Jumlah Tag Diterima</label>
                             <div class="col-xl-10">
-                                <input class="form-control" type="number" name="tag_diterima" id="tag_diterima" value={{$stok->tag_diterima}}
-                                    onchange="changeTag()" />
+                                <input class="form-control" type="number" name="tag_diterima" id="tag_diterima" value={{$stok->tag_diterima}} onchange="changeTag()" />
                             </div>
                         </div>
 
