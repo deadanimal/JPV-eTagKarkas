@@ -124,11 +124,10 @@
                             </a>
                             <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/pdn">Pemeriksaan Survelan Audit</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="#">Permohonan Eksport Luar Negara</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="#">Permohonan Eksport Selain Singapura</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="#">Permohonan Pemeriksaan Veterinar</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="#">Pemeriksaan Veterinar - Verifikasi Import Keratan Ayam</a></li>
-                                <li class="sidebar-item"><a class="sidebar-link" href="#">Pemeriksaan Susu Tepung</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/eksport-luar">Permohonan Eksport ke Luar Negara</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/sijil-veterinar">Pemeriksaan Veterinar - Pengeluaran Sijil Veterinar</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/keratan">Pemeriksaan Veterinar - Verifikasi Import Keratan Ayam</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/susu-tepung">Pemeriksaan Susu Tepung</a></li>
                             </ul>
                         </li>
                     @endrole
