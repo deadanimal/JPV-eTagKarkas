@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\PemeriksaanDalamNegara;
 use Illuminate\Http\Request;
 use Alert;
+use App\Models\JadualNcsObr;
+use App\Models\NcsObr;
 use App\Models\SurvelanAudit;
 
 class PemeriksaanDalamNegaraController extends Controller
@@ -12,8 +14,11 @@ class PemeriksaanDalamNegaraController extends Controller
     //
     public function senarai(){
 
-        $jaduals = PemeriksaanDalamNegara::all();
-        return view('pdn.senarai', compact('jaduals'));
+        $jaduals = PemeriksaanDalamNegara::where('jenis_borang','survelan')->get();
+        $ncsobr = PemeriksaanDalamNegara::where('jenis_borang','ncr')->get();
+        $ncsobr2 = PemeriksaanDalamNegara::where('jenis_borang','obr')->get();
+
+        return view('pdn.senarai', compact('jaduals','ncsobr','ncsobr2'));
     }
 
     public function borang_survelan() {
@@ -127,8 +132,59 @@ class PemeriksaanDalamNegaraController extends Controller
         return back();
     }
 
-    public function borang_pemeriksa(){
-        return view('pdn.borang-pemeriksa');
+    public function borang_ncsobr() {
+
+        return view('pdn.borang_ncsobr');        
+    }
+
+    public function cipta_ncsobr(Request $request){
+
+        // $user = $request->user();
+       
+        $ncsobr =  New NcsObr;
+
+        // 
+        $ncsobr->zon = $request->zon;
+        $ncsobr->jenis_operasi = $request->jenis_operasi;
+        $ncsobr->jenis_borang = $request->jenis_borang;
+       
+        $ncsobr->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual NCS/OBR telah disimpan.');
+
+        return redirect('/pdn'); 
+
+    }
+
+    public function borang_pemeriksa(Request $request){
+        $id = (int)$request->route('id'); 
+        $ncrobr = NcsObr::find($id);
+        $ncr = JadualNcsObr::all();
+        return view('pdn.borang-pemeriksa',compact('ncr'));
+    }
+
+    public function cipta_jadual_ncr(Request $request){
+
+        $ncr = New JadualNcsObr();
+        $ncr->nombor_ic = $request->nombor_ic;
+        $ncr->company = $request->company;
+        $ncr->audit = $request->audit;
+        $ncr->categori = $request->categori;
+        $ncr->standard_reference = $request->standard_reference;
+        $ncr->clause = $request->clause;
+        $ncr->NC_statement = $request->NC_statement;
+        $ncr->objective_evidence = $request->objective_evidence;
+        $ncr->auditee_acknowledgement = $request->auditee_acknowledgement;
+        $ncr->auditor1_signature = $request->auditor1_signature;
+        $ncr->auditor2_signature = $request->auditor2_signature;
+        $ncr->auditor3_signature = $request->auditor3_signature;
+        $ncr->auditor4_signature = $request->auditor4_signature;
+
+        $ncr->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual NCR telah disimpan.');
+
+        return redirect('/pdn');
     }
 
     public function borang_log(){

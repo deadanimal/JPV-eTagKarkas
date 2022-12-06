@@ -97,7 +97,7 @@
                         <h5 class="card-title">Jadual Borang NCR</h5>
                     </div>
 
-                    <a href="/borang-pemeriksa" class="btn " style="width: fit-content"><button
+                    <a href="/borang_ncsobr" class="btn " style="width: fit-content"><button
                         class="btn btn-warning btn-block float-end">Tambah</button></a>
 
 
@@ -130,18 +130,19 @@
                                 </tr> --}}
 
                                 <tr>
-                                    @foreach ($jaduals as $jadual)
+                                    @foreach ($ncsobr as $ncsobr)
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$jadual->zon}}</td>
-                                    <td>{{$jadual->operasi}}</td>
-                                    <td>{{$jadual->created_at->format('d/m/Y')}}</td>
+                                    <td>{{$ncsobr->zon}}</td>
+                                    <td>{{$ncsobr->operasi}}</td>
+                                    <td>{{$ncsobr->pensijilan}}</td>
+                                    <td>{{$ncsobr->created_at->format('d/m/Y')}}</td>
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
                                     </td>
                                     <td>Dikemaskini/Dihantar/Selesai</td>
-                                    <td class="d-none d-md-table-cell text-center"><a href="/borang-pemeriksa/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
+                                    <td class="d-none d-md-table-cell text-center"><a href="/borang-pemeriksa/{{$ncsobr->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
                                        
 
                                 </tr>
@@ -161,7 +162,7 @@
                         <h5 class="card-title">Jadual Borang OBS</h5>
                     </div>
 
-                    <a href="/borang-pemeriksa" class="btn " style="width: fit-content"><button
+                    <a href="/borang_ncsobr" class="btn " style="width: fit-content"><button
                         class="btn btn-warning btn-block float-end">Tambah</button></a>
 
                     <div class="card-body"  style="border-width: 1px; border-color:black;">
@@ -174,7 +175,7 @@
                                     <th class="d-none d-md-table-cell" style="width:25%">Tarikh</th>
                                     <th style="width:10%">Tindakan</th>
                                     <th style="width:10%">Status</th>
-                                    <th style="width:10%">Jadual Survelan</th>
+                                    <th style="width:10%">Jadual OBR</th>
                                     
                                 </tr>
                             </thead>
@@ -193,18 +194,20 @@
                                 </tr> --}}
 
                                 <tr>
-                                    @foreach ($jaduals as $jadual)
+                                    @foreach ($ncsobr2 as $ncsobr)
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$jadual->zon}}</td>
-                                    <td>{{$jadual->operasi}}</td>
-                                    <td>{{$jadual->created_at->format('d/m/Y')}}</td>
+                                    <td>{{$ncsobr->zon}}</td>
+                                    <td>{{$ncsobr->operasi}}</td>
+                                    <td>{{$ncsobr->pensijilan}}</td>
+                                    <td>{{$ncsobr->ternakan}}</td>
+                                    <td>{{$ncsobr->created_at->format('d/m/Y')}}</td>
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
                                     </td>
                                     <td>Dikemaskini/Dihantar/Selesai</td>
-                                    <td class="d-none d-md-table-cell text-center"><a href="/borang-pemeriksa/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
+                                    <td class="d-none d-md-table-cell text-center"><a href="/borang-pemeriksa/{{$ncsobr->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
                                        
 
                                 </tr>
