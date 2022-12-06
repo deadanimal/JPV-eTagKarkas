@@ -135,5 +135,25 @@ class PemeriksaanDalamNegaraController extends Controller
         return view('pdn.borang-log');
     }
 
+    public function senarai_eksport_luar(){
+        return view('pdn.senarai_luar');
+    }
+
+    public function borang_adequacy(){
+        return view('pdn.borang-adequacy');
+    }
+
+    public function senarai_veterinar(){
+        return view('pdn.senarai_veterinar');
+    }
+
+    public function borang_sijil(){
+        return view('pdn.borang-sijil');
+    }
+
+    public function borang_semak(){
+        return view('pdn.borang-semak');
+    }
+
     
 }
