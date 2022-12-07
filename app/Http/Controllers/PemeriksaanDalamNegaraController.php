@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PemeriksaanDalamNegara;
 use Illuminate\Http\Request;
 use Alert;
+use App\Models\Exsport;
 use App\Models\JadualNcsObr;
 use App\Models\NcsObr;
 use App\Models\SurvelanAudit;
@@ -116,6 +117,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $id = (int)$request->route('id'); 
         $survelans = SurvelanAudit::find($id);
+        // dd($survelans);
 
         return view('pdn.kemaskini_jadual_survelan', compact('survelans'));
     }
@@ -215,12 +217,93 @@ class PemeriksaanDalamNegaraController extends Controller
         return view('pdn.borang-log');
     }
 
+    //exsport
     public function senarai_eksport_luar(){
-        return view('pdn.senarai_luar');
+
+        $exsports = Exsport::where('jenis','SINGAPURA')->get();
+        $exsports1 = Exsport::where('jenis','!=','SINGAPURA')->get();
+
+
+        return view('pdn.senarai_luar', compact('exsports','exsports1'));
     }
 
     public function borang_adequacy(){
-        return view('pdn.borang-adequacy');
+
+        $exsports = Exsport::all();
+
+        return view('pdn.borang-adequacy', compact('exsports'));
+    }
+
+    public function cipta_exsport(Request $request){
+
+        $exsp = New Exsport();
+        $exsp->nama = $request->nama;
+        $exsp->nombor = $request->nombor;
+        $exsp->tarikh = $request->tarikh;
+        $exsp->produk = $request->produk;
+        $exsp->daerah = $request->daerah;
+        $exsp->negeri = $request->negeri;
+        $exsp->zon = $request->zon;
+        $exsp->poskod = $request->poskod;
+        $exsp->alamat = $request->alamat;
+        $exsp->premis = $request->premis;
+        $exsp->tujuan = $request->tujuan;
+        $exsp->pemeriksa_1 = $request->pemeriksa_1;
+        $exsp->pemeriksa_2 = $request->pemeriksa_2;
+        $exsp->dokumen = $request->dokumen;
+        $exsp->jenis = $request->jenis;
+
+
+        $exsp->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual Exsport telah disimpan.');
+
+        return redirect('/eksport-luar');
+    }
+
+    public function kemaskini_exsport(Request $request){
+
+        $id = (int)$request->route('id'); 
+        $exsports = Exsport::find($id);
+        // dd($survelans);
+
+        return view('pdn.kemaskini_exsport', compact('exsports'));
+    }
+
+    public function simpan_kemaskini_exsport(Request $request){
+
+        $id = (int)$request->route('id'); 
+        $exsp = Exsport::find($id);
+
+        $exsp->nama = $request->nama;
+        $exsp->nombor = $request->nombor;
+        $exsp->tarikh = $request->tarikh;
+        $exsp->produk = $request->produk;
+        $exsp->daerah = $request->daerah;
+        $exsp->negeri = $request->negeri;
+        $exsp->zon = $request->zon;
+        $exsp->poskod = $request->poskod;
+        $exsp->alamat = $request->alamat;
+        $exsp->premis = $request->premis;
+        $exsp->tujuan = $request->tujuan;
+        $exsp->pemeriksa_1 = $request->pemeriksa_1;
+        $exsp->pemeriksa_2 = $request->pemeriksa_2;
+        $exsp->dokumen = $request->dokumen;
+        $exsp->jenis = $request->jenis;
+
+        $exsp->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual maklumat Exsport telah dikemaskini.');
+
+        return redirect('/eksport-luar');
+    }
+
+    public function padam_exsport(Request $request){
+        $id = (int)$request->route('id'); 
+        $exsport = Exsport::find($id);
+        $exsport->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return back();
     }
 
     public function senarai_veterinar(){
