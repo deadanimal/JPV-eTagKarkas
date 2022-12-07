@@ -12,8 +12,8 @@
             </h1>
 
             @role('pentadbir')
-            <a href="/borang-sijil" class="btn float-end " style="width: fit-content"><button
-            class="btn btn-warning btn-block">Tambah</button></a>
+            {{-- <a href="/borang-sijil" class="btn float-end " style="width: fit-content"><button
+            class="btn btn-warning btn-block">Tambah</button></a> --}}
             @endrole
 
         </div>
@@ -31,6 +31,9 @@
                         <h5 class="card-title">Senarai Permohonan Pemeriksaan SKV</h5>
                     </div>
 
+                    <a href="/borang-sijil" class="btn float-end " style="width: fit-content"><button
+                        class="btn btn-warning btn-block">Tambah</button></a>
+
                     <div class="card-body"  style="border-width: 1px; border-color:black;">
                         <table class="table table-bordered">
                             <thead>
@@ -47,7 +50,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                {{-- <tr>
                                     <td>CP/20222/1</td>
                                     <td>Premis A bagi Produk Telur</td>
                                     <td class="d-none d-md-table-cell">1/12/22</td>
@@ -56,32 +59,37 @@
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
+                                        <a href="#"><i class="align-middle fas fa-fw fa-upload"></i></a>
                                     </td>
     
-                                </tr>
+                                </tr> --}}
 
-                                {{-- <tr>
-                                    @foreach ($jaduals as $jadual)
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$jadual->zon}}</td>
-                                    <td>{{$jadual->operasi}}</td>
-                                    <td>{{$jadual->created_at->format('d/m/Y')}}</td>
+                                <tr>
+                                    @foreach ($vets as $vet)
+                                    <td>CP/2022/{{$loop->iteration}}</td>
+                                    <td>{{$vet->premis}}</td>
+                                    <td>{{$vet->created_at->format('d/m/Y')}}</td>
+                                    <td>{{$vet->pemeriksa_1}}</td>
+                                    <td>Dihantar/Selesai</td>
                                     <td class="table-action">
-                                        <a href="kemaskini_jadual_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/padam_survelan/{{ $jadual->id }}" method="post">
+                                        <a href="/satu-sijil/{{$vet->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                        <form action="/sijil/{{ $vet->id }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
+
                                         </form>
+                                        {{-- <a href="#"><i class="align-middle fas fa-fw fa-upload"></i></i></a> --}}
+
+            
                                     </td>
-                                    <td>Dihantar/Selesai</td>
-                                    <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
+                                    
+                                    {{-- <td class="d-none d-md-table-cell text-center"><a href="/sijil/{{$vet->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td> --}}
                                        
 
                                 </tr>
 
-                                    @endforeach --}}
+                                    @endforeach
                               
                             </tbody>
                         </table>
@@ -117,8 +125,7 @@
                                     <td class="d-none d-md-table-cell">1/12/22</td>
                                     <td>Kemaskini/Dihantar/Tidak Lengkap</td>
                                     <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                        <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
                                     </td>
     
