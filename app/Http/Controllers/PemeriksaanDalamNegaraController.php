@@ -13,7 +13,8 @@ class PemeriksaanDalamNegaraController extends Controller
 {
     //
     public function senarai(){
-
+        
+        // $jaduals = SurvelanAudit::where('pdn_id')->get();
         $jaduals = PemeriksaanDalamNegara::where('jenis_borang','survelan')->get();
         $ncsobr = PemeriksaanDalamNegara::where('jenis_borang','ncr')->get();
         $ncsobr2 = PemeriksaanDalamNegara::where('jenis_borang','obr')->get();
@@ -30,7 +31,8 @@ class PemeriksaanDalamNegaraController extends Controller
 
     public function cipta_survelan(Request $request){
 
-        // $user = $request->user();
+        $user = $request->user();
+        $id = (int)$request->route('id');
        
         $survelan = New PemeriksaanDalamNegara;
 
@@ -39,8 +41,20 @@ class PemeriksaanDalamNegaraController extends Controller
         $survelan->pensijilan = $request->pensijilan;
         $survelan->operasi = $request->operasi;
         $survelan->ternakan = $request->ternakan;
-       
+        $survelan->jenis_borang = $request->jenis_borang;
         $survelan->save();
+
+
+        $survelan2  = New SurvelanAudit;
+        $survelan2->pdn_id = $survelan->id;
+
+        $survelan3  = New JadualNcsObr;
+        $survelan3->pdn_id = $survelan->id;
+       
+        // dd($survelan);
+        $survelan2->save();
+        // dd($survelan2->pdn->id);
+        $survelan3->save();
 
         Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
 
@@ -52,19 +66,26 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $user = $request->user();
         $id = (int)$request->route('id');
+        
 
-        $jadual = PemeriksaanDalamNegara::find($id);
+        $jaduals = SurvelanAudit::all();
+        // dd($jadual);
 
         // jadual survelan probably using same blade for VHM and MyGap and display
         // depends on selected jenis operasi, p4(semak) and p6(isi) will update the borang status
         // and pass to p1
 
-        return view('pdn.jadual-survelan');        
+        return view('pdn.jadual-survelan', compact('jaduals', 'id'));        
     }
 
     public function cipta_survelan_audit(Request $request){
 
-        $survelans = New SurvelanAudit();
+        $id = (int)$request->route('id'); 
+        // $survelans = PemeriksaanDalamNegara::find($id);
+        $survelans = SurvelanAudit::where('pdn_id', $id)->first();
+        // dd($survelans);
+
+        // $survelans = New SurvelanAudit();
         $survelans->nombor = $request->nombor;
         $survelans->premis = $request->premis;
         $survelans->telefon = $request->telefon;
@@ -80,8 +101,11 @@ class PemeriksaanDalamNegaraController extends Controller
         $survelans->pemeriksa_3 = $request->pemeriksa_3;
         $survelans->pemeriksa_4 = $request->pemeriksa_4;
         $survelans->catatan = $request->catatan;
+        // $survelans->pdn_id = $request->pdn_id;
+
 
         $survelans->save();
+        // $survelan2->save();
 
         Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
 

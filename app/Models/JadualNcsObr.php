@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class JadualNcsObr extends Model
 {
     use HasFactory;
+
+    public function pdn() {
+        return $this->belongsTo(PemeriksaanDalamNegara::class);
+    } 
 }
