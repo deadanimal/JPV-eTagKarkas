@@ -25,7 +25,8 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="/cipta_survelan_audit" method="POST" enctype="multipart/form-data">
+                                <form action="/cipta_survelan_audit/{{$id}}" method="POST" enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
             
                                     <div class="mb-3">
@@ -291,17 +292,18 @@
                             </thead>
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td>1</td>
-                                    <td>premis</td>
-                                    <td>ALAMAT</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>pahang</td>
-                                    
-                                </tr>
+                                @foreach ($jaduals as $jaduals)
+                                    <tr class="text-center">
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$jaduals->nombor}}</td>
+                                        <td>{{$jaduals->premis}}</td>
+                                        <td>{{$jaduals->telefon}}</td>
+                                        <td>{{$jaduals->pemeriksa_1}}</td>
+                                        <td>{{$jaduals->pemeriksa_2}}</td>
+                                        <td>{{$jaduals->pemeriksa_3}}</td>
+                                        <td>{{$jaduals->pemeriksa_4}}</td>  
+                                    </tr>
+                                @endforeach
 
 
                             </tbody>
@@ -309,12 +311,12 @@
 
 
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <button class="btn btn-primary" type="submit" title="Kemaskini"
                                 style="float: left">Simpan</button>
                             <button class="btn btn-success" type="submit" title="Hantar"
                                 style="float: right">Hantar</button>
-                        </div>
+                        </div> --}}
 
                     </div>
 

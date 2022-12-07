@@ -12,4 +12,12 @@ class PemeriksaanDalamNegara extends Model
     public function users() {
         return $this->belongsTo(User::class);
     }
+
+    public function survelan(){
+        return $this->hasMany(SurvelanAudit::class);
+    }
+
+    public function ncrobr(){
+        return $this->hasMany(JadualNcsObr::class);
+    }
 }
