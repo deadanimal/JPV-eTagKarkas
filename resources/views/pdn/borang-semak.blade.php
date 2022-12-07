@@ -19,7 +19,7 @@
                 <div class="card-body">
 
                     <div class="col-12 col-xl-12">
-                        <div class="card">
+                        <div class="card border border-dark">
                             <div class="card-header">
                                 <h5 class="card-title">A. Maklumat Pemeriksaan: </h5>
                             </div>
@@ -178,7 +178,7 @@
                                 {{-- <h5 class="card-title">B. Keperluan Negara Pengimport: </h5> --}}
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body border border-dark">
                                 <form action="#" method="POST" enctype="multipart/form-data">
                                     @csrf
             
@@ -303,7 +303,7 @@
                                 {{-- <h5 class="card-title">B. Keperluan Negara Pengimport: </h5> --}}
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body border border-dark">
                                 <form action="#" method="POST" enctype="multipart/form-data">
                                     @csrf
             
@@ -587,7 +587,7 @@
             
                                                         <br>
             
-                                                        <h5 class="card-title">M. Ulasan Pemeriksa: </h5>
+                                                        <h5 class="card-title">M. Ulasan Pemeriksa(Pengesyoran): </h5>
             
                                                         
                                                         <div class="col-6">
@@ -603,19 +603,126 @@
                                                     </div>   
                                                 
                                                 </div>
-    
-                                                        
+
+                                                <div class="row">
+                                                    <div class="col md-6 ms-auto">
+                                                   
+                                                        <br>
+            
+                                                        <div class="col-6">
+                                                            <label class="form-label">Tandatangan Pemeriksa 1</label>
+                                                        </div>
+                                                        <div class="">
+                                                            
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                           
+                                                        </div>
+            
+                        
+                                                        <div class="col-6">
+                                                            <label class="form-label">Tandatangan Pemeriksa 2</label>
+                                                        </div>
+                                                        <div >
+                                                           
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                          
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <label class="form-label">Tandatangan Pemeriksa 3</label>
+                                                        </div>
+                                                        <div>
+                                                           
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                           
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <label class="form-label">Tandatangan Pemeriksa 4</label>
+                                                        </div>
+                                                        <div>
+                                                           
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                            
+                                                        </div>
+            
+                                                        <br>
+            
+                                                    </div>
+
+                                                    <div class="col md-6 ms-auto">
+                                                   
+                                                        <br>
+            
+                                                        <div class="col-6">
+                                                            <label class="form-label">Cop Pemeriksa 1</label>
+                                                        </div>
+                                                        <div class="">
+                                                            
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                           
+                                                        </div>
+            
+                        
+                                                        <div class="col-6">
+                                                            <label class="form-label">Cop Pemeriksa 2</label>
+                                                        </div>
+                                                        <div >
+                                                           
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                          
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <label class="form-label">Cop Pemeriksa 3</label>
+                                                        </div>
+                                                        <div>
+                                                           
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                           
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <label class="form-label">Cop Pemeriksa 4</label>
+                                                        </div>
+                                                        <div>
+                                                           
+                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                                oninput="this.setCustomValidity('')"></textarea>
+                                                            
+                                                        </div>
+            
+                                                        <br>
+            
+                                                    </div>
+                                                </div>
+               
                                             </form>
                                         </div>
                
                                     </div>
         
                                     {{-- Button --}}
-                                    {{-- <div class="row">
+                                    <div class="row">
                                         <div class="mb-3">
                                             <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button>
                                         </div>
-                                    </div>   --}}
+                                    </div>  
                                             
                                 </form>
                             </div>
