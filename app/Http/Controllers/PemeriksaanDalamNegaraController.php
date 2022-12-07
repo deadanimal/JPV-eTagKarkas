@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PemeriksaanDalamNegara;
+use App\Models\SijilVeterinar;
 use Illuminate\Http\Request;
 use Alert;
 use App\Models\JadualNcsObr;
@@ -211,6 +212,7 @@ class PemeriksaanDalamNegaraController extends Controller
         return redirect('/pdn');
     }
 
+
     public function borang_log(){
         return view('pdn.borang-log');
     }
@@ -224,11 +226,93 @@ class PemeriksaanDalamNegaraController extends Controller
     }
 
     public function senarai_veterinar(){
-        return view('pdn.senarai_veterinar');
+
+        $vets = SijilVeterinar::all();
+        return view('pdn.senarai_veterinar', compact('vets'));
     }
+
+    
 
     public function borang_sijil(){
         return view('pdn.borang-sijil');
+    }
+
+    public function cipta_sijil(Request $request){
+
+        $sijil = New SijilVeterinar();
+        $sijil->premis = $request->premis;
+        $sijil->telefon = $request->telefon;
+        $sijil->emel = $request->emel;
+        $sijil->faks = $request->faks;
+        $sijil->web = $request->web;
+        $sijil->alamat = $request->alamat;
+        $sijil->zon = $request->zon;
+        $sijil->negeri = $request->negeri;
+        $sijil->daerah = $request->daerah;
+        $sijil->poskod = $request->poskod;
+        $sijil->klasifikasi = $request->klasifikasi;
+        $sijil->kaedah = $request->kaedah;
+        $sijil->jenis_produk = $request->jenis_produk;
+        $sijil->negara_eksport = $request->negara_eksport;
+        $sijil->pemeriksa_1 = $request->pemeriksa_1;
+        $sijil->pemeriksa_2 = $request->pemeriksa_2;
+        $sijil->pemeriksa_3 = $request->pemeriksa_3;
+        $sijil->pemeriksa_4 = $request->pemeriksa_4;
+        $sijil->catatan = $request->catatan;
+
+        $sijil->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah disimpan.');
+
+        return redirect('/sijil-veterinar');
+
+    }
+
+    public function padam_sijil(Request $request){
+        $id = (int)$request->route('id'); 
+        $sijil = SijilVeterinar::find($id);
+        $sijil->delete();
+        alert()->success('Maklumat berjaya dibuang', 'Berjaya');
+        return back();
+    }
+
+    public function satu_sijil(Request $request) {
+        $id = (int)$request->route('id');
+        $sijil = SijilVeterinar::find($id);        
+        return view('pdn.satu-sijil', compact('sijil'));
+    }
+
+    public function kemaskini_sijil(Request $request){
+        $id = (int)$request->route('id'); 
+
+        $sijil = SijilVeterinar::find($id);        
+
+        $sijil->premis = $request->premis;
+        $sijil->telefon = $request->telefon;
+        $sijil->emel = $request->emel;
+        $sijil->faks = $request->faks;
+        $sijil->web = $request->web;
+        $sijil->alamat = $request->alamat;
+        $sijil->zon = $request->zon;
+        $sijil->negeri = $request->negeri;
+        $sijil->daerah = $request->daerah;
+        $sijil->poskod = $request->poskod;
+        $sijil->klasifikasi = $request->klasifikasi;
+        $sijil->kaedah = $request->kaedah;
+        $sijil->jenis_produk = $request->jenis_produk;
+        $sijil->negara_eksport = $request->negara_eksport;
+        $sijil->pemeriksa_1 = $request->pemeriksa_1;
+        $sijil->pemeriksa_2 = $request->pemeriksa_2;
+        $sijil->pemeriksa_3 = $request->pemeriksa_3;
+        $sijil->pemeriksa_4 = $request->pemeriksa_4;
+        $sijil->catatan = $request->catatan;
+
+        $sijil->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah dikemaskini.');
+
+        return redirect('/sijil-veterinar');
+
     }
 
     public function borang_semak(){

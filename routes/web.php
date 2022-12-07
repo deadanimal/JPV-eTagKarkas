@@ -135,8 +135,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('eksport-luar', [PemeriksaanDalamNegaraController::class, 'senarai_eksport_luar']);
     Route::get('borang-adequacy', [PemeriksaanDalamNegaraController::class, 'borang_adequacy']);
+
     Route::get('sijil-veterinar', [PemeriksaanDalamNegaraController::class, 'senarai_veterinar']);
     Route::get('borang-sijil', [PemeriksaanDalamNegaraController::class, 'borang_sijil']);
+    Route::post('sijil', [PemeriksaanDalamNegaraController::class, 'cipta_sijil']);
+    Route::delete('sijil/{id}', [PemeriksaanDalamNegaraController::class, 'padam_sijil']);
+    Route::get('satu-sijil/{id}', [PemeriksaanDalamNegaraController::class, 'satu_sijil']);
+    Route::put('kemaskini-sijil/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_sijil']);
+
+
+
+
     Route::get('borang-semak', [PemeriksaanDalamNegaraController::class, 'borang_semak']);
 
     Route::get('keratan', [PemeriksaanDalamNegaraController::class, 'senarai_keratan']);
