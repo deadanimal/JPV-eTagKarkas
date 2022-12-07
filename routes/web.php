@@ -140,7 +140,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('borang-semak', [PemeriksaanDalamNegaraController::class, 'borang_semak']);
 
     Route::get('keratan', [PemeriksaanDalamNegaraController::class, 'senarai_keratan']);
+    Route::get('borang-keratan', [PemeriksaanDalamNegaraController::class, 'borang_keratan']);
+    Route::get('borang-verifikasi', [PemeriksaanDalamNegaraController::class, 'borang_verifikasi']);
+
     Route::get('susu-tepung', [PemeriksaanDalamNegaraController::class, 'senarai_susu']);
+    Route::get('borang-susu', [PemeriksaanDalamNegaraController::class, 'borang_susu']);
+    Route::get('borang-perakuan', [PemeriksaanDalamNegaraController::class, 'borang_perakuan']);
+
 
 
 
