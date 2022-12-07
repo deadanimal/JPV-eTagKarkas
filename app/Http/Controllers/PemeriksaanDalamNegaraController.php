@@ -211,5 +211,29 @@ class PemeriksaanDalamNegaraController extends Controller
         return view('pdn.borang-semak');
     }
 
+    public function senarai_keratan(){
+        return view('pdn.senarai_keratan');
+    }
+
+    public function borang_keratan(){
+        return view('pdn.borang-keratan');
+    }
+
+    public function borang_verifikasi(){
+        return view('pdn.borang-verifikasi');
+    }
+
+    public function senarai_susu(){
+        return view('pdn.senarai_susu');
+    }
+
+    public function borang_susu(){
+        return view('pdn.borang_susu');
+    }
+
+    public function borang_perakuan(){
+        return view('pdn.borang-perakuan');
+    }
+
     
 }
