@@ -37,7 +37,7 @@
                                             <div class="col-4">
                                                 <input class="form-control" type="number" name="nombor" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->nombor}}"/>
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->nombor ?? " "}}"/>
                                             </div>
 
                                             <div class="col-2">
@@ -46,7 +46,7 @@
                                             <div class="col-4">
                                                 <input class="form-control" type="text" name="premis" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" value="{{$survelans->premis}}"/>
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->premis ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -55,7 +55,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="number" name="telefon" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->telefon}}"/>
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->telefon ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -64,7 +64,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="email" name="email" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" value="{{$survelans->email}}"/>
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->email ?? " "}}"/>
                                             </div>
 
                                             <div class="col-2 mt-3">
@@ -73,7 +73,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="number" name="fax" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->fax}}"/>
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$survelans->fax ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -82,7 +82,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="web" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" value="{{$survelans->web}}"/>
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->web ?? " "}}"/>
                                             </div>
 
                                         </div>
@@ -95,7 +95,7 @@
                                             <div class="col-4">
                                                 <input class="form-control" type="text" name="jenis_produk" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" value="{{$survelans->jenis_produk}}"/>
+                                                oninput="this.setCustomValidity('')" value="{{$survelans->jenis_produk ?? " "}}"/>
                                             </div>
                                         </div>
                                         
@@ -106,7 +106,7 @@
                                             <div class="col-10">
                                                 <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" readonly
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')">{{$survelans->alamat}}</textarea>
+                                                oninput="this.setCustomValidity('')">{{$survelans->alamat ?? " "}}</textarea>
                                             </div>
                                         </div>
             
@@ -216,7 +216,7 @@
                                         <div class="col-10">
                                             <textarea class="form-control" rows=5 name="catatan" onkeyup="this.value = this.value.toUpperCase();" readonly
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')">{{$survelans->catatan}}</textarea>
+                                            oninput="this.setCustomValidity('')">{{$survelans->catatan ?? " "}}</textarea>
                                         </div>
                                     </div>
             

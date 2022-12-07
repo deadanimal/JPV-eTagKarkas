@@ -21,11 +21,12 @@
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Borang Adequacy Audit</h5>
+                                <h5 class="card-title">Borang Kemaskini Adequacy Audit</h5>
                             </div>
 
                             <div class="card-body">
-                                <form action="/cipta_exsport" method="POST" enctype="multipart/form-data">
+                                <form action="/simpan_kemaskini_exsport/{{$exsports->id}}" method="POST" enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
             
                                     <div class="mb-3">
@@ -38,7 +39,7 @@
                                             <div class="col-4">
                                                 <input class="form-control" type="text" name="nama" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$exsports->nama ?? " "}}"/>
                                             </div>
                                             <div class="col-2">
                                                 <label class="form-label">Nombor VHM</label>
@@ -46,7 +47,7 @@
                                             <div class="col-4">
                                                 <input class="form-control" type="number" name="nombor" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->nombor ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -64,7 +65,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="produk" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$exsports->produk ?? " "}}"/>
                                             </div>
 
                                             <div class="col-2 mt-3">
@@ -73,7 +74,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="daerah" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->daerah ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -82,7 +83,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="negeri" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$exsports->negeri ?? " "}}"/>
                                             </div>
 
 
@@ -92,7 +93,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="number" name="zon" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->zon ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -101,7 +102,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="number" name="poskod" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$exsports->poskod ?? " "}}"/>
                                             </div>
 
                                         </div>
@@ -113,7 +114,7 @@
                                             <div class="col-10">
                                                 <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')"></textarea>
+                                                oninput="this.setCustomValidity('')">{{$exsports->alamat ?? " "}}</textarea>
                                             </div>
                                         </div>
 
@@ -124,7 +125,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="premis" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->poskod ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -225,64 +226,6 @@
                             </div>
    
                         </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Jadual Permohonan Eksport ke Luar Negara</h5>
-                </div>
-
-                <div class="card-body">
-                    <div class="col">
-                        <table class="table table-bordered line-table text-center" style="width: 100%">
-                            <thead class="text-black">
-
-                                <tr>
-                                    <th colspan="16">JADUAL PERMOHONAN EKSPORT KE LUAR NEGARA TAHUN 2022</th>
-                                    {{-- after AUDIT, need to specify MyGap or VHM --}}
-                                </tr>
-                                <tr style="vertical-align: middle">
-                                    <th>BIL</th>
-                                    <th>NAMA LOJI</th>
-                                    <th>ALAMAT PREMIS</th>
-                                    <th>NAMA PEMERIKSA ADEQUACY 1</th>
-                                    <th>NAMA PEMERIKSA ADEQUACY 2</th>
-                                    <th>NEGERI</th>  
-                                    <th style="width:25%">AKTIVITI</th>  
-                                </tr>
-                                <tr>
-                                <th colspan="16">Zon</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach ($exsports as $exsport)
-                                    <tr class="text-center">
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$exsport->nama}}</td>
-                                        <td>{{$exsport->alamat}}</td>
-                                        <td>{{$exsport->pemeriksa_1}}</td>
-                                        <td>{{$exsport->pemeriksa_2}}</td>
-                                        <td>{{$exsport->negeri}}</td>
-                                        <td></td> 
-                                        
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
-                        {{-- <div class="mb-3">
-                            <button class="btn btn-primary" type="submit" title="Kemaskini"
-                                style="float: left">Simpan</button>
-                            <button class="btn btn-success" type="submit" title="Hantar"
-                                style="float: right">Hantar</button>
-                        </div> --}}
-
                     </div>
 
                 </div>

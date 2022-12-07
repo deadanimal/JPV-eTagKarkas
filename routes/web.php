@@ -133,8 +133,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('cipta_jadual_ncr', [PemeriksaanDalamNegaraController::class, 'cipta_jadual_ncr']);
 
 
+    //exsport
     Route::get('eksport-luar', [PemeriksaanDalamNegaraController::class, 'senarai_eksport_luar']);
     Route::get('borang-adequacy', [PemeriksaanDalamNegaraController::class, 'borang_adequacy']);
+
+    Route::post('cipta_exsport', [PemeriksaanDalamNegaraController::class, 'cipta_exsport']);
+    Route::get('kemaskini_exsport/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_exsport']);
+    Route::put('simpan_kemaskini_exsport/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_exsport']);
+    Route::delete('padam_exsport/{id}', [PemeriksaanDalamNegaraController::class, 'padam_exsport']);
+
+
 
     Route::get('sijil-veterinar', [PemeriksaanDalamNegaraController::class, 'senarai_veterinar']);
     Route::get('borang-sijil', [PemeriksaanDalamNegaraController::class, 'borang_sijil']);

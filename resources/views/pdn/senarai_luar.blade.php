@@ -36,33 +36,40 @@
                             <thead>
                                 <tr>
                                     <th style="width:5%;">No</th>
-                                    <th style="width:25%">Jenis Operasi</th>
-                                    <th style="width:10%">Kawasan Pemeriksaan</th>
-                                    <th style="width:15%">Pemeriksa Adequacy Audit</th>
-                                    <th style="width:10%">Pemeriksa</th>
-                                    <th style="width:10%">Status</th>
-                                    <th style="width:10%">Tindakan</th>
-
-                                    {{-- <th style="width:10%">Jadual Survelan</th> --}}
-                                    
+                                    <th style="width:25%">Nama</th>
+                                    <th style="width:10%">Produk</th>
+                                    <th style="width:15%">Negeri</th>
+                                    <th style="width:10%">Zon</th>
+                                    <th style="width:10%">Premis</th>
+                                    <th style="width:10%">Tarikh</th>
+                                    <th style="width:10%">Pemeriksa_1</th>
+                                    <th style="width:10%">Pemeriksa_2</th>
+                                    <th style="width:10%">Tindakan</th>                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Loji A bagi Produk Telur</td>
-                                    {{-- <td class="d-none d-md-table-cell">1/12/22</td> --}}
-                                    <td>Loji</td>
-                                    <td>Izatul Hanim</td>
-                                    <td>Izatul Hanim</td>
-                                    <td>Kemaskini/Dihantar/Tidak Lengkap</td>
-                                    <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
-                                    </td>
-    
-                                </tr>
+                                @foreach ($exsports as $exsport)
+                                    <tr class="text-center">
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$exsport->nama}}</td>
+                                        <td>{{$exsport->produk}}</td>
+                                        <td>{{$exsport->negeri}}</td>
+                                        <td>{{$exsport->zon}}</td>
+                                        <td>{{$exsport->premis}}</td>
+                                        <td>{{$exsport->tarikh}}</td>
+                                        <td>{{$exsport->pemeriksa_1}}</td> 
+                                        <td>{{$exsport->pemeriksa_2}}</td>  
+                                        <td class="table-action">
+                                            <a href="kemaskini_exsport/{{$exsport->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                            <form action="/padam_exsport/{{ $exsport->id }}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
+                                            </form>
+                                            {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                                 {{-- <tr>
                                     @foreach ($jaduals as $jadual)
@@ -97,40 +104,50 @@
                     <div class="card-header">
                         <h5 class="card-title">Senarai Permohonan Eksport Selain ke Singapura</h5>
                     </div>
+                    @role('pentadbir')
+                    <a href="/borang-adequacy" class="btn float-end " style="width: fit-content"><button
+                    class="btn btn-warning btn-block">Tambah</button></a>
+                    @endrole
 
                     <div class="card-body"  style="border-width: 1px; border-color:black;">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th style="width:5%;">No</th>
-                                    <th style="width:25%">Jenis Operasi</th>
-                                    <th style="width:10%">Kawasan Pemeriksaan</th>
-                                    <th style="width:15%">Pemeriksa Adequacy Audit</th>
-                                    <th style="width:10%">Pemeriksa</th>
-                                    <th style="width:10%">Negara</th>
-                                    <th style="width:10%">Status</th>
+                                    <th style="width:25%">Nama</th>
+                                    <th style="width:10%">Produk</th>
+                                    <th style="width:15%">Negeri</th>
+                                    <th style="width:10%">Zon</th>
+                                    <th style="width:10%">Premis</th>
+                                    <th style="width:10%">Tarikh</th>
+                                    <th style="width:10%">Pemeriksa_1</th>
+                                    <th style="width:10%">Pemeriksa_2</th>
                                     <th style="width:10%">Tindakan</th>
-
-                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Loji A bagi Produk Telur</td>
-                                    {{-- <td class="d-none d-md-table-cell">1/12/22</td> --}}
-                                    <td>Loji</td>
-                                    <td>Izatul Hanim</td>
-                                    <td>Izatul Hanim</td>
-                                    <td>Australia</td>
-                                    <td>Kemaskini/Dihantar/Tidak Lengkap</td>
-                                    <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
-                                    </td>
-    
-                                </tr>
+                                @foreach ($exsports1 as $exsport)
+                                    <tr class="text-center">
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$exsport->nama}}</td>
+                                        <td>{{$exsport->produk}}</td>
+                                        <td>{{$exsport->negeri}}</td>
+                                        <td>{{$exsport->zon}}</td>
+                                        <td>{{$exsport->premis}}</td>
+                                        <td>{{$exsport->tarikh}}</td>
+                                        <td>{{$exsport->pemeriksa_1}}</td> 
+                                        <td>{{$exsport->pemeriksa_2}}</td>  
+                                        <td class="table-action">
+                                            <a href="kemaskini_exsport/{{$exsport->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                            <form action="/padam_exsport/{{ $exsport->id }}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
+                                            </form>
+                                            {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                                 {{-- <tr>
                                     @foreach ($jaduals as $jadual)
@@ -159,17 +176,7 @@
                     </div>
                 </div>
             </div>
-
-         
-
-
-
-            
-
-
     </div>
-
-
 
 </main>
 
