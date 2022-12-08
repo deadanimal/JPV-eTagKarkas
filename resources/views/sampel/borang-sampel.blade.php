@@ -119,6 +119,30 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="tahun">Pemeriksa 1</label>
+                                    <select class="form-select" aria-label="Default select example" name="pemeriksa_1" id="rumah" required
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Pemeriksa</option>
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->name }}" >{{ $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="inputAddress">Pemeriksa 2</label>
+                                    <select class="form-select" aria-label="Default select example" name="pemeriksa_2" id="rumah" required
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Pemeriksa</option>
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->name }}" >{{ $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <button type="submit" class="btn btn-warning align-middle me-2 fa-plus"
                                 style="float: right"><span style="padding-left: 10px;">Tambah</span></button>
                         </form>

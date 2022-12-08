@@ -30,7 +30,7 @@
                         <h5 class="card-title mb-0">Rumah Sembelih Ruminan Besar</h5>
                     </div>
                     <div class="card-body">
-                        <a href="/pensampelan/pilihan/Ruminan_Besar" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/pilihan/Ruminan Besar" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                         <h5 class="card-title mb-0">Rumah Sembelih Ruminan Kecil</h5>
                     </div>
                     <div class="card-body">
-                        <a href="/pensampelan/pilihan/Ruminan_Kecil" class="btn btn-primary">Pilih</a>
+                        <a href="/pensampelan/pilihan/Ruminan Kecil" class="btn btn-primary">Pilih</a>
                     </div>
                 </div>
             </div>

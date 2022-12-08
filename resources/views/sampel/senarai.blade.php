@@ -11,17 +11,16 @@
                 <h1 class="header-title">
                     Pensampelan
                 </h1>
+
+                <h6 class="text-white">Jadual Pensampelan</h6>
+
                 <a href="/pensampelan-pilihan" class="btn float-end " style="width: fit-content"><button
                         class="btn btn-warning btn-block text-center">Tambah</button></a>
-
-
             </div>
-
 
             <div class="card" style="width: fit-content">
 
             </div>
-
 
             <div class="card">
                 <div class="card-body">
@@ -36,10 +35,9 @@
                                     <th scope="col">Kategori</th>
                                     <th scope="col">Kod Premis</th>
                                     <th scope="col">Zon</th>
-                                    {{-- <th scope="col">Pengambil Sampel 1</th>
-                                    <th scope="col">Pengambil Sampel 2</th>
-                                    <th scope="col">Tarikh</th> --}}
-                                    <th scope="col">Tindakan</th>
+                                    <th scope="col">Pemeriksa 1</th>
+                                    <th scope="col">Pemeriksa 2</th>
+                                    {{-- <th scope="col">Tindakan</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -106,14 +104,22 @@
                         data: 'zon',
                         name: 'zon'
                     },
+                    {
+                        data: 'pemeriksa_1',
+                        name: 'pemeriksa_1'
+                    },
+                    {
+                        data: 'pemeriksa_2',
+                        name: 'pemeriksa_2'
+                    },
                     // {
                     //     data: 'created_at',
                     //     name: 'created_at'
                     // },
-                    {
-                        data: 'tindakan',
-                        name: 'tindakan'
-                    },
+                    // {
+                    //     data: 'tindakan',
+                    //     name: 'tindakan'
+                    // },
                                                   
                    
 
