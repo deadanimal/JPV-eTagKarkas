@@ -20,7 +20,7 @@ class SampelController extends Controller
 
         $user = $request->user();
 
-        $sampels = Sampel::all();
+        $sampels = Sampel::orderBy('created_at', 'desc')->get();
         if($request->ajax()) {
             return DataTables::collection($sampels)
             ->addIndexColumn()
@@ -60,19 +60,21 @@ class SampelController extends Controller
         
         $user = $request->user();
         // $sampel = Sampel::find($id); 
+        $users = User::all();
         $rumahs = RumahSembelih::all();
+        $sampels = Sampel::where('pilihan', $pilihan)->get();
+
         // $sampels = Sampel::find($id);
         // $params = $request->query->all();
         // foreach ($params as $key => $p) {
         //     $jenis_haiwan = $p;
         // }
 
-        $sampels = Sampel::where('pilihan', $pilihan)->get();
         
-        if ($pilihan == "Ayam" || $pilihan =="Ruminan_Besar" || $pilihan =="Ruminan_Kecil" || $pilihan =="Babi"){
-            return view('sampel.borang-sampel', compact('user','rumahs','sampels', 'pilihan'));
+        if ($pilihan == "Ayam" || $pilihan =="Ruminan Besar" || $pilihan =="Ruminan Kecil" || $pilihan =="Babi"){
+            return view('sampel.borang-sampel', compact('user','users','rumahs','sampels', 'pilihan'));
         } else {
-            return view('sampel.borang-sampel2', compact('user','rumahs','sampels', 'pilihan'));
+            return view('sampel.borang-sampel2', compact('users','rumahs','sampels', 'pilihan'));
         }
         
     }
@@ -93,6 +95,8 @@ class SampelController extends Controller
         $sampel->ujian = $request->ujian;
         $sampel->sampel = $request->sampel;
         $sampel->pilihan = $request->pilihan;
+        $sampel->pemeriksa_1 = $request->pemeriksa_1;
+        $sampel->pemeriksa_2 = $request->pemeriksa_2;
 
         $sampel->save();
 

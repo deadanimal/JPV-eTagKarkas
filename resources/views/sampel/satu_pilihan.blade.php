@@ -81,6 +81,17 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="tahun">Pemeriksa 1</label>
+                                    <input class="form-control" type="text" value="{{$sampel->pemeriksa_1}}" readonly>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="inputAddress">Pemeriksa 1</label>
+                                    <input class="form-control" type="text" value="{{$sampel->pemeriksa_2}}" readonly>
+                                </div>
+                            </div>
+
                             <a href="/pensampelan" class="btn btn-primary" style="float: right">Kembali</a>
                             {{-- <button type="submit" class="btn btn-warning align-middle me-2 fa-plus"
                             style="float: right"><span style="padding-left: 10px;">Tambah</span></button> --}}
@@ -90,16 +101,121 @@
                 </div>
             </div>
 
-    
-
-
-
-
-
-
         </div>
 
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Jadual Pensampelan {{$sampel->pilihan}} </h5>
+                </div>
 
+                <div class="card-body">
+                    <div class="col">
+                        <table class="table table-bordered line-table text-center" style="width: 100%">
+                            <thead class="text-black">
+
+                                <tr>
+                                    <th colspan="16">PROGRAM PEMANTAUAN RESIDU(JENIS UJIAN)(JENIS SAMPEL) DI LOJI
+                                        {{$sampel->pilihan}}</th>
+                                </tr>
+                                <tr style="vertical-align: middle">
+                                    <th>BIL</th>
+                                    <th>PREMIS</th>
+                                    <th>BIL SAMPEL YANG PERLU DIAMBIL</th>
+                                    <th>JAN</th>
+                                    <th>FEB</th>
+                                    <th>MAC</th>
+                                    <th>APR</th>
+                                    <th>MEI</th>
+                                    <th>JUN</th>
+                                    <th>JUL</th>
+                                    <th>AUG</th>
+                                    <th>SEP</th>
+                                    <th>OCT</th>
+                                    <th>NOV</th>
+                                    <th>DEC</th>
+                                    <th>JUMLAH</th>
+                                </tr>
+                                <tr>
+
+                                    @foreach ($sampel as $s)
+                            {{-- <th colspan="16">{{$s->zon}}</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="text-center">
+                                    <td>{{$loop->iteration}}</td>
+                                    {{-- <td>{{$s->premis}}</td> --}}
+                                    <td><input class="form-control" type="number" name="sampel" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="1" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="2" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="3" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="4" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="5" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="6" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="7" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="8" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="9" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="10" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="11" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="12" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                    <td><input class="form-control" type="number" name="jumlahUtara" min="0"
+                                            oninput="this.setCustomValidity('')"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
+                                </tr>
+
+                                @endforeach
+
+                            </tbody>
+                        </table>
+
+
+
+                        <div class="mb-3">
+                            <button class="btn btn-warning" type="submit" title="Kemaskini"
+                                style="float: left">Kemaskini</button>
+                            <button class="btn btn-success" type="submit" title="Hantar"
+                                style="float: right">Hantar</button>
+                        </div>
+
+                        <div class="mb-3 text-center">
+                            <button class="btn btn-primary" type="submit" title="Simpan">Simpan</button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     </main>
 @endsection
