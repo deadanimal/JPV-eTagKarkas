@@ -25,7 +25,8 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="/susu" method="POST" enctype="multipart/form-data">
+                                <form action="/kemaskini-susu/{{$susu->id}}" method="POST" enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
             
                                     <div class="mb-3">
@@ -36,7 +37,7 @@
                                             </div>
                                             <div class="col-4">
                                                 <input class="form-control" type="text" name="premis" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$susu->premis}}"
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
 
@@ -45,7 +46,7 @@
                                             </div>
                                             <div class="col-4">
                                                 <input class="form-control" type="text" name="wakil" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$susu->wakil}}"
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
             
@@ -53,7 +54,7 @@
                                                 <label class="form-label">Nombor Telefon</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="telefon" required
+                                                <input class="form-control" type="number" name="telefon" required value="{{$susu->telefon}}"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                             </div>
@@ -62,7 +63,7 @@
                                                 <label class="form-label">Emel</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="email" name="emel" required
+                                                <input class="form-control" type="email" name="emel" required value="{{$susu->emel}}"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
@@ -71,7 +72,7 @@
                                                 <label class="form-label">Faks</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="faks" required
+                                                <input class="form-control" type="number" name="faks" required value="{{$susu->faks}}"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                             </div>
@@ -81,7 +82,7 @@
                                             </div>
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="web" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$susu->web}}"
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
 
@@ -97,7 +98,7 @@
                                             <div class="col-10">
                                                 <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')"></textarea>
+                                                oninput="this.setCustomValidity('')">{{$susu->alamat}}</textarea>
                                             </div>
                                         </div>
             
@@ -113,7 +114,8 @@
                                             aria-label="Default select example" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                            <option selected disabled value="">Pilih Zon</option>
+                                            <option selected value="{{$susu->zon}}">{{$susu->zon}}</option>
+
         
                                         </select>
                                         </div>
@@ -126,7 +128,7 @@
                                             aria-label="Default select example" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                            <option selected disabled value="">Pilih Negeri</option>
+                                            <option selected value="{{$susu->negeri}}">{{$susu->negeri}}</option>
         
                                         </select>
                                         </div>
@@ -141,7 +143,7 @@
                                             aria-label="Default select example"required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                            <option selected disabled value="">Pilih Daerah</option>
+                                            <option selected value="{{$susu->daerah}}">{{$susu->daerah}}</option>
                                             </select>
                                         </div>
 
@@ -149,7 +151,7 @@
                                             <label class="form-label">Poskod</label>
                                         </div>
                                         <div class="col-4">
-                                            <input class="form-control" type="number" name="poskod" required
+                                            <input class="form-control" type="number" name="poskod" required value="{{$susu->poskod}}"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                         </div>
@@ -161,9 +163,9 @@
                                         </div>
                                         <div class="col-4">
                                             <select class="form-select" aria-label="Default select example" name="kaedah" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" 
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Kaedah Audit</option>
+                                                <option selected value="{{$susu->kaedah}}">{{$susu->kaedah}}</option>
                                                 <option value="Kaedah 1">Kaedah 1</option>
                                                 <option value="Kaedah 2">Kaedah 2</option>
                                                 <option value="Kaedah 3">Kaedah 3</option>
@@ -176,7 +178,7 @@
                                         </div>
                                         <div class="col-4">
                                             <input class="form-control" type="text" name="klasifikasi" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$susu->klasifikasi}}"
                                                 oninput="this.setCustomValidity('')" />
                                         </div>
                                     </div>
@@ -186,7 +188,7 @@
                                             <label class="form-label">Nombor VHM</label>
                                         </div>
                                         <div class="col-4">
-                                            <input class="form-control" type="number" name="vhm" required
+                                            <input class="form-control" type="number" name="vhm" required value="{{$susu->vhm}}"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                         </div>
@@ -196,7 +198,7 @@
                                         </div>
                                         <div class="col-4">
                                             <input class="form-control" type="text" name="jenis_produk" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$susu->jenis_produk}}"
                                                 oninput="this.setCustomValidity('')" />
                                         </div>
                                     </div>
@@ -210,7 +212,7 @@
                                     </div>
                                     <div class="col-4">
                                         <input class="form-control" type="number" name="kuantiti" required placeholder="KG"
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" min="0"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" min="0" value="{{$susu->kuantiti}}"
                                             oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                     </div>
 
@@ -219,18 +221,18 @@
                                     </div>
                                     <div class="col-6">
                                         <input class="form-control" type="text" name="pembeli" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$susu->pembeli}}"
                                             oninput="this.setCustomValidity('')" />
                                     </div>
 
                                     <div class="col-2">
                                         <label class="form-label">Alamat</label>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-5">
                                         <div class="col-10">
                                             <textarea class="form-control" rows=5 name="alamat_pembeli" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')"></textarea>
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" 
+                                            oninput="this.setCustomValidity('')">{{$susu->alamat_pembeli}}</textarea>
                                         </div>
                                     </div>
 
@@ -242,8 +244,10 @@
             
                                     <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
                                         <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                                            Hantar
+                                            Kemaskini
                                         </button>
+                                        <a href="/susu-tepung" class="btn btn-primary">Kembali</a>
+                                       
                                     </div>
   
                                     <!-- Modal -->
@@ -254,11 +258,11 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Adakah anda ingin menghantar permohonan pemeriksaan baharu?
+                                                Adakah anda ingin mengemaskini permohonan pemeriksaan?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                                <button class="btn btn-success text-center" type="submit" style="float: right">Hantar</button>
+                                                <button class="btn btn-success text-center" type="submit" style="float: right">Kemaskini</button>
                                             </div>
                                         </div>
                                         </div>

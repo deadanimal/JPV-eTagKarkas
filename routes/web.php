@@ -167,6 +167,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('susu-tepung', [PemeriksaanDalamNegaraController::class, 'senarai_susu']);
     Route::get('borang-susu', [PemeriksaanDalamNegaraController::class, 'borang_susu']);
+    Route::post('susu', [PemeriksaanDalamNegaraController::class, 'cipta_susu']);
+    Route::delete('susu/{id}', [PemeriksaanDalamNegaraController::class, 'padam_susu']);
+    Route::get('satu-susu/{id}', [PemeriksaanDalamNegaraController::class, 'satu_susu']);
+    Route::put('kemaskini-susu/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_susu']);
+
     Route::get('borang-perakuan', [PemeriksaanDalamNegaraController::class, 'borang_perakuan']);
 
 
