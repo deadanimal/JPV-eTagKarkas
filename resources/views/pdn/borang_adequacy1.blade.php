@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="/cipta_exsport" method="POST" enctype="multipart/form-data">
+                                <form action="/cipta_exsport1" method="POST" enctype="multipart/form-data">
                                     @csrf
             
                                     <div class="mb-3">
@@ -174,7 +174,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <input class="form-control" type="hidden" name="jenis" value="SINGAPURA">
+                                        <input class="form-control" type="hidden" name="jenis" value="selain singapura">
                                         <div class="col-2">
                                             <label class="form-label">Muat Turun</label>
                                         </div>

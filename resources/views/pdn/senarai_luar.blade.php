@@ -105,7 +105,7 @@
                         <h5 class="card-title">Senarai Permohonan Eksport Selain ke Singapura</h5>
                     </div>
                     @role('pentadbir')
-                    <a href="/borang-adequacy" class="btn float-end " style="width: fit-content"><button
+                    <a href="/borang-adequacy1" class="btn float-end " style="width: fit-content"><button
                     class="btn btn-warning btn-block">Tambah</button></a>
                     @endrole
 
@@ -138,7 +138,7 @@
                                         <td>{{$exsport->pemeriksa_1}}</td> 
                                         <td>{{$exsport->pemeriksa_2}}</td>  
                                         <td class="table-action">
-                                            <a href="kemaskini_exsport/{{$exsport->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                            <a href="kemaskini_exsport1/{{$exsport->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                             <form action="/padam_exsport/{{ $exsport->id }}" method="post">
                                                 @method('DELETE')
                                                 @csrf

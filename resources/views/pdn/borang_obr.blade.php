@@ -21,12 +21,11 @@
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Kemaskini Jadual Borang NCR</h5>
+                                <h5 class="card-title">Jadual Borang OBR</h5>
                             </div>
 
                             <div class="card-body">
-                                <form action="/simpan_kemaskini_jadual_ncr/{{$ncr->id}}" method="POST" enctype="multipart/form-data">
-                                    @method('PUT')
+                                <form action="/cipta_borang_obr" method="POST" enctype="multipart/form-data">
                                     @csrf
             
                                     <div class="row">
@@ -34,7 +33,7 @@
                                         <div class="col-md-6">
 
                                             <div class="col-6">
-                                                <label class="form-label">Nombor NC</label>
+                                                <label class="form-label">Total OBR</label>
                                             </div>
                                           
                                                 <input class="form-control" type="number" name="nombor_ic" required
@@ -55,29 +54,7 @@
                                                 <input class="form-control" type="date" name="audit" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
-                                           
-
-                                            <div class="col-6">
-                                                <label class="form-label">Category</label>
-                                            </div>
-                                            <input class="form-control" type="text" name="categori" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
-
-                                            <div class="col-6">
-                                                <label class="form-label">Standard Reference</label>
-                                            </div>
-                                            <input class="form-control" type="text" name="standard_reference" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
-
-                                            <div class="col-6">
-                                                <label class="form-label">Clause</label>
-                                            </div>
-                                            <input class="form-control" type="text" name="clause" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
-                                            <input class="form-control" type="hidden" name="jenis" value="ncr">
+                                                <input class="form-control" type="hidden" name="jenis" value="obr">
 
                                             {{-- <div class="col-6">
                                                 <label class="form-label">Jenis</label>
@@ -85,6 +62,8 @@
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                                     <option selected disabled value="">Pilih Jenis</option>                                                    <option value="ncr">NCR</option>
                                                     <option value="obr">OBR</option>
+                                                    <option value="obr">NCR</option>
+
                                                 </select>
                                             </div> --}}
                                             {{-- <input class="form-control" type="text" name="clause" onkeyup="this.value = this.value.toUpperCase();" required
@@ -96,18 +75,7 @@
                                             <h5 class="">Details of Non-compliance</h5>
 
                                             <div class="col-6">
-                                                <label class="form-label">NC Statement</label>
-                                            </div>
-                                            <div class="">
-                                                
-                                                    <textarea class="form-control" rows=5 name="NC_statement" onkeyup="this.value = this.value.toUpperCase();" required
-                                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
-                                                
-                                            </div>
-
-                                            <div class="col-6">
-                                                <label class="form-label">Objective Evidence</label>
+                                                <label class="form-label">Objective Statement</label>
                                             </div>
                                             <div class="">
                                                

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Alert;
 use App\Models\Exsport;
 use App\Models\JadualNcsObr;
+use App\Models\Log;
 use App\Models\NcsObr;
 use App\Models\SurvelanAudit;
 
@@ -19,11 +20,14 @@ class PemeriksaanDalamNegaraController extends Controller
     public function senarai(){
         
         // $jaduals = SurvelanAudit::where('pdn_id')->get();
-        $jaduals = PemeriksaanDalamNegara::where('jenis_borang','survelan')->get();
-        $ncsobr = PemeriksaanDalamNegara::where('jenis_borang','ncr')->get();
-        $ncsobr2 = PemeriksaanDalamNegara::where('jenis_borang','obr')->get();
+        $jaduals = PemeriksaanDalamNegara::all();
+        $survelans = SurvelanAudit::all();
+        $ncr = JadualNcsObr::where('jenis','ncr')->get();
+        $obr = JadualNcsObr::where('jenis','obr')->get();
+        $log = Log::all();
 
-        return view('pdn.senarai', compact('jaduals','ncsobr','ncsobr2'));
+
+        return view('pdn.senarai', compact('jaduals','survelans','ncr','obr','log'));
     }
 
     public function borang_survelan() {
@@ -49,16 +53,16 @@ class PemeriksaanDalamNegaraController extends Controller
         $survelan->save();
 
 
-        $survelan2  = New SurvelanAudit;
-        $survelan2->pdn_id = $survelan->id;
+        // $survelan2  = New SurvelanAudit;
+        // $survelan2->pdn_id = $survelan->id;
 
-        $survelan3  = New JadualNcsObr;
-        $survelan3->pdn_id = $survelan->id;
+        // $survelan3  = New JadualNcsObr;
+        // $survelan3->pdn_id = $survelan->id;
        
         // dd($survelan);
-        $survelan2->save();
+        // $survelan2->save();
         // dd($survelan2->pdn->id);
-        $survelan3->save();
+        // $survelan3->save();
 
         Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
 
@@ -66,30 +70,62 @@ class PemeriksaanDalamNegaraController extends Controller
 
     }
 
+    public function kemaskini_pdn(Request $request){
+
+        // $user = $request->user();
+        $id = (int)$request->route('id'); 
+        $pdn = PemeriksaanDalamNegara::find($id);
+        // dd($survelans);
+
+        return view('pdn.satu_pdn', compact('pdn'));
+    }
+
+    public function simpan_kemaskini_pdn(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $pdn = PemeriksaanDalamNegara::find($id); 
+        $pdn->zon = $request->zon;
+        $pdn->pensijilan = $request->pensijilan;
+        $pdn->operasi = $request->operasi;
+        $pdn->ternakan = $request->ternakan;
+        $pdn->jenis_borang = $request->jenis_borang;
+        $pdn->save();
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/pdn');
+
+    } 
+
+    public function padam_pdn(Request $request){
+        $id = (int)$request->route('id'); 
+        $pdn = PemeriksaanDalamNegara::find($id);
+        $pdn->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return back();
+    }
+
     public function jadual(Request $request) {
 
-        $user = $request->user();
-        $id = (int)$request->route('id');
+        // $user = $request->user();
+        // $id = (int)$request->route('id');
         
 
-        $jaduals = SurvelanAudit::all();
+        // $survelans = SurvelanAudit::find($id);
         // dd($jadual);
 
         // jadual survelan probably using same blade for VHM and MyGap and display
         // depends on selected jenis operasi, p4(semak) and p6(isi) will update the borang status
         // and pass to p1
 
-        return view('pdn.jadual-survelan', compact('jaduals', 'id'));        
+        return view('pdn.jadual-survelan');        
     }
 
     public function cipta_survelan_audit(Request $request){
 
-        $id = (int)$request->route('id'); 
+        // $id = (int)$request->route('id'); 
         // $survelans = PemeriksaanDalamNegara::find($id);
-        $survelans = SurvelanAudit::where('pdn_id', $id)->first();
+        // $survelans = SurvelanAudit::where('pdn_id', $id)->first();
         // dd($survelans);
 
-        // $survelans = New SurvelanAudit();
+        $survelans = New SurvelanAudit();
         $survelans->nombor = $request->nombor;
         $survelans->premis = $request->premis;
         $survelans->telefon = $request->telefon;
@@ -118,6 +154,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
     public function kemaskini_jadual_survelan(Request $request){
 
+        // $user = $request->user();
         $id = (int)$request->route('id'); 
         $survelans = SurvelanAudit::find($id);
         // dd($survelans);
@@ -128,7 +165,9 @@ class PemeriksaanDalamNegaraController extends Controller
     public function simpan_kemaskini_jadual_survelan(Request $request){
 
         $id = (int)$request->route('id'); 
+        // $survelans = SurvelanAudit::find($id);
         $survelans = SurvelanAudit::find($id);
+        // dd($survelans);
 
         $survelans->nombor = $request->nombor;
         $survelans->premis = $request->premis;
@@ -155,41 +194,39 @@ class PemeriksaanDalamNegaraController extends Controller
 
     public function padam_survelan(Request $request){
         $id = (int)$request->route('id'); 
-        $survelans = PemeriksaanDalamNegara::find($id);
+        $survelans = SurvelanAudit::find($id);
         $survelans->delete();
         alert()->success('Maklumat telah dibuang', 'Berjaya');
         return back();
     }
 
-    public function borang_ncsobr() {
+    // public function borang_ncsobr() {
 
-        return view('pdn.borang_ncsobr');        
-    }
+    //     return view('pdn.borang_ncsobr');        
+    // }
 
-    public function cipta_ncsobr(Request $request){
+    // public function cipta_ncsobr(Request $request){
 
-        // $user = $request->user();
+    //     // $user = $request->user();
        
-        $ncsobr =  New NcsObr;
+    //     $ncsobr =  New NcsObr;
 
-        // 
-        $ncsobr->zon = $request->zon;
-        $ncsobr->jenis_operasi = $request->jenis_operasi;
-        $ncsobr->jenis_borang = $request->jenis_borang;
+    //     // 
+    //     $ncsobr->zon = $request->zon;
+    //     $ncsobr->jenis_operasi = $request->jenis_operasi;
+    //     $ncsobr->jenis_borang = $request->jenis_borang;
        
-        $ncsobr->save();
+    //     $ncsobr->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual NCS/OBR telah disimpan.');
+    //     Alert::success('Simpan berjaya.', 'Maklumat jadual NCS/OBR telah disimpan.');
 
-        return redirect('/pdn'); 
+    //     return redirect('/pdn'); 
 
-    }
+    // }
 
+    // ncr
     public function borang_pemeriksa(Request $request){
-        $id = (int)$request->route('id'); 
-        $ncrobr = NcsObr::find($id);
-        $ncr = JadualNcsObr::all();
-        return view('pdn.borang-pemeriksa',compact('ncr'));
+        return view('pdn.borang-pemeriksa');
     }
 
     public function cipta_jadual_ncr(Request $request){
@@ -201,6 +238,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $ncr->categori = $request->categori;
         $ncr->standard_reference = $request->standard_reference;
         $ncr->clause = $request->clause;
+        $ncr->jenis = $request->jenis;
         $ncr->NC_statement = $request->NC_statement;
         $ncr->objective_evidence = $request->objective_evidence;
         $ncr->auditee_acknowledgement = $request->auditee_acknowledgement;
@@ -216,9 +254,186 @@ class PemeriksaanDalamNegaraController extends Controller
         return redirect('/pdn');
     }
 
+    public function kemaskini_jadual_ncr(Request $request){
 
+        // $user = $request->user();
+        $id = (int)$request->route('id'); 
+        $ncr = JadualNcsObr::find($id);
+        // dd($survelans);
+
+        return view('pdn.borang_pemeriksaan2', compact('ncr'));
+    }
+
+    public function simpan_kemaskini_jadual_ncr(Request $request){
+
+        $id = (int)$request->route('id'); 
+        // $survelans = SurvelanAudit::find($id);
+        $ncr = JadualNcsObr::find($id);
+        // dd($survelans);
+
+        $ncr->nombor_ic = $request->nombor_ic;
+        $ncr->company = $request->company;
+        $ncr->audit = $request->audit;
+        $ncr->categori = $request->categori;
+        $ncr->standard_reference = $request->standard_reference;
+        $ncr->clause = $request->clause;
+        $ncr->jenis = $request->jenis;
+        $ncr->NC_statement = $request->NC_statement;
+        $ncr->objective_evidence = $request->objective_evidence;
+        $ncr->auditee_acknowledgement = $request->auditee_acknowledgement;
+        $ncr->auditor1_signature = $request->auditor1_signature;
+        $ncr->auditor2_signature = $request->auditor2_signature;
+        $ncr->auditor3_signature = $request->auditor3_signature;
+        $ncr->auditor4_signature = $request->auditor4_signature;
+
+        $ncr->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+
+        return redirect('/pdn');
+    }
+
+    public function padam_ncr(Request $request){
+        $id = (int)$request->route('id'); 
+        $ncr = JadualNcsObr::find($id);
+        $ncr->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return back();
+    }
+
+    //obr
+    public function borang_obr(){
+        return view('pdn.borang_obr');
+    }
+
+    public function cipta_jadual_obr(Request $request){
+
+        $obr = New JadualNcsObr();
+        $obr->nombor_ic = $request->nombor_ic;
+        $obr->company = $request->company;
+        $obr->audit = $request->audit;
+        $obr->jenis = $request->jenis;
+        $obr->objective_evidence = $request->objective_evidence;
+        $obr->auditee_acknowledgement = $request->auditee_acknowledgement;
+        $obr->auditor1_signature = $request->auditor1_signature;
+        $obr->auditor2_signature = $request->auditor2_signature;
+        $obr->auditor3_signature = $request->auditor3_signature;
+        $obr->auditor4_signature = $request->auditor4_signature;
+
+        $obr->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual NCR telah disimpan.');
+
+        return redirect('/pdn');
+    }
+
+    public function kemaskini_jadual_obr(Request $request){
+
+        // $user = $request->user();
+        $id = (int)$request->route('id'); 
+        $obr = JadualNcsObr::find($id);
+        // dd($survelans);
+
+        return view('pdn.kemaskini_borang_obr', compact('obr'));
+    }
+
+    public function simpan_kemaskini_jadual_obr(Request $request){
+
+        $id = (int)$request->route('id'); 
+        // $survelans = SurvelanAudit::find($id);
+        $obr = JadualNcsObr::find($id);
+        // dd($survelans);
+
+        $obr->nombor_ic = $request->nombor_ic;
+        $obr->company = $request->company;
+        $obr->audit = $request->audit;
+        $obr->jenis = $request->jenis;
+        $obr->objective_evidence = $request->objective_evidence;
+        $obr->auditee_acknowledgement = $request->auditee_acknowledgement;
+        $obr->auditor1_signature = $request->auditor1_signature;
+        $obr->auditor2_signature = $request->auditor2_signature;
+        $obr->auditor3_signature = $request->auditor3_signature;
+        $obr->auditor4_signature = $request->auditor4_signature;
+
+        $obr->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+
+        return redirect('/pdn');
+    }
+
+    public function padam_obr(Request $request){
+        $id = (int)$request->route('id'); 
+        $obr = JadualNcsObr::find($id);
+        $obr->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return back();
+    }
+
+//log
     public function borang_log(){
-        return view('pdn.borang-log');
+        return view('pdn.borang_log');
+    }
+
+    public function cipta_log(Request $request){
+
+        // $id = (int)$request->route('id'); 
+        // $survelans = PemeriksaanDalamNegara::find($id);
+        // $survelans = SurvelanAudit::where('pdn_id', $id)->first();
+        // dd($survelans);
+
+        $log = New Log();
+        $log->premis = $request->premis;
+        $log->alamat = $request->alamat;
+        $log->produk = $request->produk;
+        $log->no_est = $request->no_est;
+        
+        // $survelans->pdn_id = $request->pdn_id;
+
+
+        $log->save();
+        // $survelan2->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
+
+        return redirect('/pdn');
+    }
+
+    public function kemaskini_jadual_log(Request $request){
+
+        // $user = $request->user();
+        $id = (int)$request->route('id'); 
+        $log = log::find($id);
+        // dd($survelans);
+
+        return view('pdn.kemaskini_log', compact('log'));
+    }
+
+    public function simpan_kemaskini_jadual_log(Request $request){
+
+        $id = (int)$request->route('id'); 
+        // $survelans = SurvelanAudit::find($id);
+        $log = Log::find($id);
+        // dd($survelans);
+
+        $log->premis = $request->premis;
+        $log->alamat = $request->alamat;
+        $log->produk = $request->produk;
+        $log->no_est = $request->no_est;
+
+        $log->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+
+        return redirect('/pdn');
+    }
+
+    public function padam_log(Request $request){
+        $id = (int)$request->route('id'); 
+        $log = Log::find($id);
+        $log->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return back();
     }
 
     //exsport
@@ -232,10 +447,10 @@ class PemeriksaanDalamNegaraController extends Controller
     }
 
     public function borang_adequacy(){
-
-        $exsports = Exsport::all();
-
-        return view('pdn.borang-adequacy', compact('exsports'));
+        return view('pdn.borang-adequacy');
+    }
+    public function borang_adequacy1(){
+        return view('pdn.borang_adequacy1');
     }
 
     public function cipta_exsport(Request $request){
@@ -265,6 +480,33 @@ class PemeriksaanDalamNegaraController extends Controller
         return redirect('/eksport-luar');
     }
 
+    public function cipta_exsport1(Request $request){
+
+        $exsp = New Exsport();
+        $exsp->nama = $request->nama;
+        $exsp->nombor = $request->nombor;
+        $exsp->tarikh = $request->tarikh;
+        $exsp->produk = $request->produk;
+        $exsp->daerah = $request->daerah;
+        $exsp->negeri = $request->negeri;
+        $exsp->zon = $request->zon;
+        $exsp->poskod = $request->poskod;
+        $exsp->alamat = $request->alamat;
+        $exsp->premis = $request->premis;
+        $exsp->tujuan = $request->tujuan;
+        $exsp->pemeriksa_1 = $request->pemeriksa_1;
+        $exsp->pemeriksa_2 = $request->pemeriksa_2;
+        $exsp->dokumen = $request->dokumen;
+        $exsp->jenis = $request->jenis;
+
+
+        $exsp->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual Exsport telah disimpan.');
+
+        return redirect('/eksport-luar');
+    }
+
     public function kemaskini_exsport(Request $request){
 
         $id = (int)$request->route('id'); 
@@ -272,6 +514,15 @@ class PemeriksaanDalamNegaraController extends Controller
         // dd($survelans);
 
         return view('pdn.kemaskini_exsport', compact('exsports'));
+    }
+
+    public function kemaskini_exsport1(Request $request){
+
+        $id = (int)$request->route('id'); 
+        $exsports = Exsport::find($id);
+        // dd($survelans);
+
+        return view('pdn.kemaskini_adequacy1', compact('exsports'));
     }
 
     public function simpan_kemaskini_exsport(Request $request){
@@ -298,6 +549,34 @@ class PemeriksaanDalamNegaraController extends Controller
         $exsp->save();
 
         Alert::success('Kemaskini berjaya.', 'Maklumat permohonan eksport telah dikemaskini.');
+
+        return redirect('/eksport-luar');
+    }
+
+    public function simpan_kemaskini_exsport1(Request $request){
+
+        $id = (int)$request->route('id'); 
+        $exsp = Exsport::find($id);
+
+        $exsp->nama = $request->nama;
+        $exsp->nombor = $request->nombor;
+        $exsp->tarikh = $request->tarikh;
+        $exsp->produk = $request->produk;
+        $exsp->daerah = $request->daerah;
+        $exsp->negeri = $request->negeri;
+        $exsp->zon = $request->zon;
+        $exsp->poskod = $request->poskod;
+        $exsp->alamat = $request->alamat;
+        $exsp->premis = $request->premis;
+        $exsp->tujuan = $request->tujuan;
+        $exsp->pemeriksa_1 = $request->pemeriksa_1;
+        $exsp->pemeriksa_2 = $request->pemeriksa_2;
+        $exsp->dokumen = $request->dokumen;
+        $exsp->jenis = $request->jenis;
+
+        $exsp->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat jadual maklumat Exsport telah dikemaskini.');
 
         return redirect('/eksport-luar');
     }

@@ -76,6 +76,19 @@
                                             <input class="form-control" type="text" name="clause" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')" />
+                                            <input class="form-control" type="hidden" name="jenis" value="ncr">
+
+                                            {{-- <div class="col-6">
+                                                <label class="form-label">Jenis</label>
+                                                <select class="form-select" aria-label="Default select example" name="jenis"
+                                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
+                                                    <option selected disabled value="">Pilih Jenis</option>                                                    <option value="ncr">NCR</option>
+                                                    <option value="obr">OBR</option>
+                                                </select>
+                                            </div> --}}
+                                            {{-- <input class="form-control" type="text" name="clause" onkeyup="this.value = this.value.toUpperCase();" required
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninput="this.setCustomValidity('')" /> --}}
 
                                             <br>
 
@@ -188,68 +201,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-12 col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Jadual NCR </h5>
-                </div>
-
-                <div class="card-body">
-                    <div class="col">
-                        <table class="table table-bordered line-table text-center" style="width: 100%">
-                            <thead class="text-black">
-
-                                <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR NCR(VHM/MyGAP) TAHUN 2022</th>
-                                    {{-- after AUDIT, need to specify MyGap or VHM --}}
-                                </tr>
-                                <tr style="vertical-align: middle">
-                                    <th>BIL</th>
-                                    <th>Nombor IC</th>
-                                    <th>Company</th>
-                                    <th>Categori</th>
-                                    <th>auditor1_signature</th>
-                                    <th>auditor2_signature</th>
-                                    <th>auditor3_signature</th>
-                                    <th>auditor4_signature</th>  
-                                </tr>
-                                <tr>
-                                <th colspan="16">Zon</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach ($ncr as $ncr)
-                                    <tr class="text-center">
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$ncr->nombor_ic}}</td>
-                                        <td>{{$ncr->company}}</td>
-                                        <td>{{$ncr->categori}}</td>
-                                        <td>{{$ncr->auditor1_signature}}</td>
-                                        <td>{{$ncr->auditor2_signature}}</td>
-                                        <td>{{$ncr->auditor3_signature}}</td>
-                                        <td>{{$ncr->auditor4_signature}}</td>  
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
-
-
-                        <div class="mb-3">
-                            <button class="btn btn-primary" type="submit" title="Kemaskini"
-                                style="float: left">Simpan</button>
-                            <button class="btn btn-success" type="submit" title="Hantar"
-                                style="float: right">Hantar</button>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
     </div>
 
 
