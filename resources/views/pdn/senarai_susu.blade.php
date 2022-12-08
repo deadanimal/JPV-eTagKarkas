@@ -11,10 +11,6 @@
                 Pemeriksaan Dalam Negara
             </h1>
 
-            @role('pentadbir')
-            <a href="/borang-susu" class="btn float-end " style="width: fit-content"><button
-            class="btn btn-warning btn-block">Tambah</button></a>
-            @endrole
 
         </div>
 
@@ -30,6 +26,11 @@
                 <div class="card-header">
                     <h5 class="card-title">Senarai Permohonan Pemeriksaan Susu Tepung</h5>
                 </div>
+
+                @role('pentadbir')
+                <a href="/borang-susu" class="btn float-end " style="width: fit-content"><button
+                class="btn btn-warning btn-block">Tambah</button></a>
+                @endrole
 
                 <div class="card-body"  style="border-width: 1px; border-color:black;">
                     <table class="table table-bordered">

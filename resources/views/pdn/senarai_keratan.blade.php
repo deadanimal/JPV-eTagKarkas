@@ -12,8 +12,8 @@
             </h1>
 
             @role('pentadbir')
-            <a href="/borang-keratan" class="btn float-end " style="width: fit-content"><button
-            class="btn btn-warning btn-block">Tambah</button></a>
+            {{-- <a href="/borang-keratan" class="btn float-end " style="width: fit-content"><button
+            class="btn btn-warning btn-block">Tambah</button></a> --}}
             @endrole
 
         </div>
@@ -30,6 +30,9 @@
                     <div class="card-header">
                         <h5 class="card-title">Senarai Permohonan Veterinar</h5>
                     </div>
+
+                    <a href="/borang-keratan" class="btn float-end " style="width: fit-content"><button
+                        class="btn btn-warning btn-block">Tambah</button></a>
 
                     <div class="card-body"  style="border-width: 1px; border-color:black;">
                         <table class="table table-bordered">
@@ -48,7 +51,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                {{-- <tr>
                                     <td>CP/20222/1</td>
                                     <td>Premis A bagi Pengimportan Susu Cair</td>
                                     <td class="d-none d-md-table-cell">1/12/22</td>
@@ -56,7 +59,6 @@
                                     <td>Atul Hanim</td>
                                     <td>Iza Hanim</td>
                                     <td>Iz Hanim</td>
-                                    {{-- <td>Kemaskini/Dihantar/Tidak Lengkap</td> --}}
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
@@ -64,29 +66,30 @@
                                         <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></a>
                                     </td>
     
-                                </tr>
+                                </tr> --}}
 
-                                {{-- <tr>
-                                    @foreach ($jaduals as $jadual)
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$jadual->zon}}</td>
-                                    <td>{{$jadual->operasi}}</td>
-                                    <td>{{$jadual->created_at->format('d/m/Y')}}</td>
+                                <tr>
+                                    @foreach ($keratans as $keratan)
+                                    <td>CP/2022/{{$loop->iteration}}</td>
+                                    <td>{{$keratan->premis}}</td>
+                                    <td>{{$keratan->created_at->format('d/m/Y')}}</td>
+                                    <td>{{$keratan->pemeriksa_1}}</td>
+                                    <td>{{$keratan->pemeriksa_2}}</td>
+                                    <td>{{$keratan->pemeriksa_3}}</td>
+                                    <td>{{$keratan->pemeriksa_4}}</td>
+                                    {{-- <td>Dihantar/Selesai</td> --}}
                                     <td class="table-action">
-                                        <a href="kemaskini_jadual_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/padam_survelan/{{ $jadual->id }}" method="post">
+                                        <a href="/satu-keratan/{{$keratan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                        <form action="/keratan/{{ $keratan->id }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
                                         </form>
-                                    </td>
-                                    <td>Dihantar/Selesai</td>
-                                    <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
-                                       
-
+                                        <a href="/satu-keratan/{{$keratan->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>            
+                                    </td>        
                                 </tr>
 
-                                    @endforeach --}}
+                                    @endforeach
                               
                             </tbody>
                         </table>

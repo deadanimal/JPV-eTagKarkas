@@ -158,6 +158,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('keratan', [PemeriksaanDalamNegaraController::class, 'senarai_keratan']);
     Route::get('borang-keratan', [PemeriksaanDalamNegaraController::class, 'borang_keratan']);
+    Route::post('keratan', [PemeriksaanDalamNegaraController::class, 'cipta_keratan']);
+    Route::delete('keratan/{id}', [PemeriksaanDalamNegaraController::class, 'padam_keratan']);
+    Route::get('satu-keratan/{id}', [PemeriksaanDalamNegaraController::class, 'satu_keratan']);
+    Route::put('kemaskini-keratan/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_keratan']);
+
     Route::get('borang-verifikasi', [PemeriksaanDalamNegaraController::class, 'borang_verifikasi']);
 
     Route::get('susu-tepung', [PemeriksaanDalamNegaraController::class, 'senarai_susu']);
