@@ -47,7 +47,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {{-- <tr>
                                 <td>1</td>
                                 <td>Pemeriksaan Susu Tepung untuk Makanan Haiwan</td>
                                 <td class="d-none d-md-table-cell">1/12/22</td>
@@ -59,29 +59,28 @@
                                     <a href="#"><i class="align-middle fas fa-fw fa-download"></i></a>
                                 </td>
 
-                            </tr>
+                            </tr> --}}
 
-                            {{-- <tr>
-                                @foreach ($jaduals as $jadual)
+                            <tr>
+                                @foreach ($susus as $susu)
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$jadual->zon}}</td>
-                                <td>{{$jadual->operasi}}</td>
-                                <td>{{$jadual->created_at->format('d/m/Y')}}</td>
+                                <td>{{$susu->premis}}</td>
+                                <td>{{$susu->created_at->format('d/m/Y')}}</td>
+                                <td>Dihantar</td>
                                 <td class="table-action">
-                                    <a href="kemaskini_jadual_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                    <form action="/padam_survelan/{{ $jadual->id }}" method="post">
+                                    <a href="satu-susu/{{$susu->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                    <form action="/susu/{{ $susu->id }}" method="post">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
                                     </form>
+                                    <a href="#"><i class="align-middle fas fa-fw fa-upload"></i></i></a>
                                 </td>
-                                <td>Dihantar/Selesai</td>
-                                <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
                                    
 
                             </tr>
 
-                                @endforeach --}}
+                                @endforeach
                           
                         </tbody>
                     </table>

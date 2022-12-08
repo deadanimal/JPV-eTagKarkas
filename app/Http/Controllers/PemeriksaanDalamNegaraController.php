@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Keratan;
 use App\Models\PemeriksaanDalamNegara;
 use App\Models\SijilVeterinar;
+use App\Models\SusuTepung;
 use Illuminate\Http\Request;
 use Alert;
 use App\Models\Exsport;
@@ -259,7 +260,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $exsp->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual Exsport telah disimpan.');
+        Alert::success('Hantar berjaya.', 'Maklumat permohonan eksport telah dihantar.');
 
         return redirect('/eksport-luar');
     }
@@ -296,7 +297,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $exsp->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual maklumat Exsport telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat permohonan eksport telah dikemaskini.');
 
         return redirect('/eksport-luar');
     }
@@ -347,7 +348,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $sijil->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah disimpan.');
+        Alert::success('Hantar berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah dihantar.');
 
         return redirect('/sijil-veterinar');
 
@@ -357,7 +358,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $id = (int)$request->route('id'); 
         $sijil = SijilVeterinar::find($id);
         $sijil->delete();
-        alert()->success('Maklumat berjaya dibuang', 'Berjaya');
+        alert()->success('Maklumat berjaya dipadam', 'Berjaya');
         return back();
     }
 
@@ -439,7 +440,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $keratan->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah disimpan.');
+        Alert::success('Hantar berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah dihantar.');
 
         return redirect('/keratan');
 
@@ -449,7 +450,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $id = (int)$request->route('id'); 
         $keratan = Keratan::find($id);
         $keratan->delete();
-        alert()->success('Maklumat berjaya dibuang', 'Berjaya');
+        alert()->success('Maklumat berjaya dipadam', 'Berjaya');
         return back();
     }
 
@@ -497,12 +498,93 @@ class PemeriksaanDalamNegaraController extends Controller
     }
 
     public function senarai_susu(){
-        return view('pdn.senarai_susu');
+
+        $susus = SusuTepung::all();
+
+        return view('pdn.senarai_susu', compact('susus'));
     }
 
     public function borang_susu(){
         return view('pdn.borang_susu');
     }
+
+    public function cipta_susu(Request $request){
+
+        $susu = New SusuTepung();
+        $susu->premis = $request->premis;
+        $susu->wakil = $request->wakil;
+        $susu->telefon = $request->telefon;
+        $susu->emel = $request->emel;
+        $susu->faks = $request->faks;
+        $susu->web = $request->web;
+        $susu->alamat = $request->alamat;
+        $susu->zon = $request->zon;
+        $susu->negeri = $request->negeri;
+        $susu->daerah = $request->daerah;
+        $susu->poskod = $request->poskod;
+        $susu->kaedah = $request->kaedah;
+        $susu->klasifikasi = $request->klasifikasi;
+        $susu->vhm = $request->vhm;
+        $susu->jenis_produk = $request->jenis_produk;
+        $susu->kuantiti = $request->kuantiti;
+        $susu->pembeli = $request->pembeli;
+        $susu->alamat_pembeli = $request->alamat_pembeli;
+    
+        $susu->save();
+
+        Alert::success('Hantar berjaya.', 'Maklumat permohonan pemeriksaan susu tepung telah dihantar.');
+
+        return redirect('/susu-tepung');
+
+    }
+
+    public function padam_susu(Request $request){
+        $id = (int)$request->route('id'); 
+        $susu = SusuTepung::find($id);
+        $susu->delete();
+        alert()->success('Maklumat berjaya dipadam', 'Berjaya');
+        return back();
+    }
+
+    public function satu_susu(Request $request) {
+        $id = (int)$request->route('id');
+        $susu = SusuTepung::find($id);        
+        return view('pdn.satu-susu', compact('susu'));
+    }
+
+    public function kemaskini_susu(Request $request){
+
+        $id = (int)$request->route('id'); 
+
+
+        $susu = SusuTepung::find($id);
+        $susu->premis = $request->premis;
+        $susu->wakil = $request->wakil;
+        $susu->telefon = $request->telefon;
+        $susu->emel = $request->emel;
+        $susu->faks = $request->faks;
+        $susu->web = $request->web;
+        $susu->alamat = $request->alamat;
+        $susu->zon = $request->zon;
+        $susu->negeri = $request->negeri;
+        $susu->daerah = $request->daerah;
+        $susu->poskod = $request->poskod;
+        $susu->kaedah = $request->kaedah;
+        $susu->klasifikasi = $request->klasifikasi;
+        $susu->vhm = $request->vhm;
+        $susu->jenis_produk = $request->jenis_produk;
+        $susu->kuantiti = $request->kuantiti;
+        $susu->pembeli = $request->pembeli;
+        $susu->alamat_pembeli = $request->alamat_pembeli;
+    
+        $susu->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat permohonan pemeriksaan susu tepung telah dikemaskini.');
+
+        return redirect('/susu-tepung');
+
+    }
+
 
     public function borang_perakuan(){
         return view('pdn.borang-perakuan');
