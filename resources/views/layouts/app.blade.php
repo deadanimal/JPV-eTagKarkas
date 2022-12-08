@@ -110,13 +110,6 @@
                                     class="align-middle">Pensampelan</span>
                             </a>
                         </li>
-
-                        {{-- <li class="sidebar-item">
-                            <a class="sidebar-link" href="/pdn">
-                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
-                                    class="align-middle">Pemeriksaan Dalam Negara</span>
-                            </a>
-                        </li> --}}
                         <li class="sidebar-item">
                             <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
                                 <i class="align-middle me-1 fas fa-fw fa-square-check"></i> <span class="align-middle">Pemeriksaan Dalam 
@@ -153,10 +146,17 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/pdn">
-                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
-                                    class="align-middle">Pemeriksaan Dalam Negara</span>
+                            <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
+                                <i class="align-middle me-1 fas fa-fw fa-square-check"></i> <span class="align-middle">Pemeriksaan Dalam 
+                                   <br><span style="margin-left:26px;">Negara</span></span>
                             </a>
+                            <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link" href="/pdn">Pemeriksaan Survelan Audit</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/eksport-luar">Permohonan Eksport ke Luar Negara</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/sijil-veterinar">Pemeriksaan Veterinar - Pengeluaran Sijil Veterinar</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/keratan">Pemeriksaan Veterinar - Verifikasi Import Keratan Ayam</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/susu-tepung">Pemeriksaan Susu Tepung</a></li>
+                            </ul>
                         </li>
                     @endrole
 
@@ -195,10 +195,17 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/pdn">
-                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
-                                    class="align-middle">Pemeriksaan Dalam Negara</span>
+                            <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
+                                <i class="align-middle me-1 fas fa-fw fa-square-check"></i> <span class="align-middle">Pemeriksaan Dalam 
+                                   <br><span style="margin-left:26px;">Negara</span></span>
                             </a>
+                            <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link" href="/pdn">Pemeriksaan Survelan Audit</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/eksport-luar">Permohonan Eksport ke Luar Negara</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/sijil-veterinar">Pemeriksaan Veterinar - Pengeluaran Sijil Veterinar</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/keratan">Pemeriksaan Veterinar - Verifikasi Import Keratan Ayam</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/susu-tepung">Pemeriksaan Susu Tepung</a></li>
+                            </ul>
                         </li>
                     @endrole
 

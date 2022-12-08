@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Keratan;
 use App\Models\PemeriksaanDalamNegara;
 use App\Models\SijilVeterinar;
 use Illuminate\Http\Request;
@@ -300,6 +301,7 @@ class PemeriksaanDalamNegaraController extends Controller
         return redirect('/eksport-luar');
     }
 
+
     public function padam_exsport(Request $request){
         $id = (int)$request->route('id'); 
         $exsport = Exsport::find($id);
@@ -403,11 +405,91 @@ class PemeriksaanDalamNegaraController extends Controller
     }
 
     public function senarai_keratan(){
-        return view('pdn.senarai_keratan');
+        $keratans = Keratan::all();
+
+        return view('pdn.senarai_keratan', compact('keratans'));
     }
 
     public function borang_keratan(){
         return view('pdn.borang-keratan');
+    }
+
+    public function cipta_keratan(Request $request){
+
+        $keratan = New Keratan();
+        $keratan->premis = $request->premis;
+        $keratan->telefon = $request->telefon;
+        $keratan->emel = $request->emel;
+        $keratan->faks = $request->faks;
+        $keratan->web = $request->web;
+        $keratan->alamat = $request->alamat;
+        $keratan->zon = $request->zon;
+        $keratan->negeri = $request->negeri;
+        $keratan->daerah = $request->daerah;
+        $keratan->poskod = $request->poskod;
+        $keratan->klasifikasi = $request->klasifikasi;
+        $keratan->kaedah = $request->kaedah;
+        $keratan->jenis_produk = $request->jenis_produk;
+        // $keratan->negara_eksport = $request->negara_eksport;
+        $keratan->pemeriksa_1 = $request->pemeriksa_1;
+        $keratan->pemeriksa_2 = $request->pemeriksa_2;
+        $keratan->pemeriksa_3 = $request->pemeriksa_3;
+        $keratan->pemeriksa_4 = $request->pemeriksa_4;
+        $keratan->catatan = $request->catatan;
+
+        $keratan->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah disimpan.');
+
+        return redirect('/keratan');
+
+    }
+
+    public function padam_keratan(Request $request){
+        $id = (int)$request->route('id'); 
+        $keratan = Keratan::find($id);
+        $keratan->delete();
+        alert()->success('Maklumat berjaya dibuang', 'Berjaya');
+        return back();
+    }
+
+    public function satu_keratan(Request $request) {
+        $id = (int)$request->route('id');
+        $keratan = Keratan::find($id);        
+        return view('pdn.satu-keratan', compact('keratan'));
+    }
+
+    public function kemaskini_keratan(Request $request){
+        $id = (int)$request->route('id'); 
+
+        $keratan = Keratan::find($id);        
+
+        $keratan->premis = $request->premis;
+        $keratan->telefon = $request->telefon;
+        $keratan->emel = $request->emel;
+        $keratan->faks = $request->faks;
+        $keratan->web = $request->web;
+        $keratan->alamat = $request->alamat;
+        $keratan->zon = $request->zon;
+        $keratan->negeri = $request->negeri;
+        $keratan->daerah = $request->daerah;
+        $keratan->poskod = $request->poskod;
+        $keratan->klasifikasi = $request->klasifikasi;
+        $keratan->kaedah = $request->kaedah;
+        $keratan->jenis_produk = $request->jenis_produk;
+        // $keratan->negara_eksport = $request->negara_eksport;
+        $keratan->pemeriksa_1 = $request->pemeriksa_1;
+        $keratan->pemeriksa_2 = $request->pemeriksa_2;
+        $keratan->pemeriksa_3 = $request->pemeriksa_3;
+        $keratan->pemeriksa_4 = $request->pemeriksa_4;
+        $keratan->catatan = $request->catatan;
+
+        $keratan->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat permohonan pemeriksaan veterinar telah dikemaskini.');
+
+        return redirect('/keratan');
+
     }
 
     public function borang_verifikasi(){

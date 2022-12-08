@@ -86,7 +86,6 @@
                                     
                                     {{-- <td class="d-none d-md-table-cell text-center"><a href="/sijil/{{$vet->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td> --}}
                                        
-
                                 </tr>
 
                                     @endforeach
