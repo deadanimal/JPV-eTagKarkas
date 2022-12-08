@@ -176,14 +176,7 @@
 
 
                                     <div class="row mb-3">
-                                        <div class="col-2 mb-3">
-                                            <label class="form-label">Negara</label>
-                                        </div>
-                                        <div class="col-10 mb-3">
-                                            <input class="form-control" type="text" name="jenis" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
-                                        </div>
+                                        <input class="form-control" type="hidden" name="jenis" value="SINGAPURA">
                                         <div class="col-2">
                                             <label class="form-label">Muat Turun</label>
                                         </div>

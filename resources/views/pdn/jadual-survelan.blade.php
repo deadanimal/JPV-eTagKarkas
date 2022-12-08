@@ -25,8 +25,8 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="/cipta_survelan_audit/{{$id}}" method="POST" enctype="multipart/form-data">
-                                    @method('PUT')
+                                <form action="/cipta_survelan_audit" method="POST" enctype="multipart/form-data">
+                                    {{-- @method('PUT') --}}
                                     @csrf
             
                                     <div class="mb-3">
@@ -260,71 +260,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-12 col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Jadual Survelan Audit</h5>
-                </div>
-
-                <div class="card-body">
-                    <div class="col">
-                        <table class="table table-bordered line-table text-center" style="width: 100%">
-                            <thead class="text-black">
-
-                                <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR SURVELAN AUDIT(VHM/MyGAP) TAHUN 2022</th>
-                                    {{-- after AUDIT, need to specify MyGap or VHM --}}
-                                </tr>
-                                <tr style="vertical-align: middle">
-                                    <th>BIL</th>
-                                    <th>PREMIS</th>
-                                    <th>ALAMAT PREMIS</th>
-                                    <th>NAMA PEMERIKSA 1</th>
-                                    <th>NAMA PEMERIKSA 2</th>
-                                    <th>NAMA PEMERIKSA 3</th>
-                                    <th>NAMA PEMERIKSA 4</th>
-                                    <th>NEGERI</th>  
-                                </tr>
-                                <tr>
-                                <th colspan="16">Zon</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach ($jaduals as $jaduals)
-                                    <tr class="text-center">
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$jaduals->nombor}}</td>
-                                        <td>{{$jaduals->premis}}</td>
-                                        <td>{{$jaduals->telefon}}</td>
-                                        <td>{{$jaduals->pemeriksa_1}}</td>
-                                        <td>{{$jaduals->pemeriksa_2}}</td>
-                                        <td>{{$jaduals->pemeriksa_3}}</td>
-                                        <td>{{$jaduals->pemeriksa_4}}</td>  
-                                    </tr>
-                                @endforeach
-
-
-                            </tbody>
-                        </table>
-
-
-
-                        {{-- <div class="mb-3">
-                            <button class="btn btn-primary" type="submit" title="Kemaskini"
-                                style="float: left">Simpan</button>
-                            <button class="btn btn-success" type="submit" title="Hantar"
-                                style="float: right">Hantar</button>
-                        </div> --}}
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
     </div>
 
 

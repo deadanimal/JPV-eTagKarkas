@@ -118,29 +118,55 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pdn', [PemeriksaanDalamNegaraController::class, 'senarai']);
     Route::get('borang-survelan', [PemeriksaanDalamNegaraController::class, 'borang_survelan']);
     Route::post('borang-survelan', [PemeriksaanDalamNegaraController::class, 'cipta_survelan']);
-    Route::get('jadual-survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jadual']);
-    Route::put('cipta_survelan_audit/{id}', [PemeriksaanDalamNegaraController::class, 'cipta_survelan_audit']);
+    Route::get('satu_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_pdn']);
+    Route::put('simpan_kemaskini_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_pdn']);
+    Route::delete('padam_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'padam_pdn']);
+
+
+    Route::get('jadual_survelan', [PemeriksaanDalamNegaraController::class, 'jadual']);
+    Route::post('cipta_survelan_audit', [PemeriksaanDalamNegaraController::class, 'cipta_survelan_audit']);
     Route::get('kemaskini_jadual_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_survelan']);
-    Route::put('simpan_kemaskini_jadual_survelan', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_survelan']);
+    Route::put('simpan_kemaskini_jadual_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_survelan']);
     Route::delete('padam_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'padam_survelan']);
-    Route::get('borang-pemeriksa', [PemeriksaanDalamNegaraController::class, 'borang_pemeriksa']);
-    Route::get('borang-log', [PemeriksaanDalamNegaraController::class, 'borang_log']);
     Route::get('borang-log/{id}', [PemeriksaanDalamNegaraController::class, 'borang_log']);
 //nbrobr
     Route::get('borang_ncsobr', [PemeriksaanDalamNegaraController::class, 'borang_ncsobr']);
     Route::post('simpan_borang_ncsobr', [PemeriksaanDalamNegaraController::class, 'cipta_ncsobr']);
     Route::get('borang-pemeriksa/{id}', [PemeriksaanDalamNegaraController::class, 'borang_pemeriksa']);
     Route::post('cipta_jadual_ncr', [PemeriksaanDalamNegaraController::class, 'cipta_jadual_ncr']);
+//ncr
+    Route::get('borang_pemeriksa', [PemeriksaanDalamNegaraController::class, 'borang_pemeriksa']);
+    Route::post('cipta_borang_ncr', [PemeriksaanDalamNegaraController::class, 'cipta_jadual_ncr']);
+    Route::get('kemaskini_jadual_ncr/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_ncr']);
+    Route::put('simpan_kemaskini_jadual_ncr/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_ncr']);
+    Route::delete('padam_ncr/{id}', [PemeriksaanDalamNegaraController::class, 'padam_ncr']);
+//obr
+    Route::get('borang_obr', [PemeriksaanDalamNegaraController::class, 'borang_obr']);
+    Route::post('cipta_borang_obr', [PemeriksaanDalamNegaraController::class, 'cipta_jadual_obr']);
+    Route::get('kemaskini_jadual_obr/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_obr']);
+    Route::put('simpan_kemaskini_jadual_obr/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_obr']);
+    Route::delete('padam_obr/{id}', [PemeriksaanDalamNegaraController::class, 'padam_obr']);
 
+//log
+    Route::get('borang_log', [PemeriksaanDalamNegaraController::class, 'borang_log']);
+    Route::post('cipta_borang_log', [PemeriksaanDalamNegaraController::class, 'cipta_log']);
+    Route::get('kemaskini_jadual_log/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_log']);
+    Route::put('simpan_kemaskini_jadual_log/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_log']);
+    Route::delete('padam_log/{id}', [PemeriksaanDalamNegaraController::class, 'padam_log']);
 
-    //exsport
+    //exsport singapura
     Route::get('eksport-luar', [PemeriksaanDalamNegaraController::class, 'senarai_eksport_luar']);
     Route::get('borang-adequacy', [PemeriksaanDalamNegaraController::class, 'borang_adequacy']);
-
     Route::post('cipta_exsport', [PemeriksaanDalamNegaraController::class, 'cipta_exsport']);
     Route::get('kemaskini_exsport/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_exsport']);
     Route::put('simpan_kemaskini_exsport/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_exsport']);
     Route::delete('padam_exsport/{id}', [PemeriksaanDalamNegaraController::class, 'padam_exsport']);
+
+    //exsport selain singapura
+    Route::get('borang-adequacy1', [PemeriksaanDalamNegaraController::class, 'borang_adequacy1']);
+    Route::post('cipta_exsport1', [PemeriksaanDalamNegaraController::class, 'cipta_exsport1']);
+    Route::get('kemaskini_exsport1/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_exsport1']);
+    Route::put('simpan_kemaskini_exsport1/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_exsport1']);
 
 
 

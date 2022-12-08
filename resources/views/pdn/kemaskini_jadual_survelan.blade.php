@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="/simpan_kemaskini_jadual_survelan" method="POST" enctype="multipart/form-data">
+                                <form action="/simpan_kemaskini_jadual_survelan/{{$survelans->id}}" method="POST" enctype="multipart/form-data">
                                     @method('PUT')
                                     @csrf
                                     <div class="mb-3">
