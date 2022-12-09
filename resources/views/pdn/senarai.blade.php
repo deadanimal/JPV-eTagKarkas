@@ -294,7 +294,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR OBR(VHM/MyGAP) TAHUN 2022</th>
+                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR Log(VHM/MyGAP) TAHUN 2022</th>
                                     {{-- after AUDIT, need to specify MyGap or VHM --}}
                                 </tr>
                                 <tr style="vertical-align: middle">

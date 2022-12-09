@@ -59,7 +59,7 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-3 col-md-12">
+                                {{-- <div class="mb-3 col-md-12">
                                     <label for="inputAddress">Jenis Borang</label>
                                     <select class="form-select" aria-label="Default select example" name="jenis_borang"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
@@ -68,7 +68,7 @@
                                         <option value="ncr">NCR</option>
                                         <option value="obr">OBR</option>
                                     </select>
-                                </div>
+                                </div> --}}
 
                                 <div class="mb-3 col-md-12">
                                     <label for="inputAddress">Jenis Ternakan</label>

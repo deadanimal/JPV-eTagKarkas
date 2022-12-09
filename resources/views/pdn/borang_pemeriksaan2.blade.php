@@ -39,7 +39,7 @@
                                           
                                                 <input class="form-control" type="number" name="nombor_ic" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$ncr->nombor_ic}}"/>
                                           
 
                                             <div class="col-6">
@@ -47,14 +47,14 @@
                                             </div>
                                             <input class="form-control" type="text" name="company" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$ncr->company}}"/>
 
                                             <div class="col-6">
                                                 <label class="form-label">Audit Date</label>
                                             </div>
                                                 <input class="form-control" type="date" name="audit" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$ncr->audit}}"/>
                                            
 
                                             <div class="col-6">
@@ -62,21 +62,21 @@
                                             </div>
                                             <input class="form-control" type="text" name="categori" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
+                                            oninput="this.setCustomValidity('')" value="{{$ncr->categori}}"/>
 
                                             <div class="col-6">
                                                 <label class="form-label">Standard Reference</label>
                                             </div>
                                             <input class="form-control" type="text" name="standard_reference" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
+                                            oninput="this.setCustomValidity('')" value="{{$ncr->standard_reference}}"/>
 
                                             <div class="col-6">
                                                 <label class="form-label">Clause</label>
                                             </div>
                                             <input class="form-control" type="text" name="clause" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
+                                            oninput="this.setCustomValidity('')" value="{{$ncr->clause}}"/>
                                             <input class="form-control" type="hidden" name="jenis" value="ncr">
 
                                             {{-- <div class="col-6">
@@ -102,7 +102,7 @@
                                                 
                                                     <textarea class="form-control" rows=5 name="NC_statement" onkeyup="this.value = this.value.toUpperCase();" required
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                    oninput="this.setCustomValidity('')">{{$ncr->NC_statement}}</textarea>
                                                 
                                             </div>
 
@@ -113,7 +113,7 @@
                                                
                                                     <textarea class="form-control" rows=5 name="objective_evidence" onkeyup="this.value = this.value.toUpperCase();" required
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                    oninput="this.setCustomValidity('')">{{$ncr->objective_evidence}}</textarea>
                                                
                                             </div>
 
@@ -130,7 +130,7 @@
                                                 
                                                     <textarea class="form-control" rows=5 name="auditee_acknowledgement" onkeyup="this.value = this.value.toUpperCase();" required
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                    oninput="this.setCustomValidity('')">{{$ncr->auditee_acknowledgement}}</textarea>
                                                
                                             </div>
 
@@ -142,7 +142,7 @@
                                                
                                                     <textarea class="form-control" rows=5 name="auditor1_signature" onkeyup="this.value = this.value.toUpperCase();" required
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                    oninput="this.setCustomValidity('')">{{$ncr->auditor1_signature}}</textarea>
                                               
                                             </div>
 
@@ -153,7 +153,7 @@
                                                
                                                     <textarea class="form-control" rows=5 name="auditor2_signature" onkeyup="this.value = this.value.toUpperCase();" required
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                    oninput="this.setCustomValidity('')">{{$ncr->auditor2_signature}}</textarea>
                                                
                                             </div>
 
@@ -164,7 +164,7 @@
                                                
                                                     <textarea class="form-control" rows=5 name="auditor3_signature" onkeyup="this.value = this.value.toUpperCase();" required
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                    oninput="this.setCustomValidity('')">{{$ncr->auditor3_signature}}</textarea>
                                                 
                                             </div>
 
@@ -175,7 +175,7 @@
                                                
                                                     <textarea class="form-control" rows=5 name="auditor4_signature" onkeyup="this.value = this.value.toUpperCase();" required
                                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                    oninput="this.setCustomValidity('')">{{$ncr->auditor4_signature}}</textarea>
                                                 
                                             </div>
 

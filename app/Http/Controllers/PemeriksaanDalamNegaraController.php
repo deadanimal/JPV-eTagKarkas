@@ -49,7 +49,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $survelan->pensijilan = $request->pensijilan;
         $survelan->operasi = $request->operasi;
         $survelan->ternakan = $request->ternakan;
-        $survelan->jenis_borang = $request->jenis_borang;
+        // $survelan->jenis_borang = $request->jenis_borang;
         $survelan->save();
 
 
@@ -87,7 +87,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $pdn->pensijilan = $request->pensijilan;
         $pdn->operasi = $request->operasi;
         $pdn->ternakan = $request->ternakan;
-        $pdn->jenis_borang = $request->jenis_borang;
+        // $pdn->jenis_borang = $request->jenis_borang;
         $pdn->save();
         alert()->success('Maklumat telah disimpan', 'Berjaya');
         return redirect('/pdn');

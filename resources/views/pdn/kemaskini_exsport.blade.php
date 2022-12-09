@@ -56,7 +56,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="date" name="tarikh" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->tarikh ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -134,7 +134,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="tujuan" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$exsports->tujuan ?? " "}}"/>
                                             </div>
 
                                         </div>
@@ -152,7 +152,7 @@
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_1" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
+                                                <option selected value="{{$exsports->pemeriksa_1}}">{{$exsports->pemeriksa_1}}</option>
                                                 <option value="Pemeriksa 1">Pemeriksa 1</option>
                                                 <option value="Pemeriksa 2">Pemeriksa 2</option>
                                                 <option value="Pemeriksa 3">Pemeriksa 3</option>
@@ -166,7 +166,7 @@
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_2" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
+                                                <option selected value="{{$exsports->pemeriksa_2}}">{{$exsports->pemeriksa_2}}</option>
                                                 <option value="Pemeriksa 1">Pemeriksa 1</option>
                                                 <option value="Pemeriksa 2">Pemeriksa 2</option>
                                                 <option value="Pemeriksa 3">Pemeriksa 3</option>
@@ -181,7 +181,8 @@
                                             <label class="form-label">Muat Turun</label>
                                         </div>
                                         <div class="col-10">
-                                           <input type="file" name="dokumen" id="dokumen" multiple>
+                                           <input type="file" name="dokumen" id="dokumen" value="{{$exsports->dokumen}}" multiple required>
+                                           {{-- <input type="text" value="{{$exsports->dokumen}}"> --}}
                                         </div>
                                     </div>
             
