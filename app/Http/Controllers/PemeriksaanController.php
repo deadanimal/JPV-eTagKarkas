@@ -405,6 +405,8 @@ class PemeriksaanController extends Controller
     public function satu_pemeriksaan_babi(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
+        $pemeriksaan = Pemeriksaan::find($id);
+
         $pemeriksaan_babi = PengenalanBabi::find($id);
         $periksa_harian = Pemeriksaan::find($id);
  
@@ -419,13 +421,16 @@ class PemeriksaanController extends Controller
         $post_mortems = PostMortemRuminan::where([
             ['pemeriksaan_id','=', $pemeriksaan_babi->id],
         ])->get(); 
+        $catatans = Catatan::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id],
+        ])->get(); 
         // $am_unggas = AnteMortemUnggas::where([
         //     ['unggas_id','=', $pemeriksaan_babi->id],
         // ])->get();
         // $pm_unggas = PostMortemUnggas::where([
         //     ['unggas_id','=', $pemeriksaan_babi->id],
         // ])->get();       
-        return view('daging.satu_babi', compact('user','pemeriksaan_babi','harians','periksa_harian','ante_mortems','post_mortems'));
+        return view('daging.satu_babi', compact('user','pemeriksaan_babi','harians','periksa_harian','ante_mortems','post_mortems','catatans','pemeriksaan'));
     }
 
     // tambah model notifikasi - id,message,user
