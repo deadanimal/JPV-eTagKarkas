@@ -30,7 +30,7 @@
 
                 <div class="col-sm-2">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body bg-info">
                             <div class="row">
                                 <div class="col mt-0">
                                     <h5 class="card-title text-black">Jumlah Permohonan</h5>
@@ -45,7 +45,7 @@
                 @role('pentadbir|ketua-seksyen|pengurus-rumah-sembelih')
                 <div class="col-sm-2">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body bg-info">
                             <div class="row">
                                 <div class="col mt-0">
                                     <h5 class="card-title text-black">Jumlah Permohonan Hantar</h5>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body bg-info">
                             <div class="row">
                                 <div class="col mt-0">
                                     <h5 class="card-title text-black">Jumlah Permohonan Sah</h5>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body bg-info">
                             <div class="row">
                                 <div class="col mt-0">
                                     <h5 class="card-title text-black">Jumlah Permohonan Lulus</h5>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body bg-info">
                             <div class="row">
                                 <div class="col mt-0">
                                     <h5 class="card-title text-black">Jumlah Permohonan Tolak</h5>
