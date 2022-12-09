@@ -31,7 +31,7 @@
                                     <label for="inputAddress">Zon</label>
                                     <select class="form-select" aria-label="Default select example" name="zon"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
-                                        <option selected disabled value="">Pilih Zon</option>
+                                        <option selected value="{{$pdn->zon}}">{{$pdn->zon}}</option>
                                         <option value="Zon Utara">Zon Utara</option>
                                         <option value="Zon Tengah">Zon Tengah</option>
                                         <option value="Zon Selatan">Zon Selatan</option>
@@ -43,7 +43,7 @@
                                     <label for="inputAddress">Jenis Pensijilan</label>
                                     <select class="form-select" aria-label="Default select example" name="pensijilan"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
-                                        <option selected disabled value="">Pilih Pensijilan</option>
+                                        <option selected value="{{$pdn->pensijilan}}">{{$pdn->pensijilan}}</option>
                                         <option value="Sijil 1">Sijil 1</option>
                                         <option value="Sijil 2">Sijil 2</option>
                                         <option value="Sijil 3">Sijil 3</option>
@@ -54,28 +54,28 @@
                                     <label for="inputAddress">Jenis Operasi</label>
                                     <select class="form-select" aria-label="Default select example" name="operasi"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
-                                        <option selected disabled value="">Pilih Operasi</option>
+                                        <option selected value="{{$pdn->operasi}}">{{$pdn->operasi}}</option>
                                         <option value="Loji VHM/GVHP">Loji VHM/GVHP</option>
                                         <option value="Loji MyGAP/MyOrganic">Loji MyGAP/MyOrganic</option>
                                     </select>
                                 </div>
 
-                                <div class="mb-3 col-md-12">
+                                {{-- <div class="mb-3 col-md-12">
                                     <label for="inputAddress">Jenis Borang</label>
                                     <select class="form-select" aria-label="Default select example" name="jenis_borang"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
-                                        <option selected disabled value="">Pilih Jenis</option>
+                                        <option selected value="{{$pdn->pensijilan}}">Pilih Jenis</option>
                                         <option value="survelan">Survelan</option>
                                         <option value="ncr">NCR</option>
                                         <option value="obr">OBR</option>
                                     </select>
-                                </div>
+                                </div> --}}
 
                                 <div class="mb-3 col-md-12">
                                     <label for="inputAddress">Jenis Ternakan</label>
                                     <select class="form-select" aria-label="Default select example" name="ternakan"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
-                                        <option selected disabled value="">Pilih Ternakan</option>
+                                        <option selected value="{{$pdn->ternakan}}">{{$pdn->ternakan}}</option>
                                         <option value="Ayam">Ayam</option>
                                         <option value="Ruminan Besar">Ruminan Besar</option>
                                         <option value="Ruminan Kecil">Ruminan Kecil</option>

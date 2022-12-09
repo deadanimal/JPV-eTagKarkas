@@ -121,7 +121,7 @@
                                             <select class="form-select" aria-label="Default select example" name="negeri" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Negeri</option>
+                                                <option selected value="{{$survelans->negeri}}">{{$survelans->negeri}}</option>
                                                 <option value="G29">G29</option>
                                                 <option value="G41">G41</option>
                                                 <option value="G44">G44</option>
@@ -136,7 +136,7 @@
                                             <select class="form-select" aria-label="Default select example" name="kaedah_audit" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Kaedah Audit</option>
+                                                <option selected value="{{$survelans->kaedah_audit}}">{{$survelans->kaedah_audit}}</option>
                                                 <option value="G29">G29</option>
                                                 <option value="G41">G41</option>
                                                 <option value="G44">G44</option>
@@ -153,7 +153,7 @@
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_1" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
+                                                <option selected value="{{$survelans->pemeriksa_1}}">{{$survelans->pemeriksa_1}}</option>
                                                 <option value="G29">G29</option>
                                                 <option value="G41">G41</option>
                                                 <option value="G44">G44</option>
@@ -168,7 +168,7 @@
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_2" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
+                                                <option selected value="{{$survelans->pemeriksa_2}}">{{$survelans->pemeriksa_2}}</option>
                                                 <option value="G29">G29</option>
                                                 <option value="G41">G41</option>
                                                 <option value="G44">G44</option>
@@ -185,7 +185,7 @@
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_3" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
+                                                <option selected value="{{$survelans->pemeriksa_3}}">{{$survelans->pemeriksa_3}}</option>
                                                 <option value="G29">G29</option>
                                                 <option value="G41">G41</option>
                                                 <option value="G44">G44</option>
@@ -200,7 +200,7 @@
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_4" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
+                                                <option selected value="{{$survelans->pemeriksa_4}}">{{$survelans->pemeriksa_4}}</option>
                                                 <option value="G29">G29</option>
                                                 <option value="G41">G41</option>
                                                 <option value="G44">G44</option>

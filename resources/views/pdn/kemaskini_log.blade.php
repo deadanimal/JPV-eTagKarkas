@@ -38,7 +38,7 @@
                                             </div>
                                             <input class="form-control" type="text" name="premis" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$log->premis}}"/>
                                           
 
                                             <div class="col-6">
@@ -46,7 +46,7 @@
                                             </div>
                                             <input class="form-control" type="text" name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninput="this.setCustomValidity('')" value="{{$log->alamat}}"/>
 
                                             
                                            
@@ -56,14 +56,14 @@
                                             </div>
                                             <input class="form-control" type="text" name="produk" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
+                                            oninput="this.setCustomValidity('')" value="{{$log->produk}}"/>
 
                                             <div class="col-6">
                                                 <label class="form-label">No. Est</label>
                                             </div>
                                             <input class="form-control" type="number" name="no_est" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" />
+                                            oninput="this.setCustomValidity('')" value="{{$log->no_est}}"/>
 
                                         </div>
                                    
