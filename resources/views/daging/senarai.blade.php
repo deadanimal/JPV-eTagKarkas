@@ -23,7 +23,9 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Jenis Ternakan</label>
                         <div class="col-sm-10">
-                            <select class="form-select" name="jenis">
+                            <select class="form-select" name="jenis" 
+                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                            oninput="this.setCustomValidity('')">
                                 <option selected disabled>Pilih Jenis Ternakan</option>
                                 <option value="Ruminan">Ruminan</option>
                                 <option value="Unggas">Unggas</option>
@@ -45,7 +47,7 @@
                         {{-- <a href="/pemeriksaan"><button class="btn btn-primary" type="button" name="action" value="">Semak</button></a> --}}
                         <button class="btn btn-primary" type="submit" name="action" value="semak">Semak</button>
                         {{-- <button type="submit" class="btn btn-success" name="action" value="daftar" disabled>Daftar Dengan SKV</button> --}}
-                        <button type="submit" class="btn btn-dark" name="action" value="daftar">Daftar Tanpa SKV</button>
+                        <button type="submit" class="btn btn-dark" name="action" value="daftar">Daftar</button>
                     </div>
                 </form>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AnteMortemRuminan;
 use App\Models\AnteMortemUnggas;
 use App\Models\Babi;
+use App\Models\Catatan;
 use App\Models\Haiwan;
 use App\Models\PemeriksaanBabi;
 use App\Models\PemeriksaanHarian;
@@ -148,6 +149,8 @@ class PemeriksaanController extends Controller
         $id = (int)$request->route('id');
         $pemeriksaan = Pemeriksaan::find($id);
         $periksa_harian = Pemeriksaan::find($id);
+        // $catatans = Catatan::find($id);
+
  
         $harians = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
@@ -158,8 +161,43 @@ class PemeriksaanController extends Controller
         ])->get();
         $post_mortems = PostMortemRuminan::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
-        ])->get();       
-        return view('daging.satu_ruminan', compact('pemeriksaan','harians', 'user','ante_mortems','post_mortems','periksa_harian'));
+        ])->get();  
+        $catatans = Catatan::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id],
+        ])->get();      
+        return view('daging.satu_ruminan', compact('pemeriksaan','harians', 'user','ante_mortems','post_mortems','periksa_harian','catatans'));
+    }
+
+    public function catatan(Request $request){
+        $id = (int)$request->route('id');
+
+        $user = $request->user();
+        $pemeriksaan = Pemeriksaan::find($id);
+        $catatans = Catatan::find($id);
+
+
+        return view('daging.catatan', compact('user','catatans','pemeriksaan'));
+    }
+
+    public function cipta_catatan(Request $request){
+
+        $user = $request->user();
+
+        $catatan = New Catatan;
+
+        $catatan->tag = $request->tag;
+        $catatan->jantina = $request->jantina;
+        $catatan->baka = $request->baka;
+        $catatan->tarikh = $request->tarikh;
+        $catatan->pemeriksaan_id = $request->pemeriksaan_id;
+        $catatan->rumah_sembelih_id = $user->rumah_sembelih->id;
+
+        $catatan->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat catatan telah disimpan.');
+
+        return back(); 
+
     }
 
     public function tunjuk_harian(Request $request){

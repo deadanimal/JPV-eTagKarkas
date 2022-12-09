@@ -112,7 +112,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
-                                <i class="align-middle me-1 fas fa-fw fa-square-check"></i> <span class="align-middle">Pemeriksaan Dalam 
+                                <i class="align-middle me-1 fas fa-fw fa-earth"></i> <span class="align-middle">Pemeriksaan Dalam 
                                    <br><span style="margin-left:26px;">Negara</span></span>
                             </a>
                             <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
@@ -147,7 +147,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
-                                <i class="align-middle me-1 fas fa-fw fa-square-check"></i> <span class="align-middle">Pemeriksaan Dalam 
+                                <i class="align-middle me-1 fas fa-fw fa-earth"></i> <span class="align-middle">Pemeriksaan Dalam 
                                    <br><span style="margin-left:26px;">Negara</span></span>
                             </a>
                             <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
@@ -196,7 +196,7 @@
 
                         <li class="sidebar-item">
                             <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
-                                <i class="align-middle me-1 fas fa-fw fa-square-check"></i> <span class="align-middle">Pemeriksaan Dalam 
+                                <i class="align-middle me-1 fas fa-fw fa-earth"></i> <span class="align-middle">Pemeriksaan Dalam 
                                    <br><span style="margin-left:26px;">Negara</span></span>
                             </a>
                             <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
