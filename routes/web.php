@@ -93,6 +93,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('tag/{id}', [TagController::class, 'kemaskini']);
     Route::get('tag/{id}/jana', [TagController::class, 'jana']);
     Route::get('tag/{id}/delete', [TagController::class, 'padam']);
+    Route::get('jana/{id}', [TagController::class, 'jana']);
+    // Route::get('jana-tag/{id}', [TagController::class, 'jana_tag']);
+
 
     // Pendaftaran stok tag - zach tambah
     Route::get('stok-tag', [StokTagController::class, 'senarai']);

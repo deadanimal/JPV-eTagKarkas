@@ -13,7 +13,7 @@ use DateTime;
 use Carbon\Carbon;
 use Alert;
 use Yajra\DataTables\Contracts\DataTable;
-use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TagController extends Controller
 {
@@ -165,7 +165,8 @@ class TagController extends Controller
                 } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual') {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="';    
                 } else if($user->hasRole('pentadbir') && $tag->status == "Lulus") {                    
-                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success" onClick="printJS()">Cetak</button></a>';    
+                    // $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
+                    $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
                 } else if($tag->status == "Tolak" ) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';    
                 } else if($tag->status == "Sah" && $user->hasRole('ketua-seksyen')) {
@@ -288,13 +289,22 @@ class TagController extends Controller
         $id = (int)$request->route('id');
         $tag = Tag::find($id);     
         $date = $tag->created_at->format('dmy'); 
-        
-        // generate pdf using DomPDF
-        // $pdf = FacadePDF::loadView('tag.jana', compact('tag', 'date'));
-        // return $pdf->download('cetak_tags.pdf');
-
+    
         return view('tag.jana', compact('tag', 'date'));
     } 
+
+    // public function jana_tag(Request $request) {
+    //     $id = (int)$request->route('id');
+    //     $tag = Tag::find($id);     
+    //     $date = $tag->created_at->format('dmy'); 
+        
+    //     generate pdf using DomPDF
+    //     $pdf = Pdf::loadView('tag.jana', compact('tag', 'date'));
+    //     return $pdf->download('cetak_tags.pdf');
+
+    // } 
+
+
     
    
 

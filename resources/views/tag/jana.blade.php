@@ -16,7 +16,7 @@
 
     <style>
         .bawah{
-            border-bottom: 20px solid blueviolet;
+            border-bottom: 7px solid blueviolet;
             border-style: solid
             border-color: black
         }
@@ -29,8 +29,10 @@
       width: 1500px;
       resize: both;
       overflow: auto;
+     
     }
     </style>
+    
 
 <style>
     @media print {
@@ -50,12 +52,14 @@
         @endphp
     @endif
 
+    {{-- <a href="/jana-tag/{{$tag->id}}"><button value="jana" class="btn btn-secondary" type="button" style="float: right">Jana</button></a> --}}
+
     <div class="card div1" id="jana-tag" style="padding-left:30px;">
         
         @for ($x = 1; $x <= $y; $x++)
             <div class="row" style="padding-top:10px; padding-left:10px;">
                 @for ($i = 1; $i < $tag->bil_ternakan_sah_ketua + 1; $i++)
-                    <div class="row bawah pb" style="border-style: solid; padding-top:10px; margin-bottom:5px; width:70%">
+                    <div class="row bawah pb" style="border-style: solid; padding-top:50px; margin-bottom:100px; width:70%">
 
                         {{-- KATEGORI TAG --}}
                         <div class="column" style="width:12%;">

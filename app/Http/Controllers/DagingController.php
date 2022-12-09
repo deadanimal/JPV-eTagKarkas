@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pemeriksaan;
+use App\Models\PemeriksaanBabi;
 use DataTables;
 use DateTime;
 use Carbon\Carbon;
@@ -20,7 +22,7 @@ class DagingController extends Controller
     {
 
         $jenis = $request->query('jenis');
-        $id = (int)$request->route('id');
+        $id = (int) $request->route('id');
 
         if ($jenis == 'unggas') {
 
@@ -41,17 +43,27 @@ class DagingController extends Controller
     {
 
         if ($request->action == "semak") {
-            if (Haiwan::where([
-                ['jenis', '=', $request->jenis],
-                ['no_skv', '=', $request->no_skv],
-            ])->exists()) {
+            if (
+                Haiwan::where([
+                    ['jenis', '=', $request->jenis],
+                    ['no_skv', '=', $request->no_skv],
+                ])->exists()
+            ) {
                 $daging = Haiwan::where([
                     ['jenis', '=', $request->jenis],
                     ['no_skv', '=', $request->no_skv],
                 ])->first();
                 Alert::success('SKV dijumpai', 'SKV boleh dikenalpasti');
-                $url = '/daging/'.$daging->id;
-                return redirect($url);
+
+                $haiwan = Haiwan::where('jenis')->first();
+                if ($request->jenis == 'Unggas') {
+                    return view('daging.senarai_unggas', compact('haiwan', 'daging'));
+                } elseif($request->jenis == 'Ruminan') {
+                    return view('daging.senarai_ruminan', compact('haiwan', 'daging'));
+                } elseif($request->jenis == 'Babi') {
+                    return view('daging.senarai_babi', compact('haiwan', 'daging'));
+                }
+                
             } else {
                 Alert::error('SKV Tidak dijumpai', 'SKV Tidak dijumpai');
                 return redirect('/daging');
@@ -65,7 +77,7 @@ class DagingController extends Controller
             $haiwan->rumah_sembelih_id = $rumah_id;
             $haiwan->save();
             Alert::success('Daftar Berjaya', 'Haiwan berjaya didaftarkan');
-            $url = '/daging/'.$haiwan->id;
+            $url = '/daging/' . $haiwan->id;
             return redirect($url);
         }
     }
@@ -74,31 +86,32 @@ class DagingController extends Controller
 
     public function satu(Request $request)
     {
-        $id = (int)$request->route('id');
+        $id = (int) $request->route('id');
         $haiwan = Haiwan::find($id);
         // dd($haiwan->jenis);
         if ($haiwan->jenis == 'Unggas') {
             return view('daging.unggas', compact('haiwan'));
         } else if ($haiwan->jenis == 'Babi') {
-           
+
             return view('daging.babi', compact('haiwan'));
         } else if ($haiwan->jenis == 'Ruminan') {
-            
+
             return view('daging.ruminan', compact('haiwan'));
         }
     }
 
     public function kemaskini(Request $request)
     {
-        $id = (int)$request->route('id');
+        $id = (int) $request->route('id');
         $haiwan = Haiwan::find($id);
-        if($request->nama_pemilik) {
+        if ($request->nama_pemilik) {
             $haiwan->nama_pemilik = $request->nama_pemilik;
-        }      
-        $haiwan->save();  
+        }
+        $haiwan->save();
         Alert::success('Kemaskini Berjaya', 'Kemaskini berjaya');
-        return back();;
-    }    
+        return back();
+        ;
+    }
 
 
     public function senarai(Request $request)
