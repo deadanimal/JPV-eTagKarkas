@@ -464,8 +464,14 @@
                         </div>
         
                     </div>
+
+                    <div class="text-center">
+                        <a href="/pemeriksaan" class="btn btn-warning" >Kembali</a>
+                    </div>
         
                 </div>
+
+               
             </div>
 
         </div>

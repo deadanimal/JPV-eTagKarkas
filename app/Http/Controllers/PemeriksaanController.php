@@ -9,6 +9,7 @@ use App\Models\Haiwan;
 use App\Models\PemeriksaanBabi;
 use App\Models\PemeriksaanHarian;
 use App\Models\PemeriksaanUnggas;
+use App\Models\PengenalanBabi;
 use App\Models\PostMortemRuminan;
 use App\Models\PostMortemUnggas;
 use App\Models\RumahSembelih;
@@ -297,13 +298,13 @@ class PemeriksaanController extends Controller
         
         $id = (int)$request->route('id');
         // call all pemeriksaan into datatable
-        $babi = Babi::all();
+        $babi = PengenalanBabi::all();
         $user = $request->user();
 
         // pass rumah_sembelih_id
         $rumah_sembelih_id = $user->rumah_sembelih_id;
 
-        $babis = Babi::where([
+        $babis = PengenalanBabi::where([
             ['rumah_sembelih_id','=', $rumah_sembelih_id],
         ])->orderBy('updated_at','desc')->get();
            
@@ -313,7 +314,7 @@ class PemeriksaanController extends Controller
                
                 return DataTables::collection($babis)
                 ->addIndexColumn()
-                ->addColumn('tindakan', function (Babi $babi) {
+                ->addColumn('tindakan', function (PengenalanBabi $babi) {
                     $url = '/pemeriksaan-babi/'.$babi->id;
                     return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
                 })
@@ -333,23 +334,26 @@ class PemeriksaanController extends Controller
         
         $user = $request->user();
 
-        $babi = New Babi;
+        $babi = New PengenalanBabi;
 
         // pengenalan
-        $babi->nama_pemilik_babi = $request->nama_pemilik_babi;
-        $babi->kenderaan_babi = $request->kenderaan_babi;
-        $babi->masa_tiba_babi = $request->masa_tiba_babi;
-        $babi->id_premis_babi = $request->id_premis_babi;
-        $babi->bilangan_ternakan_diterima_babi = $request->bilangan_ternakan_diterima_babi;
-        $babi->ternakan_mati_semasa_tiba_babi = $request->ternakan_mati_semasa_tiba_babi;
-        $babi->jumlah_diperiksa_babi = $request->jumlah_diperiksa_babi;
-        $babi->bilangan_rapi_babi = $request->bilangan_rapi_babi;
-        $babi->jumlah_dikondem_babi = $request->jumlah_dikondem_babi;
-        $babi->jumlah_disembelih_babi = $request->jumlah_disembelih_babi;
-        $babi->baki_belum_disembelih_babi = $request->baki_belum_disembelih_babi;
-        $babi->catatan_babi = $request->catatan_babi;
+        $babi->nama_pemilik = $request->nama_pemilik;
+        $babi->kenderaan = $request->kenderaan;
+        $babi->masa_tiba = $request->masa_tiba;
+        $babi->masa_disembelih = $request->masa_disembelih;
+        $babi->permit = $request->permit;
+        $babi->spesis = $request->spesis;
+        $babi->bil_ternakan_skv = $request->bil_ternakan_skv;
+        $babi->id_permis = $request->id_permis;
+        $babi->nama_premis = $request->nama_premis;
+        $babi->alamat_premis = $request->alamat_premis;
         //save rumah_sembelih_id
         $babi->rumah_sembelih_id = $user->rumah_sembelih->id;
+
+        $babi->bil_ternakan_diterima = $request->bil_ternakan_diterima;
+        $babi->ternakan_mati_semasa_tiba = $request->ternakan_mati_semasa_tiba;
+        $babi->jumlah_ternakan_diperiksa = $request->jumlah_ternakan_diperiksa;
+        $babi->jumlah_binatang_layak_disembelih = $request->jumlah_binatang_layak_disembelih;
 
         $babi->save();
 
@@ -363,12 +367,12 @@ class PemeriksaanController extends Controller
     public function satu_pemeriksaan_babi(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
-        $pemeriksaan_babi = Babi::find($id);
+        $pemeriksaan_babi = PengenalanBabi::find($id);
         $periksa_harian = Pemeriksaan::find($id);
  
-         $harians = PemeriksaanBabi::where([
-             ['babi_id','=', $pemeriksaan_babi->id],
-             ['babi_id','=', $periksa_harian->id],
+         $harians = PemeriksaanHarian::where([
+             ['pemeriksaan_id','=', $pemeriksaan_babi->id],
+             ['pemeriksaan_id','=', $periksa_harian->id],
 
          ])->get();
          $ante_mortems = AnteMortemRuminan::where([

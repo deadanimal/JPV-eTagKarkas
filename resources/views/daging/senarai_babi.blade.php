@@ -84,16 +84,16 @@
             ajax: "/pemeriksaan-babi",
             columns: [
                 {
-                    data: 'masa_tiba_babi',
-                    name: 'masa_tiba_babi'
+                    data: 'masa_tiba',
+                    name: 'masa_tiba'
                 },
                 {
-                    data: 'nama_pemilik_babi',
-                    name: 'nama_pemilik_babi'
+                    data: 'nama_pemilik',
+                    name: 'nama_pemilik'
                 },
                 {
-                    data: 'kenderaan_babi',
-                    name: 'kenderaan_babi'
+                    data: 'kenderaan',
+                    name: 'kenderaan'
                 },               
                 {
                     data: 'tindakan',

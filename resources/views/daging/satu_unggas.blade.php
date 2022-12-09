@@ -201,11 +201,11 @@
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-4">
+                                        {{-- <div class="mb-3 col-md-4">
                                             <label for=""></label><br>
                                             <button type="button"  class="btn btn-primary btn-circle lg">
                                                 <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>        
-                                        </div>
+                                        </div> --}}
         
                                         <hr class="text-primary mb-3">
         
@@ -225,11 +225,11 @@
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-4">
+                                        {{-- <div class="mb-3 col-md-4">
                                             <label for=""></label><br>
                                             <button type="button"  class="btn btn-primary btn-circle lg">
                                                 <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button> 
-                                        </div>
+                                        </div> --}}
         
                                         <hr class="text-primary mb-3">
         
@@ -253,11 +253,11 @@
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-4">
+                                        {{-- <div class="mb-3 col-md-4">
                                             <label for=""></label><br>
                                             <button type="button"  class="btn btn-primary btn-circle lg">
                                                 <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
-                                        </div>
+                                        </div> --}}
         
                                         <hr class="text-primary mb-3">
         
@@ -276,11 +276,11 @@
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
-                                        <div class="mb-3 col-md-4">
+                                        {{-- <div class="mb-3 col-md-4">
                                             <label for=""></label><br>
                                             <button type="button"  class="btn btn-primary btn-circle lg">
                                                 <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
-                                        </div>
+                                        </div> --}}
         
                                         <hr class="text-primary mb-3">
         
@@ -330,11 +330,11 @@
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                            
                                         </div>
 
-                                        <div class="mb-3 col-md-4">
+                                        {{-- <div class="mb-3 col-md-4">
                                             <label for=""></label><br>
                                             <button type="button"  class="btn btn-primary btn-circle lg">
                                                 <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>        
-                                        </div>
+                                        </div> --}}
 
                                         <hr class="text-primary mb-3">
 
@@ -379,11 +379,11 @@
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
 
-                                        <div class="mb-3 col-md-4">
+                                        {{-- <div class="mb-3 col-md-4">
                                             <label for=""></label><br>
                                             <button type="button"  class="btn btn-primary btn-circle lg">
                                                 <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
-                                        </div>
+                                        </div> --}}
 
                                         <hr class="text-primary mb-3">
 
@@ -399,11 +399,11 @@
                                             <label for="">Bilangan Kes</label>
                                             <input type="number" min="0" class="form-control" name="bil_gastro_pm"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-                                        <div class="mb-3 col-md-4">
+                                        {{-- <div class="mb-3 col-md-4">
                                             <label for=""></label><br>
                                             <button type="button"  class="btn btn-primary btn-circle lg">
                                                 <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
-                                        </div>
+                                        </div> --}}
         
                                         <hr class="text-primary mb-3">
         
@@ -420,10 +420,16 @@
                         @include('daging.pm-unggas_table')
 
                     </div>
+
+                    <div class="text-center">
+                        <a href="/pemeriksaan-unggas" class="btn btn-warning" >Kembali</a>
+                    </div>
+
         
                 </div>
             </div>
         </div>
+
 
     </div>
 
