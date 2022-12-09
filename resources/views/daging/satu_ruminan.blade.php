@@ -416,8 +416,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-        
+
+                                    @foreach($catatans as $catatan)
                                     <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$catatan->tag}}</td>
+                                        <td>{{$catatan->jantina}}</td>
+                                        <td>{{$catatan->baka}}</td>
+                                        <td>{{$catatan->tarikh}}</td>
+                                        <td></td>
+                
+                                    </tr>
+                                    @endforeach
+        
+                                    {{-- <tr>
         
                                         <td>1</td>
                                         <td>XXXX</td>
@@ -453,7 +465,9 @@
                                             </select>
                                         </td>
         
-                                    </tr>
+                                    </tr> --}}
+
+                                  
         
         
                                 </tbody>

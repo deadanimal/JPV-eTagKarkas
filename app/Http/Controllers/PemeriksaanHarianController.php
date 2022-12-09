@@ -22,6 +22,7 @@ class PemeriksaanHarianController extends Controller
         $pemeriksaan = PemeriksaanHarian::find($id);
         $baki_binatang = $pemeriksaan->jumlah_binatang_layak_disembelih;
         
+        
         // pass FK id       
         //
         $harians = PemeriksaanHarian::where([

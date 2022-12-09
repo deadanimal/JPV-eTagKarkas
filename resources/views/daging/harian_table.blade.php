@@ -53,7 +53,7 @@
         </div>
     </div>
 
-
+    @role('pengurus-rumah-sembelih')
     {{-- Catatan Senarai Ternakan - daily editable table --}}
     <div class="container-fluid">
       <div class="card" style="border-width: 1px; border-color:black;">
@@ -62,6 +62,74 @@
 
           <div class="card-body" >
             <u><h4 class="text-center ">Catatan Senarai Ternakan </h4></u>
+
+              <a href="/catatan/{{$pemeriksaan->id}}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">Tambah</a>
+              <!-- Button trigger modal -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="/catatan" method="POST">
+                        @csrf
+
+                        <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                        <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+        
+                          <div class="col-md-6">
+
+                            <div class="col-6">
+                                <label class="form-label">Nombor Tag</label>
+                            </div>
+                            <input class="form-control" type="text" name="tag" onkeyup="this.value = this.value.toUpperCase();" required
+                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                oninput="this.setCustomValidity('')" />
+                          
+
+                            <div class="col-6">
+                                <label class="form-label">Jantina</label>
+                            </div>
+                            <input class="form-control" type="text" name="jantina" onkeyup="this.value = this.value.toUpperCase();" required
+                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                oninput="this.setCustomValidity('')" />
+
+                              <div class="col-6">
+                                <label class="form-label">Baka</label>
+                              </div>
+                              <input class="form-control" type="text" name="baka" onkeyup="this.value = this.value.toUpperCase();" required
+                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                oninput="this.setCustomValidity('')" />
+
+                              <div class="col-6">
+                                <label class="form-label">Tarikh</label>
+                              </div>
+                              <input class="form-control" type="date" name="tarikh" required
+                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                oninput="this.setCustomValidity('')" />
+
+                                <br>
+
+                              
+
+                        </div>
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                          <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+        
+                      </form>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <table class="table text-center" style="border-width: 10px; border-color:green;">
                   <thead>
                     <tr>
@@ -74,13 +142,17 @@
                   </thead>
                   <tbody>
 
+                    @foreach($catatans as $catatan)
                     <tr>
-                      <th scope="row">1</th>
-                      <td><input type="text" onkeyup="this.value = this.value.toUpperCase();"></td>
-                      <td><input type="text" onkeyup="this.value = this.value.toUpperCase();" onkeydown="return /[a-z]/i.test(event.key)" ></td>
-                      <td><input type="text" onkeyup="this.value = this.value.toUpperCase();"></td>
-                      <td><input type="date"></td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$catatan->tag}}</td>
+                        <td>{{$catatan->jantina}}</td>
+                        <td>{{$catatan->baka}}</td>
+                        <td>{{$catatan->tarikh}}</td>
+
                     </tr>
+                    @endforeach
+
                     
                   </tbody>
                 </table>
@@ -88,4 +160,12 @@
       </div>
   </div>
 
+  @endrole
+
 </main>
+
+<script>
+  $('#datepicker').datepicker({
+  uiLibrary: 'bootstrap5'
+  });
+</script>
