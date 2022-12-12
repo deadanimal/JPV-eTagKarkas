@@ -155,6 +155,7 @@ class RumahSembelihController extends Controller
             $rumah->induk = $request->induk;
         }
         $rumah->nama_rumah = $request->nama_rumah;
+        $rumah->kod = $request->kod;
         $rumah->alamat = $request->alamat;
         if($request->negeri) {
             $rumah->negeri = $request->negeri;

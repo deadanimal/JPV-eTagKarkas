@@ -162,10 +162,9 @@ class TagController extends Controller
                 $user = $request->user();
                 if($tag->status == "Simpan") {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Kemaskini</button></a> <a href="'.$url2.'"><button class="btn btn-danger">Padam</button></a>';    
-                } else if($tag->status == "Lulus" && $tag->kodbar == 'Manual') {                    
+                } else if($tag->status == "Lulus" && $tag->kodbar == 'Auto') {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="';    
-                } else if($user->hasRole('pentadbir') && $tag->status == "Lulus") {                    
-                    // $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
+                } else if($user->hasRole('pentadbir') && $tag->status == "Lulus" ) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a> <a href="'.$url3.'"><button class="btn btn-success">Cetak</button></a>';    
                 } else if($tag->status == "Tolak" ) {                    
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';    
@@ -178,6 +177,7 @@ class TagController extends Controller
                 } else {
                     $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
                 }
+
                 return $html_button;
             })                                  
             ->editColumn('updated_at', function (Tag $tag) {
