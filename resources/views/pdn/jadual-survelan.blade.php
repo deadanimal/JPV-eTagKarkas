@@ -28,6 +28,9 @@
                                 <form action="/cipta_survelan_audit" method="POST" enctype="multipart/form-data">
                                     {{-- @method('PUT') --}}
                                     @csrf
+
+                                    {{-- <input type="hidden" name="pdn_id" value="{{$survelan->pdn_id}}"> --}}
+
             
                                     <div class="mb-3">
             
@@ -123,10 +126,24 @@
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
                                                 <option selected value="">Pilih Negeri</option>
-                                                <option value="G29">G29</option>
-                                                <option value="G41">G41</option>
-                                                <option value="G44">G44</option>
-                                                <option value="G54">G54</option>
+                                                <option value="Johor">Johor</option>
+                                                <option value="Kedah">Kedah</option>
+                                                <option value="Kelantan">Kelantan</option>
+                                                <option value="Melaka">Melaka</option>
+                                                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                                <option value="Pahang">Pahang</option>
+                                                <option value="Pulau Pinang">Pulau Pinang</option>
+                                                <option value="Perak">Perak</option>
+                                                <option value="Perlis">Perlis</option>
+                                                <option value="Sabah">Sabah</option>
+                                                <option value="Sarawak">Sarawak</option>
+                                                <option value="Selangor">Selangor</option>
+                                                <option value="Terengganu">Terengganu</option>
+                                                <option value="W.P Kuala Lumpur">W.P Kuala Lumpur</option>
+                                                <option value="W.P Labuan">W.P Labuan</option>
+                                                <option value="W.P Putrajaya">W.P Putrajaya</option>
+                                               
+                                               
                                             </select>
                                         </div>
 
@@ -138,10 +155,10 @@
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
                                                 <option selected value="">Pilih Kaedah Audit</option>
-                                                <option value="G29">G29</option>
-                                                <option value="G41">G41</option>
-                                                <option value="G44">G44</option>
-                                                <option value="G54">G54</option>
+                                                <option value="Kaedah 1">Kaedah 1</option>
+                                                <option value="Kaedah 2">Kaedah 2</option>
+                                                <option value="Kaedah 3">Kaedah 3</option>
+                                              
                                             </select>
                                         </div>
                                     </div>
@@ -155,10 +172,9 @@
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
                                                 <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="G29">G29</option>
-                                                <option value="G41">G41</option>
-                                                <option value="G44">G44</option>
-                                                <option value="G54">G54</option>
+                                                <option value="Pemeriksa 1">Pemeriksa 1</option>
+                                                <option value="Pemeriksa 2">Pemeriksa 2</option>
+                                                <option value="Pemeriksa 3">Pemeriksa 3</option>
                                             </select>
                                         </div>
 
@@ -170,10 +186,9 @@
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
                                                 <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="G29">G29</option>
-                                                <option value="G41">G41</option>
-                                                <option value="G44">G44</option>
-                                                <option value="G54">G54</option>
+                                                <option value="Pemeriksa 1">Pemeriksa 1</option>
+                                                <option value="Pemeriksa 2">Pemeriksa 2</option>
+                                                <option value="Pemeriksa 3">Pemeriksa 3</option>
                                             </select>
                                         </div>
                                     </div>
@@ -187,10 +202,9 @@
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
                                                 <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="G29">G29</option>
-                                                <option value="G41">G41</option>
-                                                <option value="G44">G44</option>
-                                                <option value="G54">G54</option>
+                                                <option value="Pemeriksa 1">Pemeriksa 1</option>
+                                                <option value="Pemeriksa 2">Pemeriksa 2</option>
+                                                <option value="Pemeriksa 3">Pemeriksa 3</option>
                                             </select>
                                         </div>
 
@@ -202,10 +216,9 @@
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')">
                                                 <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="G29">G29</option>
-                                                <option value="G41">G41</option>
-                                                <option value="G44">G44</option>
-                                                <option value="G54">G54</option>
+                                                <option value="Pemeriksa 1">Pemeriksa 1</option>
+                                                <option value="Pemeriksa 2">Pemeriksa 2</option>
+                                                <option value="Pemeriksa 3">Pemeriksa 3</option>
                                             </select>
                                         </div>
                                     </div>
@@ -239,11 +252,11 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Adakah anda ingin mendaftar pengguna baharu?
+                                                Adakah anda ingin menambah survelan audit?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                                <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button>
+                                                <button class="btn btn-success text-center" type="submit" style="float: right">Ya</button>
                                             </div>
                                         </div>
                                         </div>
@@ -254,6 +267,71 @@
                                 </form>
                             </div>
    
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Jadual Pemeriksaan Survelan Audit</h5>
+                            </div>
+            
+                            <div class="card" >
+                                <div class="card-header">
+                                    {{-- <h5 class="card-title">Pemeriksaan Dalam Negara</h5> --}}
+                                </div>
+            
+                                <div class="card-body"  style="border-width: 1px; border-color:black;">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Bil</th>
+                                                <th>Nama Premis</th>
+                                                <th>Nama Pemeriksa 1</th>
+                                                <th>Nama Pemeriksa 2</th>
+                                                <th>Nama Pemeriksa 3</th>
+                                                <th>Nama Pemeriksa 4</th>
+                                                <th>Negeri</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{-- <tr>
+                                                <td>1</td>
+                                                <td>Premis 1</td>
+                                                <td>Pemeriksa A</td>
+                                                <td>Pemeriksa A</td>
+                                                <td>Pemeriksa A</td>
+                                                <td>Pemeriksa A</td>
+                                                <td>Pahang</td>
+                                                <td class="table-action">
+                                                    <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                                    <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                                </td>
+                                                <td class="d-none d-md-table-cell"><a href="#"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
+                                            </tr> --}}
+            
+                                            <tr>
+                                                @foreach ($survelans as $survelan)
+                                                    <td>{{$loop->iteration}}</td>
+                                                    <td>{{$survelan->premis}}</td>
+                                                    <td>{{$survelan->pemeriksa_1}}</td>
+                                                    <td>{{$survelan->pemeriksa_2}}</td>
+                                                    <td>{{$survelan->pemeriksa_3}}</td>
+                                                    <td>{{$survelan->pemeriksa_4}}</td>
+                                                    <td>{{$survelan->negeri}}</td>
+                                            </tr>
+                                                @endforeach
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="/pdn" class="btn btn-primary">Kembali</a>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 

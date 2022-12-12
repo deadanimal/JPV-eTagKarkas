@@ -10,12 +10,6 @@
             <h1 class="header-title">
                 Pemeriksaan Dalam Negara
             </h1>
-
-            @role('pentadbir')
-            <a href="/borang-survelan" class="btn float-end " style="width: fit-content"><button
-            class="btn btn-warning btn-block">Tambah</button></a>
-            @endrole
-
         </div>
 
         
@@ -34,6 +28,11 @@
                         <h5 class="card-title">Pemeriksaan Dalam Negara</h5>
                     </div>
 
+                    @role('pentadbir')
+                    <a href="/borang-survelan" class="btn float-end " style="width: fit-content"><button
+                    class="btn btn-warning btn-block">Tambah</button></a>
+                    @endrole
+
                     <div class="card-body"  style="border-width: 1px; border-color:black;">
                         <table class="table table-bordered">
                             <thead>
@@ -43,7 +42,7 @@
                                     <th style="width:25%">Jenis Operasi</th>
                                     <th class="d-none d-md-table-cell" style="width:25%">Tarikh</th>
                                     <th style="width:10%">Tindakan</th>
-                                    <th style="width:10%">Status</th>
+                                    <th style="width:10%">Jadual Survelan Audit</th>
                                     
                                 </tr>
                             </thead>
@@ -76,7 +75,7 @@
                                         </form>
                                         {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
                                     </td>
-                                    <td>Dihantar/Selesai</td>
+                                    <td>  <a href="/jadual_survelan/{{$jadual->id}}" class="btn " style="width: fit-content"><button class="btn btn-success btn-block float-end">Wujudkan</button></a></td>
                                     {{-- <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td> --}}
                                        
 
@@ -90,7 +89,7 @@
                 </div>
 
                 {{-- survelans --}}
-                <div class="card" >
+                {{-- <div class="card" >
                     <div class="card-header">
                         <h5 class="card-title">Jadual Survelan Audit</h5>
                     </div>
@@ -103,17 +102,16 @@
                             <thead>
                                 <tr>
                                     <th colspan="16">JADUAL PEMERIKSAAN VETERINAR SURVELAN AUDIT(VHM/MyGAP) TAHUN 2022</th>
-                                    {{-- after AUDIT, need to specify MyGap or VHM --}}
                                 </tr>
                                 <tr style="vertical-align: middle">
-                                    <th>BIL</th>
+                                    <th>Bil</th>
                                     <th>Nombor VHM/MyGAP</th>
-                                    <th>PREMIS</th>
+                                    <th>Premis</th>
                                     <th>Nombor Telefon</th>
-                                    <th>NAMA PEMERIKSA 1</th>
-                                    <th>NAMA PEMERIKSA 2</th>
-                                    <th>NAMA PEMERIKSA 3</th>
-                                    <th>NAMA PEMERIKSA 4</th>
+                                    <th>Nama Pemeriksa 1</th>
+                                    <th>Nama Pemeriksa 2</th>
+                                    <th>Nama Pemeriksa 3</th>
+                                    <th>Nama Pemeriksa 4</th> 
                                     <th>Tindakan</th>  
                                 </tr>
                                 <tr>
@@ -139,20 +137,17 @@
                                                     @csrf
                                                     <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
                                                 </form>
-                                                {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
                                             </td> 
                                         </tr>
                                     @endforeach
                                        
 
                                 </tr>
-
-                                    {{-- @endforeach --}}
                               
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
 

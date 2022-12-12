@@ -86,9 +86,10 @@
                                 <!-- Button trigger modal -->
 
                                 <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
-                                    <button type="button" class="btn btn-lg btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Hantar
+                                    <button type="button" class="btn btn-md btn-warning text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Kemaskini
                                     </button>
+                                    <a href="/pdn" class="btn btn-primary">Kembali</a>
                                 </div>
                                 
                                 
@@ -100,7 +101,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                        Adakah anda ingin mewujudkan survelan audit yang baru?
+                                        Adakah anda ingin mengemaskini maklumat survelan?
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>

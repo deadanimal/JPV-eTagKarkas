@@ -128,7 +128,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('padam_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'padam_pdn']);
 
 
-    Route::get('jadual_survelan', [PemeriksaanDalamNegaraController::class, 'jadual']);
+    Route::get('jadual_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jadual']);
     Route::post('cipta_survelan_audit', [PemeriksaanDalamNegaraController::class, 'cipta_survelan_audit']);
     Route::get('kemaskini_jadual_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_survelan']);
     Route::put('simpan_kemaskini_jadual_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_survelan']);

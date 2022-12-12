@@ -260,67 +260,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Jadual Survelan Audit</h5>
-                </div>
-
-                <div class="card-body">
-                    <div class="col">
-                        <table class="table table-bordered line-table text-center" style="width: 100%">
-                            <thead class="text-black">
-
-                                <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR SURVELAN AUDIT(VHM/MyGAP) TAHUN 2022</th>
-                                    {{-- after AUDIT, need to specify MyGap or VHM --}}
-                                </tr>
-                                <tr style="vertical-align: middle">
-                                    <th>BIL</th>
-                                    <th>PREMIS</th>
-                                    <th>ALAMAT PREMIS</th>
-                                    <th>NAMA PEMERIKSA 1</th>
-                                    <th>NAMA PEMERIKSA 2</th>
-                                    <th>NAMA PEMERIKSA 3</th>
-                                    <th>NAMA PEMERIKSA 4</th>
-                                    <th>NEGERI</th>  
-                                </tr>
-                                <tr>
-                                <th colspan="16">Zon</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr class="text-center">
-                                    <td>1</td>
-                                    <td>premis</td>
-                                    <td>ALAMAT</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>PEMERIKSA</td>
-                                    <td>pahang</td>
-                                    
-                                </tr>
-
-
-                            </tbody>
-                        </table>
-
-
-
-                        <div class="mb-3">
-                            <button class="btn btn-primary" type="submit" title="Kemaskini"
-                                style="float: left">Simpan</button>
-                            <button class="btn btn-success" type="submit" title="Hantar"
-                                style="float: right">Hantar</button>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+     
 
 
     </div>
