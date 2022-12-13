@@ -52,7 +52,7 @@ class PemeriksaanDalamNegaraController extends Controller
         // $survelan->jenis_borang = $request->jenis_borang;
         $survelan->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
+        Alert::success('Hantar berjaya.', 'Maklumat jadual survelan telah dihantar.');
 
         return redirect('/pdn'); 
 
@@ -77,7 +77,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $pdn->ternakan = $request->ternakan;
         // $pdn->jenis_borang = $request->jenis_borang;
         $pdn->save();
-        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        alert()->success('Maklumat telah dikemaskini', 'Berjaya');
         return redirect('/pdn');
 
     } 
@@ -102,8 +102,6 @@ class PemeriksaanDalamNegaraController extends Controller
             ['pdn_id','=', $jaduals->id],
         ])->get();
 
-    
-
         // dd($survelans);
 
         // jadual survelan probably using same blade for VHM and MyGap and display
@@ -115,11 +113,10 @@ class PemeriksaanDalamNegaraController extends Controller
 
     public function cipta_survelan_audit(Request $request){
 
-        $id = (int)$request->route('id'); 
-        $pdn = PemeriksaanDalamNegara::find($id);
+        $id = $request->pdn_id;
+        // $pdn = PemeriksaanDalamNegara::find($id);
         // $survelans = SurvelanAudit::where('pdn_id', $id)->first();
         // dd($survelans);
-        $pdn = $request->user();
 
 
         $survelans = New SurvelanAudit();
@@ -138,13 +135,13 @@ class PemeriksaanDalamNegaraController extends Controller
         $survelans->pemeriksa_3 = $request->pemeriksa_3;
         $survelans->pemeriksa_4 = $request->pemeriksa_4;
         $survelans->catatan = $request->catatan;
-        $survelans->pdn_id = $pdn->id;
+        $survelans->pdn_id = $id;
 
 
         $survelans->save();
         // $survelan2->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
+        Alert::success('Hantar berjaya.', 'Maklumat jadual survelan telah dihantar.');
 
         return back();
     }
@@ -184,7 +181,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $survelans->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
 
         return redirect('/pdn');
     }
@@ -193,7 +190,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $id = (int)$request->route('id'); 
         $survelans = SurvelanAudit::find($id);
         $survelans->delete();
-        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        alert()->success('Maklumat telah dipadam', 'Berjaya');
         return back();
     }
 
@@ -246,7 +243,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $ncr->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual NCR telah disimpan.');
+        Alert::success('Jana borang NCR berjaya.', 'Maklumat jadual NCR telah dihantar.');
 
         return redirect('/pdn');
     }
@@ -285,7 +282,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $ncr->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat jadual NCR telah dikemaskini.');
 
         return redirect('/pdn');
     }
@@ -294,7 +291,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $id = (int)$request->route('id'); 
         $ncr = JadualNcsObr::find($id);
         $ncr->delete();
-        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        alert()->success('Maklumat telah dipadam', 'Berjaya');
         return back();
     }
 
@@ -319,7 +316,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $obr->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual NCR telah disimpan.');
+        Alert::success('Jana borang OBS berjaya.', 'Maklumat OBS telah dihantar.');
 
         return redirect('/pdn');
     }
@@ -354,7 +351,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $obr->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat borang OBS telah dikemaskini.');
 
         return redirect('/pdn');
     }
@@ -363,7 +360,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $id = (int)$request->route('id'); 
         $obr = JadualNcsObr::find($id);
         $obr->delete();
-        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        alert()->success('Maklumat telah dipadam', 'Berjaya');
         return back();
     }
 
@@ -391,7 +388,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $log->save();
         // $survelan2->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah disimpan.');
+        Alert::success('Jana borang Log berjaya.', 'Maklumat borang log telah dihantar.');
 
         return redirect('/pdn');
     }
@@ -420,7 +417,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $log->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual survelan telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat borang log telah dikemaskini.');
 
         return redirect('/pdn');
     }
@@ -429,7 +426,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $id = (int)$request->route('id'); 
         $log = Log::find($id);
         $log->delete();
-        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        alert()->success('Maklumat telah dipadam', 'Berjaya');
         return back();
     }
 
@@ -499,7 +496,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $exsp->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual Exsport telah disimpan.');
+        Alert::success('Hantar berjaya.', 'Maklumat permohonan eksport telah dihantar.');
 
         return redirect('/eksport-luar');
     }
@@ -573,7 +570,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         $exsp->save();
 
-        Alert::success('Simpan berjaya.', 'Maklumat jadual maklumat Exsport telah dikemaskini.');
+        Alert::success('Kemaskini berjaya.', 'Maklumat maklumat eksport  telah dikemaskini.');
 
         return redirect('/eksport-luar');
     }
@@ -583,7 +580,7 @@ class PemeriksaanDalamNegaraController extends Controller
         $id = (int)$request->route('id'); 
         $exsport = Exsport::find($id);
         $exsport->delete();
-        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        alert()->success('Maklumat telah dipadam', 'Berjaya');
         return back();
     }
 

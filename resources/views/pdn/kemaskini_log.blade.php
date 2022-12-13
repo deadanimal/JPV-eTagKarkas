@@ -61,7 +61,7 @@
                                             <div class="col-6">
                                                 <label class="form-label">No. Est</label>
                                             </div>
-                                            <input class="form-control" type="number" name="no_est" onkeyup="this.value = this.value.toUpperCase();" required
+                                            <input class="form-control" type="number" min="0" name="no_est" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')" value="{{$log->no_est}}"/>
 
@@ -70,7 +70,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="mb-3 mt-3">
-                                            <button class="btn btn-success" type="submit" title="Hantar" style="float: center">Hantar</button>
+                                            <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Kemaskini</button>
+                                            <a href="/pdn" class="btn btn-primary mx-2" style="float: right">Kembali</a>
                                         </div>
                                         
                                     </div> 

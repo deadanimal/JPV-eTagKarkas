@@ -116,7 +116,7 @@
                                     <td>CP/20222/1</td>
                                     <td>Premis A bagi Pengimportan Susu Cair</td>
                                     <td class="d-none d-md-table-cell">1/12/22</td>
-                                    <td>Kemaskini/Dihantar</td>
+                                    <td>Dihantar</td>
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
