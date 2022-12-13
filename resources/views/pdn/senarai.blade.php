@@ -41,8 +41,10 @@
                                     <th style="width:25%;">Zon</th>
                                     <th style="width:25%">Jenis Operasi</th>
                                     <th class="d-none d-md-table-cell" style="width:25%">Tarikh</th>
+                                    @role('pentadbir')
                                     <th style="width:10%">Tindakan</th>
                                     <th style="width:10%">Jadual Survelan Audit</th>
+                                    @endrole
                                     
                                 </tr>
                             </thead>
@@ -66,6 +68,7 @@
                                     <td>{{$jadual->zon}}</td>
                                     <td>{{$jadual->operasi}}</td>
                                     <td>{{$jadual->created_at->format('d/m/Y')}}</td>
+                                    @role('pentadbir')
                                     <td class="table-action">
                                         <a href="/satu_pdn/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <form action="/padam_pdn/{{ $jadual->id }}" method="post">
@@ -77,7 +80,7 @@
                                     </td>
                                     <td>  <a href="/jadual_survelan/{{$jadual->id}}" class="btn " style="width: fit-content"><button class="btn btn-success btn-block float-end">Wujudkan</button></a></td>
                                     {{-- <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td> --}}
-                                       
+                                    @endrole
 
                                 </tr>
 
@@ -167,35 +170,23 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR NCR(VHM/MyGAP) TAHUN 2022</th>
+                                    <th colspan="16" class="text-center">BORANG NCR</th>
                                     {{-- after AUDIT, need to specify MyGap or VHM --}}
                                 </tr>
                                 <tr style="vertical-align: middle">
-                                    <th>BIL</th>
-                                    <th>Nombor IC</th>
-                                    <th>Company</th>
-                                    <th>Categori</th>
-                                    <th>auditor1_signature</th>
-                                    <th>auditor2_signature</th>
-                                    <th>auditor3_signature</th>
-                                    <th>auditor4_signature</th>
+                                    <th>No</th>
+                                    <th>Syarikat</th>
                                     <th>Tindakan</th>  
                                 </tr>
                                 <tr>
-                                <th colspan="16">Zon</th>
+                                {{-- <th colspan="6" class="text-center">Zon</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($ncr as $ncr)
                                     <tr class="text-center">
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$ncr->nombor_ic}}</td>
                                         <td>{{$ncr->company}}</td>
-                                        <td>{{$ncr->categori}}</td>
-                                        <td>{{$ncr->auditor1_signature}}</td>
-                                        <td>{{$ncr->auditor2_signature}}</td>
-                                        <td>{{$ncr->auditor3_signature}}</td>
-                                        <td>{{$ncr->auditor4_signature}}</td> 
                                         <td class="table-action">
                                             <a href="/kemaskini_jadual_ncr/{{$ncr->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                             <form action="/padam_ncr/{{ $ncr->id }}" method="post">
@@ -228,35 +219,23 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR OBR(VHM/MyGAP) TAHUN 2022</th>
+                                    <th colspan="16" class="text-center">BORANG OBS</th>
                                     {{-- after AUDIT, need to specify MyGap or VHM --}}
                                 </tr>
                                 <tr style="vertical-align: middle">
-                                    <th>BIL</th>
-                                    <th>Total OBR</th>
-                                    <th>Company</th>
-                                    <th>Objective Evidence</th>
-                                    <th>auditor1_signature</th>
-                                    <th>auditor2_signature</th>
-                                    <th>auditor3_signature</th>
-                                    <th>auditor4_signature</th>
+                                    <th>No</th>
+                                    <th>Syarikat</th>
                                     <th>Tindakan</th>  
                                 </tr>
                                 <tr>
-                                <th colspan="16">Zon</th>
+                                {{-- <th colspan="16">Zon</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($obr as $obr)
                                     <tr class="text-center">
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$obr->nombor_ic}}</td>
                                         <td>{{$obr->company}}</td>
-                                        <td>{{$obr->objective_evidence}}</td>
-                                        <td>{{$obr->auditor1_signature}}</td>
-                                        <td>{{$obr->auditor2_signature}}</td>
-                                        <td>{{$obr->auditor3_signature}}</td>
-                                        <td>{{$obr->auditor4_signature}}</td> 
                                         <td class="table-action">
                                             <a href="/kemaskini_jadual_obr/{{$obr->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                             <form action="/padam_obr/{{ $obr->id }}" method="post">
@@ -289,16 +268,13 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR Log(VHM/MyGAP) TAHUN 2022</th>
+                                    <th colspan="16" class="text-center">BORANG LOG</th>
                                     {{-- after AUDIT, need to specify MyGap or VHM --}}
                                 </tr>
                                 <tr style="vertical-align: middle">
-                                    <th>BIL</th>
-                                    <th>Nama Premis</th>
-                                    <th>Alamat</th>
-                                    <th>Jenis Produk</th>
-                                    <th>Nombor EST</th>
-                                    <th>Tindakan</th>  
+                                    <th>No</th>
+                                    <th>Syarikat</th>
+                                    <th>Tindakan</th>   
                                 </tr>
                                 <tr>
                             </thead>
@@ -307,9 +283,6 @@
                                     <tr class="text-center">
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$log->premis}}</td>
-                                        <td>{{$log->alamat}}</td>
-                                        <td>{{$log->produk}}</td>
-                                        <td>{{$log->no_est}}</td> 
                                         <td class="table-action">
                                             <a href="/kemaskini_jadual_log/{{$log->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                             <form action="/padam_log/{{ $log->id }}" method="post">

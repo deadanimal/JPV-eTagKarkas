@@ -189,7 +189,9 @@
                                     <div class="row">
                                         <div class="mb-3">
                                             <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button>
+                                            <a href="/pdn" class="btn btn-primary mx-2" style="float: right">Kembali</a>
                                         </div>
+                                     
                                         
                                     </div>          
                                 </form>

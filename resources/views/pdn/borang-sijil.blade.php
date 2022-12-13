@@ -514,6 +514,7 @@
                                     <!-- Button trigger modal -->
             
                                     <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                                        <a href="/sijil-veterinar" class="btn btn-primary">Kembali</a>
                                         <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
                                             Hantar
                                         </button>
@@ -531,7 +532,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                                <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button>
+                                                <button class="btn btn-success text-center" type="submit" style="float: right">Hantar</button>
                                             </div>
                                         </div>
                                         </div>

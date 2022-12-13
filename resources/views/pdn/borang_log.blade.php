@@ -60,7 +60,7 @@
                                             <div class="col-6">
                                                 <label class="form-label">No. Est</label>
                                             </div>
-                                            <input class="form-control" type="number" name="no_est" onkeyup="this.value = this.value.toUpperCase();" required
+                                            <input class="form-control" type="number" name="no_est" min="0" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                             oninput="this.setCustomValidity('')" />
 
@@ -70,11 +70,37 @@
 
                                     <div class="row">
                                         <div class="mb-3 mt-3">
-                                            <button class="btn btn-success" type="submit" title="Hantar" style="float: center">Hantar</button>
+                                            <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button>
+                                            <a href="/pdn" class="btn btn-primary mx-2" style="float: right">Kembali</a>
                                         </div>
                                         
                                     </div> 
                                 </form>
+                            </div>
+
+                            {{-- table --}}
+
+                            <div class="card-body"  style="border-width: 1px; border-color:black;">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="16" class="text-center">LOG PEMERIKSAAN VETERINAR</th>
+                                            {{-- after AUDIT, need to specify MyGap or VHM --}}
+                                        </tr>
+                                        <tr style="vertical-align: middle">
+                                            <th>Tarikh</th>
+                                            <th>Nama Pemeriksa</th>
+                                            <th>Tujuan Pemeriksaan</th>  
+                                            <th>Catatan</th>  
+                                            <th>Tandatangan Pengurus Loji</th>  
+                                            <th>Tandatangan Pemeriksa</th>  
+                                        </tr>
+                                       
+                                    </thead>
+                                    <tbody>
+    
+                                    </tbody>
+                                </table>
                             </div>
    
                         </div>

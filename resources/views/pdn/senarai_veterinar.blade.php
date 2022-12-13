@@ -70,7 +70,7 @@
                                     <td>{{$vet->premis}}</td>
                                     <td>{{$vet->created_at->format('d/m/Y')}}</td>
                                     <td>{{$vet->pemeriksa_1}}</td>
-                                    <td>Dihantar/Selesai</td>
+                                    <td>Dihantar</td>
                                     <td class="table-action">
                                         <a href="/satu-sijil/{{$vet->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <form action="/sijil/{{ $vet->id }}" method="post">
@@ -122,7 +122,7 @@
                                 <tr>
                                     <td>Premis A bagi Produk Telur</td>
                                     <td class="d-none d-md-table-cell">1/12/22</td>
-                                    <td>Kemaskini/Dihantar/Tidak Lengkap</td>
+                                    <td>Dihantar</td>
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>

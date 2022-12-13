@@ -45,7 +45,7 @@
                                                 <label class="form-label">Nombor VHM</label>
                                             </div>
                                             <div class="col-4">
-                                                <input class="form-control" type="number" name="nombor" required
+                                                <input class="form-control" type="number" name="nombor" required min="0"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->nombor ?? " "}}"/>
                                             </div>
@@ -56,7 +56,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="date" name="tarikh" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->tarikh ?? " "}}"/>
+                                                oninput="this.setCustomValidity('')" value="{{$exsports->tarikh ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -64,7 +64,7 @@
                                             </div>
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="produk" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" onkeyup="this.value = this.value.toUpperCase();"
                                                 oninput="this.setCustomValidity('')" value="{{$exsports->produk ?? " "}}"/>
                                             </div>
 
@@ -74,7 +74,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="daerah" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->daerah ?? " "}}"/>
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" value="{{$exsports->daerah ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -91,17 +91,17 @@
                                                 <label class="form-label">Zon</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="zon" required
+                                                <input class="form-control" type="text" name="zon" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->zon ?? " "}}"/>
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" value="{{$exsports->zon ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
                                                 <label class="form-label">Poskod</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="poskod" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                <input class="form-control" type="number" name="poskod" required
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"
                                                 oninput="this.setCustomValidity('')" value="{{$exsports->poskod ?? " "}}"/>
                                             </div>
 
@@ -125,7 +125,7 @@
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="premis" required
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" value="{{$exsports->poskod ?? " "}}"/>
+                                                oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" value="{{$exsports->poskod ?? " "}}"/>
                                             </div>
             
                                             <div class="col-2 mt-3">
@@ -191,8 +191,9 @@
                                     <!-- Button trigger modal -->
             
                                     <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
-                                        <button type="button" class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                                            Tambah
+                                        <a href="/eksport-luar" class="btn btn-primary">Kembali</a>
+                                        <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                            Kemaskini
                                         </button>
                                     </div>
   
@@ -204,11 +205,11 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Adakah anda ingin menambah permohonan eksport?
+                                                Adakah anda ingin mengemaskini permohonan eksport?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                                <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button>
+                                                <button class="btn btn-success text-center" type="submit" style="float: right">Kemaskini</button>
                                             </div>
                                         </div>
                                         </div>

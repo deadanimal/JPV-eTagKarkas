@@ -515,6 +515,7 @@
                                     <!-- Button trigger modal -->
             
                                     <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                                        <a href="/keratan" class="btn btn-primary">Kembali</a>
                                         <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
                                             Hantar
                                         </button>

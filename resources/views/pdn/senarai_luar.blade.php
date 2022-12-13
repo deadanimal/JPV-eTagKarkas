@@ -11,11 +11,6 @@
                 Pemeriksaan Dalam Negara
             </h1>
 
-            @role('pentadbir')
-            <a href="/borang-adequacy" class="btn float-end " style="width: fit-content"><button
-            class="btn btn-warning btn-block">Tambah</button></a>
-            @endrole
-
         </div>
 
          {{-- align button tambah --}}
@@ -30,6 +25,11 @@
                     <div class="card-header">
                         <h5 class="card-title">Senarai Permohonan Eksport ke Singapura</h5>
                     </div>
+
+                    @role('pentadbir')
+                    <a href="/borang-adequacy" class="btn float-end " style="width: fit-content"><button
+                    class="btn btn-warning btn-block">Tambah</button></a>
+                    @endrole
 
                     <div class="card-body"  style="border-width: 1px; border-color:black;">
                         <table class="table table-bordered">
@@ -116,12 +116,10 @@
                                     <th style="width:5%;">No</th>
                                     <th style="width:25%">Nama</th>
                                     <th style="width:10%">Produk</th>
-                                    <th style="width:15%">Negeri</th>
-                                    <th style="width:10%">Zon</th>
                                     <th style="width:10%">Premis</th>
                                     <th style="width:10%">Tarikh</th>
-                                    <th style="width:10%">Pemeriksa_1</th>
-                                    <th style="width:10%">Pemeriksa_2</th>
+                                    <th style="width:10%">Pemeriksa Adequacy</th>
+                                    <th style="width:10%">Pemeriksa</th>
                                     <th style="width:10%">Tindakan</th>
                                 </tr>
                             </thead>
@@ -131,8 +129,6 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$exsport->nama}}</td>
                                         <td>{{$exsport->produk}}</td>
-                                        <td>{{$exsport->negeri}}</td>
-                                        <td>{{$exsport->zon}}</td>
                                         <td>{{$exsport->premis}}</td>
                                         <td>{{$exsport->tarikh}}</td>
                                         <td>{{$exsport->pemeriksa_1}}</td> 

@@ -21,7 +21,7 @@
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Jadual Borang OBR</h5>
+                                <h5 class="card-title">Jadual Borang OBS</h5>
                             </div>
 
                             <div class="card-body">
@@ -33,10 +33,10 @@
                                         <div class="col-md-6">
 
                                             <div class="col-6">
-                                                <label class="form-label">Total OBR</label>
+                                                <label class="form-label">Total OBS</label>
                                             </div>
                                           
-                                                <input class="form-control" type="number" name="nombor_ic" required
+                                                <input class="form-control" type="number" name="nombor_ic" required min="0"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                           
@@ -56,26 +56,13 @@
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                                 <input class="form-control" type="hidden" name="jenis" value="obr">
 
-                                            {{-- <div class="col-6">
-                                                <label class="form-label">Jenis</label>
-                                                <select class="form-select" aria-label="Default select example" name="jenis"
-                                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
-                                                    <option selected disabled value="">Pilih Jenis</option>                                                    <option value="ncr">NCR</option>
-                                                    <option value="obr">OBR</option>
-                                                    <option value="obr">NCR</option>
-
-                                                </select>
-                                            </div> --}}
-                                            {{-- <input class="form-control" type="text" name="clause" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')" /> --}}
 
                                             <br>
 
                                             <h5 class="">Details of Non-compliance</h5>
 
                                             <div class="col-6">
-                                                <label class="form-label">Objective Statement</label>
+                                                <label class="form-label">Observation Statement</label>
                                             </div>
                                             <div class="">
                                                
@@ -158,6 +145,8 @@
                                     <div class="row">
                                         <div class="mb-3">
                                             <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button>
+                                            <a href="/pdn" class="btn btn-primary mx-2" style="float: right">Kembali</a>
+
                                         </div>
                                         
                                     </div>          
