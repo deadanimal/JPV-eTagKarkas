@@ -29,7 +29,7 @@
                                     {{-- @method('PUT') --}}
                                     @csrf
 
-                                    {{-- <input type="hidden" name="pdn_id" value="{{$survelan->pdn_id}}"> --}}
+                                    <input type="hidden" name="pdn_id" value="{{$survelan->pdn_id}}">
 
             
                                     <div class="mb-3">

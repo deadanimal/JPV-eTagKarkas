@@ -91,7 +91,8 @@
 
                 <!-- Button trigger modal -->
                 <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
-                    <button type="button" class="btn btn-lg btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a href="/tag" class="btn btn-primary">Kembali</a>
+                    <button type="button" class="btn btn-md btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Hantar
                     </button>
                 </div>
