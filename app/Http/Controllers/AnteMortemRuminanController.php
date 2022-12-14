@@ -48,7 +48,10 @@ class AnteMortemRuminanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat penemuan ante-mortem ruminan telah disimpan.');
 
-        return back();
+        return redirect()->back();
+
+        // return redirect()->back()->withInput(['tab'=>'tab-3']);
+
 
 
     }
@@ -68,8 +71,8 @@ class AnteMortemRuminanController extends Controller
 
         Alert::success('Kemaskini berjaya.', 'Maklumat penemuan ante-mortem ruminan telah dikemaskini.');
 
-        // return back();
-        return redirect()->back()->withInput();
+        return back();
+        // return redirect()->back()->withInput(['tab'=>'tab-3']);
 
     }
 
