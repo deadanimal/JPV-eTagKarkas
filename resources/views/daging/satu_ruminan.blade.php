@@ -16,8 +16,8 @@
 
         <div class="card">
             <div class="tab mt-1">
-                <ul class="nav nav-tabs" role="tablist" style="width: 100%">
-                    <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link active" href="#tab-1"
+                <ul class="nav nav-tabs" role="tablist" style="width: 100%" id="tabMenu">
+                    <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-1"
                             data-bs-toggle="tab" role="tab">Pengenalan Ternakan</a></li>
                     <li class="nav-item" style="background-color: aquamarine;width: 20%"><a class="nav-link " href="#tab-2"
                             data-bs-toggle="tab" role="tab">Pemeriksaan Ternakan</a></li>
@@ -147,6 +147,7 @@
                     </div>
         
                     <div class="tab-pane" id="tab-2" role="tabpanel">
+                    {{-- <div class="tab-pane{{old('tab') == 'tab-2' ? ' active' : null}}" id="tab-2" role="tabpanel"> --}}
         
                         @role('pengurus-rumah-sembelih')
                        <form action="/harian" method="POST">
@@ -233,6 +234,7 @@
 
                     </div>
         
+                    {{-- <div class="tab-pane{{old('tab') == 'tab-3' ? ' active' : null}}" id="tab-3" role="tabpanel"> --}}
                     <div class="tab-pane" id="tab-3" role="tabpanel">
         
                         @role('pengurus-rumah-sembelih')
@@ -617,6 +619,13 @@
             }
         }
     }
+</script>
+
+<script>
+    //redirect to specific tab
+    $(document).ready(function () {
+    $('#tabMenu a[href="#{{ old('tab') }}"]').tab('show')
+    });
 </script>
 
 @endsection
