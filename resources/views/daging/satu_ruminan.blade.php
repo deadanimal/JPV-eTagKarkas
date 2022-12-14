@@ -399,7 +399,8 @@
                             </div>
                         </form>
                         @endrole
-        
+                        
+                        <br><br>
                         @include('daging.post_mortem_table')
         
                     </div>
