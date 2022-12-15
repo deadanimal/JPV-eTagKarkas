@@ -111,33 +111,7 @@
                                 </div>
         
                             </div>
-        
-                            {{-- <div class="row">
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Bilangan Ternakan Yang Diterima</label>
-                                    <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan->bil_ternakan_diterima}}" readonly>
-                                </div>
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Ternakan Yang Mati Semasa Tiba</label>
-                                    <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan->ternakan_mati_semasa_tiba}}" readonly>
-                                </div>
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Ternakan Yang Diperiksa</label>
-                                    <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan->jumlah_ternakan_diperiksa}}" readonly>
-                                </div>
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah Binatang Layak Disembelih</label>
-                                    <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" readonly>
-                                </div>
-        
-                            </div> --}}
-        
-        
-        
+           
                             <!--Button-->
                             <div class="mb-3">
                                 {{-- <button class="btn btn-primary" type="submit" style="float: right">Simpan</button> --}}
@@ -338,43 +312,22 @@
         
                                 <div class="mb-3 col-md-3">
                                     <label for="">Kategori</label>
-                                    <select class="form-select" aria-label="Default select example" name="kategori_post_mortem">
-                                        <option selected disabled>Pilih Kategori</option>
-                                        <option value="1">Karkass(Carcass)</option>
-                                        <option value="2">Esofagus(Esophagus)</option>
-                                        <option value="3">Jantung(Heart)</option>
-                                        <option value="4">Peparu(Lungs) & Trachea(Trakea)</option>
-                                        <option value="5">Hati(Liver)</option>
-                                        <option value="6">Buah Pinggang(Kidney)</option>
-                                        <option value="7">Limba(Spleen)</option>
-                                        <option value="8">Perut,Usus Kecil,Usus Besar(Guts-Stomach,Small & Large Intestine)</option>
-                                        <option value="9">Sistem Pembiakan Betina</option>
-                                        <option value="10">Udder</option>
-                                        <option value="11">Sistem Pembiakan Jantan</option>
-
+                                    <select class="form-select" aria-label="Default select example" name="kategori_post_mortem" id="countySel">
+                                        <option selected >Pilih Kategori</option>
                                     </select>
                                 </div>
             
                                 <div class="mb-3 col-md-3">
                                     <label for="">Bahagian</label>
-                                    <select class="form-select" aria-label="Default select example" name="bahagian">
-                                        <option selected disabled>Pilih Bahagian</option>
-                                        <option value="Generalized">Generalized</option>
-                                        <option value="Head">Head</option>
-                                        <option value="Tongue">Tongue</option>
-                                        <option value="Thoracic Cavity">Thoracic Cavity</option>
-                                        <option value="Abdominal cavity">Abdominal cavity</option>
-                                        <option value="Pelvic cavity">Pelvic cavity</option>
+                                    <select class="form-select" aria-label="Default select example" name="bahagian" id="stateSel">
+                                        <option selected>Pilih Bahagian</option>
                                     </select>
                                 </div>
             
                                 <div class="mb-3 col-md-3">
                                     <label for="">Sebab Musnah</label>
-                                    <select class="form-select" aria-label="Default select example" name="musnah">
-                                        <option selected>Pilih Sebab Musnah</option>
-                                        <option value="Cysts">Cysts</option>
-                                        <option value="Hernia">Hernia</option>
-                                        <option value="Tumor">Tumor</option>
+                                    <select class="form-select" aria-label="Default select example" name="musnah" id="districtSel">
+                                        <option selected>Pilih Sebab Musnah</option>      
                                     </select>
                                 </div>
             
@@ -491,12 +444,12 @@
     </div>
 </main>
 
-
  
 @endsection
 
 @section('script')
 
+<script>console.log('otak dia')</script>
 <script>
     $('#datepicker').datepicker({
     uiLibrary: 'bootstrap5'
@@ -522,6 +475,108 @@
   var bil4 = parseInt(bil4, 10);
   var diff2 = bil3 - bil4;
   document.getElementById("diff2").value = diff2;
+    }
+</script>
+
+<script>
+    var stateObject = {
+        "Karkass(Carcass)": {
+            "Generalized": ["Abnormal odours", "Abscess", "Bruising", "Cysts", "Discolored carcass(e.g. PSE,DFD)", "Emaciated carcass",
+                "Generalized congestion", "Generalized lymph node enlargement", "Hemorrhages", "Jaundice", "Pigmentation", "Polyarthritis",
+                "Serous athropy of fat", "Skin lessions", "Others(e.g. physical contamination due to negligence,hairy carcass,machine damage)",
+            ],
+            "Head": ["Lumps", "Lymph node enlargement", "Swelling",
+            ],
+            "Tongue": ["Abscess", "Cysts", "Discoloration", "Loss of texture", "Nodules", "Ulceration", "Vesicle lesions",
+                "Wounds",
+            ],
+            "Thoracic Cavity": ["Abscess(Cysts)", "Adhesions", "Blood splashing", "Bruising","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
+            "Hydrothorax", "Nodules(abnormal growth)", "Pleurisy","Tumors","Wounds","Others"
+            ],
+            "Abdominal Cavity": ["Abscess(Cysts)", "Adhesions", "Blood splashing","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
+            "Hernia", "Nodules(abnormal growth)", "Peritonitis","Wounds","Others"
+            ],
+            "Pelvic Cavity": ["Abscess", "Adhesions","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
+            "Nodules(abnormal growth)","Wounds(e.g. tail sore","Others"
+            ],
+        },
+        "Esofagus(Esophagus)": {
+            "Esofagus(Esophagus)": ["Abscess", "Blood splashing", "Nodules(abnormal growth)", "Parasites(e.g. Trichinella Spiralis)", "Others"
+            ],
+            
+        },
+        "Jantung(Heart)": {
+            "Jantung(Heart)": ["Abscess", "Congestion", "Endocarditis", "Hemorrhages", "Hydropericardium",
+            "Hypertrophy myocardium", "Infarction/necrosis", "Parasitic cysts","Pericarditis","Others"
+            ],
+        },
+        "Peparu(Lungs) & Trachea(Trakea)": {
+            "Peparu(Lungs) & Trachea(Trakea)": ["Abscess", "Atelactasis", "Blood splashing", "Congestion", "Discoloration",
+            "Emphysema", "Infarction/necrosis","Nodules(abnormal growth)", "Parasites(e.g. Lungworms)","Pleurisy","Pneumonia",
+            "Pulmonary edema", "Others"
+            ],
+        },
+        "Hati(Liver)": {
+            "Hati(Liver)": ["Abscess", "Adhesions", "Cirrhosis", "Congestion", "Cysts","Discoloration",
+            "Fatty liver", "Hepatitis","Hepatomegaly", "Infarction/necrosis","Jaundice","Lymph node enlarged/congested",
+            "Milkspots","Nodules(abnormal growth)","Parasites(e.g. Taenia solium)","Telangiectasis", "Others"
+            ],
+        },
+        "Buah Pinggang(Kidney)": {
+            "Buah Pinggang(Kidney)": ["Abscess", "Congestion", "Cysts","Discoloration", "Hemorrhages", "Hydronephrosis",
+           "Infarction/necrosis", "Nephritis","Nephromegaly","Nodules(abnormal growth)","Parasites(e.g. Kidney worms)","Others"
+            ],
+        },
+        "Limpa(Spleen)": {
+            "Limpa(Spleen)": ["Abscess","Adhesions", "Congestion","Discoloration","Haematoma", "Hemorrhages",
+           "Infarction/necrosis","Nodules(abnormal growth)","Splenomegaly","Others"
+            ],
+        },
+        "Perut,usus kecil,Usus Besar(Guts-stomach,Small & Large intestines": {
+            "Perut,usus kecil,Usus Besar(Guts-stomach,Small & Large intestines": ["Abscess","Adhesions","Button ulceration","Congestion","Cysts","Discoloration","Enteritis", "Gastroenteritis",
+            "Hemorrhages","Jaundice","Lymph node enlarged/congested","Nodules(abnormal growth)","Oedema","Parasites(e.g. Taenia solium)",
+            "Peritonitis","Pimply guts","Traumatic wounds","Others"
+            ],
+        },
+        "Sistem Pembiakan Betina": {
+            "Sistem Pembiakan Betina": ["Abscess", "Congestion", "Cysts","Foetus", "Metritis", "Mummified Foetus",
+            "Nodules(abnormal growth)","Pyometra","Others"
+            ],
+        },
+        "Udder": {
+            "Udder": ["Abscess", "Mastitis", "Wounds","Others"
+            ],
+        },
+        "Sistem Pembiakan Jantan": {
+            "Sistem Pembiakan Jantan": ["Abscess", "Congestion", "Cysts","Nodules", "Orchitis", "Testicular enlargement",
+            "Wounds","Others"
+            ],
+        },
+    }
+    window.onload = function() {
+        var countySel = document.getElementById("countySel"),
+            stateSel = document.getElementById("stateSel"),
+            districtSel = document.getElementById("districtSel");
+        for (var kategori_post_mortem in stateObject) {
+            countySel.options[countySel.options.length] = new Option(kategori_post_mortem, kategori_post_mortem);
+        }
+        countySel.onchange = function() {
+            stateSel.length = 1; // remove all options bar first
+            districtSel.length = 1; // remove all options bar first
+            if (this.selectedIndex < 1) return; // done 
+            for (var bahagian in stateObject[this.value]) {
+                stateSel.options[stateSel.options.length] = new Option(bahagian, bahagian);
+            }
+        }
+        countySel.onchange(); // reset in case page is reloaded
+        stateSel.onchange = function() {
+            districtSel.length = 1; // remove all options bar first
+            if (this.selectedIndex < 1) return; // done 
+            var musnah = stateObject[countySel.value][this.value];
+            for (var i = 0; i < musnah.length; i++) {
+                districtSel.options[districtSel.options.length] = new Option(musnah[i], musnah[i]);
+            }
+        }
     }
 </script>
 
