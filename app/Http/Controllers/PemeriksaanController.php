@@ -424,17 +424,10 @@ class PemeriksaanController extends Controller
         $catatans = Catatan::where([
             ['pemeriksaan_id','=', $pemeriksaan->id],
         ])->get(); 
-        // $am_unggas = AnteMortemUnggas::where([
-        //     ['unggas_id','=', $pemeriksaan_babi->id],
-        // ])->get();
-        // $pm_unggas = PostMortemUnggas::where([
-        //     ['unggas_id','=', $pemeriksaan_babi->id],
-        // ])->get();       
         return view('daging.satu_babi', compact('user','pemeriksaan_babi','harians','periksa_harian','ante_mortems','post_mortems','catatans','pemeriksaan'));
     }
 
-    // tambah model notifikasi - id,message,user
-    // satu pemeriksaan & catatan ternakan has many p.rapi
+   
 
 
 
