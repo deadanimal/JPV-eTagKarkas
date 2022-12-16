@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="display-5 mt-1 mb-3">17.212</h1>
+                            <h1 class="display-5 mt-1 mb-3">{{$pelawat}}</h1>
                             <div class="mb-0">
                                 <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.50% </span>
                                 Lebih pelawat dari semalam
@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="display-5 mt-1 mb-3">437</h1>
+                            <h1 class="display-5 mt-1 mb-3">{{$jumlah_premis}}</h1>
                             {{-- <div class="mb-0">
                                 <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -4.25% </span>
                                 Less orders than usual
@@ -72,7 +72,7 @@
                         <div class="card-body border border-success">
                             <div class="row">
                                 <div class="col mt-0">
-                                    <h5 class="card-title">Jumlah Permohonan</h5>
+                                    <h5 class="card-title">Jumlah Pemeriksaan Daging</h5>
                                 </div>
 
                                 <div class="col-auto">
@@ -83,10 +83,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="display-5 mt-1 mb-3">350</h1>
+                            <h1 class="display-5 mt-1 mb-3">{{$daging}}</h1>
                             <div class="mb-0">
                                 <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 8.35% </span>
-                                Lebih permohonan dari semalam
+                                Lebih pemeriksaan dari semalam
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="display-5 mt-1 mb-3">500</h1>
+                            <h1 class="display-5 mt-1 mb-3">{{$sampel}}</h1>
                            
                         </div>
                     </div>

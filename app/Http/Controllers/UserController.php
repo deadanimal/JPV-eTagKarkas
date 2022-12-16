@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\LupaKatalaluan;
+use App\Models\Pemeriksaan;
+use App\Models\Sampel;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use DataTables;
 use DateTime;
@@ -18,8 +21,13 @@ use Illuminate\Validation\Rules\Password;
 class UserController extends Controller
 {
 
-    public function home(Request $request) {    
-        return view('home');
+    public function home(Request $request) {
+
+        $jumlah_premis = Tag::all()->count();
+        $pelawat = User::all()->count();
+        $sampel = Sampel::all()->count();
+        $daging = Pemeriksaan::all()->count();
+        return view('home', compact('jumlah_premis','pelawat','sampel','daging'));
     }
 
     public function senarai(Request $request) {    
