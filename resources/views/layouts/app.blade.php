@@ -50,13 +50,14 @@
         @include('sweetalert::alert')
 
         <nav id="sidebar" class="sidebar">
-            <a class="sidebar-brand" href="/">
+            <br>
+            {{-- <a class="sidebar-brand" href="/"> --}}
                 <div class="card">
                     <img src="/img/Veterinar-Logo.png" alt="JPV" style="width: 70px; height: 50px;">
                 </div>
                 <div>eTagKarkas</div>
 
-            </a>
+            {{-- </a> --}}
             <div class="sidebar-content">
 
                 <ul class="sidebar-nav">
@@ -241,7 +242,7 @@
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
                                 aria-labelledby="alertsDropdown">
                                 <div class="dropdown-menu-header">
-                                    {{$kira}} unread notifications
+                                    {{$kira}} mesej tidak dibaca
                                 </div>
                                 <div class="list-group">
                                     @foreach ($noti as $n)
