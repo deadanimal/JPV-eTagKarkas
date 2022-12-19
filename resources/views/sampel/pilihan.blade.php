@@ -114,6 +114,12 @@
                 </div>
             </div>
 
+            <div class="text-center">
+                <a href="/pensampelan" class="btn btn-light" >Kembali</a>
+            </div>
+
+
+
             
 
             

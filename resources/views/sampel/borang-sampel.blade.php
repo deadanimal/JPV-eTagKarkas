@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="inputAddress">Zon</label>
-                                    <select class="form-select" aria-label="Default select example" name="zon"
+                                    <select class="form-select" aria-label="Default select example" name="zon" id="zon" onchange="changeInduk()"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                         <option selected disabled value="">Pilih Zon</option>
                                         <option value="Zon Utara">Zon Utara</option>
@@ -120,8 +120,8 @@
                             </div>
 
                             <div class="row">
-                                <div class="mb-3 col-md-6">
-                                    <label for="tahun">Pemeriksa 1</label>
+                                <div class="mb-3 col-md-6" id="tag1">
+                                    <label for="tahun">Pemeriksa 1 </label>
                                     <select class="form-select" aria-label="Default select example" name="pemeriksa_1" id="rumah" required
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
                                     <option selected value="">Pilih Pemeriksa</option>
@@ -131,7 +131,7 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-6" id="tag2">
                                     <label for="inputAddress">Pemeriksa 2</label>
                                     <select class="form-select" aria-label="Default select example" name="pemeriksa_2" id="rumah" required
                                     oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
@@ -243,19 +243,21 @@
                                 </tbody>
                             </table>
 
+                            <div class="mb-3">       
+                                <button class="btn btn-success" type="submit" title="Hantar"
+                                    style="float: right">Hantar</button>
+                                <button class="btn btn-warning mx-2" type="submit" title="Kemaskini"
+                                    style="float: right">Kemaskini</button>
+                                <a href="/pensampelan-pilihan" class="btn btn-primary mx-2" style="float: right">Kembali</a>
+                            </div>
 
-
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <button class="btn btn-warning" type="submit" title="Kemaskini"
                                     style="float: left">Kemaskini</button>
                                 <button class="btn btn-success" type="submit" title="Hantar"
                                     style="float: right">Hantar</button>
-                            </div>
+                            </div> --}}
 
-                            <div class="mb-3 text-center">
-                                <button class="btn btn-primary" type="submit" title="Simpan">Simpan</button>
-
-                            </div>
 
 
                         </div>
@@ -330,5 +332,22 @@
                 });
             })
         });
+    </script>
+
+    <script>
+        function changeInduk() {
+            var zon = document.getElementById("zon").value
+            if (zon == "Zon Utara" || zon == "Zon Tengah" || zon == "Zon Selatan") {
+                document.getElementById("tag1").style.display = "none";
+                document.getElementById("tag2").style.display = "none";
+                document.getElementById("tag3").style.display = "none";
+                document.getElementById("tag4").style.display = "none";
+            } else {
+                document.getElementById("tag1").style.display = "block";
+                document.getElementById("tag2").style.display = "block";
+                document.getElementById("tag3").style.display = "block";
+                document.getElementById("tag4").style.display = "block";
+            }
+        }
     </script>
 @endsection
