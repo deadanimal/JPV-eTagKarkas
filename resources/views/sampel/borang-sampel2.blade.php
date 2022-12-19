@@ -220,7 +220,7 @@
                                     </tr>
                                     <tr>
 
-                                        @foreach ($sampels as $sampel)
+                                    @foreach ($sampels as $sampel)
                                 <th colspan="16">{{$sampel->zon}}</th>
                                     </tr>
                                 </thead>
@@ -250,10 +250,6 @@
                                     style="float: right">Kemaskini</button>
                                 <a href="/pensampelan-pilihan" class="btn btn-primary mx-2" style="float: right">Kembali</a>
                             </div>
-
-
-
-
                         </div>
 
                     </div>

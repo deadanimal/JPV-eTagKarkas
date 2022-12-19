@@ -172,109 +172,109 @@
           </div>
       </div>
 
-
-@section('script')    
-    <script>
-        var stateObject = {
-            "Karkass(Carcass)": {
-                "Generalized": ["Abnormal odours", "Abscess", "Bruising", "Cysts", "Discolored carcass(e.g. PSE,DFD)", "Emaciated carcass",
-                    "Generalized congestion", "Generalized lymph node enlargement", "Hemorrhages", "Jaundice", "Pigmentation", "Polyarthritis",
-                    "Serous athropy of fat", "Skin lessions", "Others(e.g. physical contamination due to negligence,hairy carcass,machine damage)",
-                ],
-                "Head": ["Lumps", "Lymph node enlargement", "Swelling",
-                ],
-                "Tongue": ["Abscess", "Cysts", "Discoloration", "Loss of texture", "Nodules", "Ulceration", "Vesicle lesions",
-                    "Wounds",
-                ],
-                "Thoracic Cavity": ["Abscess(Cysts)", "Adhesions", "Blood splashing", "Bruising","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
-                "Hydrothorax", "Nodules(abnormal growth)", "Pleurisy","Tumors","Wounds","Others"
-                ],
-                "Abdominal Cavity": ["Abscess(Cysts)", "Adhesions", "Blood splashing","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
-                "Hernia", "Nodules(abnormal growth)", "Peritonitis","Wounds","Others"
-                ],
-                "Pelvic Cavity": ["Abscess", "Adhesions","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
-                "Nodules(abnormal growth)","Wounds(e.g. tail sore","Others"
-                ],
-            },
-            "Esofagus(Esophagus)": {
-                "Esofagus(Esophagus)": ["Abscess", "Blood splashing", "Nodules(abnormal growth)", "Parasites(e.g. Trichinella Spiralis)", "Others"
-                ],
-                
-            },
-            "Jantung(Heart)": {
-                "Jantung(Heart)": ["Abscess", "Congestion", "Endocarditis", "Hemorrhages", "Hydropericardium",
-                "Hypertrophy myocardium", "Infarction/necrosis", "Parasitic cysts","Pericarditis","Others"
-                ],
-            },
-            "Peparu(Lungs) & Trachea(Trakea)": {
-                "Peparu(Lungs) & Trachea(Trakea)": ["Abscess", "Atelactasis", "Blood splashing", "Congestion", "Discoloration",
-                "Emphysema", "Infarction/necrosis","Nodules(abnormal growth)", "Parasites(e.g. Lungworms)","Pleurisy","Pneumonia",
-                "Pulmonary edema", "Others"
-                ],
-            },
-            "Hati(Liver)": {
-                "Hati(Liver)": ["Abscess", "Adhesions", "Cirrhosis", "Congestion", "Cysts","Discoloration",
-                "Fatty liver", "Hepatitis","Hepatomegaly", "Infarction/necrosis","Jaundice","Lymph node enlarged/congested",
-                "Milkspots","Nodules(abnormal growth)","Parasites(e.g. Taenia solium)","Telangiectasis", "Others"
-                ],
-            },
-            "Buah Pinggang(Kidney)": {
-                "Buah Pinggang(Kidney)": ["Abscess", "Congestion", "Cysts","Discoloration", "Hemorrhages", "Hydronephrosis",
-               "Infarction/necrosis", "Nephritis","Nephromegaly","Nodules(abnormal growth)","Parasites(e.g. Kidney worms)","Others"
-                ],
-            },
-            "Limpa(Spleen)": {
-                "Limpa(Spleen)": ["Abscess","Adhesions", "Congestion","Discoloration","Haematoma", "Hemorrhages",
-               "Infarction/necrosis","Nodules(abnormal growth)","Splenomegaly","Others"
-                ],
-            },
-            "Perut,usus kecil,Usus Besar(Guts-stomach,Small & Large intestines": {
-                "Perut,usus kecil,Usus Besar(Guts-stomach,Small & Large intestines": ["Abscess","Adhesions","Button ulceration","Congestion","Cysts","Discoloration","Enteritis", "Gastroenteritis",
-                "Hemorrhages","Jaundice","Lymph node enlarged/congested","Nodules(abnormal growth)","Oedema","Parasites(e.g. Taenia solium)",
-                "Peritonitis","Pimply guts","Traumatic wounds","Others"
-                ],
-            },
-            "Sistem Pembiakan Betina": {
-                "Sistem Pembiakan Betina": ["Abscess", "Congestion", "Cysts","Foetus", "Metritis", "Mummified Foetus",
-                "Nodules(abnormal growth)","Pyometra","Others"
-                ],
-            },
-            "Udder": {
-                "Udder": ["Abscess", "Mastitis", "Wounds","Others"
-                ],
-            },
-            "Sistem Pembiakan Jantan": {
-                "Sistem Pembiakan Jantan": ["Abscess", "Congestion", "Cysts","Nodules", "Orchitis", "Testicular enlargement",
-                "Wounds","Others"
-                ],
-            },
-        }
-        window.onload = function() {
-            var kPM = document.getElementById("kPM"),
-                bH = document.getElementById("bH"),
-                sM = document.getElementById("sM");
-            for (var kategori_post_mortem in stateObject) {
-                kPM.options[kPM.options.length] = new Option(kategori_post_mortem, kategori_post_mortem);
-            }
-            kPM.onchange = function() {
-                bH.length = 1; // remove all options bar first
-                sM.length = 1; // remove all options bar first
-                if (this.selectedIndex < 1) return; // done 
-                for (var bahagian in stateObject[this.value]) {
-                    bH.options[bH.options.length] = new Option(bahagian, bahagian);
-                }
-            }
-            kPM.onchange(); // reset in case page is reloaded
-            bH.onchange = function() {
-                sM.length = 1; // remove all options bar first
-                if (this.selectedIndex < 1) return; // done 
-                var musnah = stateObject[kPM.value][this.value];
-                for (var i = 0; i < musnah.length; i++) {
-                    sM.options[sM.options.length] = new Option(musnah[i], musnah[i]);
-                }
-            }
-        }
-    </script>
+{{-- @section('script')    
+      <script>
+          var stateObject = {
+              "Karkass(Carcass)": {
+                  "Generalized": ["Abnormal odours", "Abscess", "Bruising", "Cysts", "Discolored carcass(e.g. PSE,DFD)", "Emaciated carcass",
+                      "Generalized congestion", "Generalized lymph node enlargement", "Hemorrhages", "Jaundice", "Pigmentation", "Polyarthritis",
+                      "Serous athropy of fat", "Skin lessions", "Others(e.g. physical contamination due to negligence,hairy carcass,machine damage)",
+                  ],
+                  "Head": ["Lumps", "Lymph node enlargement", "Swelling",
+                  ],
+                  "Tongue": ["Abscess", "Cysts", "Discoloration", "Loss of texture", "Nodules", "Ulceration", "Vesicle lesions",
+                      "Wounds",
+                  ],
+                  "Thoracic Cavity": ["Abscess(Cysts)", "Adhesions", "Blood splashing", "Bruising","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
+                  "Hydrothorax", "Nodules(abnormal growth)", "Pleurisy","Tumors","Wounds","Others"
+                  ],
+                  "Abdominal Cavity": ["Abscess(Cysts)", "Adhesions", "Blood splashing","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
+                  "Hernia", "Nodules(abnormal growth)", "Peritonitis","Wounds","Others"
+                  ],
+                  "Pelvic Cavity": ["Abscess", "Adhesions","Cysts", "Fracture(rib,cage,spinal)", "Hemorrhages",
+                  "Nodules(abnormal growth)","Wounds(e.g. tail sore","Others"
+                  ],
+              },
+              "Esofagus(Esophagus)": {
+                  "Esofagus(Esophagus)": ["Abscess", "Blood splashing", "Nodules(abnormal growth)", "Parasites(e.g. Trichinella Spiralis)", "Others"
+                  ],
+                  
+              },
+              "Jantung(Heart)": {
+                  "Jantung(Heart)": ["Abscess", "Congestion", "Endocarditis", "Hemorrhages", "Hydropericardium",
+                  "Hypertrophy myocardium", "Infarction/necrosis", "Parasitic cysts","Pericarditis","Others"
+                  ],
+              },
+              "Peparu(Lungs) & Trachea(Trakea)": {
+                  "Peparu(Lungs) & Trachea(Trakea)": ["Abscess", "Atelactasis", "Blood splashing", "Congestion", "Discoloration",
+                  "Emphysema", "Infarction/necrosis","Nodules(abnormal growth)", "Parasites(e.g. Lungworms)","Pleurisy","Pneumonia",
+                  "Pulmonary edema", "Others"
+                  ],
+              },
+              "Hati(Liver)": {
+                  "Hati(Liver)": ["Abscess", "Adhesions", "Cirrhosis", "Congestion", "Cysts","Discoloration",
+                  "Fatty liver", "Hepatitis","Hepatomegaly", "Infarction/necrosis","Jaundice","Lymph node enlarged/congested",
+                  "Milkspots","Nodules(abnormal growth)","Parasites(e.g. Taenia solium)","Telangiectasis", "Others"
+                  ],
+              },
+              "Buah Pinggang(Kidney)": {
+                  "Buah Pinggang(Kidney)": ["Abscess", "Congestion", "Cysts","Discoloration", "Hemorrhages", "Hydronephrosis",
+                 "Infarction/necrosis", "Nephritis","Nephromegaly","Nodules(abnormal growth)","Parasites(e.g. Kidney worms)","Others"
+                  ],
+              },
+              "Limpa(Spleen)": {
+                  "Limpa(Spleen)": ["Abscess","Adhesions", "Congestion","Discoloration","Haematoma", "Hemorrhages",
+                 "Infarction/necrosis","Nodules(abnormal growth)","Splenomegaly","Others"
+                  ],
+              },
+              "Perut,usus kecil,Usus Besar(Guts-stomach,Small & Large intestines": {
+                  "Perut,usus kecil,Usus Besar(Guts-stomach,Small & Large intestines": ["Abscess","Adhesions","Button ulceration","Congestion","Cysts","Discoloration","Enteritis", "Gastroenteritis",
+                  "Hemorrhages","Jaundice","Lymph node enlarged/congested","Nodules(abnormal growth)","Oedema","Parasites(e.g. Taenia solium)",
+                  "Peritonitis","Pimply guts","Traumatic wounds","Others"
+                  ],
+              },
+              "Sistem Pembiakan Betina": {
+                  "Sistem Pembiakan Betina": ["Abscess", "Congestion", "Cysts","Foetus", "Metritis", "Mummified Foetus",
+                  "Nodules(abnormal growth)","Pyometra","Others"
+                  ],
+              },
+              "Udder": {
+                  "Udder": ["Abscess", "Mastitis", "Wounds","Others"
+                  ],
+              },
+              "Sistem Pembiakan Jantan": {
+                  "Sistem Pembiakan Jantan": ["Abscess", "Congestion", "Cysts","Nodules", "Orchitis", "Testicular enlargement",
+                  "Wounds","Others"
+                  ],
+              },
+          }
+          window.onload = function() {
+              var kPM = document.getElementById("kPM"),
+                  bH = document.getElementById("bH"),
+                  sM = document.getElementById("sM");
+              for (var kategori_post_mortem in stateObject) {
+                  kPM.options[kPM.options.length] = new Option(kategori_post_mortem, kategori_post_mortem);
+              }
+              kPM.onchange = function() {
+                  bH.length = 1; // remove all options bar first
+                  sM.length = 1; // remove all options bar first
+                  if (this.selectedIndex < 1) return; // done 
+                  for (var bahagian in stateObject[this.value]) {
+                      bH.options[bH.options.length] = new Option(bahagian, bahagian);
+                  }
+              }
+              kPM.onchange(); // reset in case page is reloaded
+              bH.onchange = function() {
+                  sM.length = 1; // remove all options bar first
+                  if (this.selectedIndex < 1) return; // done 
+                  var musnah = stateObject[kPM.value][this.value];
+                  for (var i = 0; i < musnah.length; i++) {
+                      sM.options[sM.options.length] = new Option(musnah[i], musnah[i]);
+                  }
+              }
+          }
+      </script>
+@endsection --}}
         
 </body>
-@endsection
+
