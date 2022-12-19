@@ -37,7 +37,7 @@
                                     <th scope="col">Zon</th>
                                     <th scope="col">Pemeriksa 1</th>
                                     <th scope="col">Pemeriksa 2</th>
-                                    {{-- <th scope="col">Tindakan</th> --}}
+                                    <th scope="col">Tindakan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -116,10 +116,10 @@
                     //     data: 'created_at',
                     //     name: 'created_at'
                     // },
-                    // {
-                    //     data: 'tindakan',
-                    //     name: 'tindakan'
-                    // },
+                    {
+                        data: 'tindakan',
+                        name: 'tindakan'
+                    },
                                                   
                    
 

@@ -92,7 +92,7 @@
                                 </div>
                             </div>
 
-                            <a href="/pensampelan" class="btn btn-primary" style="float: right">Kembali</a>
+                            {{-- <a href="/pensampelan" class="btn btn-primary" style="float: right">Kembali</a> --}}
                             {{-- <button type="submit" class="btn btn-warning align-middle me-2 fa-plus"
                             style="float: right"><span style="padding-left: 10px;">Tambah</span></button> --}}
 
@@ -116,12 +116,13 @@
 
                                 <tr>
                                     <th colspan="16">PROGRAM PEMANTAUAN RESIDU(JENIS UJIAN)(JENIS SAMPEL) DI LOJI
-                                        {{$sampel->pilihan}}</th>
+                                        {{$sampel->pilihan}} <br>{{$sampel->zon}}</th>
+                                   
                                 </tr>
                                 <tr style="vertical-align: middle">
                                     <th>BIL</th>
-                                    <th>PREMIS</th>
-                                    <th>BIL SAMPEL YANG PERLU DIAMBIL</th>
+                                    {{-- <th>PREMIS</th> --}}
+                                    <th>BIL. SAMPEL YANG PERLU DIAMBIL</th>
                                     <th>JAN</th>
                                     <th>FEB</th>
                                     <th>MAC</th>
@@ -198,19 +199,13 @@
 
 
 
-                        <div class="mb-3">
-                            <button class="btn btn-warning" type="submit" title="Kemaskini"
-                                style="float: left">Kemaskini</button>
+                        <div class="mb-3">       
                             <button class="btn btn-success" type="submit" title="Hantar"
                                 style="float: right">Hantar</button>
+                            <button class="btn btn-warning mx-2" type="submit" title="Kemaskini"
+                                style="float: right">Kemaskini</button>
+                            <a href="/pensampelan" class="btn btn-primary mx-2" style="float: right">Kembali</a>
                         </div>
-
-                        <div class="mb-3 text-center">
-                            <button class="btn btn-primary" type="submit" title="Simpan">Simpan</button>
-
-                        </div>
-
-
                     </div>
 
                 </div>
