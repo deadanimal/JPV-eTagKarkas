@@ -116,7 +116,7 @@
 
                                 <tr>
                                     <th colspan="16">PROGRAM PEMANTAUAN RESIDU(JENIS UJIAN)(JENIS SAMPEL) DI LOJI
-                                        {{$sampel->pilihan}} <br>{{$sampel->zon}}</th>
+                                        {{strtoupper( $sampel->pilihan)}}<br>{{strtoupper($sampel->zon)}}</th>
                                    
                                 </tr>
                                 <tr style="vertical-align: middle">
@@ -137,64 +137,61 @@
                                     <th>DEC</th>
                                     <th>JUMLAH</th>
                                 </tr>
-                                <tr>
-
-                                    @foreach ($sampel as $s)
-                            {{-- <th colspan="16">{{$s->zon}}</th> --}}
-                                </tr>
+                                
                             </thead>
                             <tbody>
 
                                 <tr class="text-center">
+                                    @foreach ($sampel as $s)
+
                                     <td>{{$loop->iteration}}</td>
                                     {{-- <td>{{$s->premis}}</td> --}}
                                     <td><input class="form-control" type="number" name="sampel" min="0"
                                             oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="1" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="2" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="3" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="4" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="5" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="6" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="7" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="8" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="9" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="10" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="11" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="12" min="0"
-                                            oninput="this.setCustomValidity('')"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    <td><input class="form-control" type="number" name="jumlahUtara" min="0"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" ></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" ></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" ></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="qty" min="0"
+                                            oninput="this.setCustomValidity('')" onblur="findSum()"
+                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
+                                    <td><input class="form-control" type="number" name="jumlahUtara" min="0" id='total'
                                             oninput="this.setCustomValidity('')"
                                             onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
                                 </tr>
 
-                                @endforeach
-
                             </tbody>
+                            @endforeach
                         </table>
 
 
@@ -235,6 +232,19 @@
         };
     </script>
     <script src="/js/jquery.js"></script>
+
+    <script type="text/javascript">
+        function findSum(){
+            var arr = document.getElementsByName('qty');
+            var tot=0;
+            for(var i=0;i<arr.length;i++){
+                if(parseInt(arr[i].value))
+                    tot += parseInt(arr[i].value);
+            }
+            document.getElementById('total').value = tot;
+        }
+        
+    </script>
 
 
 @endsection
