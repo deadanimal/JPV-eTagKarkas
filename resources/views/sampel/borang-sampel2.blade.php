@@ -48,6 +48,20 @@
                                         <option selected value="">Pilih Tahun</option>
                                     </select>
                                 </div>
+                                @role('pentadbir-zon')
+                                <div class="mb-3 col-md-6">
+                                    <label for="inputAddress">Zon</label>
+                                    <select class="form-select" aria-label="Default select example" name="zon"
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
+                                        <option selected disabled value="">Pilih Zon</option>
+                                        <option value="Zon Utara">Zon Utara</option>
+                                        <option value="Zon Tengah">Zon Tengah</option>
+                                        <option value="Zon Selatan">Zon Selatan</option>
+                                        {{-- <option value="Zon Sabah & Sarawak">Zon Sabah & Sarawak</option> --}}
+                                    </select>
+                                </div>
+                                @endrole
+                                @role('pentadbir')
                                 <div class="mb-3 col-md-6">
                                     <label for="inputAddress">Zon</label>
                                     <select class="form-select" aria-label="Default select example" name="zon" id="zon" onchange="changeInduk()"
@@ -59,6 +73,7 @@
                                         <option value="Zon Sabah & Sarawak">Zon Sabah & Sarawak</option>
                                     </select>
                                 </div>
+                                @endrole
                             </div>
 
                             <div class="row">
@@ -119,6 +134,7 @@
                                 </div>
                             </div>
 
+                            @role('pentadbir')
                             <div class="row">
                                 <div class="mb-3 col-md-6" id="tag1">
                                     <label for="tahun">Pemeriksa 1</label>
@@ -142,6 +158,33 @@
                                     </select>
                                 </div>
                             </div>
+                            @endrole
+
+                            @role('pentadbir-zon')
+                            <div class="row">
+                                <div class="mb-3 col-md-6" >
+                                    <label for="tahun">Pemeriksa 1 </label>
+                                    <select class="form-select" aria-label="Default select example" name="pemeriksa_1" id="rumah" required
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Pemeriksa</option>
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->name }}" >{{ $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="mb-3 col-md-6" >
+                                    <label for="inputAddress">Pemeriksa 2</label>
+                                    <select class="form-select" aria-label="Default select example" name="pemeriksa_2" id="rumah" required
+                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                    <option selected value="">Pilih Pemeriksa</option>
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->name }}" >{{ $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            @endrole
 
                             <button type="submit" class="btn btn-warning align-middle me-2 fa-plus"
                                 style="float: right"><span style="padding-left: 10px;">Tambah</span></button>
