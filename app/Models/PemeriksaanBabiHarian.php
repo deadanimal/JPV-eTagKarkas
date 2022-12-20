@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PengenalanBabi extends Model
+class PemeriksaanBabiHarian extends Model
 {
     use HasFactory;
 
     public function pemeriksaan() {
-        return $this->belongsTo(Pemeriksaan::class);
+        return $this->belongsTo(PengenalanBabi::class);
     }  
     
     public function rumah_sembelih() {

@@ -151,79 +151,86 @@
                         <form action="/harian" method="POST">
                             @csrf
             
-                                <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
-                                <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
-                            
-                                <div class="row">
-            
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Bilangan Ternakan Yang Diterima</label>
-                                        <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan->bil_ternakan_diterima}}" readonly>
-                                    </div>
-            
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Ternakan Yang Mati Semasa Tiba</label>
-                                        <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan->ternakan_mati_semasa_tiba}}" readonly>
-                                    </div>
-            
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Jumlah Ternakan Yang Diperiksa</label>
-                                        <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan->jumlah_ternakan_diperiksa}}" readonly>
-                                    </div>
-            
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Jumlah Binatang Layak Disembelih</label>
-                                        <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" readonly>
-                                    </div>
-            
-                                </div>
-                                
-                                <div class="row">
-            
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi</label>
-                                        <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
-                                        oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" >
-                                        <a href="/periksa-rapi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
-                                    </div>
-            
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Jumlah Binatang Disembelih Kerana Kecemasan</label>
-                                        <input class="form-control" type="number" min="0" name="jumlah_binatang_disembelih_kecemasan"
-                                        oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                    </div>
-            
-                                    <div class="mb-3 col-md-3" style="margin-top: 22px">
-                                        <label for="">Jumlah Yang Disembelih</label>
-                                        <input class="form-control" type="number" id="j1"  min="0" name="jumlah_disembelih" oninput="calc()"
-                                        oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                    </div>
+                               <div class="card">
 
-                                    {{-- tarik data dari pemeriksaan --}}
-                                        <input class="form-control" type="hidden" id="j2" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" oninput="calc()" readonly>
+                                <div class="card-body">
+
+                                    <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                                    <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+                                
+                                    <div class="row">
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Bilangan Ternakan Yang Diterima</label>
+                                            <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan->bil_ternakan_diterima}}" readonly>
+                                        </div>
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Ternakan Yang Mati Semasa Tiba</label>
+                                            <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan->ternakan_mati_semasa_tiba}}" readonly>
+                                        </div>
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Jumlah Ternakan Yang Diperiksa</label>
+                                            <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan->jumlah_ternakan_diperiksa}}" readonly>
+                                        </div>
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Jumlah Binatang Disembelih</label>
+                                            <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" readonly>
+                                        </div>
+                
+                                    </div>
                                     
-            
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Baki Ternakan Yang Belum Disembelih</label>
-                                        <input class="form-control" type="number" id="minus" min="0" name="baki_ternakan_belum_disembelih"
-                                        oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                    <div class="row">
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi</label>
+                                            <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" >
+                                            <a href="/periksa-rapi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
+                                        </div>
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Jumlah Binatang Disembelih Kerana Kecemasan</label>
+                                            <input class="form-control" type="number" min="0" name="jumlah_binatang_disembelih_kecemasan"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                        </div>
+                
+                                        <div class="mb-3 col-md-3" style="margin-top: 22px">
+                                            <label for="">Jumlah Yang Disembelih</label>
+                                            <input class="form-control" type="number" id="j1"  min="0" name="jumlah_disembelih" oninput="calc()"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                        </div>
+    
+                                        {{-- tarik data dari pemeriksaan --}}
+                                            <input class="form-control" type="hidden" id="j2" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan->jumlah_binatang_layak_disembelih}}" oninput="calc()" readonly>
+                                        
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Baki Ternakan Yang Belum Disembelih</label>
+                                            <input class="form-control" type="number" id="minus" min="0" name="baki_ternakan_belum_disembelih"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                        </div>
+                
                                     </div>
-            
-                                </div>
-            
-                                <div class="row">
-                                    <div class="mb-3 col-md-3">
-                                        <label for="">Catatan</label>
-                                        <textarea class="form-control" name="catatan" cols="60" rows="5"
-                                        onkeyup="this.value = this.value.toUpperCase();"></textarea>
+                
+                                    <div class="row">
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Catatan</label>
+                                            <textarea class="form-control" name="catatan" cols="60" rows="5"
+                                            onkeyup="this.value = this.value.toUpperCase();"></textarea>
+                                        </div>
                                     </div>
+                
                                 </div>
-            
-                                <!--Button-->
-                                <div class="mb-3">
+
+                                  <!--Button-->
+                                  <div class="mb-3">
                                     <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                                </div>
-            
+                                  </div>
+
+                               </div>
                         </form> 
                         @endrole           
                         @include('daging.harian_table')
@@ -234,68 +241,75 @@
                         @role('pengurus-rumah-sembelih')
                         <form action="/ante-mortem" method="POST">
                             @csrf
-        
-                            <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
-                            <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
-        
-                            <div class="row">
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Penemuan Ante Mortem</label>
-                                    <select class="form-select" aria-label="Default select example" name="ante_mortem">
-                                        <option selected disabled>Pilih Penemuan Ante Mortem </option>
-                                        <option value="Abnormal">Abnormal CNS signs</option>
-                                        <option value="Anaemia">Anaemia</option>
-                                        <option value="Comatose">Comatose</option>
-                                        <option value="Dead Before Slaughter">Dead Before Slaughter</option>
-                                        <option value="Diarrhea">Diarrhea</option>
-                                        <option value="Dull & depressed">Dull & depressed</option>
-                                        <option value="Emaciation(body score)">Emaciation(body score)</option>
-                                        <option value="Heat stress">Heat stress</option>
-                                        <option value="Jaundice on mucosal">Jaundice on mucosal</option>
-                                        <option value="Lameness/Fracture">Lameness/Fracture</option>
-                                        <option value="Localized abscess">Localized abscess</option>
-                                        <option value="Oedema">Oedema</option>
-                                        <option value="Poor body condition">Poor body condition</option>
-                                        <option value="Post vaccination/treatment">Post vaccination/treatment(injection site)</option>
-                                        <option value="Runt">Runt(stunted growths)</option>
-                                        <option value="Skin lesions">Skin lesions</option>
-                                        <option value="Wounds">Wounds</option>
-                                        <option value="Others">Others(perlu sertakan gambar penemuan)</option>
-                                    </select>
+                            
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                                    <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+                
+                                    <div class="row">
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Penemuan Ante Mortem</label>
+                                            <select class="form-select" aria-label="Default select example" name="ante_mortem">
+                                                <option selected disabled>Pilih Penemuan Ante Mortem </option>
+                                                <option value="Abnormal">Abnormal CNS signs</option>
+                                                <option value="Anaemia">Anaemia</option>
+                                                <option value="Comatose">Comatose</option>
+                                                <option value="Dead Before Slaughter">Dead Before Slaughter</option>
+                                                <option value="Diarrhea">Diarrhea</option>
+                                                <option value="Dull & depressed">Dull & depressed</option>
+                                                <option value="Emaciation(body score)">Emaciation(body score)</option>
+                                                <option value="Heat stress">Heat stress</option>
+                                                <option value="Jaundice on mucosal">Jaundice on mucosal</option>
+                                                <option value="Lameness/Fracture">Lameness/Fracture</option>
+                                                <option value="Localized abscess">Localized abscess</option>
+                                                <option value="Oedema">Oedema</option>
+                                                <option value="Poor body condition">Poor body condition</option>
+                                                <option value="Post vaccination/treatment">Post vaccination/treatment(injection site)</option>
+                                                <option value="Runt">Runt(stunted growths)</option>
+                                                <option value="Skin lesions">Skin lesions</option>
+                                                <option value="Wounds">Wounds</option>
+                                                <option value="Others">Others(perlu sertakan gambar penemuan)</option>
+                                            </select>
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-2">
+                                            <label for="">Bilangan Kes</label>
+                                            <input class="form-control" type="number" min="0" name="kes"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Nombor Tag</label>
+                                            <input class="form-control" type="text" min="0" name="nombor_tag"
+                                            onkeyup="this.value = this.value.toUpperCase();">
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Catatan</label>
+                                            <textarea class="form-control" name="catatan_ante_mortem" cols="30" rows="5" onkeyup="this.value = this.value.toUpperCase();"></textarea>
+                                            {{-- <button class="fas fa-upload" style="float: right"></button> --}}
+                                        </div>
+                
+                                        <hr>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Jumlah binatang yang dikondem pada pemeriksaan ante
+                                                mortem</label>
+                                            <input class="form-control" type="number" min="0" name="jumlah_dikondem"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                        </div>
+                                    </div>
+                
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
+                                    </div>
                                 </div>
-            
-                                <div class="mb-3 col-md-2">
-                                    <label for="">Bilangan Kes</label>
-                                    <input class="form-control" type="number" min="0" name="kes"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                </div>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Nombor Tag</label>
-                                    <input class="form-control" type="text" min="0" name="nombor_tag"
-                                    onkeyup="this.value = this.value.toUpperCase();">
-                                </div>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Catatan</label>
-                                    <textarea class="form-control" name="catatan_ante_mortem" cols="30" rows="5" onkeyup="this.value = this.value.toUpperCase();"></textarea>
-                                    {{-- <button class="fas fa-upload" style="float: right"></button> --}}
-                                </div>
-        
-                                <hr>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Jumlah binatang yang dikondem pada pemeriksaan ante
-                                        mortem</label>
-                                    <input class="form-control" type="number" min="0" name="jumlah_dikondem"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                </div>
+
                             </div>
-        
-                            <div class="mb-3">
-                                <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                            </div>
+                            
         
                         </form>
                         @endrole
@@ -310,89 +324,97 @@
                         @role('pengurus-rumah-sembelih')
                         <form action="/post-mortem" method="POST">
                             @csrf
-        
-                            <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
-                            <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
-        
-                            <div class="row">
-        
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Kategori</label>
-                                    <select class="form-select" aria-label="Default select example" name="kategori_post_mortem"  id="countySel" size="1"
-                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
-                                        <option selected value="">Pilih Kategori</option>
-                                        {{-- <option value="1">Karkass(Carcass)</option>
-                                        <option value="2">Esofagus(Esophagus)</option>
-                                        <option value="3">Jantung(Heart)</option>
-                                        <option value="4">Peparu(Lungs) & Trachea(Trakea)</option>
-                                        <option value="5">Hati(Liver)</option>
-                                        <option value="6">Buah Pinggang(Kidney)</option>
-                                        <option value="7">Limba(Spleen)</option>
-                                        <option value="8">Perut,Usus Kecil,Usus Besar(Guts-Stomach,Small & Large Intestine)</option>
-                                        <option value="9">Sistem Pembiakan Betina</option>
-                                        <option value="10">Udder</option>
-                                        <option value="11">Sistem Pembiakan Jantan</option> --}}
+                            
+                            <div class="card">
 
-                                    </select>
-                                </div>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Bahagian</label>
-                                    <select class="form-select" aria-label="Default select example" name="bahagian" id="stateSel" size="1"
-                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
-                                        <option selected  value="">Pilih Bahagian</option>
-                                        {{-- <option value="Generalized">Generalized</option>
-                                        <option value="Head">Head</option>
-                                        <option value="Tongue">Tongue</option>
-                                        <option value="Thoracic Cavity">Thoracic Cavity</option>
-                                        <option value="Abdominal cavity">Abdominal cavity</option>
-                                        <option value="Pelvic cavity">Pelvic cavity</option> --}}
-                                    </select>
-                                </div>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Sebab Musnah</label>
-                                    <select class="form-select" aria-label="Default select example" name="musnah" id="districtSel" size="1"
-                                    oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
-                                        <option selected  value="">Pilih Sebab Musnah</option>
-                                        {{-- <option value="Cysts">Cysts</option>
-                                        <option value="Hernia">Hernia</option>
-                                        <option value="Tumor">Tumor</option> --}}
-                                    </select>
-                                </div>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Bilangan Kes</label>
-                                    <input class="form-control" type="number" min="0" name="kes_post_mortem"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                </div>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Nombor Tag</label>
-                                    <input class="form-control" type="text" min="0" name="nombor_tag_post"
-                                    onkeyup="this.value = this.value.toUpperCase();">
-                                    {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
-                                        <option selected>XXXX</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select> --}}
-                                </div>
-            
-                                <div class="mb-3 col-md-3">
-                                    <label for="">Keputusan</label>
-                                    <select class="form-select" aria-label="Default select example" name="keputusan">
-                                        <option selected>Pilih Keputusan</option>
-                                        <option value="Kondem Keseluruhan">Kondem Keseluruhan</option>
-                                        <option value="Kondem Sebahagian">Kondem Sebahagian</option>
-                                    </select>
-                                </div>
-            
-                            </div>
+                                <div class="card-body">
+
+                                    <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                                    <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan->id}}">
+                
+                                    <div class="row">
+                
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Kategori</label>
+                                            <select class="form-select" aria-label="Default select example" name="kategori_post_mortem"  id="countySel" size="1"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                                <option selected value="">Pilih Kategori</option>
+                                                {{-- <option value="1">Karkass(Carcass)</option>
+                                                <option value="2">Esofagus(Esophagus)</option>
+                                                <option value="3">Jantung(Heart)</option>
+                                                <option value="4">Peparu(Lungs) & Trachea(Trakea)</option>
+                                                <option value="5">Hati(Liver)</option>
+                                                <option value="6">Buah Pinggang(Kidney)</option>
+                                                <option value="7">Limba(Spleen)</option>
+                                                <option value="8">Perut,Usus Kecil,Usus Besar(Guts-Stomach,Small & Large Intestine)</option>
+                                                <option value="9">Sistem Pembiakan Betina</option>
+                                                <option value="10">Udder</option>
+                                                <option value="11">Sistem Pembiakan Jantan</option> --}}
         
-                            <div class="mb-3">
-                                <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
+                                            </select>
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Bahagian</label>
+                                            <select class="form-select" aria-label="Default select example" name="bahagian" id="stateSel" size="1"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                                <option selected  value="">Pilih Bahagian</option>
+                                                {{-- <option value="Generalized">Generalized</option>
+                                                <option value="Head">Head</option>
+                                                <option value="Tongue">Tongue</option>
+                                                <option value="Thoracic Cavity">Thoracic Cavity</option>
+                                                <option value="Abdominal cavity">Abdominal cavity</option>
+                                                <option value="Pelvic cavity">Pelvic cavity</option> --}}
+                                            </select>
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Sebab Musnah</label>
+                                            <select class="form-select" aria-label="Default select example" name="musnah" id="districtSel" size="1"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                                <option selected  value="">Pilih Sebab Musnah</option>
+                                                {{-- <option value="Cysts">Cysts</option>
+                                                <option value="Hernia">Hernia</option>
+                                                <option value="Tumor">Tumor</option> --}}
+                                            </select>
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Bilangan Kes</label>
+                                            <input class="form-control" type="number" min="0" name="kes_post_mortem"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Nombor Tag</label>
+                                            <input class="form-control" type="text" min="0" name="nombor_tag_post"
+                                            onkeyup="this.value = this.value.toUpperCase();">
+                                            {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
+                                                <option selected>XXXX</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select> --}}
+                                        </div>
+                    
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Keputusan</label>
+                                            <select class="form-select" aria-label="Default select example" name="keputusan">
+                                                <option selected>Pilih Keputusan</option>
+                                                <option value="Kondem Keseluruhan">Kondem Keseluruhan</option>
+                                                <option value="Kondem Sebahagian">Kondem Sebahagian</option>
+                                            </select>
+                                        </div>
+                    
+                                    </div>
+                
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
+                                    </div>
+                                </div>
+
                             </div>
+                            
                         </form>
                         @endrole
                         

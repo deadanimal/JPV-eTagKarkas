@@ -138,62 +138,56 @@
         
                                     <div class="row">
 
-                                        <div class="mb-3 col-md-4">
+                                        <div class="mb-3 col-md-3">
                                             <label for="">Bilangan Ternakan Yang Diterima</label>
-                                            <input class="form-control" type="number" id="bil1" min="0" name="ternakan_diterima_babi" oninput="calc();"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                            <input class="form-control" type="number" min="0" name="bil_ternakan_diterima" value="{{$pemeriksaan_babi->bil_ternakan_diterima}}" readonly>
                                         </div>
         
-                                        <div class="mb-3 col-md-4">
+                                        <div class="mb-3 col-md-3">
                                             <label for="">Ternakan Mati Semasa Tiba</label>
-                                            <input class="form-control" type="number" id="bil2" min="0" name="ternakan_mati_tiba_babi" oninput="calc();"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                            <input class="form-control" type="number" min="0" name="ternakan_mati_semasa_tiba" value="{{$pemeriksaan_babi->ternakan_mati_semasa_tiba}}" readonly>
                                         </div>
 
-                                        <div class="mb-3 col-md-4">
+                                        <div class="mb-3 col-md-3">
                                             <label for="">Jumlah Ternakan Diperiksa</label><br>
-                                            <input class="form-control" type="number" id="diff" min="0" name="jumlah_diperiksa_babi"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                            <input class="form-control" type="number" min="0" name="jumlah_ternakan_diperiksa" value="{{$pemeriksaan_babi->jumlah_ternakan_diperiksa}}" readonly>
+                                        </div>
+
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Jumlah Binatang Disembelih</label>
+                                            <input class="form-control" type="number" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan_babi->jumlah_binatang_layak_disembelih}}" readonly>
                                         </div>
         
                                     </div>
         
                                     <div class="row">
 
-                                        <div class="mb-3 col-md-4">
+                                        <div class="mb-3 col-md-3">
                                             <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi </label>
-                                            <input class="form-control" type="number" min="0" name="pemeriksaan_rapi_babi"
+                                            <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                            <a href="/periksa-rapi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
+                                            <a href="/periksa-rapi-babi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
 
                                         </div>
         
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Jumlah Binatang Disembelih Kerana Kecemasan</label>
-                                            <input class="form-control" type="number" min="0" name="jumlah_disembelih_kecemasan_babi"
+                                        <div class="mb-3 col-md-3">
+                                            <label for="">Jumlah Binatang Disembelih Sebab Kecemasan</label><br>
+                                            <input class="form-control" type="number" min="0" name="jumlah_binatang_disembelih_kecemasan"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
-        
-                                    </div>
-        
-                       
-                                    <div class="row">
-        
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Jumlah Binatang Yang Dikondem</label>
-                                            <input class="form-control" type="number" id="bil3" min="0" name="jumlah_dikondem_babi" oninput="calc2();"
+
+                                        <div class="mb-3 col-md-3"><br>
+                                            <label for="">Jumlah Yang Disembelih </label>
+                                            <input class="form-control" type="number" id="bil4" min="0" name="jumlah_disembelih" oninput="calc2();"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
+
+                                        <input class="form-control" type="hidden" id="bil3" min="0" name="jumlah_binatang_layak_disembelih" value="{{$pemeriksaan_babi->jumlah_binatang_layak_disembelih}}" oninput="calc2()" readonly>
+
         
-                                        <div class="mb-3 col-md-4">
-                                            <label for="">Jumlah Yang Disembelih </label><br>
-                                            <input class="form-control" type="number" id="bil4" min="0" name="jumlah_sembelih_babi" oninput="calc2();"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                        </div>
-        
-                                        <div class="mb-3 col-md-4">
+                                        <div class="mb-3 col-md-3"><br>
                                             <label for="">Baki Ternakan Belum Disembelih</label>
-                                            <input class="form-control" type="number" id="diff2" min="0" name="baki_belum_babi"
+                                            <input class="form-control" type="number" id="diff2" min="0" name="baki_ternakan_belum_disembelih"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                         </div>
         
@@ -202,7 +196,7 @@
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
                                             <label for="">Catatan</label>
-                                            <textarea class="form-control" name="catatan_pemeriksaan_babi"cols="200" rows="5" 
+                                            <textarea class="form-control" name="catatan"cols="200" rows="5" 
                                             onkeyup="this.value = this.value.toUpperCase();"></textarea>
 
                                         </div>
@@ -219,7 +213,7 @@
                             </div>
                         </form>
 
-                        @include('daging.harian_table')
+                        @include('daging.harian_babi_table')
         
                     </div>
         

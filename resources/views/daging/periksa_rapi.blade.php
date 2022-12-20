@@ -103,8 +103,9 @@
         
                             <!--Button-->
                             <div class="mb-3">
-                                <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                                <a href="/jana-rapi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
+                                {{-- <button class="btn btn-primary" type="submit" style="float: right">Simpan</button> --}}
+                                <a href="/jana-rapi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary mx-3" type="button" style="float: right">Jana</button></a>
+                                <a href="/pemeriksaan/{{$jana_rapi->id}}"><button value="jana" class="btn btn-warning" type="button" style="float: right">Kembali</button></a>
                             </div>
         
                         </form>
