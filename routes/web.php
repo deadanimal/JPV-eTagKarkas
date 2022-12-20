@@ -55,7 +55,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pemeriksaan-babi', [PemeriksaanController::class, 'senarai_babi']);
     Route::post('pemeriksaan-babi', [PemeriksaanController::class, 'cipta_babi']);
     Route::get('pemeriksaan-babi/{id}', [PemeriksaanController::class, 'satu_pemeriksaan_babi']);
-    Route::post('periksa-babi', [PemeriksaanController::class, 'cipta_pemeriksaan_babi']);
 
     
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian']);
@@ -63,6 +62,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('periksa-rapi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi']);
     Route::get('jana-rapi/{id}', [PemeriksaanHarianController::class, 'jana_rapi']);
     Route::post('harian/{id}', [PemeriksaanHarianController::class, 'kemaskini_harian']);
+    Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian_babi']);
+    Route::post('periksa-babi', [PemeriksaanHarianController::class, 'cipta_pemeriksaan_babi']);
+    Route::get('periksa-rapi-babi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi_babi']);
+    Route::get('jana-rapi/{id}', [PemeriksaanHarianController::class, 'jana_rapi_babi']);
+
 
     Route::get('ante-mortem', [AnteMortemRuminanController::class, 'satu_ante_mortem']);
     Route::post('ante-mortem', [AnteMortemRuminanController::class, 'cipta_anteMortem']);

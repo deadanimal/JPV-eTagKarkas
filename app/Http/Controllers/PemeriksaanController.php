@@ -8,6 +8,7 @@ use App\Models\Babi;
 use App\Models\Catatan;
 use App\Models\Haiwan;
 use App\Models\PemeriksaanBabi;
+use App\Models\PemeriksaanBabiHarian;
 use App\Models\PemeriksaanHarian;
 use App\Models\PemeriksaanUnggas;
 use App\Models\PengenalanBabi;
@@ -410,7 +411,7 @@ class PemeriksaanController extends Controller
         $pemeriksaan_babi = PengenalanBabi::find($id);
         $periksa_harian = Pemeriksaan::find($id);
  
-         $harians = PemeriksaanHarian::where([
+         $harians = PemeriksaanBabiHarian::where([
              ['pemeriksaan_id','=', $pemeriksaan_babi->id],
              ['pemeriksaan_id','=', $periksa_harian->id],
 
