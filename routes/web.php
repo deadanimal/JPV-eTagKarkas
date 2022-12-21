@@ -121,6 +121,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/pensampelan/borang-sampel', [SampelController::class, 'borang_sampel']);
     Route::get('/pensampelan/pilihan/{pilihan}', [SampelController::class, 'borang_sampel']);
     Route::post('/pensampelan/borang-sampel/{id}', [SampelController::class, 'cipta_sampel']);
+    Route::post('/kemaskini-sampel/{id}', [SampelController::class, 'kemaskini_sampel']);
     // contoh sahaja
 
 // Modul PDN
