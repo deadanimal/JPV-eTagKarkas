@@ -107,7 +107,7 @@
                                 <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
                                     class="align-middle">Pemeriksaan Daging</span>
                             </a> --}}
-                            <a data-bs-target="#daging" data-bs-toggle="collapse" class="sidebar-link">
+                            <a data-bs-target="#daging" data-bs-toggle="collapse" class="sidebar-link collapsed">
                                 <i class="align-middle me-1 fas fa-fw fa-earth"></i> <span class="align-middle">Pemeriksaan Daging</span>
                             </a>
                             <ul id="daging" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
@@ -119,7 +119,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/pensampelan">
+                            <a class="sidebar-link" href="/pensampelan-pilihan">
                                 <i class="align-middle me-2 fas fa-fw fa-vial"></i><span
                                     class="align-middle">Pensampelan</span>
                             </a>
@@ -202,7 +202,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/pensampelan">
+                            <a class="sidebar-link" href="/pensampelan-pilihan">
                                 <i class="align-middle me-2 fas fa-fw fa-vial"></i><span
                                     class="align-middle">Pensampelan</span>
                             </a>
