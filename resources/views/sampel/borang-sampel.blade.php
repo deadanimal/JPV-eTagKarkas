@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-md-12">
-                <div class="card">
+                <div class="card" style="width: 105%">
                     <div class="card-header">
                         <h5 class="card-title">Jadual Pensampelan</h5>
                         {{-- <h6 class="card-subtitle text-muted">Bootstrap column layout.</h6> --}}
@@ -192,111 +192,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Jadual Pensampelan {{strtoupper($pilihan)}} </h5>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="col">
-                            <table class="table table-bordered line-table text-center" style="width: 100%">
-                                <thead class="text-black">
-
-                                    <tr>
-                                        <th colspan="16">PROGRAM PEMANTAUAN RESIDU(JENIS UJIAN)(JENIS SAMPEL) DI LOJI
-                                           {{strtoupper($pilihan)}} 2022</th>
-                                    </tr>
-                                    <tr style="vertical-align: middle">
-                                        <th>BIL</th>
-                                        <th>PREMIS</th>
-                                        <th>BIL SAMPEL YANG PERLU DIAMBIL</th>
-                                        <th>JAN</th>
-                                        <th>FEB</th>
-                                        <th>MAC</th>
-                                        <th>APR</th>
-                                        <th>MEI</th>
-                                        <th>JUN</th>
-                                        <th>JUL</th>
-                                        <th>AUG</th>
-                                        <th>SEP</th>
-                                        <th>OCT</th>
-                                        <th>NOV</th>
-                                        <th>DEC</th>
-                                        <th>JUMLAH</th>
-                                    </tr>
-                                    <tr>
-
-                                        @foreach ($sampels as $sampel)
-                                <th colspan="16">{{$sampel->zon}}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr class="text-center">
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$sampel->premis}}</td>
-                                        <td><input class="form-control" type="number" name="sampel" min="0"
-                                            oninput="this.setCustomValidity('')" id="total"
-                                            onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly ></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" ></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" ></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="qty" min="0"
-                                                oninput="this.setCustomValidity('')" onblur="findSum()"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')"></td>
-                                        <td><input class="form-control" type="number" name="jumlahUtara" min="0" id='total'
-                                                oninput="this.setCustomValidity('')"
-                                                onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" readonly></td>
-                                    </tr>
-
-                                    @endforeach
-
-                                </tbody>
-                            </table>
-
-                            <div class="mb-3">       
-                                <button class="btn btn-success" type="submit" title="Hantar"
-                                    style="float: right">Hantar</button>
-                                <button class="btn btn-warning mx-2" type="submit" title="Kemaskini"
-                                    style="float: right">Kemaskini</button>
-                                <a href="/pensampelan-pilihan" class="btn btn-primary mx-2" style="float: right">Kembali</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            @include('sampel.jadual')
 
         </div>
 

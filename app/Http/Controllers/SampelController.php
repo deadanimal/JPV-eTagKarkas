@@ -106,4 +106,20 @@ class SampelController extends Controller
         return redirect('/pensampelan');
 
     }
+
+    public function kemaskini_sampel(Request $request, $pilihan)
+    {
+        $id = (int) $request->route('id');
+        $sampel = Sampel::where('pilihan', $pilihan)->get();
+
+        // $sampel = Sampel::find($id);
+
+        $sampel->save();
+
+        // dd($sampel);
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat jadual pensampelan telah dikemaskini.');
+
+        return back();
+    }
 }
