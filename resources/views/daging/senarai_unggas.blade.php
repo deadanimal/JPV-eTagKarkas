@@ -30,10 +30,9 @@
                                 <thead class="text-white bg-info ">
                                     <tr>
                                         @role('pentadbir')
-                                        <th scope="col">Nama Premis</th>
+                                        <th scope="col">Nama Ladang</th>
                                         @endrole
                                         <th scope="col">Masa Tiba</th>
-                                        <th scope="col">Nama Ladang</th>
                                         <th scope="col">Nombor Kenderaan</th>
                                         <th scope="col">Tindakan</th>
                                     </tr>
@@ -111,6 +110,55 @@
 @endrole
 
 @role('pentadbir')
+
+<script type="text/javascript">
+    $(function() {
+
+        var table = $('.unggas-datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            order: [[0, 'desc']],
+            language: {
+                "search": "Carian:",
+                "lengthMenu": "Tunjuk _MENU_ informasi",
+                "info": "Tunjuk _START_ ke _END_ dari _TOTAL_ informasi",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Akhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelum"
+                },
+                "zeroRecords": "Carian tidak dijumpai",
+                "infoEmpty": "Tiada maklumat",
+                "infoFiltered": "(carian dari _MAX_ jumlah rekod)"
+            },
+            ajax: "/pemeriksaan-unggas",
+            columns: [  {
+                    data: 'nama_ladang',
+                    name: 'nama_ladang'
+                },
+                {
+                    data: 'tarikh_terima',
+                    name: 'tarikh_terima'
+                },
+                {
+                    data: 'nombor_kenderaan',
+                    name: 'nombor_kenderaan'
+                },               
+                {
+                    data: 'tindakan',
+                    name: 'tindakan'
+                },
+
+
+
+            ]
+        });
+
+
+    });
+</script>
 
 @endrole
 

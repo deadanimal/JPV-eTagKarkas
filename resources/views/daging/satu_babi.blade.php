@@ -124,6 +124,7 @@
                   
         
                     <div class="tab-pane" id="tab-2" role="tabpanel">
+                        @role('pengurus-rumah-sembelih')
                         <form action="/periksa-babi" method="POST">
                             @csrf
                             <div class="card">
@@ -166,7 +167,7 @@
                                             <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi </label>
                                             <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                            <a href="/periksa-rapi-babi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
+                                            <a href="/periksa-rapi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
 
                                         </div>
         
@@ -212,7 +213,7 @@
         
                             </div>
                         </form>
-
+                        @endrole           
                         @include('daging.harian_babi_table')
         
                     </div>
@@ -411,9 +412,9 @@
                                         </div>
         
                                         <!--Button-->
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                                        </div>
+                                        </div> --}}
         
                                     </div>
                                 </form>

@@ -111,7 +111,58 @@
 @endrole
 
 @role('pentadbir')
+<script type="text/javascript">
+    $(function() {
 
+        var table = $('.babi-datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            order: [[0, 'desc']],
+            language: {
+                "search": "Carian:",
+                "lengthMenu": "Tunjuk _MENU_ informasi",
+                "info": "Tunjuk _START_ ke _END_ dari _TOTAL_ informasi",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Akhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelum"
+                },
+                "zeroRecords": "Carian tidak dijumpai",
+                "infoEmpty": "Tiada maklumat",
+                "infoFiltered": "(carian dari _MAX_ jumlah rekod)"
+            },
+            ajax: "/pemeriksaan-babi",
+            columns: [{
+                    data: 'nama_premis',
+                    name: 'nama_premis'
+                },
+                {
+                    data: 'masa_tiba',
+                    name: 'masa_tiba'
+                },
+                {
+                    data: 'nama_pemilik',
+                    name: 'nama_pemilik'
+                },
+                {
+                    data: 'kenderaan',
+                    name: 'kenderaan'
+                },               
+                {
+                    data: 'tindakan',
+                    name: 'tindakan'
+                },
+
+
+
+            ]
+        });
+
+
+    });
+</script>
 @endrole
 
 @endsection

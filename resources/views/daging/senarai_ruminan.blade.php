@@ -256,7 +256,8 @@
             columns: [{
                     data: 'nama_premis',
                     name: 'nama_premis'
-                },{
+                },
+                {
                     data: 'masa_tiba',
                     name: 'masa_tiba'
                 },

@@ -51,13 +51,17 @@
 
         <nav id="sidebar" class="sidebar">
             <br>
-            {{-- <a class="sidebar-brand" href="/"> --}}
-                <div class="card">
-                    <img src="/img/Veterinar-Logo.png" alt="JPV" style="width: 70px; height: 50px;">
-                </div>
-                <div>eTagKarkas</div>
+            <a class="sidebar-brand" href="">
+				<svg>
+					<use xlink:href="#ion-ios-pulse-strong"></use>
+				</svg>
+				eTagKarkas
+			</a>
+                {{-- <div class="sidebar-brand" style="display: flex; justify-content: center;">
+                    <img src="/img/Veterinar-Logo.png" alt="JPV" style="max-width: 140px; background:#ffff;">
+                </div> --}}
 
-            {{-- </a> --}}
+           
             <div class="sidebar-content">
 
                 <ul class="sidebar-nav">
@@ -99,10 +103,19 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/pemeriksaan">
+                            {{-- <a class="sidebar-link" href="/pemeriksaan">
                                 <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
                                     class="align-middle">Pemeriksaan Daging</span>
+                            </a> --}}
+                            <a data-bs-target="#daging" data-bs-toggle="collapse" class="sidebar-link">
+                                <i class="align-middle me-1 fas fa-fw fa-earth"></i> <span class="align-middle">Pemeriksaan Daging</span>
                             </a>
+                            <ul id="daging" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+                                <li class="sidebar-item"><a class="sidebar-link" href="/pemeriksaan">Senarai Pemeriksaan Ternakan Ruminan</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/pemeriksaan-babi">Senarai Pemeriksaan Ternakan Babi</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/pemeriksaan-unggas">Senarai Pemeriksaan Ternakan Unggas</a></li>
+                                
+                            </ul>
                         </li>
 
                         <li class="sidebar-item">

@@ -16,8 +16,10 @@
                           <th scope="col">Bilangan Kes</th>
                           <th scope="col">Nombor Tag</th>
                           <th scope="col">Keputusan</th>
+                          @role('pengurus-rumah-sembelih')
                           <th scope="col">Tindakan</th>
                           <th scope="col">Jana Borang</th>
+                          @endrole
                           {{-- <th scope="col">Laporan</th> --}}
                         </tr>
                       </thead>
@@ -33,6 +35,7 @@
                           <td>{{$post_mortem->kes_post_mortem}}</td>
                           <td>{{$post_mortem->nombor_tag_post}}</td>
                           <td>{{$post_mortem->keputusan}}</td>
+                          @role('pengurus-rumah-sembelih')
                           <td><button class="btn btn-info" data-toggle="modal" data-target="#pmModal{{$loop->iteration}}" type="button" style="float: right">Kemaskini</button></td>
     
                               <!-- Modal -->
@@ -155,7 +158,8 @@
                               </div> 
                               
                           <td><a href="/tunjuk-pm/{{$post_mortem->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
-{{--                           
+                          @endrole
+{{--                         
                             @if ($post_mortem->status == 1)
                               <td>Hantar</td>
                             @else

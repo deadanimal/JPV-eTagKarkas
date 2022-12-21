@@ -16,8 +16,10 @@
                         <th scope="col">Nombor Tag</th>
                         <th scope="col">Catatan</th>
                         <th scope="col">Jumlah Binatang Dikondem</th>
+                        @role('pengurus-rumah-sembelih')
                         <th scope="col">Tindakan</th>
                         <th scope="col">Jana Borang</th>
+                        @endrole
                       </tr>
                     </thead>
                     <tbody>
@@ -31,6 +33,7 @@
                         <td>{{$ante_mortem->nombor_tag}}</td>
                         <td>{{$ante_mortem->catatan_ante_mortem}}</td>
                         <td>{{$ante_mortem->jumlah_dikondem}}</td>
+                        @role('pengurus-rumah-sembelih')
                         <td><a class="btn btn-info" type="button" data-toggle="modal" data-target="#exampleModalCenter{{$loop->iteration}}" style="float: right">Kemaskini</a></td>
 
                             <!-- Modal -->
@@ -119,6 +122,7 @@
 
                         <td><a href="/tunjuk-harian/{{$ante_mortem->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
                         </td>
+                        @endrole
                             
                       </tr>
                         @endforeach
