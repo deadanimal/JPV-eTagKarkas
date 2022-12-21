@@ -60,19 +60,6 @@
                                                         <label for="">Kategori</label>
                                                         <select class="form-select" aria-label="Default select example" name="kategori_post_mortem" id="kPM">
                                                             <option selected >{{ $post_mortem->kategori_post_mortem }}</option>
-                                                            {{-- <option selected >Sila Pilih</option> --}}
-                                                            {{-- <option value="Karkass(Carcass)">Karkass(Carcass)</option>
-                                                            <option value="Esofagus(Esophagus)">Esofagus(Esophagus)</option>
-                                                            <option value="Jantung(Heart)">Jantung(Heart)</option>
-                                                            <option value="Peparu(Lungs) & Trachea(Trakea)">Peparu(Lungs) & Trachea(Trakea)</option>
-                                                            <option value="Hati(Liver)">Hati(Liver)</option>
-                                                            <option value="Buah Pinggang(Kidney)">Buah Pinggang(Kidney)</option>
-                                                            <option value="Limba(Spleen)">Limba(Spleen)</option>
-                                                            <option value="Perut,Usus Kecil,Usus Besar(Guts-Stomach,Small & Large Intestine)">Perut,Usus Kecil,Usus Besar(Guts-Stomach,Small & Large Intestine)</option>
-                                                            <option value="Sistem Pembiakan Betina">Sistem Pembiakan Betina</option>
-                                                            <option value="Udder">Udder</option>
-                                                            <option value="Sistem Pembiakan Jantan">Sistem Pembiakan Jantan</option> --}}
-                    
                                                         </select>
                                                     </div>
                                 
@@ -80,13 +67,6 @@
                                                         <label for="">Bahagian</label>
                                                         <select class="form-select" aria-label="Default select example" name="bahagian" id="bH">
                                                           <option selected>{{ $post_mortem->bahagian }}</option>
-                                                            {{-- <option value="Generalized">Generalized</option>
-                                                            <option value="Head">Head</option>
-                                                            <option value="Tongue">Tongue</option>
-                                                            <option value="Thoracic Cavity">Thoracic Cavity</option>
-                                                            <option value="Abdominal cavity">Abdominal cavity</option>
-                                                            <option value="Pelvic cavity">Pelvic cavity</option> --}}
-                                                            
                                                         </select>
                                                     </div>
                                 
@@ -94,27 +74,6 @@
                                                         <label for="">Sebab Musnah</label>
                                                         <select class="form-select" aria-label="Default select example" name="musnah" id="sM" >
                                                             <option selected>{{ $post_mortem->musnah }}</option>
-                                                            {{-- <option value="Abnormal odours">Abnormal odours</option>
-                                                            <option value="Bruising">Bruising</option>
-                                                            <option value="Hemorrhages">Hemorrhages</option>
-                                                            <option value="Jaundice">Jaundice</option>
-                                                            <option value="Pigmentation">Pigmentation</option>
-                                                            <option value="Polyarthritis">Polyarthritis</option>
-                                                            <option value="Skin lessions">Skin lessions</option>
-                                                            <option value="Pigmentation">Pigmentation</option>
-                                                            <option value="Congestion">Congestion</option>
-                                                            <option value="Endocarditis">Endocarditis</option>
-                                                            <option value="Hydropericardium">Hydropericardium</option>
-                                                            <option value="Infarction/necrosis">Infarction/necrosis</option>
-                                                            <option value="Parasitic cysts">Parasitic cysts</option>
-                                                            <option value="Pericarditis">Pericarditis</option>
-                                                            <option value="Blood splashing">Blood splashing</option>
-                                                            <option value="Cirrhosis">Cirrhosis</option>
-                                                            <option value="Nephritis">Nephritis</option>
-                                                            <option value="Cysts">Cysts</option>
-                                                            <option value="Hernia">Hernia</option>
-                                                            <option value="Tumor">Tumor</option>
-                                                            <option value="Others">Others</option> --}}
                                                         </select>
                                                     </div>
                                 
@@ -126,7 +85,7 @@
                                 
                                                     <div class="mb-3 col-md-3">
                                                         <label for="">Nombor Tag</label>
-                                                        <input class="form-control" type="text" min="0" name="nombor_tag"
+                                                        <input class="form-control" type="text" min="0" name="nombor_tag_post" value="{{ $post_mortem->nombor_tag_post }}"
                                                         onkeyup="this.value = this.value.toUpperCase();">
                                                         {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
                                                             <option selected>{{ $post_mortem->nombor_tag_post }}</option>

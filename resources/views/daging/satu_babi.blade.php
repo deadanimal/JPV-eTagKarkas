@@ -334,7 +334,7 @@
             
                                 <div class="mb-3 col-md-3">
                                     <label for="">Nombor Tag</label>
-                                    <input class="form-control" type="text" min="0" name="nombor_tag"
+                                    <input class="form-control" type="text" min="0" name="nombor_tag_post"
                                     onkeyup="this.value = this.value.toUpperCase();">
                                     {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
                                         <option selected>XXXX</option>
@@ -360,7 +360,8 @@
                             </div>
                         </form>
                         @endrole
-        
+                        
+                        <br><br>
                         @include('daging.post_mortem_table')
         
                     </div>
@@ -572,6 +573,30 @@
                 districtSel.options[districtSel.options.length] = new Option(musnah[i], musnah[i]);
             }
         }
+
+        var kPM = document.getElementById("kPM"),
+                  bH = document.getElementById("bH"),
+                  sM = document.getElementById("sM");
+              for (var kategori_post_mortem in stateObject) {
+                  kPM.options[kPM.options.length] = new Option(kategori_post_mortem, kategori_post_mortem);
+              }
+              kPM.onchange = function() {
+                  bH.length = 1; // remove all options bar first
+                  sM.length = 1; // remove all options bar first
+                  if (this.selectedIndex < 1) return; // done 
+                  for (var bahagian in stateObject[this.value]) {
+                      bH.options[bH.options.length] = new Option(bahagian, bahagian);
+                  }
+              }
+              kPM.onchange(); // reset in case page is reloaded
+              bH.onchange = function() {
+                  sM.length = 1; // remove all options bar first
+                  if (this.selectedIndex < 1) return; // done 
+                  var musnah = stateObject[kPM.value][this.value];
+                  for (var i = 0; i < musnah.length; i++) {
+                      sM.options[sM.options.length] = new Option(musnah[i], musnah[i]);
+                  }
+              }
     }
 </script>
 
