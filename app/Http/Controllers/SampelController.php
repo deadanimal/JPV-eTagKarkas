@@ -21,6 +21,7 @@ class SampelController extends Controller
         $user = $request->user();
 
         $sampels = Sampel::orderBy('created_at', 'desc')->get();
+        
         if($request->ajax()) {
             return DataTables::collection($sampels)
             ->addIndexColumn()
