@@ -110,6 +110,7 @@ class PemeriksaanController extends Controller
       
     }
 
+
     public function cipta_pemeriksaan(Request $request){
         
         $user = $request->user();
@@ -241,24 +242,42 @@ class PemeriksaanController extends Controller
         $unggass = Unggas::where([
             ['rumah_sembelih_id','=', $rumah_sembelih_id],
         ])->orderBy('updated_at','desc')->get();
-           
-     
-             // datatable
+
+
+        if ($user->hasRole('pentadbir')) {
+            $rumah_sembelih_id = $user->rumah_sembelih_id;
+            $pemeriksaans = Unggas::all();
+
+                // datatable
             if($request->ajax()) {
-               
-                return DataTables::collection($unggass)
+                return DataTables::collection($pemeriksaans)
                 ->addIndexColumn()
-                ->addColumn('tindakan', function (Unggas $unggas) {
-                    $url = '/pemeriksaan-unggas/'.$unggas->id;
-                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
+                ->addColumn('tindakan', function (Unggas $pemeriksaan) {
+                    $url = '/pemeriksaan-unggas/'.$pemeriksaan->id;
+                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Lihat</a>';
                 })
-               
                 ->rawColumns(['tindakan'])                                  
                 ->make(true);
             }
-           
 
-        
+        } else{
+
+                  // datatable
+                  if($request->ajax()) {
+               
+                    return DataTables::collection($unggass)
+                    ->addIndexColumn()
+                    ->addColumn('tindakan', function (Unggas $unggas) {
+                        $url = '/pemeriksaan-unggas/'.$unggas->id;
+                        return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Kemaskini</a>';
+                    })
+                   
+                    ->rawColumns(['tindakan'])                                  
+                    ->make(true);
+                }
+
+        }   
+      
         // dd($pemeriksaans);
         return view('daging.senarai_unggas', compact('unggass','user'));
       
@@ -346,10 +365,36 @@ class PemeriksaanController extends Controller
         $babis = PengenalanBabi::where([
             ['rumah_sembelih_id','=', $rumah_sembelih_id],
         ])->orderBy('updated_at','desc')->get();
-           
-     
-             // datatable
+
+        // tambah column jenis_ternakan
+
+        if ($user->hasRole('pentadbir')) {
+            $rumah_sembelih_id = $user->rumah_sembelih_id;
+            $pemeriksaans = PengenalanBabi::all();
+
+                // datatable
             if($request->ajax()) {
+                return DataTables::collection($pemeriksaans)
+                ->addIndexColumn()
+                ->addColumn('nama_premis', function (PengenalanBabi $pemeriksaan) {
+
+                    $html_button = '-';
+                    if($pemeriksaan->rumah_sembelih) {
+                        $html_button = $pemeriksaan->rumah_sembelih->nama_rumah;
+                    }                 
+                    return $html_button;
+                })
+                ->addColumn('tindakan', function (PengenalanBabi $pemeriksaan) {
+                    $url = '/pemeriksaan-babi/'.$pemeriksaan->id;
+                    return '<a href="'.$url.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Lihat</a>';
+                })
+                ->rawColumns(['tindakan'])                                  
+                ->make(true);
+            }
+
+        } else{
+              // datatable
+              if($request->ajax()) {
                
                 return DataTables::collection($babis)
                 ->addIndexColumn()
@@ -361,9 +406,9 @@ class PemeriksaanController extends Controller
                 ->rawColumns(['tindakan'])                                  
                 ->make(true);
             }
-           
 
-        
+        }
+           
         // dd($pemeriksaans);
         return view('daging.senarai_babi', compact('babis','user'));
       
@@ -409,7 +454,7 @@ class PemeriksaanController extends Controller
         $pemeriksaan = Pemeriksaan::find($id);
 
         $pemeriksaan_babi = PengenalanBabi::find($id);
-        $periksa_harian = Pemeriksaan::find($id);
+        $periksa_harian = PengenalanBabi::find($id);
  
          $harians = PemeriksaanBabiHarian::where([
              ['pemeriksaan_id','=', $pemeriksaan_babi->id],
@@ -423,7 +468,7 @@ class PemeriksaanController extends Controller
             ['pemeriksaan_id','=', $pemeriksaan_babi->id],
         ])->get(); 
         $catatans = Catatan::where([
-            ['pemeriksaan_id','=', $pemeriksaan->id],
+            ['pemeriksaan_id','=', $pemeriksaan_babi->id],
         ])->get(); 
         return view('daging.satu_babi', compact('user','pemeriksaan_babi','harians','periksa_harian','ante_mortems','post_mortems','catatans','pemeriksaan'));
     }

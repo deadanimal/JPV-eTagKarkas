@@ -91,7 +91,7 @@
                     </div>
         
                     <div class="tab-pane" id="tab-2" role="tabpanel">
-        
+                        @role('pengurus-rumah-sembelih')
                         <form action="/periksa-unggas" method="POST">
                             @csrf
 
@@ -153,12 +153,14 @@
                             </div>
                         </form>
 
+                        @endrole
+
                         @include('daging.unggas_table')
         
                     </div>
         
                     <div class="tab-pane" id="tab-3" role="tabpanel">
-        
+                        @role('pengurus-rumah-sembelih')
                         <form action="/ante-mortem-unggas" method="POST">
                             @csrf
                             <div class="card">
@@ -293,6 +295,7 @@
                                 </div>
                             </div>
                         </form>
+                        @endrole
 
                         @include('daging.am-unggas_table')
 
@@ -300,6 +303,7 @@
                     </div>
         
                     <div class="tab-pane" id="tab-4" role="tabpanel">
+                        @role('pengurus-rumah-sembelih')
                         <form action="/post-mortem-unggas" method="POST">
                             @csrf
                             <div class="card">
@@ -415,7 +419,7 @@
                                 </div>
                             </div>
                         </form>
-
+                        @endrole
                         @include('daging.pm-unggas_table')
 
                     </div>
