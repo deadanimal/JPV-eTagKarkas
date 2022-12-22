@@ -53,6 +53,7 @@
             <br>
             <a class="sidebar-brand" href="">
 				<svg>
+                    {{-- <img src="/img/Veterinar-Logo.png" alt="JPV" style="max-width: 20px; background:#ffff;"> --}}
 					<use xlink:href="#ion-ios-pulse-strong"></use>
 				</svg>
 				eTagKarkas
