@@ -30,6 +30,10 @@
             -o-background-size: cover;
             background-size: cover;
         }
+
+        img {
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -53,8 +57,8 @@
             <br>
             <a class="sidebar-brand" href="">
 				<svg>
-                    {{-- <img src="/img/Veterinar-Logo.png" alt="JPV" style="max-width: 20px; background:#ffff;"> --}}
-					<use xlink:href="#ion-ios-pulse-strong"></use>
+                    <img src="/img/Veterinar-Logo.png" alt="JPV" style="background:#ffff;" width="auto" height="60">
+					{{-- <use xlink:href="#ion-ios-pulse-strong"></use> --}}
 				</svg>
 				eTagKarkas
 			</a>

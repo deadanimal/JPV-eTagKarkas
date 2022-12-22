@@ -236,13 +236,6 @@ class PemeriksaanController extends Controller
         $unggas = Unggas::all();
         $user = $request->user();
 
-        // pass rumah_sembelih_id
-        $rumah_sembelih_id = $user->rumah_sembelih_id;
-
-        $unggass = Unggas::where([
-            ['rumah_sembelih_id','=', $rumah_sembelih_id],
-        ])->orderBy('updated_at','desc')->get();
-
 
         if ($user->hasRole('pentadbir')) {
             $rumah_sembelih_id = $user->rumah_sembelih_id;
@@ -262,6 +255,13 @@ class PemeriksaanController extends Controller
 
         } else{
 
+                // pass rumah_sembelih_id
+                $rumah_sembelih_id = $user->rumah_sembelih_id;
+
+                $unggass = Unggas::where([
+                    ['rumah_sembelih_id','=', $rumah_sembelih_id],
+                ])->orderBy('updated_at','desc')->get();
+
                   // datatable
                   if($request->ajax()) {
                
@@ -279,7 +279,7 @@ class PemeriksaanController extends Controller
         }   
       
         // dd($pemeriksaans);
-        return view('daging.senarai_unggas', compact('unggass','user'));
+        return view('daging.senarai_unggas', compact('user','unggas'));
       
     }
 

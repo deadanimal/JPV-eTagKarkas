@@ -53,7 +53,7 @@ class DagingController extends Controller
                     ['jenis', '=', $request->jenis],
                     ['no_skv', '=', $request->no_skv],
                 ])->first();
-                Alert::success('SKV dijumpai', 'SKV boleh dikenalpasti');
+                Alert::success('SKV dijumpai', 'SKV telah dikenalpasti');
 
                 $haiwan = Haiwan::where('jenis')->first();
                 if ($request->jenis == 'Unggas') {

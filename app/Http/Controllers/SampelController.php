@@ -48,12 +48,13 @@ class SampelController extends Controller
     public function satu_pilihan(Request $request, $pilihan) {
         $user = $request->user();
         $id = (int)$request->route('id');
+        $rumahs = RumahSembelih::all();
         $sampel = Sampel::find($id);
         $sampels = Sampel::where('pilihan', $pilihan)->get();
         $users = User::where([
             ['id','=', null]
         ])->get();
-        return view('sampel.jadual', compact('sampel', 'user', 'users','pilihan','sampels'));
+        return view('sampel.jadual', compact('sampel', 'user', 'users','pilihan','sampels','rumahs'));
     }  
 
 

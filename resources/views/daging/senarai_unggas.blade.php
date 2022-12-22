@@ -29,9 +29,7 @@
                             <table class="table border border-info unggas-datatable">
                                 <thead class="text-white bg-info ">
                                     <tr>
-                                        @role('pentadbir')
                                         <th scope="col">Nama Ladang</th>
-                                        @endrole
                                         <th scope="col">Masa Tiba</th>
                                         <th scope="col">Nombor Kenderaan</th>
                                         <th scope="col">Tindakan</th>
@@ -81,15 +79,15 @@
                 "infoFiltered": "(carian dari _MAX_ jumlah rekod)"
             },
             ajax: "/pemeriksaan-unggas",
-            columns: [
+            columns: [ {
+                    data: 'nama_ladang',
+                    name: 'nama_ladang'
+                },
                 {
                     data: 'tarikh_terima',
                     name: 'tarikh_terima'
                 },
-                {
-                    data: 'nama_ladang',
-                    name: 'nama_ladang'
-                },
+               
                 {
                     data: 'nombor_kenderaan',
                     name: 'nombor_kenderaan'
