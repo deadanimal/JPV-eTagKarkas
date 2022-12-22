@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JadualSampel;
 use App\Models\RumahSembelih;
 use App\Models\Sampel;
 use App\Models\User;
@@ -44,14 +45,15 @@ class SampelController extends Controller
         return view('sampel.pilihan');
     }
 
-    public function satu_pilihan(Request $request) {
+    public function satu_pilihan(Request $request, $pilihan) {
         $user = $request->user();
         $id = (int)$request->route('id');
         $sampel = Sampel::find($id);
+        $sampels = Sampel::where('pilihan', $pilihan)->get();
         $users = User::where([
             ['id','=', null]
         ])->get();
-        return view('sampel.satu_pilihan', compact('sampel', 'user', 'users'));
+        return view('sampel.jadual', compact('sampel', 'user', 'users','pilihan','sampels'));
     }  
 
 
@@ -64,6 +66,7 @@ class SampelController extends Controller
         $users = User::all();
         $rumahs = RumahSembelih::all();
         $sampels = Sampel::where('pilihan', $pilihan)->get();
+        $jaduals = JadualSampel::find($id);
 
         // $sampels = Sampel::find($id);
         // $params = $request->query->all();
@@ -73,7 +76,7 @@ class SampelController extends Controller
 
         
         if ($pilihan == "Ayam" || $pilihan =="Ruminan Besar" || $pilihan =="Ruminan Kecil" || $pilihan =="Babi"){
-            return view('sampel.borang-sampel', compact('user','users','rumahs','sampels', 'pilihan'));
+            return view('sampel.borang-sampel', compact('user','users','rumahs','sampels', 'pilihan','jaduals'));
         } else {
             return view('sampel.borang-sampel2', compact('users','rumahs','sampels', 'pilihan'));
         }
@@ -107,19 +110,40 @@ class SampelController extends Controller
 
     }
 
-    public function kemaskini_sampel(Request $request, $pilihan)
-    {
-        $id = (int) $request->route('id');
-        $sampel = Sampel::where('pilihan', $pilihan)->get();
+    public function cipta_jadual(Request $request){
 
-        // $sampel = Sampel::find($id);
+      
 
-        $sampel->save();
+        $user = $request->user();
 
-        // dd($sampel);
+        $id = (int)$request->route('id'); 
+        $jadual = Sampel::find($id);
 
-        Alert::success('Kemaskini berjaya.', 'Maklumat jadual pensampelan telah dikemaskini.');
+        $jadual = New JadualSampel;
+
+        $jadual->bil_sampel = $request->bil_sampel;
+        $jadual->jan = $request->jan;
+        $jadual->feb = $request->feb;
+        $jadual->mac = $request->mac;
+        $jadual->apr = $request->apr;
+        $jadual->mei = $request->mei;
+        $jadual->jun = $request->jun;
+        $jadual->jul = $request->jul;
+        $jadual->aug = $request->aug;
+        $jadual->sep = $request->sep;
+        $jadual->oct = $request->oct;
+        $jadual->nov = $request->nov;
+        $jadual->dec = $request->dec;
+        $jadual->jumlah = $request->jumlah;
+        $jadual->sampel_id = $request->sampel_id;
+      
+
+        $jadual->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat penjadualan telah dihantar.');
 
         return back();
+
     }
+
 }

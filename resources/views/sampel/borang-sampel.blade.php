@@ -118,20 +118,51 @@
                                         <option value="Ujian 3">Ujian 3</option>
                                         <option value="Ujian 4">Ujian 4</option>
                                     </select>
-
-
                                 </div>
+
+                                @if ($pilihan == 'Ayam')
+
+                                 <div class="mb-3 col-md-6">
+                                    <label for="inputAddress">Jenis Sampel</label>
+                                    <select class="form-select" aria-label="Default select example" name="sampel"
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
+                                        <option selected disabled value="">Pilih Sampel</option>
+                                        <option value="Whole Leg">Whole Leg</option>
+                                        <option value="Breast Meat">Breast Meat</option>
+                                        <option value="Hati">Hati</option>
+                                    </select>
+                                </div>
+
+                                @elseif($pilihan == 'Ruminan Besar')
+
                                 <div class="mb-3 col-md-6">
                                     <label for="inputAddress">Jenis Sampel</label>
                                     <select class="form-select" aria-label="Default select example" name="sampel"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                         <option selected disabled value="">Pilih Sampel</option>
-                                        <option value="Sampel 1">Sampel 1</option>
-                                        <option value="Sampel 2">Sampel 2</option>
-                                        <option value="Sampel 3">Sampel 3</option>
-                                        <option value="Sampel 4">Sampel 4</option>
+                                        <option value="Daging">Daging</option>
+                                        <option value="Ginjal">Ginjal</option>
+                                        <option value="Hati">Hati</option>
+                                        <option value="Lemak">Lemak</option>
                                     </select>
                                 </div>
+                                    
+                                @else
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="inputAddress">Jenis Sampel</label>
+                                    <select class="form-select" aria-label="Default select example" name="sampel"
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
+                                        <option selected disabled value="">Pilih Sampel</option>
+                                        <option value="Daging">Daging</option>
+                                        <option value="Ginjal">Ginjal</option>
+                                        <option value="Hati">Hati</option>
+                                        <option value="Lemak">Lemak</option>
+                                    </select>
+                                </div>
+                                    
+                                @endif
+                              
                             </div>
                             @role('pentadbir-zon')
                             <div class="row">
@@ -274,7 +305,7 @@
         }
     </script>
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         function findSum(){
             var arr = document.getElementsByName('qty');
             var tot=0;
@@ -283,7 +314,7 @@
                     tot += parseInt(arr[i].value);
             }
             document.getElementById('total').value = tot;
-        }
-        
-    </script>
+        }     
+    </script> --}}
+
 @endsection

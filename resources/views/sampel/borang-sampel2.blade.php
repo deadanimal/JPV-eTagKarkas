@@ -118,20 +118,49 @@
                                         <option value="Ujian 3">Ujian 3</option>
                                         <option value="Ujian 4">Ujian 4</option>
                                     </select>
-
-
                                 </div>
+
+                                @if ($pilihan == 'VHM' || $pilihan == 'GVHP')
+
                                 <div class="mb-3 col-md-6">
                                     <label for="inputAddress">Jenis Sampel</label>
                                     <select class="form-select" aria-label="Default select example" name="sampel"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                         <option selected disabled value="">Pilih Sampel</option>
-                                        <option value="Sampel 1">Sampel 1</option>
-                                        <option value="Sampel 2">Sampel 2</option>
-                                        <option value="Sampel 3">Sampel 3</option>
-                                        <option value="Sampel 4">Sampel 4</option>
+                                        <option value="Bahan Mentah">Bahan Mentah</option>
+                                        <option value="Produk Akhir">Produk Akhir</option>
+                                        <option value="Raw Unclean">Raw Unclean</option>
+                                        <option value="Raw Unclean">Raw Clean</option>
                                     </select>
                                 </div>
+
+                                @elseif($pilihan == 'MyGAP')
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="inputAddress">Jenis Sampel</label>
+                                    <select class="form-select" aria-label="Default select example" name="sampel"
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
+                                        <option selected disabled value="">Pilih Sampel</option>
+                                        <option value="Telur">Telur</option>
+                                        <option value="Liquid Egg">Liquid Egg</option>
+                                    </select>
+                                </div>
+
+                                    
+                                @else
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="inputAddress">Jenis Sampel</label>
+                                    <select class="form-select" aria-label="Default select example" name="sampel"
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
+                                        <option selected disabled value="">Pilih Sampel</option>
+                                        <option value="Bahan Mentah">Bahan Mentah</option>
+                                        <option value="Produk Akhir">Produk Akhir</option>
+                                    </select>
+                                </div>
+                                    
+                                @endif
+
                             </div>
 
                             @role('pentadbir')
