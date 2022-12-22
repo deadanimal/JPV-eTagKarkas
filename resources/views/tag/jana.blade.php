@@ -56,42 +56,44 @@
 
     <div class="card div1" id="jana-tag" style="padding-left:30px;">
         
-        @for ($x = 1; $x <= $y; $x++)
+        {{-- @for ($x = 1; $x <= $y; $x++) --}}
             <div class="row" style="padding-top:10px; padding-left:10px;">
                 @for ($i = 1; $i < $tag->bil_ternakan_sah_ketua + 1; $i++)
-                    <div class="row bawah pb" style="border-style: solid; padding-top:50px; margin-bottom:100px; width:70%">
+                    @for ($x = 1; $x <= $y; $x++)
+                        <div class="row bawah pb" style="border-style: solid; padding-top:50px; margin-bottom:100px; width:70%">
 
-                        {{-- KATEGORI TAG --}}
-                        <div class="column" style="width:12%;">
-                            <h5 class="card-text mb-0" style="font-size: 70px; color:blueviolet">{{ $tag->rumah_sembelih->kategori }}</h5>
-                        </div>
+                            {{-- KATEGORI TAG --}}
+                            <div class="column" style="width:12%;">
+                                <h5 class="card-text mb-0" style="font-size: 70px; color:blueviolet">{{ $tag->rumah_sembelih->kategori }}</h5>
+                            </div>
 
-                        {{-- LOGO --}}
-                        <div class="column" style="width:12%;">
-                            <img src="{{url('/img/Veterinar-Logo.png')}}" style="width: 80px;height:80px;">
-                        </div>
-                        
-
-                        {{-- BARCODE --}}
-                        <div class="column" style="width:40%;">
-                            <h5 class="card-text mb-0 jpv" style="display: inline">JABATAN PERKHIDMATAN VETERINAR</h5>
-                            <p class="card-text mb-0">TELAH DIPERIKSA</p>
-                            {{-- {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR') !!} --}}
-                            {!! '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('4', 'C39+') . '" alt="barcode";/>' !!}
-                            <h6>R{{ $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i) }}</h6>
+                            {{-- LOGO --}}
+                            <div class="column" style="width:12%;">
+                                <img src="{{url('/img/Veterinar-Logo.png')}}" style="width: 80px;height:80px;">
+                            </div>
                             
-                        </div>
+
+                            {{-- BARCODE --}}
+                            <div class="column" style="width:40%;">
+                                <h5 class="card-text mb-0 jpv" style="display: inline">JABATAN PERKHIDMATAN VETERINAR</h5>
+                                <p class="card-text mb-0">TELAH DIPERIKSA</p>
+                                {{-- {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR') !!} --}}
+                                {!! '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('4', 'C39+') . '" alt="barcode";/>' !!}
+                                <h6>R{{ $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i) }}</h6>
+                                
+                            </div>
+                            
+                            {{-- QR CODE --}}
+                            <div class="column" style="width:15%;">
+                                {!! QrCode::size(70)->backgroundColor(255, 255, 255)->generate('R' . $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i)) !!}
+                                <div><p class="card-text ts" style="display: inline">TARIKH SEMBELIHAN:</p></div>
+                            </div>
                         
-                        {{-- QR CODE --}}
-                        <div class="column" style="width:15%;">
-                            {!! QrCode::size(70)->backgroundColor(255, 255, 255)->generate('R' . $tag->rumah_sembelih->id . '-' . $date . '-' . sprintf('%03d', $i)) !!}
-                            <div><p class="card-text ts" style="display: inline">TARIKH SEMBELIHAN:</p></div>
                         </div>
-                      
-                    </div>
+                    @endfor
                 @endfor
             </div>
-        @endfor
+        {{-- @endfor --}}
     </div>
 
 
