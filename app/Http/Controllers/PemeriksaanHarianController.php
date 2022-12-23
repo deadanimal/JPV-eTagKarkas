@@ -69,7 +69,6 @@ class PemeriksaanHarianController extends Controller
         $id = (int)$request->route('id');
         $jana_rapi = Pemeriksaan::find($id);
         
-
         $periksa = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $jana_rapi->id],
         ])->get();
@@ -140,7 +139,7 @@ class PemeriksaanHarianController extends Controller
             ['pemeriksaan_id','=', $jana_rapi->id],
         ])->get();
 
-        return view('daging.periksa_rapi', compact('user','periksa','jana_rapi'));
+        return view('daging.periksa_rapi_babi', compact('user','periksa','jana_rapi'));
     }
 
     public function jana_rapi_babi(Request $request){

@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian_babi']);
     Route::post('periksa-babi', [PemeriksaanHarianController::class, 'cipta_pemeriksaan_babi']);
     Route::get('periksa-rapi-babi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi_babi']);
-    Route::get('jana-rapi/{id}', [PemeriksaanHarianController::class, 'jana_rapi_babi']);
+    Route::get('jana-rapi-babi/{id}', [PemeriksaanHarianController::class, 'jana_rapi_babi']);
 
 
     Route::get('ante-mortem', [AnteMortemRuminanController::class, 'satu_ante_mortem']);
@@ -87,11 +87,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('post-mortem-unggas/{id}', [PostMortemRuminanController::class, 'kemaskini_pm_unggas']);
     Route::get('/testjap', [PostMortemRuminanController::class, 'testjap']);
 
-
-
-    
-
-    
     Route::get('tag', [TagController::class, 'senarai']);
     Route::get('tag/borang', [TagController::class, 'borang']);
     Route::get('tag/{id}', [TagController::class, 'satu']);
@@ -122,7 +117,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pensampelan/pilihan/{pilihan}', [SampelController::class, 'borang_sampel']);
     Route::post('/pensampelan/borang-sampel/{id}', [SampelController::class, 'cipta_sampel']);
     Route::post('/jadual/{id}', [SampelController::class, 'cipta_jadual']);
-    // contoh sahaja
 
 // Modul PDN
     Route::get('pdn', [PemeriksaanDalamNegaraController::class, 'senarai']);
