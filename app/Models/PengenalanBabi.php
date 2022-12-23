@@ -16,4 +16,8 @@ class PengenalanBabi extends Model
     public function rumah_sembelih() {
         return $this->belongsTo(RumahSembelih::class);
     }
+
+    public function pemeriksaan_harian_babi() {
+        return $this->hasMany(PemeriksaanBabiHarian::class);
+    }
 }

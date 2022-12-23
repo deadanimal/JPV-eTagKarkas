@@ -38,6 +38,6 @@ class Pemeriksaan extends Model
     } 
 
     public function pemeriksaan_babi() {
-        return $this->hasMany(PemeriksaanBabi::class);
+        return $this->hasMany(PengenalanBabi::class);
     }
 }
