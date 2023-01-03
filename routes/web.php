@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian']);
     Route::post('harian', [PemeriksaanHarianController::class, 'cipta_harian']);
     Route::get('periksa-rapi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi']);
+    Route::post('periksa-rapi/{id}', [PemeriksaanHarianController::class, 'simpan_periksa_rapi']);
     Route::get('jana-rapi/{id}', [PemeriksaanHarianController::class, 'jana_rapi']);
     Route::post('harian/{id}', [PemeriksaanHarianController::class, 'kemaskini_harian']);
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian_babi']);

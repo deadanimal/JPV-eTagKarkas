@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('periksa_rapis', function (Blueprint $table) {
+        Schema::create('pemeriksaan_rapis', function (Blueprint $table) {
             $table->id();
             $table->string('warna')->nullable();
             $table->string('tanda')->nullable();
@@ -24,8 +24,6 @@ return new class extends Migration
             $table->string('jenis2')->nullable();
             $table->string('jenis3')->nullable();
             $table->foreignId('pemeriksaan_id')->references('id')->on('pemeriksaans') ->onUpdate('cascade')
-            ->onDelete('cascade')->nullable();
-            $table->foreignId('pemeriksaan_harian_id')->references('id')->on('pemeriksaan_harians') ->onUpdate('cascade')
             ->onDelete('cascade')->nullable();
             $table->foreignId('rumah_sembelih_id')->references('id')->on('rumah_sembelihs') ->onUpdate('cascade')
             ->onDelete('cascade')->nullable();
@@ -40,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periksa_rapis');
+        Schema::dropIfExists('pemeriksaan_rapis');
     }
 };

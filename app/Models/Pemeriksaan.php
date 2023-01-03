@@ -17,6 +17,10 @@ class Pemeriksaan extends Model
         return $this->hasMany(PemeriksaanHarian::class);
     }
 
+    public function pemeriksaan_rapi() {
+        return $this->hasMany(PemeriksaanRapi::class);
+    }
+
     public function ante_mortem_ruminan() {
         return $this->hasMany(AnteMortemRuminan::class);
     }  

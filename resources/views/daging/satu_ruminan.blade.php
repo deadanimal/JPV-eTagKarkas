@@ -488,15 +488,12 @@
                                         </td>
         
                                     </tr> --}}
-
-                                
-        
         
                                 </tbody>
                             </table>
                         </div>
                         <div class="mb-3">
-                            <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
+                            {{-- <button class="btn btn-primary" type="submit" style="float: right">Simpan</button> --}}
                         </div>
         
                     </div>

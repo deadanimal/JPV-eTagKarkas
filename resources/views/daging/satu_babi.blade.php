@@ -167,7 +167,7 @@
                                             <label for="">Bilangan Diasingkan Untuk Pemeriksaan Rapi </label>
                                             <input class="form-control" type="number" min="0" name="bilangan_diasingkan_pemeriksaan_rapi"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                                            <a href="/periksa-rapi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
+                                            <a href="/periksa-rapi-babi/{{$periksa_harian->id}}" style="color: red">*Sekiranya terdapat pemeriksaan rapi, sila lengkapkan borang ini.</a>
 
                                         </div>
         

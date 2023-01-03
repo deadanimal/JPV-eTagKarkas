@@ -113,7 +113,7 @@
                                     class="align-middle">Pemeriksaan Daging</span>
                             </a> --}}
                             <a data-bs-target="#daging" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                <i class="align-middle me-1 fas fa-fw fa-earth"></i> <span class="align-middle">Pemeriksaan Daging</span>
+                                <i class="align-middle me-1 fas fa-fw fa-check"></i> <span class="align-middle">Pemeriksaan Daging</span>
                             </a>
                             <ul id="daging" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/pemeriksaan">Senarai Pemeriksaan Ternakan Ruminan</a></li>

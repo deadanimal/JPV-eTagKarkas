@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pemeriksaan;
 use App\Models\PemeriksaanBabiHarian;
 use App\Models\PemeriksaanHarian;
+use App\Models\PemeriksaanRapi;
 use App\Models\PengenalanBabi;
 use Illuminate\Http\Request;
 use DataTables;
@@ -68,12 +69,38 @@ class PemeriksaanHarianController extends Controller
         $user = $request->user();
         $id = (int)$request->route('id');
         $jana_rapi = Pemeriksaan::find($id);
+        $periksa_rapi = PemeriksaanRapi::find($id);
+
+        // dd($periksa_rapis);
         
         $periksa = PemeriksaanHarian::where([
             ['pemeriksaan_id','=', $jana_rapi->id],
         ])->get();
+        $periksa_rapis = PemeriksaanRapi::where([
+            ['pemeriksaan_id','=', $jana_rapi->id],
+        ])->get();
 
-        return view('daging.periksa_rapi', compact('user','periksa','jana_rapi'));
+        return view('daging.periksa_rapi', compact('user','periksa','jana_rapi','periksa_rapis','periksa_rapi'));
+    }
+
+    public function simpan_periksa_rapi(Request $request){
+        $periksa_rapi = new PemeriksaanRapi;
+
+        $periksa_rapi->warna = $request->warna;
+        $periksa_rapi->tanda = $request->tanda;
+        $periksa_rapi->jumlah_ternakan = $request->jumlah_ternakan;
+        $periksa_rapi->diagnosis = $request->diagnosis;
+        $periksa_rapi->suhu = $request->suhu;
+
+        $periksa_rapi->pemeriksaan_id = $request->pemeriksaan_id;
+        $periksa_rapi->rumah_sembelih_id = $request->rumah_sembelih_id;
+
+        $periksa_rapi->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan harian telah disimpan.');
+
+        return back(); 
+
     }
 
     public function jana_rapi(Request $request){
