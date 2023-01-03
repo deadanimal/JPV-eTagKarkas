@@ -62,10 +62,10 @@
                         <br><br><div style="text-align: center">
                             <table style="width: 30%">
                                 <tr>
-                                    <th>Suhu badan : </th>
+                                    <th>Suhu badan : {{$periksa_rapi->suhu}}</th>
                                 </tr>
                                 <tr>
-                                    <th>Diagnosis : </th>
+                                    <th>Diagnosis : {{$periksa_rapi->diagnosis}}</th>
                                 </tr>
                         
                             </table>
