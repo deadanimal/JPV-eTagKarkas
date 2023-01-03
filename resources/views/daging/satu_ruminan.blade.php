@@ -327,6 +327,20 @@
                             
                             <div class="card">
 
+                                {{-- Message --}}
+                                @if (session()->has('message'))
+                                <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
+                                    <div class="alert-icon">
+                                        <i class="far fa-fw fa-bell"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        <strong>{{session('message')}}</strong>
+                                    </div>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                @endif
+
                                 <div class="card-body">
 
                                     <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
