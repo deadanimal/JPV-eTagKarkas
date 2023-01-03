@@ -55,6 +55,8 @@ class PostMortemRuminanController extends Controller
 
         Alert::success('Simpan berjaya.', 'Maklumat penemuan post-mortem ruminan telah disimpan.');
 
+        session()->flash('message', 'Borang telah dijana. Anda diingatkan untuk menghantar laporan bulanan.');
+
         return back();
 
     }
