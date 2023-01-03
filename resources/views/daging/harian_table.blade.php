@@ -164,8 +164,8 @@
 
 </main>
 
-<script>
+{{-- <script>
   $('#datepicker').datepicker({
   uiLibrary: 'bootstrap5'
   });
-</script>
+</script> --}}
