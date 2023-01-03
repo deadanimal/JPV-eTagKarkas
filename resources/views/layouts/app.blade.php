@@ -169,7 +169,7 @@
                                 <i class="align-middle me-1 fas fa-fw fa-earth"></i> <span class="align-middle">Pemeriksaan Dalam 
                                    <br><span style="margin-left:26px;">Negara</span></span>
                             </a>
-                            <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+                            <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show active" data-bs-parent="#sidebar">
                                 <li class="sidebar-item"><a class="sidebar-link" href="/pdn">Pemeriksaan Survelan Audit</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/eksport-luar">Permohonan Eksport ke Luar Negara</a></li>
                                 <li class="sidebar-item"><a class="sidebar-link" href="/sijil-veterinar">Pemeriksaan Veterinar - Pengeluaran Sijil Veterinar</a></li>
@@ -414,8 +414,13 @@
         }
     </script>
 
+    <script>
+        $(".sidebar-dropdown li").on("click", function() {
+        $(".sidebar-dropdown li").removeClass("active");
+        $(this).addClass("active");
+        });
 
-
+    </script>
 
 </body>
 
