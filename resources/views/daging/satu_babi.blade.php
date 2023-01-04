@@ -304,6 +304,20 @@
                             <input type="hidden" name="pemeriksaan_id" value="{{$pemeriksaan_babi->id}}">
         
                             <div class="row">
+
+                                {{-- Message --}}
+                                @if (session()->has('message'))
+                                <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
+                                    <div class="alert-icon">
+                                        <i class="far fa-fw fa-bell"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        <strong>{{session('message')}}</strong>
+                                    </div>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                @endif
         
                                 <div class="mb-3 col-md-3">
                                     <label for="">Kategori</label>

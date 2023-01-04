@@ -329,7 +329,7 @@
 
                                 {{-- Message --}}
                                 @if (session()->has('message'))
-                                <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
+                                <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
                                     <div class="alert-icon">
                                         <i class="far fa-fw fa-bell"></i>
                                     </div>
@@ -351,7 +351,7 @@
                                         <div class="mb-3 col-md-3">
                                             <label for="">Kategori</label>
                                             <select class="form-select" aria-label="Default select example" name="kategori_post_mortem"  id="countySel" size="1"
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                            required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
                                                 <option selected value="">Pilih Kategori</option>
                                                 {{-- <option value="1">Karkass(Carcass)</option>
                                                 <option value="2">Esofagus(Esophagus)</option>
@@ -371,7 +371,7 @@
                                         <div class="mb-3 col-md-3">
                                             <label for="">Bahagian</label>
                                             <select class="form-select" aria-label="Default select example" name="bahagian" id="stateSel" size="1"
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                            required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
                                                 <option selected  value="">Pilih Bahagian</option>
                                                 {{-- <option value="Generalized">Generalized</option>
                                                 <option value="Head">Head</option>
@@ -385,7 +385,7 @@
                                         <div class="mb-3 col-md-3">
                                             <label for="">Sebab Musnah</label>
                                             <select class="form-select" aria-label="Default select example" name="musnah" id="districtSel" size="1"
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">
+                                            required oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')" >
                                                 <option selected  value="">Pilih Sebab Musnah</option>
                                                 {{-- <option value="Cysts">Cysts</option>
                                                 <option value="Hernia">Hernia</option>
@@ -396,13 +396,13 @@
                                         <div class="mb-3 col-md-3">
                                             <label for="">Bilangan Kes</label>
                                             <input class="form-control" type="number" min="0" name="kes_post_mortem"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                            required oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
                                         </div>
                     
                                         <div class="mb-3 col-md-3">
                                             <label for="">Nombor Tag</label>
                                             <input class="form-control" type="text" min="0" name="nombor_tag_post"
-                                            onkeyup="this.value = this.value.toUpperCase();">
+                                            onkeyup="this.value = this.value.toUpperCase();" required>
                                             {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
                                                 <option selected>XXXX</option>
                                                 <option value="1">1</option>

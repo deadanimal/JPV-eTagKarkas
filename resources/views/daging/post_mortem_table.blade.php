@@ -2,11 +2,11 @@
 <body class="content">
 
         <div class="container-fluid">
-          <div class="card" style="border-width: 1px; border-color:black;">
+          <div class="card" style="border-width: 1px; border-color:black; width:103%">
     
               <div class="card-body">
                 <u><h4 class="text-center">Jadual Pemeriksaan Post Mortem Ruminan </h4></u>
-                  <table class="table table-center text-center">
+                  <table class="table table-responsive table-center text-center ">
                       <thead>
                         <tr>
                           <th scope="col">No</th>

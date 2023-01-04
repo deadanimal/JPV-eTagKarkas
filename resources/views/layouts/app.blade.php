@@ -62,11 +62,7 @@
 				</svg>
 				eTagKarkas
 			</a>
-                {{-- <div class="sidebar-brand" style="display: flex; justify-content: center;">
-                    <img src="/img/Veterinar-Logo.png" alt="JPV" style="max-width: 140px; background:#ffff;">
-                </div> --}}
 
-           
             <div class="sidebar-content">
 
                 <ul class="sidebar-nav">
@@ -108,10 +104,6 @@
                         </li>
 
                         <li class="sidebar-item">
-                            {{-- <a class="sidebar-link" href="/pemeriksaan">
-                                <i class="align-middle me-2 fas fa-fw fa-square-check"></i><span
-                                    class="align-middle">Pemeriksaan Daging</span>
-                            </a> --}}
                             <a data-bs-target="#daging" data-bs-toggle="collapse" class="sidebar-link collapsed">
                                 <i class="align-middle me-1 fas fa-fw fa-check"></i> <span class="align-middle">Pemeriksaan Daging</span>
                             </a>
@@ -251,7 +243,7 @@
 
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown ms-lg-2">
+                        {{-- <li class="nav-item dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle position-relative" href="#" id="alertsDropdown"
                                 data-bs-toggle="dropdown">
                                 <i class="align-middle fas fa-bell"></i>
@@ -270,7 +262,6 @@
                                                 <i class="ms-1 text-danger fas fa-fw fa-bell"></i>
                                             </div>
                                             <div class="col-10">
-                                                {{-- <div class="text-dark">Update completed</div> --}}
                                                 <div class="text-dark">{{$n->mesej}}</div>
                                                 <div class="text-muted small mt-1">{{$n->created_at->format('H:i, d-m-Y')}}</div>
                                             </div>
@@ -283,7 +274,7 @@
                                     <a href="#" class="text-muted">Tunjuk semua notifikasi</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                         <li class="nav-item dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle position-relative" href="#" id="userDropdown"
                                 data-bs-toggle="dropdown">
