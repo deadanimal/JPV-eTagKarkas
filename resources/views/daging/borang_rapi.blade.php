@@ -73,9 +73,9 @@
                         <br><br> 4. Penentuan :
                         <div>
                             <ul class="list-group">
-                                <li class="list-group-item">Dibenarkan</li>
-                                <li class="list-group-item">Ditahan</li>
-                                <li class="list-group-item">Dikondem</li>      
+                                <li class="list-group-item">Dibenarkan untuk disembelih dibawah pemeriksaan rapi.</li>
+                                <li class="list-group-item">Ditahan daripada disembelih.</li>
+                                <li class="list-group-item">Dikondem sebagai tidak layak untuk makanan manusia pada pemeriksaan ante mortem.</li>      
                             </ul>
                         </div>
     

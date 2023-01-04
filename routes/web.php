@@ -206,13 +206,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('borang-perakuan', [PemeriksaanDalamNegaraController::class, 'borang_perakuan']);
 
 
-
-
-
-
-
-
-
 });
 
 Route::get('lupa', [UserController::class, 'tunjuk_lupa']);

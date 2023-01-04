@@ -21,11 +21,14 @@
         
                     <div class="tab-pane active show" id="tab-1" role="tabpanel">
         
-                        <form action="#" method="POST">
+                        <form action="/periksa-rapi/{{$jana_rapi->id}}" method="POST">
                             @csrf
                 
         
                             <div class="row">
+
+                                <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
+                                <input type="hidden" name="pemeriksaan_id" value="{{$jana_rapi->id}}">
 
                                 <div>
                                     <h4>Pemeriksaan Rapi: Perihal Haiwan</h4>
@@ -108,12 +111,65 @@
         
                             <!--Button-->
                             <div class="mb-3">
-                                <a href="/jana-rapi-babi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary mx-3" type="button" style="float: right">Jana</button></a>
+                                {{-- <a href="/jana-rapi-babi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary mx-3" type="button" style="float: right">Jana</button></a> --}}
                                 <button class="btn btn-primary" type="submit" style="float: right">Simpan</button>
-                                {{-- <a href="/pemeriksaan/{{$jana_rapi->id}}"><button value="jana" class="btn btn-warning" type="button" style="float: right">Kembali</button></a> --}}
                             </div>
         
                         </form>
+
+                        <br><br>
+
+                        {{-- Jadual --}}
+                        <div class="container-fluid">
+                            <div class="card" style="border-width: 1px; border-color:black;">
+    
+                                <div class="card-body" >
+                                  <u><h4 class="text-center ">Jadual Pemeriksaan Rapi </h4></u>
+                                    <table class="table text-center" style="border-width: 10px; border-color:green;">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Warna</th>
+                                            <th scope="col">Tanda Dikenalpasti</th>
+                                            <th scope="col">Jumlah Ternakan Yang Diperiksa</th>
+                                            <th scope="col">Diagnosis</th>
+                                            <th scope="col">Suhu Badan</th>
+                                            <th scope="col">Jana Borang</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                    
+                                          <tr>
+                                            @foreach ($periksa_rapis as $periksa_rapi)
+                                            
+                    
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$periksa_rapi->warna}}</td>
+                                            <td>{{$periksa_rapi->tanda}}</td>
+                                            <td>{{$periksa_rapi->jumlah_ternakan}}</td>
+                                            <td>{{$periksa_rapi->diagnosis}}</td>
+                                            <td>{{$periksa_rapi->suhu}}</td>
+                                            <td><a href="/jana-rapi-babi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary mx-3" type="button" style="float: right">Jana</button></a></td>
+                                           
+                                     
+                                          </tr>
+                                            @endforeach
+                    
+                                          {{-- <tr>
+                                            <th scope="row">1</th>
+                                            <td>5</td>
+                                            <td>2</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>Baik</td>
+                                          </tr> --}}
+                                          
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="text-center">
                             <button onclick="history.back()" class="btn btn-warning" >Kembali</button>
