@@ -70,11 +70,11 @@
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                            
                                                 </div>
         
-                                                <div class="mb-3 col-md-4">
+                                                {{-- <div class="mb-3 col-md-4">
                                                     <label for=""></label><br>
                                                     <button type="button"  class="btn btn-primary btn-circle lg">
                                                         <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>        
-                                                </div>
+                                                </div> --}}
         
                                                 <hr class="text-primary mb-3">
         
@@ -119,11 +119,11 @@
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                                 </div>
         
-                                                <div class="mb-3 col-md-4">
+                                                {{-- <div class="mb-3 col-md-4">
                                                     <label for=""></label><br>
                                                     <button type="button"  class="btn btn-primary btn-circle lg">
                                                         <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
-                                                </div>
+                                                </div> --}}
         
                                                 <hr class="text-primary mb-3">
         
@@ -139,28 +139,23 @@
                                                     <label for="">Bilangan Kes</label>
                                                     <input type="number" min="0" class="form-control" name="bil_gastro_pm" value="{{ $pm->bil_gastro_pm }}"
                                                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">                                        </div>
-                                                <div class="mb-3 col-md-4">
+                                                {{-- <div class="mb-3 col-md-4">
                                                     <label for=""></label><br>
                                                     <button type="button"  class="btn btn-primary btn-circle lg">
                                                         <i class="align-middle me-2 fas fa-fw fa-circle-plus"></i>Tambah</button>
-                                                </div>
+                                                </div> --}}
                 
                                                 <hr class="text-primary mb-3">
-                
-                
-                            
-                                               
+     
                                             </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                          <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                     </div>
                                 
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                              <button type="submit" class="btn btn-primary">Simpan</button>
-                                            </div>
-                                    
-                                      
-                                  
+                                          
                                   </form>
                                 </div>
                                 

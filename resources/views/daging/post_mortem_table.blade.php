@@ -2,7 +2,7 @@
 <body class="content">
 
         <div class="container-fluid">
-          <div class="card" style="border-width: 1px; border-color:black; width:103%">
+          <div class="card" style="border-width: 1px; border-color:black; width:105%">
     
               <div class="card-body">
                 <u><h4 class="text-center">Jadual Pemeriksaan Post Mortem Ruminan </h4></u>
