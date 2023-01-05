@@ -202,6 +202,28 @@ class PemeriksaanController extends Controller
 
     }
 
+    public function kemaskini_catatan(Request $request){
+
+        $user = $request->user();
+
+        $id = (int)$request->route('id'); 
+        $catatan = Catatan::find($id);
+
+        $catatan->tag = $request->tag;
+        $catatan->jantina = $request->jantina;
+        $catatan->baka = $request->baka;
+        $catatan->tarikh = $request->tarikh;
+        $catatan->pemeriksaan_id = $request->pemeriksaan_id;
+        $catatan->rumah_sembelih_id = $user->rumah_sembelih->id;
+
+        $catatan->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat catatan tag karkas telah dikemaskini.');
+
+        return back(); 
+
+    }
+
     public function tunjuk_harian(Request $request){
 
         // tarik data dari cipta periksa rapi
