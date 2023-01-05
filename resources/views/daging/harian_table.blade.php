@@ -152,7 +152,7 @@
                         <td>{{$catatan->baka}}</td>
                         <td>{{$catatan->tarikh}}</td>
                         <td><!-- Button trigger modal -->
-                          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{$loop->iteration}}">
+                          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal{{$loop->iteration}}">
                             Kemaskini
                           </button> </td>
                           

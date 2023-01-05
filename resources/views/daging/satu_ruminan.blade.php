@@ -438,6 +438,8 @@
                     </div>
         
                     <div class="tab-pane" id="tab-5" role="tabpanel">
+
+                        {{-- @include('daging.catatan') --}}
         
                         <div class="row d-flex justify-content-center">
                             <table class="table table-bordered">
