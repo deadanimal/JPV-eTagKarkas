@@ -449,6 +449,7 @@
                                         <th scope="col">Baka</th>
                                         <th scope="col">Tarikh Disembelih</th>
                                         <th scope="col">Penggunaan Tag Karkas</th>
+                                        {{-- <th scope="col">Tindakan</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -461,7 +462,9 @@
                                         <td>{{$catatan->baka}}</td>
                                         <td>{{$catatan->tarikh}}</td>
                                         <td></td>
-                
+                                        {{-- <td><a href="/catatan/{{$catatan->id}}" class="btn btn-success">Kemaskini</a></td> --}}
+                                
+  
                                     </tr>
                                     @endforeach
         
