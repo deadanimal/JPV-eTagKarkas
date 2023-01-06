@@ -13,6 +13,8 @@ use App\Models\JadualNcsObr;
 use App\Models\Log;
 use App\Models\NcsObr;
 use App\Models\SurvelanAudit;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+
 
 class PemeriksaanDalamNegaraController extends Controller
 {
@@ -109,6 +111,18 @@ class PemeriksaanDalamNegaraController extends Controller
         // and pass to p1
 
         return view('pdn.jadual-survelan', compact('user','jaduals','survelans'));        
+    }
+
+    public function jana_jadual_survelan(Request $request){
+        $id = (int)$request->route('id');
+
+        $survelans = SurvelanAudit::find($id);
+
+        // dd( $survelans);
+        $pdf = FacadePDF::loadView('pdn.jana_borang_survelan', compact('survelans'));
+        return $pdf->download('borang_survelan.pdf');
+
+
     }
 
     public function cipta_survelan_audit(Request $request){

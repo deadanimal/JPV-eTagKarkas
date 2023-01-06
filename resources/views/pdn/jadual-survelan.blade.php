@@ -292,6 +292,7 @@
                                                 <th>Nama Pemeriksa 3</th>
                                                 <th>Nama Pemeriksa 4</th>
                                                 <th>Negeri</th>
+                                                <th>Tindakan</th>
                                                 
                                             </tr>
                                         </thead>
@@ -320,6 +321,8 @@
                                                     <td>{{$survelan->pemeriksa_3}}</td>
                                                     <td>{{$survelan->pemeriksa_4}}</td>
                                                     <td>{{$survelan->negeri}}</td>
+                                                    <td><a href="/jana-survelan/{{$survelan->id}}"><i class="align-middle fas fa-fw fa-print"></i></a></td>
+
                                             </tr>
                                                 @endforeach
                                           
