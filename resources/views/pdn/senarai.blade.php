@@ -76,6 +76,7 @@
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
                                         </form>
+
                                         {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
                                     </td>
                                     <td>  <a href="/jadual_survelan/{{$jadual->id}}" class="btn " style="width: fit-content"><button class="btn btn-success btn-block float-end">Wujudkan</button></a></td>

@@ -97,10 +97,14 @@
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-success" type="submit">Simpan</button>
+                            <a href="/stok-tag" class="btn btn-primary">Kembali</a>
+
                         </div>
 
 
                     </form>
+
+
 
                 </div>
             </div>

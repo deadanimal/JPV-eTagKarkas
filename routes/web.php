@@ -128,6 +128,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('satu_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_pdn']);
     Route::put('simpan_kemaskini_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_pdn']);
     Route::delete('padam_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'padam_pdn']);
+    Route::get('jana-survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jana_jadual_survelan']);
+
 
 
     Route::get('jadual_survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jadual']);

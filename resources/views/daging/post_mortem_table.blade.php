@@ -87,9 +87,6 @@
                                                         <label for="">Nombor Tag</label>
                                                         <input class="form-control" type="text" min="0" name="nombor_tag_post" value="{{ $post_mortem->nombor_tag_post }}"
                                                         onkeyup="this.value = this.value.toUpperCase();">
-                                                        {{-- <select class="form-select" aria-label="Default select example" name="nombor_tag_post">
-                                                            <option selected>{{ $post_mortem->nombor_tag_post }}</option>
-                                                        </select> --}}
                                                     </div>
                                 
                                                     <div class="mb-3 col-md-3">

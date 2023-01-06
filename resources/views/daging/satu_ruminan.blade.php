@@ -470,43 +470,6 @@
                                     </tr>
                                     @endforeach
         
-                                    {{-- <tr>
-        
-                                        <td>1</td>
-                                        <td>XXXX</td>
-                                        <td>Betina</td>
-                                        <td>XXXX</td>
-                                        <td>20/7/2022</td>
-                                        <td>
-                                            <select class="form-select" aria-label="Default select example"
-                                                name="catatan_penggunaan">
-                                                <option selected>Sila Pilih</option>
-                                                <option value="1">R3-180722-0035</option>
-                                                <option value="2">R3-180722-0035</option>
-                                                <option value="3">R3-180722-0035</option>
-                                            </select>
-                                        </td>
-        
-                                    </tr>
-        
-                                    <tr>
-        
-                                        <td>2</td>
-                                        <td>XXXX</td>
-                                        <td>Jantan</td>
-                                        <td>XXXX</td>
-                                        <td>20/7/2022</td>
-                                        <td>
-                                            <select class="form-select" aria-label="Default select example"
-                                                name="catatan_penggunaan">
-                                                <option selected>Sila Pilih</option>
-                                                <option value="1">R3-180722-0035</option>
-                                                <option value="2">R3-180722-0035</option>
-                                                <option value="3">R3-180722-0035</option>
-                                            </select>
-                                        </td>
-        
-                                    </tr> --}}
         
                                 </tbody>
                             </table>
