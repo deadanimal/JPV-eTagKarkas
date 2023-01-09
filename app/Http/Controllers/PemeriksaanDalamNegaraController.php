@@ -317,8 +317,6 @@ class PemeriksaanDalamNegaraController extends Controller
         // dd( $survelans);
         $pdf = FacadePDF::loadView('pdn.jana_borang_ncr', compact('ncr'));
         return $pdf->download('borang_NCR.pdf');
-
-
     }
 
     //obr
@@ -388,6 +386,16 @@ class PemeriksaanDalamNegaraController extends Controller
         $obr->delete();
         alert()->success('Maklumat telah dipadam', 'Berjaya');
         return back();
+    }
+
+    public function jana_obs(Request $request){
+        $id = (int)$request->route('id');
+
+        $obr = JadualNcsObr::find($id);
+
+        // dd( $survelans);
+        $pdf = FacadePDF::loadView('pdn.jana_borang_obs', compact('obr'));
+        return $pdf->download('borang_OBS.pdf');
     }
 
 //log
