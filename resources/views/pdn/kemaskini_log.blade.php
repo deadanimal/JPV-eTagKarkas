@@ -68,6 +68,49 @@
                                         </div>
                                    
                                     </div>
+
+                                    <br><br>
+
+                                    {{-- jadual --}}
+                                    <div >
+                                        <div class="card" >
+
+                                            <div class="card-body"  style="border-width: 1px; border-color:black;">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="16" class="text-center">LOG PEMERIKSAAN VETERINAR <br><span>JABATAN PERKHIDMATAN VETERINAR MALAYSIA</span></th>
+                                                            {{-- after AUDIT, need to specify MyGap or VHM --}}
+                                                        </tr>
+                                                        <tr style="vertical-align: middle">
+                                                            <th>Tarikh</th>
+                                                            <th>Nama Pemeriksa</th>
+                                                            <th>Tujuan Pemeriksaan</th>
+                                                            <th>Catatan</th>
+                                                            <th>Tandatangan Pengurus Loji</th>
+                                                            <th>Tandatangan Pemeriksa</th>
+                                                        </tr>
+                                                        <tr>
+                                                        {{-- <th colspan="6" class="text-center">Zon</th> --}}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Button --}}
                                     <div class="row">
                                         <div class="mb-3 mt-3">
                                             <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Kemaskini</button>
@@ -77,9 +120,13 @@
                                     </div> 
                                 </form>
                             </div>
+
+                            
    
                         </div>
                     </div>
+
+                    
 
                    
 
