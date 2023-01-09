@@ -464,6 +464,19 @@ class PemeriksaanDalamNegaraController extends Controller
         return back();
     }
 
+    public function jana_log(Request $request){
+        $id = (int)$request->route('id');
+
+        $log = log::find($id);
+
+        // dd($log);
+
+        $pdf = FacadePDF::loadView('pdn.jana_borang_log', compact('log'));
+        return $pdf->download('borang_Log.pdf');
+
+        // return view('pdn.jana_borang_log', compact('log'));
+    }
+
     //exsport
     public function senarai_eksport_luar(){
 

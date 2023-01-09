@@ -166,6 +166,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('kemaskini_jadual_log/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_log']);
     Route::put('simpan_kemaskini_jadual_log/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_log']);
     Route::delete('padam_log/{id}', [PemeriksaanDalamNegaraController::class, 'padam_log']);
+    Route::get('jana-log/{id}', [PemeriksaanDalamNegaraController::class, 'jana_log']);
+
 
     //exsport singapura
     Route::get('eksport-luar', [PemeriksaanDalamNegaraController::class, 'senarai_eksport_luar']);

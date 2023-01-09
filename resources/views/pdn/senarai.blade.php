@@ -270,7 +270,7 @@
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Borang NCR</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borang OBS</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -330,12 +330,31 @@
                                         <td>{{$log->premis}}</td>
                                         <td class="table-action">
                                             <a href="/kemaskini_jadual_log/{{$log->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                            <form action="/padam_log/{{ $log->id }}" method="post">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                            </form>
-                                            {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalLog{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalLog{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borang Log</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Adakah anda ingin memadam maklumat ini?
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <form action="/padam_log/{{ $log->id }}" method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <a href="/jana-log/{{$log->id}}"><i class="align-middle fas fa-fw fa-print"></i></a>
                                         </td>  
                                     </tr>
                                 @endforeach
@@ -347,10 +366,6 @@
             </div>
 
             @endrole
-
-            
-
-
     </div>
 
 

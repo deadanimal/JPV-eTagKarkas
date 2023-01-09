@@ -65,6 +65,48 @@
                                             oninput="this.setCustomValidity('')" />
 
                                         </div>
+
+                                        <br><br>
+
+                                          {{-- table --}}
+
+                                          <div>
+                                            <div class="card">
+
+                                                <div class="card-body"  style="border-width: 1px; border-color:black;">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="16" class="text-center">LOG PEMERIKSAAN VETERINAR <br><span>JABATAN PERKHIDMATAN VETERINAR MALAYSIA</span></th>
+                                                                {{-- after AUDIT, need to specify MyGap or VHM --}}
+                                                            </tr>
+                                                            <tr style="vertical-align: middle">
+                                                                <th>Tarikh</th>
+                                                                <th>Nama Pemeriksa</th>
+                                                                <th>Tujuan Pemeriksaan</th>  
+                                                                <th>Catatan</th>  
+                                                                <th>Tandatangan Pengurus Loji</th>  
+                                                                <th>Tandatangan Pemeriksa</th>  
+                                                            </tr>
+                                                        
+                                                        </thead>
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                        
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                          </div>
+
                                    
                                     </div> 
 
@@ -76,31 +118,6 @@
                                         
                                     </div> 
                                 </form>
-                            </div>
-
-                            {{-- table --}}
-
-                            <div class="card-body"  style="border-width: 1px; border-color:black;">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="16" class="text-center">LOG PEMERIKSAAN VETERINAR</th>
-                                            {{-- after AUDIT, need to specify MyGap or VHM --}}
-                                        </tr>
-                                        <tr style="vertical-align: middle">
-                                            <th>Tarikh</th>
-                                            <th>Nama Pemeriksa</th>
-                                            <th>Tujuan Pemeriksaan</th>  
-                                            <th>Catatan</th>  
-                                            <th>Tandatangan Pengurus Loji</th>  
-                                            <th>Tandatangan Pemeriksa</th>  
-                                        </tr>
-                                       
-                                    </thead>
-                                    <tbody>
-    
-                                    </tbody>
-                                </table>
                             </div>
    
                         </div>
