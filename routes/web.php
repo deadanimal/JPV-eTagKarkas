@@ -151,12 +151,14 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('padam_ncr/{id}', [PemeriksaanDalamNegaraController::class, 'padam_ncr']);
     Route::get('jana-ncr/{id}', [PemeriksaanDalamNegaraController::class, 'jana_ncr']);
 
-//obr
+//obr - correction obs
     Route::get('borang_obr', [PemeriksaanDalamNegaraController::class, 'borang_obr']);
     Route::post('cipta_borang_obr', [PemeriksaanDalamNegaraController::class, 'cipta_jadual_obr']);
     Route::get('kemaskini_jadual_obr/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_obr']);
     Route::put('simpan_kemaskini_jadual_obr/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_obr']);
     Route::delete('padam_obr/{id}', [PemeriksaanDalamNegaraController::class, 'padam_obr']);
+    Route::get('jana-obs/{id}', [PemeriksaanDalamNegaraController::class, 'jana_obs']);
+
 
 //log
     Route::get('borang_log', [PemeriksaanDalamNegaraController::class, 'borang_log']);
