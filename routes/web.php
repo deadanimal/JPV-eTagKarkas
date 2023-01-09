@@ -149,6 +149,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('kemaskini_jadual_ncr/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_jadual_ncr']);
     Route::put('simpan_kemaskini_jadual_ncr/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_jadual_ncr']);
     Route::delete('padam_ncr/{id}', [PemeriksaanDalamNegaraController::class, 'padam_ncr']);
+    Route::get('jana-ncr/{id}', [PemeriksaanDalamNegaraController::class, 'jana_ncr']);
+
 //obr
     Route::get('borang_obr', [PemeriksaanDalamNegaraController::class, 'borang_obr']);
     Route::post('cipta_borang_obr', [PemeriksaanDalamNegaraController::class, 'cipta_jadual_obr']);
