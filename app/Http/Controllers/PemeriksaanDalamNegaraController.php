@@ -309,6 +309,18 @@ class PemeriksaanDalamNegaraController extends Controller
         return back();
     }
 
+    public function jana_ncr(Request $request){
+        $id = (int)$request->route('id');
+
+        $ncr = JadualNcsObr::find($id);
+
+        // dd( $survelans);
+        $pdf = FacadePDF::loadView('pdn.jana_borang_ncr', compact('ncr'));
+        return $pdf->download('borang_NCR.pdf');
+
+
+    }
+
     //obr
     public function borang_obr(){
         return view('pdn.borang_obr');

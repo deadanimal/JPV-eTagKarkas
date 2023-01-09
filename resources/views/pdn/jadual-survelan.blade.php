@@ -297,20 +297,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- <tr>
-                                                <td>1</td>
-                                                <td>Premis 1</td>
-                                                <td>Pemeriksa A</td>
-                                                <td>Pemeriksa A</td>
-                                                <td>Pemeriksa A</td>
-                                                <td>Pemeriksa A</td>
-                                                <td>Pahang</td>
-                                                <td class="table-action">
-                                                    <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                                    <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                                </td>
-                                                <td class="d-none d-md-table-cell"><a href="#"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
-                                            </tr> --}}
             
                                             <tr>
                                                 @foreach ($survelans as $survelan)

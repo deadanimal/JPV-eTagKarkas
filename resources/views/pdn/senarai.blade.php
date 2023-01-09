@@ -190,12 +190,37 @@
                                         <td>{{$ncr->company}}</td>
                                         <td class="table-action">
                                             <a href="/kemaskini_jadual_ncr/{{$ncr->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                            <form action="/padam_ncr/{{ $ncr->id }}" method="post">
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Borang NCR</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Adakah anda ingin memadam maklumat ini?
+                                                           
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                        <form action="/padam_ncr/{{ $ncr->id }}" method="post">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-primary">Ya</button>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            {{-- <form action="/padam_ncr/{{ $ncr->id }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                            </form>
-                                            {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
+                                            </form> --}}
+                                            <a href="/jana-ncr/{{$ncr->id}}"><i class="align-middle fas fa-fw fa-print"></i></a>
+
                                         </td>  
                                     </tr>
                                 @endforeach
@@ -244,6 +269,7 @@
                                                 @csrf
                                                 <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
                                             </form>
+
                                             {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
                                         </td>  
                                     </tr>
