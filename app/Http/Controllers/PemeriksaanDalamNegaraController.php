@@ -631,6 +631,19 @@ class PemeriksaanDalamNegaraController extends Controller
         return back();
     }
 
+    public function jana_eksport(Request $request){
+        $id = (int)$request->route('id');
+
+        $eksport = Exsport::find($id);
+
+        // dd($eksport);
+
+        $pdf = FacadePDF::loadView('pdn.jana_borang_eksport', compact('eksport'));
+        return $pdf->download('borang_Eksport_Luar.pdf');
+
+        // return view('pdn.jana_borang_log', compact('log'));
+    }
+
     public function senarai_veterinar(){
 
         $vets = SijilVeterinar::all();

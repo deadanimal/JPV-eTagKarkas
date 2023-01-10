@@ -182,6 +182,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('cipta_exsport1', [PemeriksaanDalamNegaraController::class, 'cipta_exsport1']);
     Route::get('kemaskini_exsport1/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_exsport1']);
     Route::put('simpan_kemaskini_exsport1/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_exsport1']);
+    Route::get('jana-eksport/{id}', [PemeriksaanDalamNegaraController::class, 'jana_eksport']);
+
 
 
 
