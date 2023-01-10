@@ -135,37 +135,39 @@
                                         <td>{{$exsport->pemeriksa_2}}</td>  
                                         <td class="table-action">
                                             <a href="kemaskini_exsport1/{{$exsport->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                            <form action="/padam_exsport/{{ $exsport->id }}" method="post">
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalEksport{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borang Log</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Adakah anda ingin memadam maklumat ini?
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <form action="/padam_exsport/{{ $exsport->id }}" method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <a href="/jana-eksport/{{$eksport->id}}"><i class="align-middle fas fa-fw fa-print"></i></a>
+                                            {{-- <form action="/padam_exsport/{{ $exsport->id }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                            </form>
-                                            {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
+                                            </form> --}}
                                         </td>
                                     </tr>
                                 @endforeach
-
-                                {{-- <tr>
-                                    @foreach ($jaduals as $jadual)
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$jadual->zon}}</td>
-                                    <td>{{$jadual->operasi}}</td>
-                                    <td>{{$jadual->created_at->format('d/m/Y')}}</td>
-                                    <td class="table-action">
-                                        <a href="kemaskini_jadual_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/padam_survelan/{{ $jadual->id }}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                        </form>
-                                    </td>
-                                    <td>Dihantar/Selesai</td>
-                                    <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
-                                       
-
-                                </tr>
-
-                                    @endforeach --}}
                               
                             </tbody>
                         </table>

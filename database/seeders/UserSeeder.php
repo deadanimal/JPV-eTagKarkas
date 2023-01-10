@@ -45,8 +45,8 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('PipelineForever'),
             ], 
             [
-                'name' => 'P5:Ketua Seksyen',
-                'email' => 'jpv-etagkarkas-p5@pipeline.com.my',
+                'name' => 'P6:Pentadbir Zon',
+                'email' => 'jpv-etagkarkas-p6@pipeline.com.my',
                 'password' => Hash::make('PipelineForever'),
             ], 
             // [
