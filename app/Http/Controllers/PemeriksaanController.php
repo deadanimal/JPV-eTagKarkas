@@ -473,8 +473,9 @@ class PemeriksaanController extends Controller
     public function satu_pemeriksaan_babi(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
-        $pemeriksaan = Pemeriksaan::find($id);
+        $pemeriksaan = PengenalanBabi::find($id);
 
+        // dd($pemeriksaan);
         $pemeriksaan_babi = PengenalanBabi::find($id);
         $periksa_harian = PengenalanBabi::find($id);
  
