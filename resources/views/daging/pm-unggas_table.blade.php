@@ -13,7 +13,9 @@
                         <th scope="col">No</th>
                         <th scope="col">Jenis Kes</th>
                         <th scope="col">Bilangan Kes</th>
+                        @role('pengurus-rumah-sembelih')
                         <th scope="col">Tindakan</th>
+                        @endrole
                         
                       </tr>
                     </thead>
@@ -28,8 +30,10 @@
                           <td scope="row" rowspan="4" style="vertical-align : middle;text-align:center;">{{$loop->iteration}}</td>
                           <td>Bukan Lesi Semasa Post Mortem - {{$pm->bukan_lesi}} </td>
                           <td>{{$pm->bil_bukan_lesi}}</td>
+                          @role('pengurus-rumah-sembelih')
                           <td rowspan="4" style="vertical-align : middle;text-align:center;">
                             <a class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{$loop->iteration}}">Kemaskini</a></td>
+                          @endrole
 
                           <!-- Modal -->
                           <div class="modal fade" id="exampleModal{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

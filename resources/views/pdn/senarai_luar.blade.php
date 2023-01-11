@@ -159,12 +159,12 @@
                                                 </div>
                                                 </div>
                                             </div>
-                                            <a href="/jana-eksport/{{$eksport->id}}"><i class="align-middle fas fa-fw fa-print"></i></a>
+                                            <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
                                             {{-- <form action="/padam_exsport/{{ $exsport->id }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                            </form> --}}
+                                            </form>  /jana-eksport/{{$eksport->id}} --}} 
                                         </td>
                                     </tr>
                                 @endforeach
