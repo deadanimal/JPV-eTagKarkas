@@ -634,12 +634,12 @@ class PemeriksaanDalamNegaraController extends Controller
     public function jana_eksport(Request $request){
         $id = (int)$request->route('id');
 
-        $eksport = Exsport::find($id);
+        $exsports = Exsport::find($id);
 
         // dd($eksport);
 
-        $pdf = FacadePDF::loadView('pdn.jana_borang_eksport', compact('eksport'));
-        return $pdf->download('borang_Eksport_Luar.pdf');
+        $pdf = FacadePDF::loadView('pdn.jana_eksport', compact('exsports'));
+        return $pdf->download('Borang_Adequacy_Audit.pdf');
 
         // return view('pdn.jana_borang_log', compact('log'));
     }
