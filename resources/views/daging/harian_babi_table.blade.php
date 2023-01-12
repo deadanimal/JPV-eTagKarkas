@@ -63,7 +63,7 @@
           <div class="card-body" >
             <u><h4 class="text-center ">Catatan Senarai Ternakan </h4></u>
 
-              <a href="/catatan/{{$pemeriksaan->id}}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">Tambah</a>
+              <a href="/catatan-babi/{{$pemeriksaan->id}}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right">Tambah</a>
               <!-- Button trigger modal -->
 
               <!-- Modal -->
@@ -75,7 +75,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="/catatan" method="POST">
+                      <form action="/catatan-babi" method="POST">
                         @csrf
 
                         <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
@@ -164,7 +164,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                   </div>
                                   <div class="modal-body">
-                                    <form action="/catatan/{{$catatan->id}}" method="POST">
+                                    <form action="/catatan-babi/{{$catatan->id}}" method="POST">
                                       @method('PUT')
                                       @csrf
               

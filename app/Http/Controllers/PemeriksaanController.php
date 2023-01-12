@@ -6,6 +6,7 @@ use App\Models\AnteMortemRuminan;
 use App\Models\AnteMortemUnggas;
 use App\Models\Babi;
 use App\Models\Catatan;
+use App\Models\CatatanBabi;
 use App\Models\Haiwan;
 use App\Models\PemeriksaanBabi;
 use App\Models\PemeriksaanBabiHarian;
@@ -490,10 +491,64 @@ class PemeriksaanController extends Controller
         $post_mortems = PostMortemRuminan::where([
             ['pemeriksaan_id','=', $pemeriksaan_babi->id],
         ])->get(); 
-        $catatans = Catatan::where([
+        $catatans = CatatanBabi::where([
             ['pemeriksaan_id','=', $pemeriksaan_babi->id],
         ])->get(); 
         return view('daging.satu_babi', compact('user','pemeriksaan_babi','harians','periksa_harian','ante_mortems','post_mortems','catatans','pemeriksaan'));
+    }
+
+    public function catatan_babi(Request $request){
+        $id = (int)$request->route('id');
+
+        $user = $request->user();
+        $pemeriksaan = PengenalanBabi::find($id);
+        $catatans = CatatanBabi::find($id);
+
+
+        return view('daging.catatan_babi', compact('user','catatans','pemeriksaan'));
+    }
+
+    public function cipta_catatan_babi(Request $request){
+
+        $user = $request->user();
+
+        $catatan = New CatatanBabi;
+
+        $catatan->tag = $request->tag;
+        $catatan->jantina = $request->jantina;
+        $catatan->baka = $request->baka;
+        $catatan->tarikh = $request->tarikh;
+        $catatan->pemeriksaan_id = $request->pemeriksaan_id;
+        $catatan->rumah_sembelih_id = $user->rumah_sembelih->id;
+
+        $catatan->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat catatan telah disimpan.');
+
+        return back(); 
+
+    }
+
+    public function kemaskini_catatan_babi(Request $request){
+
+        $user = $request->user();
+
+        $id = (int)$request->route('id'); 
+        $catatan = CatatanBabi::find($id);
+
+        $catatan->tag = $request->tag;
+        $catatan->jantina = $request->jantina;
+        $catatan->baka = $request->baka;
+        $catatan->tarikh = $request->tarikh;
+        $catatan->pemeriksaan_id = $request->pemeriksaan_id;
+        $catatan->rumah_sembelih_id = $user->rumah_sembelih->id;
+
+        $catatan->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat catatan tag karkas telah dikemaskini.');
+
+        return back(); 
+
     }
 
    
