@@ -71,6 +71,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('harian', [PemeriksaanHarianController::class, 'satu_harian_babi']);
     Route::post('periksa-babi', [PemeriksaanHarianController::class, 'cipta_pemeriksaan_babi']);
     Route::get('periksa-rapi-babi/{id}', [PemeriksaanHarianController::class, 'periksa_rapi_babi']);
+    Route::post('periksa-rapi-babi/{id}', [PemeriksaanHarianController::class, 'simpan_periksa_rapi_babi']);
     Route::get('jana-rapi-babi/{id}', [PemeriksaanHarianController::class, 'jana_rapi_babi']);
 
 

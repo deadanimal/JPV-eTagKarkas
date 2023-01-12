@@ -21,7 +21,7 @@
         
                     <div class="tab-pane active show" id="tab-1" role="tabpanel">
         
-                        <form action="/periksa-rapi/{{$jana_rapi->id}}" method="POST">
+                        <form action="/periksa-rapi-babi/{{$jana_rapi->id}}" method="POST">
                             @csrf
                 
         
@@ -149,7 +149,7 @@
                                             <td>{{$periksa_rapi->jumlah_ternakan}}</td>
                                             <td>{{$periksa_rapi->diagnosis}}</td>
                                             <td>{{$periksa_rapi->suhu}}</td>
-                                            <td><a href="/jana-rapi-babi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary mx-3" type="button" style="float: right">Jana</button></a></td>
+                                            <td><a href="/jana-rapi/{{$jana_rapi->id}}"><button value="jana" class="btn btn-secondary mx-3" type="button" style="float: right">Jana</button></a></td>
                                            
                                      
                                           </tr>

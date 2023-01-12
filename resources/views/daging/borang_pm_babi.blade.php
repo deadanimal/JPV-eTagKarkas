@@ -78,7 +78,7 @@
                        </div>
 
                         <div class="mb-3">
-                            <a href="/jana-pm/{{$jana_pm->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
+                            <a href="/jana-pm-babi/{{$jana_pm->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a>
                         </div>
                         
                     </body>
