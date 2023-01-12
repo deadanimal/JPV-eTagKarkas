@@ -113,7 +113,7 @@
                                 </div>
                               </div> 
                               
-                          <td><a href="/tunjuk-pm/{{$post_mortem->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
+                          <td><a href="/tunjuk-pm-babi/{{$post_mortem->id}}"><button class="btn btn-secondary" type="button" style="float: right">Jana</button></a></td>
                           @endrole
 {{--                         
                             @if ($post_mortem->status == 1)
