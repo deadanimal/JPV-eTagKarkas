@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnteMortemBabi;
 use App\Models\AnteMortemRuminan;
 use App\Models\AnteMortemUnggas;
 use App\Models\Babi;
@@ -13,6 +14,7 @@ use App\Models\PemeriksaanBabiHarian;
 use App\Models\PemeriksaanHarian;
 use App\Models\PemeriksaanUnggas;
 use App\Models\PengenalanBabi;
+use App\Models\PostMortemBabi;
 use App\Models\PostMortemRuminan;
 use App\Models\PostMortemUnggas;
 use App\Models\RumahSembelih;
@@ -485,10 +487,10 @@ class PemeriksaanController extends Controller
              ['pemeriksaan_id','=', $periksa_harian->id],
 
          ])->get();
-         $ante_mortems = AnteMortemRuminan::where([
+         $ante_mortems = AnteMortemBabi::where([
             ['pemeriksaan_id','=', $pemeriksaan_babi->id],
         ])->get();
-        $post_mortems = PostMortemRuminan::where([
+        $post_mortems = PostMortemBabi::where([
             ['pemeriksaan_id','=', $pemeriksaan_babi->id],
         ])->get(); 
         $catatans = CatatanBabi::where([

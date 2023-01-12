@@ -221,7 +221,7 @@
                     <div class="tab-pane" id="tab-3" role="tabpanel">
         
                         @role('pengurus-rumah-sembelih')
-                        <form action="/ante-mortem" method="POST">
+                        <form action="/ante-mortem-babi" method="POST">
                         @csrf
         
                             <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
@@ -297,7 +297,7 @@
                     <div class="tab-pane" id="tab-4" role="tabpanel">
                         
                         @role('pengurus-rumah-sembelih')
-                        <form action="/post-mortem" method="POST">
+                        <form action="/post-mortem-babi" method="POST">
                         @csrf
         
                             <input type="hidden" name="rumah_sembelih_id" value="{{$user->rumah_sembelih_id}}">
@@ -376,7 +376,7 @@
                         @endrole
                         
                         <br><br>
-                        @include('daging.post_mortem_table')
+                        @include('daging.post_mortem_babi_table')
         
                     </div>
         

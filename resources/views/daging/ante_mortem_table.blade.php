@@ -6,7 +6,7 @@
 
 
             <div class="card-body">
-              <u><h4 class="text-center">Jadual Pemeriksaan Ante Mortem Ruminan </h4></u>
+              <u><h4 class="text-center">Jadual Pemeriksaan Ante Mortem Babi </h4></u>
                 <table class="table table-center text-center" >
                     <thead>
                       <tr>
@@ -48,7 +48,7 @@
                                   </div>
                                   <div class="modal-body">
 
-                                    <form action="/ante-mortem/{{$ante_mortem->id}}" method="POST">
+                                    <form action="/ante-mortem-babi/{{$ante_mortem->id}}" method="POST">
                                       @method('PUT')
                                       @csrf
                       

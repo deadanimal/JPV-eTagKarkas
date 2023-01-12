@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnteMortemBabi;
 use App\Models\AnteMortemRuminan;
 use App\Models\AnteMortemUnggas;
 use Illuminate\Http\Request;
@@ -52,10 +53,7 @@ class AnteMortemRuminanController extends Controller
 
         // return redirect()->back()->withInput(['tab'=>'tab-3']);
 
-
-
     }
-
 
     public function kemaskini_am(Request $request){
         $id = (int)$request->route('id');
@@ -75,6 +73,69 @@ class AnteMortemRuminanController extends Controller
         // return redirect()->back()->withInput(['tab'=>'tab-3']);
 
     }
+
+    public function satu_ante_mortem_babi(Request $request) {
+
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $pemeriksaan = AnteMortemBabi::find($id);
+        
+        //
+        
+        $ante_mortems = AnteMortemBabi::where([
+            ['pemeriksaan_id','=', $pemeriksaan->id],
+        ])->get();
+        
+        return view('daging.satu_ruminan', compact('ante_mortems','pemeriksaan','user'));
+      
+
+    }
+
+    public function cipta_anteMortem_babi(Request $request){
+
+        $ante_mortem = New AnteMortemBabi;
+
+        // 
+        $ante_mortem->ante_mortem = $request->ante_mortem;
+        $ante_mortem->kes = $request->kes;
+        $ante_mortem->nombor_tag = $request->nombor_tag;
+        $ante_mortem->catatan_ante_mortem = $request->catatan_ante_mortem;
+        $ante_mortem->jumlah_dikondem = $request->jumlah_dikondem;
+
+        $ante_mortem->pemeriksaan_id = $request->pemeriksaan_id;
+        $ante_mortem->rumah_sembelih_id = $request->rumah_sembelih_id;
+
+        $ante_mortem->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat penemuan ante-mortem ruminan telah disimpan.');
+
+        return redirect()->back();
+
+        // return redirect()->back()->withInput(['tab'=>'tab-3']);
+
+    }
+
+    public function kemaskini_am_babi(Request $request){
+        $id = (int)$request->route('id');
+        $am = AnteMortemBabi::find($id);
+
+        $am->ante_mortem = $request->ante_mortem;
+        $am->kes = $request->kes;
+        $am->nombor_tag = $request->nombor_tag;
+        $am->catatan_ante_mortem = $request->catatan_ante_mortem;
+        $am->jumlah_dikondem = $request->jumlah_dikondem;
+
+        $am->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat penemuan ante-mortem ruminan telah dikemaskini.');
+
+        return back();
+        // return redirect()->back()->withInput(['tab'=>'tab-3']);
+
+    }
+
+
+   
 
     public function satu_am_unggas(Request $request) {
 

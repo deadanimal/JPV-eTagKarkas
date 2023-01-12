@@ -80,6 +80,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('ante-mortem-unggas', [AnteMortemRuminanController::class, 'satu_am_unggas']);
     Route::post('ante-mortem-unggas', [AnteMortemRuminanController::class, 'cipta_anteMortemUnggas']);
     Route::put('ante-mortem-unggas/{id}', [AnteMortemRuminanController::class, 'kemaskini_am_unggas']);
+    Route::get('ante-mortem-babi', [AnteMortemRuminanController::class, 'satu_ante_mortem_babi']);
+    Route::post('ante-mortem-babi', [AnteMortemRuminanController::class, 'cipta_anteMortem_babi']);
+    Route::put('ante-mortem-babi/{id}', [AnteMortemRuminanController::class, 'kemaskini_am_babi']);
 
 
 
@@ -92,6 +95,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('post-mortem-unggas', [PostMortemRuminanController::class, 'cipta_postMortemUnggas']);
     Route::put('post-mortem-unggas/{id}', [PostMortemRuminanController::class, 'kemaskini_pm_unggas']);
     Route::get('/testjap', [PostMortemRuminanController::class, 'testjap']);
+    Route::get('post-mortem-babi', [PostMortemRuminanController::class, 'satu_post_mortem_babi']);
+    Route::post('post-mortem-babi', [PostMortemRuminanController::class, 'cipta_postMortem_babi']);
+    Route::put('post-mortem-babi/{id}', [PostMortemRuminanController::class, 'kemaskini_pm_babi']);
+    Route::get('tunjuk-pm-babi/{id}', [PostMortemRuminanController::class, 'tunjuk_pm_babi']);
+    Route::get('jana-pm-babi/{id}', [PostMortemRuminanController::class, 'jana_pm_babi']);
 
     Route::get('tag', [TagController::class, 'senarai']);
     Route::get('tag/borang', [TagController::class, 'borang']);
