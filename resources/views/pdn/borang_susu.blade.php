@@ -62,7 +62,7 @@
                                                 <label class="form-label">Emel</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="email" name="emel" required
+                                                <input class="form-control" type="email" name="emel" required onkeyup="this.value = this.value.toUpperCase();"
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
@@ -233,6 +233,8 @@
                                             oninput="this.setCustomValidity('')"></textarea>
                                         </div>
                                     </div>
+
+                                    <br><br>
 
                                  
             

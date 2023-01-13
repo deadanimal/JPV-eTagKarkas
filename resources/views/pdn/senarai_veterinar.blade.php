@@ -73,12 +73,36 @@
                                     <td>Dihantar</td>
                                     <td class="table-action">
                                         <a href="/satu-sijil/{{$vet->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/sijil/{{ $vet->id }}" method="post">
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalEksport{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borang Permohonan Pemeriksaan SKV</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Adakah anda ingin memadam maklumat ini?
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <form action="/sijil/{{ $vet->id }}" method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        {{-- <form action="/sijil/{{ $vet->id }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
 
-                                        </form>
+                                        </form> --}}
                                         {{-- <a href="#"><i class="align-middle fas fa-fw fa-upload"></i></i></a> --}}
 
             
@@ -125,7 +149,7 @@
                                     <td>Dihantar</td>
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
+                                        {{-- <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a> --}}
                                     </td>
     
                                 </tr>
