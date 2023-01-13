@@ -940,12 +940,39 @@
 
                                     </div>
 
+                                    <br><br>
+
                                     {{-- Button --}}
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <div class="mb-3">
                                             <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button>
                                         </div>
-                                    </div>  
+                                    </div> --}}
+                                    
+                                    <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                                        <a href="/keratan" class="btn btn-primary">Kembali</a>
+                                        <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                            Hantar
+                                        </button>
+                                    </div>
+  
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Adakah anda ingin menghantar laporan verifikasi baharu?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                                <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
                                             
                                 </form>
                             </div>

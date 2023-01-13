@@ -719,8 +719,10 @@
         
                                     {{-- Button --}}
                                     <div class="row">
-                                        <div class="mb-3">
-                                            <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button>
+                                        <div class="mb-3 text-center">
+                                            <a href="/sijil-veterinar" class="btn btn-primary">Kembali</a>
+                                            <button class="btn btn-success" type="submit" title="Hantar">Hantar</button>
+
                                         </div>
                                     </div>  
                                             

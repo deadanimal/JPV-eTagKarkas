@@ -28,7 +28,7 @@
             <div class="col-12 col-xl-12">
                 <div class="card" >
                     <div class="card-header">
-                        <h5 class="card-title">Senarai Permohonan Veterinar</h5>
+                        <h5 class="card-title">Senarai Permohonan Verifikasi Import</h5>
                     </div>
 
                     <a href="/borang-keratan" class="btn float-end " style="width: fit-content"><button
@@ -44,29 +44,14 @@
                                     <th style="width:15%">Pemeriksa 1</th>
                                     <th style="width:15%">Pemeriksa 2</th>
                                     <th style="width:15%">Pemeriksa 3</th>
-                                    <th style="width:15%">Pemeriksa 4</th>
+                                    {{-- <th style="width:15%">Pemeriksa 4</th> --}}
                                     {{-- <th style="width:10%">Status</th> --}}
                                     <th style="width:10%">Tindakan</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- <tr>
-                                    <td>CP/20222/1</td>
-                                    <td>Premis A bagi Pengimportan Susu Cair</td>
-                                    <td class="d-none d-md-table-cell">1/12/22</td>
-                                    <td>Izatul Hanim</td>
-                                    <td>Atul Hanim</td>
-                                    <td>Iza Hanim</td>
-                                    <td>Iz Hanim</td>
-                                    <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></a>
-                                    </td>
-    
-                                </tr> --}}
+                        
 
                                 <tr>
                                     @foreach ($keratans as $keratan)
@@ -76,15 +61,39 @@
                                     <td>{{$keratan->pemeriksa_1}}</td>
                                     <td>{{$keratan->pemeriksa_2}}</td>
                                     <td>{{$keratan->pemeriksa_3}}</td>
-                                    <td>{{$keratan->pemeriksa_4}}</td>
+                                    {{-- <td>{{$keratan->pemeriksa_4}}</td> --}}
                                     {{-- <td>Dihantar/Selesai</td> --}}
                                     <td class="table-action">
                                         <a href="/satu-keratan/{{$keratan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/keratan/{{ $keratan->id }}" method="post">
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalEksport{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borang Permohonan Verifikasi Import</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Adakah anda ingin memadam maklumat ini?
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <form action="/keratan/{{ $keratan->id }}" method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        {{-- <form action="/keratan/{{ $keratan->id }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                        </form>
+                                        </form> --}}
                                         <a href="/satu-keratan/{{$keratan->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>            
                                     </td>        
                                 </tr>
@@ -127,10 +136,9 @@
                                     <td class="d-none d-md-table-cell">1/12/22</td>
                                     <td>Kemaskini/Dihantar</td>
                                     <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                        <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-download"></i></a>
                                     </td>
     
                                 </tr>
