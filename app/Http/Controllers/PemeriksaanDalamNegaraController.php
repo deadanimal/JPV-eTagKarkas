@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Keratan;
 use App\Models\PemeriksaanDalamNegara;
+use App\Models\semak_borangA;
 use App\Models\SijilVeterinar;
 use App\Models\SusuTepung;
 use Illuminate\Http\Request;
@@ -647,7 +648,9 @@ class PemeriksaanDalamNegaraController extends Controller
     public function senarai_veterinar(){
 
         $vets = SijilVeterinar::all();
-        return view('pdn.senarai_veterinar', compact('vets'));
+
+        $semaks = semak_borangA::all();
+        return view('pdn.senarai_veterinar', compact('vets','semaks'));
     }
 
     
@@ -736,6 +739,37 @@ class PemeriksaanDalamNegaraController extends Controller
 
     public function borang_semak(){
         return view('pdn.borang-semak');
+    }
+
+    public function cipta_borang_semak_A(Request $request){
+
+        $semak = New semak_borangA();
+        $semak->tarikh = $request->tarikh;
+        $semak->rujukan = $request->rujukan;
+        $semak->establishment = $request->establishment;
+        $semak->telefon = $request->telefon;
+        $semak->alamat = $request->alamat;
+        $semak->jenis = $request->jenis;
+        $semak->tujuan = $request->tujuan;
+        $semak->premis = $request->premis;
+        $semak->pemeriksa_dvs = $request->pemeriksa_dvs;
+        $semak->pemeriksa1 = $request->pemeriksa1;
+        $semak->pemeriksa2 = $request->pemeriksa2;
+        $semak->pemeriksa3 = $request->pemeriksa3;
+        $semak->pemeriksa4 = $request->pemeriksa4;
+
+        $semak->save();
+
+        Alert::success('Hantar berjaya.', 'Maklumat pemeriksaan telah disimpan.');
+
+        return redirect('/borang-semak');
+
+    }
+
+    public function satu_borang_semak(Request $request) {
+        $id = (int)$request->route('id');
+        $semak = semak_borangA::find($id);        
+        return view('pdn.satu_semak', compact('semak'));
     }
 
     public function senarai_keratan(){

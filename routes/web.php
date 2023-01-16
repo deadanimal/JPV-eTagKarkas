@@ -210,6 +210,10 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('borang-semak', [PemeriksaanDalamNegaraController::class, 'borang_semak']);
+    Route::post('borang-semak', [PemeriksaanDalamNegaraController::class, 'cipta_borang_semak_A']);
+    Route::get('satu-semak/{id}', [PemeriksaanDalamNegaraController::class, 'satu_borang_semak']);
+
+
 
     Route::get('keratan', [PemeriksaanDalamNegaraController::class, 'senarai_keratan']);
     Route::get('borang-keratan', [PemeriksaanDalamNegaraController::class, 'borang_keratan']);

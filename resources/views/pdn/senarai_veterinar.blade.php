@@ -103,7 +103,7 @@
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
 
                                         </form> --}}
-                                        {{-- <a href="#"><i class="align-middle fas fa-fw fa-upload"></i></i></a> --}}
+                                        <a href="#" type="document"><i class="align-middle fas fa-fw fa-upload"></i></i></a>
 
             
                                     </td>
@@ -133,9 +133,10 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th style="width:10%">No.</th>
                                     <th style="width:25%">Senarai Permohonan</th>
                                     <th style="width:10%">Tarikh</th>
-                                    <th style="width:10%">Status</th>
+                                    {{-- <th style="width:10%">Status</th> --}}
                                     <th style="width:10%">Tindakan</th>
 
                                     {{-- <th style="width:10%">Jadual Survelan</th> --}}
@@ -143,38 +144,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              
+
                                 <tr>
-                                    <td>Premis A bagi Produk Telur</td>
-                                    <td class="d-none d-md-table-cell">1/12/22</td>
-                                    <td>Dihantar</td>
-                                    <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
-                                        {{-- <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a> --}}
-                                    </td>
-    
-                                </tr>
-
-                                {{-- <tr>
-                                    @foreach ($jaduals as $jadual)
+                                    @foreach ($semaks as $semak)
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$jadual->zon}}</td>
-                                    <td>{{$jadual->operasi}}</td>
-                                    <td>{{$jadual->created_at->format('d/m/Y')}}</td>
+                                    <td>{{$semak->premis}}</td>
+                                    <td>{{$semak->tarikh}}</td>
                                     <td class="table-action">
-                                        <a href="kemaskini_jadual_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/padam_survelan/{{ $jadual->id }}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                        </form>
-                                    </td>
-                                    <td>Dihantar/Selesai</td>
-                                    <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
-                                       
+                                        <a href="/satu-semak/{{$semak->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a>
+                                        <a href="kemaskini_semak_survelan/{{$semak->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>
+                                      
+                                    </td>                                       
 
                                 </tr>
 
-                                    @endforeach --}}
+                                    @endforeach
                               
                             </tbody>
                         </table>
