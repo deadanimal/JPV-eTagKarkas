@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Keratan;
 use App\Models\PemeriksaanDalamNegara;
 use App\Models\semak_borangA;
+use App\Models\semak_borangB;
 use App\Models\SijilVeterinar;
 use App\Models\SusuTepung;
 use Illuminate\Http\Request;
@@ -766,10 +767,30 @@ class PemeriksaanDalamNegaraController extends Controller
 
     }
 
+    public function cipta_borang_semak_B(Request $request){
+
+        $semak = New semak_borangB();
+        $semak->keperluan = $request->keperluan;
+        $semak->jenis = $request->jenis;
+        $semak->senarai = $request->senarai;
+        $semak->negara_haiwan = $request->negara_haiwan;
+        $semak->produk_haiwan = $request->produk_haiwan;
+        $semak->negara_non_haiwan = $request->negara_non_haiwan;
+        $semak->maklumat_pemeriksaan_id = $request->maklumat_pemeriksaan_id;
+
+    
+        // $semak->save();
+
+        Alert::success('Hantar berjaya.', 'Maklumat pemeriksaan telah disimpan.');
+
+        return back();
+
+    }
+
     public function satu_borang_semak(Request $request) {
         $id = (int)$request->route('id');
         $semak = semak_borangA::find($id);        
-        return view('pdn.satu_semak', compact('semak'));
+        return view('pdn.borang-satu-semak', compact('semak'));
     }
 
     public function senarai_keratan(){
