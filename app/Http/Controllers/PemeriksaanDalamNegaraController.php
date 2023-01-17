@@ -6,6 +6,8 @@ use App\Models\Keratan;
 use App\Models\PemeriksaanDalamNegara;
 use App\Models\semak_borangA;
 use App\Models\semak_borangB;
+use App\Models\semak_borangC;
+use App\Models\semak_borangD;
 use App\Models\SijilVeterinar;
 use App\Models\SusuTepung;
 use Illuminate\Http\Request;
@@ -763,7 +765,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
         Alert::success('Hantar berjaya.', 'Maklumat pemeriksaan telah disimpan.');
 
-        return redirect('/borang-semak');
+        return redirect('/sijil-veterinar');
 
     }
 
@@ -779,9 +781,60 @@ class PemeriksaanDalamNegaraController extends Controller
         $semak->maklumat_pemeriksaan_id = $request->maklumat_pemeriksaan_id;
 
     
-        // $semak->save();
+        $semak->save();
 
-        Alert::success('Hantar berjaya.', 'Maklumat pemeriksaan telah disimpan.');
+        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan telah disimpan.');
+
+        return back();
+
+    }
+
+    public function cipta_borang_semak_C(Request $request){
+
+        $semak = New semak_borangC();
+        $semak->bahan = $request->bahan;
+        $semak->punca = $request->punca;
+        $semak->nombor = $request->nombor;
+        $semak->dokumen = $request->dokumen;
+        $semak->carta = $request->carta;
+        $semak->jenis = $request->jenis;
+        $semak->jabatan = $request->jabatan;
+        $semak->tarikh = $request->tarikh;
+        $semak->manual = $request->manual;
+        $semak->sistem_manual = $request->sistem_manual;
+        $semak->rekod = $request->rekod;
+        $semak->haccp = $request->haccp;
+        $semak->maklumat_pemeriksaan_id = $request->maklumat_pemeriksaan_id;
+
+    
+        $semak->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan telah disimpan.');
+
+        return back();
+
+    }
+
+    public function cipta_borang_semak_D(Request $request){
+
+        $semak = New semak_borangD();
+        $semak->keputusan = $request->keputusan;
+        $semak->penemuan = $request->penemuan;
+        $semak->pengesyoran = $request->pengesyoran;
+        $semak->pemeriksa1 = $request->pemeriksa1;
+        $semak->pemeriksa2 = $request->pemeriksa2;
+        $semak->pemeriksa3 = $request->pemeriksa3;
+        $semak->pemeriksa4 = $request->pemeriksa4;
+        $semak->cop1 = $request->cop1;
+        $semak->cop2 = $request->cop2;
+        $semak->cop3 = $request->cop3;
+        $semak->cop4 = $request->cop4;
+        $semak->maklumat_pemeriksaan_id = $request->maklumat_pemeriksaan_id;
+
+    
+        $semak->save();
+
+        Alert::success('Simpan berjaya.', 'Maklumat pemeriksaan telah disimpan.');
 
         return back();
 
@@ -790,7 +843,10 @@ class PemeriksaanDalamNegaraController extends Controller
     public function satu_borang_semak(Request $request) {
         $id = (int)$request->route('id');
         $semak = semak_borangA::find($id);        
-        return view('pdn.borang-satu-semak', compact('semak'));
+        $semak_borangB = semak_borangB::find($id);        
+        $semak_borangC = semak_borangC::find($id);        
+        $semak_borangD = semak_borangD::find($id);        
+        return view('pdn.borang-satu-semak', compact('semak','semak_borangB','semak_borangC','semak_borangD'));
     }
 
     public function senarai_keratan(){

@@ -217,8 +217,11 @@
                                         </div>
             
                                         <div class="card-body border border-dark">
-                                            <form action="#" method="POST" enctype="multipart/form-data">
+                                            <form action="/borang-semakB" method="POST" enctype="multipart/form-data">
                                                 @csrf
+
+                                                <input type="hidden" name="maklumat_pemeriksaan_id">
+
                         
                                                 <div class="row">
                         
@@ -232,7 +235,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="keperluan" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -249,7 +252,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="jenis" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -273,7 +276,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="senarai" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -296,15 +299,15 @@
                                                         <label class="form-label">Nama Negara Yang Dieksport</label>
                                                     </div>
                                                   
-                                                        <input class="form-control" type="number" name="telefon" required
+                                                        <input class="form-control" type="text" name="negara_haiwan" required
                                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                        oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" />
                                                   
             
                                                     <div class="col-6">
                                                         <label class="form-label">Jenis Produk Yang Dieksport</label>
                                                     </div>
-                                                    <input class="form-control" type="text" name="name" onkeyup="this.value = this.value.toUpperCase();" required
+                                                    <input class="form-control" type="text" name="produk_haiwan" onkeyup="this.value = this.value.toUpperCase();" required
                                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                         oninput="this.setCustomValidity('')" />
             
@@ -316,20 +319,22 @@
                                                         <label class="form-label">Nama Negara Yang Dieksport</label>
                                                     </div>
                                                     
-                                                        <input class="form-control" type="number" name="telefon" required
+                                                        <input class="form-control" type="text" name="negara_non_haiwan" required
                                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                        oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();" />
             
             
                                                     
                                                 </div>
+
+                                                <br><br>
                     
                                                 {{-- Button --}}
-                                                {{-- <div class="row">
+                                                <div class="row text-center">
                                                     <div class="mb-3">
-                                                        <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button>
+                                                        <button class="btn btn-primary" type="submit" title="Simpan">Simpan</button>
                                                     </div>
-                                                </div>   --}}
+                                                </div>  
                                                         
                                             </form>
                                         </div>
@@ -345,6 +350,9 @@
                                         <div class="card-body border border-dark">
                                             <form action="#" method="POST" enctype="multipart/form-data">
                                                 @csrf
+
+                                                <input type="hidden" name="maklumat_pemeriksaan_id" >
+
                         
                                                 <div class="row">
                         
@@ -370,10 +378,10 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td><input type="file"></td>
+                                                                        <td><input type="text" name="bahan"></td>
+                                                                        <td><input type="text" name="punca"></td>
+                                                                        <td><input type="text" name="nombor" id=""></td>
+                                                                        <td><input type="file" name="dokumen"></td>
                                                                     </tr>
                                     
                                                                     {{-- <tr>
@@ -420,7 +428,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="carta" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -447,9 +455,9 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td><input type="date" name="" id=""></td>
+                                                                    <td><input type="text" name="jenis"></td>
+                                                                    <td><input type="text" name="jabatan"></td>
+                                                                    <td><input type="date" name="tarikh" id=""></td>
                                                                  
                                                                 </tr>
                                 
@@ -497,13 +505,13 @@
                                                             <h6>Manual</h6>
             
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                <input class="form-check-input" type="checkbox" name="manual" value="" id="flexCheckDefault">
                                                                 <label class="form-check-label" for="flexCheckDefault">
                                                                   Ya
                                                                 </label>
                                                               </div>
                                                               <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                                <input class="form-check-input" type="checkbox" name="manual" value="" id="flexCheckChecked" checked>
                                                                 <label class="form-check-label" for="flexCheckChecked">
                                                                   Tidak
                                                                 </label>
@@ -532,13 +540,13 @@
                                                             <h6>Manual</h6>
             
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                <input class="form-check-input" type="checkbox" name="sistem_manual" value="" id="flexCheckDefault">
                                                                 <label class="form-check-label" for="flexCheckDefault">
                                                                   Ya
                                                                 </label>
                                                               </div>
                                                               <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                                <input class="form-check-input" type="checkbox" name="sistem_manual" value="" id="flexCheckChecked" checked>
                                                                 <label class="form-check-label" for="flexCheckChecked">
                                                                   Tidak
                                                                 </label>
@@ -553,7 +561,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="rekod" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -563,7 +571,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="haccp" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -576,8 +584,7 @@
                                                 {{-- Button --}}
                                                 <div class="row">
                                                     <div class="mb-3 text-center">
-                                                        <a href="/sijil-veterinar" class="btn btn-primary">Kembali</a>
-                                                        <button class="btn btn-success" type="submit" title="Hantar">Hantar</button>
+                                                        <button class="btn btn-primary" type="submit" title="Simpan">Simpan</button>
             
                                                     </div>
                                                 </div>  
@@ -594,8 +601,11 @@
                                         </div>
             
                                         <div class="card-body">
-                                            <form action="#" method="POST" enctype="multipart/form-data">
+                                            <form action="/borang-semakD" method="POST" enctype="multipart/form-data">
                                                 @csrf
+
+                                                <input type="hidden" name="maklumat_pemeriksaan_id" >
+
                         
                                                 <div class="row">
                         
@@ -609,7 +619,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="keputusan" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -626,7 +636,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="penemuan" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -650,7 +660,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="pengesyoran" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                         </div>
@@ -669,7 +679,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="pemeriksa1" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                            
@@ -681,7 +691,7 @@
                                                         </div>
                                                         <div >
                                                            
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="pemeriksa2" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                           
@@ -692,7 +702,7 @@
                                                         </div>
                                                         <div>
                                                            
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="pemeriksa3" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                            
@@ -703,7 +713,7 @@
                                                         </div>
                                                         <div>
                                                            
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="pemeriksa4" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                             
@@ -722,7 +732,7 @@
                                                         </div>
                                                         <div class="">
                                                             
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="cop1" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                            
@@ -734,7 +744,7 @@
                                                         </div>
                                                         <div >
                                                            
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="cop2" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                           
@@ -745,7 +755,7 @@
                                                         </div>
                                                         <div>
                                                            
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="cop3" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                            
@@ -756,7 +766,7 @@
                                                         </div>
                                                         <div>
                                                            
-                                                                <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
+                                                                <textarea class="form-control" rows=5 name="cop4" onkeyup="this.value = this.value.toUpperCase();" required
                                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
                                                                 oninput="this.setCustomValidity('')"></textarea>
                                                             
@@ -766,6 +776,15 @@
             
                                                     </div>
                                                 </div>
+
+                                                {{-- Button --}}
+                                                <div class="row">
+                                                    <div class="mb-3 text-center">
+                                                        <button class="btn btn-primary" type="submit" title="Simpan">Simpan</button>
+            
+                                                    </div>
+                                                </div>  
+
                
                                             </form>
                                         </div>
