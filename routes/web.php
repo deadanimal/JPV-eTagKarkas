@@ -215,6 +215,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('borang-semakB', [PemeriksaanDalamNegaraController::class, 'cipta_borang_semak_B']);
     Route::post('borang-semakC', [PemeriksaanDalamNegaraController::class, 'cipta_borang_semak_C']);
     Route::post('borang-semakD', [PemeriksaanDalamNegaraController::class, 'cipta_borang_semak_D']);
+    Route::get('jana-semak/{id}', [PemeriksaanDalamNegaraController::class, 'jana_semak']);
+
 
 
 
