@@ -429,7 +429,7 @@
                                                                 <tr>
                                                                     <td><input type="text" name="jenis" value="{{$semak_borangC->jenis ?? ''}}" ></td>
                                                                     <td><input type="text" name="jabatan" value="{{$semak_borangC->jabatan ?? ''}}" ></td>
-                                                                    <td><input type="text" name="tarikh" id="" value="{{$semak_borangC->tarikh ?? ''}}" ></td>
+                                                                    <td><input type="date" name="tarikh" id="" value="{{$semak_borangC->tarikh ?? ''}}" ></td>
                                                                  
                                                                 </tr>
                                 

@@ -849,6 +849,22 @@ class PemeriksaanDalamNegaraController extends Controller
         return view('pdn.borang-satu-semak', compact('semak','semak_borangB','semak_borangC','semak_borangD'));
     }
 
+    public function jana_semak(Request $request){
+        $id = (int)$request->route('id');
+
+        $semak = semak_borangA::find($id);
+        $semak_borangB = semak_borangB::find($id);        
+        $semak_borangC = semak_borangC::find($id);        
+        $semak_borangD = semak_borangD::find($id); 
+
+        // dd($log);
+
+        $pdf = FacadePDF::loadView('pdn.jana_semak', compact('semak','semak_borangB','semak_borangC','semak_borangD'));
+        return $pdf->download('borang_semak.pdf');
+
+        // return view('pdn.jana_semak', compact('semak','semak_borangB','semak_borangC','semak_borangD'));
+    }
+
     public function senarai_keratan(){
         $keratans = Keratan::all();
 

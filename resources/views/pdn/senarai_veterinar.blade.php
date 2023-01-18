@@ -153,7 +153,7 @@
                                     <td>{{$semak->tarikh}}</td>
                                     <td class="table-action">
                                         <a href="/satu-semak/{{$semak->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a>
-                                        <a href="kemaskini_semak_survelan/{{$semak->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>
+                                        <a href="/jana-semak/{{$semak->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>
                                       
                                     </td>                                       
 
