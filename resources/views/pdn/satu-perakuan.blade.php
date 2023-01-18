@@ -25,7 +25,8 @@
                            
 
                             <div class="card-body">
-                                <form action="/borang-perakuan" method="POST" enctype="multipart/form-data">
+                                <form action="/kemaskini-perakuan/{{$perakuan->id}}" method="POST" enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
                                     <div class="row">
             
@@ -35,7 +36,7 @@
                                                 <label class="form-label">Nama Syarikat</label>
                                             </div>
                                             <textarea class="form-control" rows=5 name="syarikat" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')"></textarea>
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">{{$perakuan->syarikat}}</textarea>
                                           
 
                                             
@@ -46,7 +47,7 @@
                                                 <label class="form-label">Alamat Syarikat</label>
                                             </div>
                                             <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')"></textarea>
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')">{{$perakuan->alamat}}</textarea>
                                         </div>
                                         
                                     
@@ -54,8 +55,8 @@
 
                                     <hr>
 
-                                    <strong>Dengan ini kami pihak kami mengaku bahawa susu tepung yang berkuantiti <input type="number" name="kg" placeholder="KG" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" min="0">
-                                        dengan Batch No: <input type="text" name="batch" onkeyup="this.value = this.value.toUpperCase();"> adalah disingkirkan disebabkan oleh:
+                                    <strong>Dengan ini kami pihak kami mengaku bahawa susu tepung yang berkuantiti <input type="number" name="kg" placeholder="KG" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" min="0" value="{{$perakuan->kg}}">
+                                        dengan Batch No: <input type="text" name="batch" onkeyup="this.value = this.value.toUpperCase();" value="{{$perakuan->batch}}"> adalah disingkirkan disebabkan oleh:
                                     </strong>
 
                                     {{-- table --}}
@@ -75,35 +76,35 @@
                                                     <td><strong>1.</strong></td>
                                                     <td><strong>Proses Pembersihan Mesin</strong></td>
                                                     <td><input type="text" name="proses" id="" onkeyup="this.value = this.value.toUpperCase();" required
-                                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$perakuan->proses}}"
                                                         oninput="this.setCustomValidity('')"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>2.</strong></td>
                                                     <td><strong>Pengendalian yang tidak cermat</strong></td>
                                                     <td><input type="text" name="pengendalian" id="" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$perakuan->pengendalian}}"
                                                 oninput="this.setCustomValidity('')"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>3.</strong></td>
                                                     <td><strong>Penyimpanan yang tidak baik</strong></td>
                                                     <td><input type="text" name="penyimpanan" id="" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$perakuan->penyimpanan}}"
                                                 oninput="this.setCustomValidity('')"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>4.</strong></td>
                                                     <td><strong>Pembungkusan yang telah rosak</strong></td>
                                                     <td><input type="text" name="pembungkusan" id="" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$perakuan->pembungkusan}}"
                                                 oninput="this.setCustomValidity('')"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>5.</strong></td>
                                                     <td><strong>Lain - lain</strong></td>
                                                     <td><input type="text" name="lain" id="" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" value="{{$perakuan->lain}}"
                                                 oninput="this.setCustomValidity('')"></td>
                                                 </tr>
                                                 
@@ -129,7 +130,7 @@
 
                                     <div>
                                         <strong>Tandatangan wakil syarikat</strong>
-                                        <textarea class="form-control" rows=5 cols="3" name="tandatangan" onkeyup="this.value = this.value.toUpperCase();" required
+                                        <textarea class="form-control" rows=5 cols="3" name="tandatangan" onkeyup="this.value = this.value.toUpperCase();" 
                                                 oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" oninput="this.setCustomValidity('')"></textarea>
                                         <br>
 
@@ -154,7 +155,7 @@
                                         <div class="mb-3 text-center">
                                             <a href="/susu-tepung" class="btn btn-primary">Kembali</a>
                                             <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                                                Hantar
+                                                Kemaskini
                                             </button>
                     
                                         </div>
@@ -168,7 +169,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Adakah anda ingin menghantar perakuan pengesahan baharu?
+                                                Adakah anda ingin megemaskini perakuan pengesahan baharu?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>

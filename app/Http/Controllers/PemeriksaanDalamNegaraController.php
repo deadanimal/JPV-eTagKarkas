@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Keratan;
 use App\Models\PemeriksaanDalamNegara;
+use App\Models\PerakuanSusuTepung;
 use App\Models\semak_borangA;
 use App\Models\semak_borangB;
 use App\Models\semak_borangC;
@@ -960,8 +961,10 @@ class PemeriksaanDalamNegaraController extends Controller
     public function senarai_susu(){
 
         $susus = SusuTepung::all();
+        $perakuans = PerakuanSusuTepung::all();
 
-        return view('pdn.senarai_susu', compact('susus'));
+
+        return view('pdn.senarai_susu', compact('susus','perakuans'));
     }
 
     public function borang_susu(){
@@ -1047,7 +1050,62 @@ class PemeriksaanDalamNegaraController extends Controller
 
 
     public function borang_perakuan(){
-        return view('pdn.borang-perakuan');
+
+        $perakuans = PerakuanSusuTepung::all();
+
+        return view('pdn.borang-perakuan', compact('perakuans'));
+    }
+
+    public function cipta_perakuan(Request $request){
+
+        $perakuan = New PerakuanSusuTepung();
+        $perakuan->syarikat = $request->syarikat;
+        $perakuan->alamat = $request->alamat;
+        $perakuan->kg = $request->kg;
+        $perakuan->batch = $request->batch;
+        $perakuan->proses = $request->proses;
+        $perakuan->pengendalian = $request->pengendalian;
+        $perakuan->penyimpanan = $request->penyimpanan;
+        $perakuan->pembungkusan = $request->pembungkusan;
+        $perakuan->lain = $request->lain;
+        
+    
+        $perakuan->save();
+
+        Alert::success('Hantar berjaya.', 'Maklumat perakuan pengesahan susu tepung telah dihantar.');
+
+        return redirect('/susu-tepung');
+
+    }
+
+    public function satu_perakuan(Request $request) {
+        $id = (int)$request->route('id');
+        $perakuan = PerakuanSusuTepung::find($id);        
+        return view('pdn.satu-perakuan', compact('perakuan'));
+    }
+
+    public function kemaskini_perakuan(Request $request){
+
+        $id = (int)$request->route('id'); 
+
+        $perakuan = PerakuanSusuTepung::find($id);
+        $perakuan->syarikat = $request->syarikat;
+        $perakuan->alamat = $request->alamat;
+        $perakuan->kg = $request->kg;
+        $perakuan->batch = $request->batch;
+        $perakuan->proses = $request->proses;
+        $perakuan->pengendalian = $request->pengendalian;
+        $perakuan->penyimpanan = $request->penyimpanan;
+        $perakuan->pembungkusan = $request->pembungkusan;
+        $perakuan->lain = $request->lain;
+        
+    
+        $perakuan->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat perakuan pengesahan susu tepung telah dikemaskini.');
+
+        return redirect('/susu-tepung');
+
     }
 
     
