@@ -515,10 +515,10 @@
                                     <!-- Button trigger modal -->
             
                                     <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
+                                        <a href="/keratan" class="btn btn-primary">Kembali</a>
                                         <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
                                             Kemaskini
                                         </button>
-                                        <a href="/keratan" class="btn btn-primary">Kembali</a>
                                     </div>
   
                                     <!-- Modal -->
@@ -529,7 +529,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Adakah anda ingin mengemaskini permohonan baharu?
+                                                Adakah anda ingin mengemaskini permohonan ini?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>

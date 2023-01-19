@@ -39,7 +39,7 @@
                             <thead>
                                 <tr>
                                     <th style="width:5%;">Nombor Rujukan</th>
-                                    <th style="width:25%">Senarai Permohonan</th>
+                                    <th style="width:15%">Senarai Permohonan</th>
                                     <th style="width:10%">Tarikh</th>
                                     <th style="width:15%">Pemeriksa 1</th>
                                     <th style="width:15%">Pemeriksa 2</th>
@@ -94,7 +94,8 @@
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
                                         </form> --}}
-                                        <a href="/satu-keratan/{{$keratan->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>            
+                                        <a href="/lihat-keratan/{{$keratan->id}}"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
+                                        <a href="/jana-keratan/{{$keratan->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>            
                                     </td>        
                                 </tr>
 
