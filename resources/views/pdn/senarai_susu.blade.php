@@ -130,6 +130,7 @@
                                     <td>{{$perakuan->created_at->format('d/m/Y')}}</td>
                                     <td class="table-action">
                                         <a href="#"><i class="align-middle fas fa-fw fa-cloud-download"></i></i></a>
+                                        @role('pengurus-rumah-sembelih')
                                         <a href="borang-perakuan/{{$perakuan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                             <!-- Modal -->
@@ -146,7 +147,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                    <form action="/perakuan/{{ $susu->id }}" method="post">
+                                                    <form action="/perakuan/{{ $perakuan->id }}" method="post">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button type="submit" class="btn btn-primary">Ya</button>
@@ -155,6 +156,9 @@
                                                 </div>
                                                 </div>
                                             </div>
+                                            @endrole
+                                            <a href="/lihat-borang-perakuan/{{$perakuan->id}}"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
+
                                     </td>
                                        
 

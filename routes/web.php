@@ -240,6 +240,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('borang-perakuan', [PemeriksaanDalamNegaraController::class, 'borang_perakuan']);
     Route::post('borang-perakuan', [PemeriksaanDalamNegaraController::class, 'cipta_perakuan']);
     Route::get('borang-perakuan/{id}', [PemeriksaanDalamNegaraController::class, 'satu_perakuan']);
+    Route::delete('perakuan/{id}', [PemeriksaanDalamNegaraController::class, 'padam_perakuan']);
+    Route::get('lihat-borang-perakuan/{id}', [PemeriksaanDalamNegaraController::class, 'lihat_perakuan']);
     Route::put('kemaskini-perakuan/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_perakuan']);
 
 
