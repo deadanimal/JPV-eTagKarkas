@@ -1108,5 +1108,19 @@ class PemeriksaanDalamNegaraController extends Controller
 
     }
 
+    public function lihat_perakuan(Request $request) {
+        $id = (int)$request->route('id');
+        $perakuan = PerakuanSusuTepung::find($id);        
+        return view('pdn.lihat-perakuan', compact('perakuan'));
+    }
+
+    public function padam_perakuan(Request $request){
+        $id = (int)$request->route('id'); 
+        $perakuan = PerakuanSusuTepung::find($id);
+        $perakuan->delete();
+        alert()->success('Maklumat berjaya dipadam', 'Berjaya');
+        return back();
+    }
+
     
 }
