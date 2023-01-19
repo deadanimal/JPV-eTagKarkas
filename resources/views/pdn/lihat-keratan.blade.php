@@ -21,12 +21,12 @@
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Borang Permohonan Verifikasi Import Keratan Ayam/Susu Cair
-                                </h5>
+                                <h5 class="card-title">Borang Permohonan Verifikasi Import Keratan Ayam/Susu Cair</h5>
                             </div>
 
                             <div class="card-body">
-                                <form action="/keratan" method="POST" enctype="multipart/form-data">
+                                <form action="/kemaskini-keratan/{{$keratan->id}}" method="POST" enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
             
                                     <div class="mb-3">
@@ -37,8 +37,8 @@
                                             </div>
                                             <div class="col-4">
                                                 <input class="form-control" type="text" name="premis" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')" />
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly readonly
+                                                oninput="this.setCustomValidity('')" value="{{$keratan->premis}}" />
                                             </div>
                                         </div>
             
@@ -49,8 +49,8 @@
                                                 <label class="form-label">Nombor Telefon</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="telefon" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                <input class="form-control" type="number" name="telefon" required value="{{$keratan->telefon}}"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                             </div>
             
@@ -58,8 +58,8 @@
                                                 <label class="form-label">Emel</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="email" name="emel" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                <input class="form-control" type="email" name="emel" required value="{{$keratan->emel}}"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
 
@@ -67,8 +67,8 @@
                                                 <label class="form-label">Faks</label>
                                             </div>
                                             <div class="col-4 mt-3">
-                                                <input class="form-control" type="number" name="faks" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                <input class="form-control" type="number" name="faks" required value="{{$keratan->faks}}"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                             </div>
             
@@ -77,7 +77,7 @@
                                             </div>
                                             <div class="col-4 mt-3">
                                                 <input class="form-control" type="text" name="web" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly value="{{$keratan->web}}"
                                                 oninput="this.setCustomValidity('')" />
                                             </div>
 
@@ -90,8 +90,8 @@
                                             </div>
                                             <div class="col-10">
                                                 <textarea class="form-control" rows=5 name="alamat" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                                oninput="this.setCustomValidity('')"></textarea>
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
+                                                oninput="this.setCustomValidity('')">{{$keratan->alamat}}</textarea>
                                             </div>
                                         </div>
             
@@ -103,11 +103,11 @@
                                             <label class="form-label">Zon</label>
                                         </div>
                                         <div class="col-4">
-                                            <select name="zon" id="countySel" size="1" class="form-select"
-                                            aria-label="Default select example" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            <select name="zon"  size="1" class="form-select"
+                                            aria-label="Default select example" required value="{{$keratan->zon}}"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                            <option selected disabled value="">Pilih Zon</option>
+                                            <option   value="{{$keratan->zon}}">{{$keratan->zon}}</option>
         
                                         </select>
                                         </div>
@@ -116,11 +116,11 @@
                                             <label class="form-label">Negeri</label>
                                         </div>
                                         <div class="col-4">
-                                            <select name="negeri" id="stateSel" size="1" class="form-select"
+                                            <select name="negeri"  size="1" class="form-select"
                                             aria-label="Default select example" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                            <option selected disabled value="">Pilih Negeri</option>
+                                            <option   value="{{$keratan->negeri}}">{{$keratan->negeri}}</option>
         
                                         </select>
                                         </div>
@@ -131,11 +131,11 @@
                                             <label class="form-label">Daerah</label>
                                         </div>
                                         <div class="col-4">
-                                            <select name="daerah" id="districtSel" size="1" class="form-select"
+                                            <select name="daerah"  size="1" class="form-select"
                                             aria-label="Default select example"required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                            <option selected disabled value="">Pilih Daerah</option>
+                                            <option  value="{{$keratan->daerah}}">{{$keratan->daerah}}</option>
                                             </select>
                                         </div>
 
@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="col-4">
                                             <input class="form-control" type="number" name="poskod" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly value="{{$keratan->poskod}}"
                                                 oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@
                                         </div>
                                         <div class="col-4">
                                             <input class="form-control" type="text" name="klasifikasi" onkeyup="this.value = this.value.toUpperCase();" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly value="{{$keratan->klasifikasi}}"
                                                 oninput="this.setCustomValidity('')" />
                                         </div>
                                         <div class="col-2">
@@ -164,12 +164,10 @@
                                         </div>
                                         <div class="col-4">
                                             <select class="form-select" aria-label="Default select example" name="kaedah" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Kaedah</option>
-                                                <option value="Kaedah 1">Kaedah 1</option>
-                                                <option value="Kaedah 2">Kaedah 2</option>
-                                                <option value="Kaedah 3">Kaedah 3</option>
+                                                <option selected value="{{$keratan->kaedah}}">{{$keratan->kaedah}}</option>
+                                              
                                                 
                                             </select>
                                         </div>
@@ -179,11 +177,11 @@
                                        
                                     <div class="row mb-3">
                                         <div class="col-2">
-                                            <label class="form-label">Jenis Produk untuk Diimport</label>
+                                            <label class="form-label">Jenis Produk untuk Dieksport</label>
                                         </div>
                                         <div class="col-4">
                                             <input class="form-control" type="text" name="jenis_produk" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly value="{{$keratan->jenis_produk}}"
                                             oninput="this.setCustomValidity('')" />
                                         </div>
 
@@ -192,9 +190,9 @@
                                         </div>
                                         <div class="col-4">
                                             <select class="form-select" aria-label="Default select example" name="negara_eksport" required
-                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                                oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                                 oninput="this.setCustomValidity('')">
-                                                    <option selected value="">Pilih Negara</option>
+                                                    <option selected value="{{$keratan->negara_eksport}}">{{$keratan->negara_eksport}}</option>
                                                     <option value="Afghanistan">Afghanistan</option>
                                                     <option value="Albania">Albania</option>
                                                     <option value="Algeria">Algeria</option>
@@ -444,12 +442,10 @@
                                         </div>
                                         <div class="col-4">
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_1" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="Pemeriksa Selangor">Pemeriksa Selangor</option>
-                                                <option value="Pemeriksa Melaka">Pemeriksa Melaka</option>
-                                                <option value="Pemeriksa Pahang">Pemeriksa Pahang</option>
+                                                <option selected value="{{$keratan->pemeriksa_1}}">{{$keratan->pemeriksa_1}}</option>
+                                              
                                                
                                             </select>
                                         </div>
@@ -459,12 +455,10 @@
                                         </div>
                                         <div class="col-4">
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_2" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="Pemeriksa Selangor">Pemeriksa Selangor</option>
-                                                <option value="Pemeriksa Melaka">Pemeriksa Melaka</option>
-                                                <option value="Pemeriksa Pahang">Pemeriksa Pahang</option>
+                                                <option selected value="{{$keratan->pemeriksa_2}}">{{$keratan->pemeriksa_2}}</option>
+                                               
                                             </select>
                                         </div>
                                     </div>
@@ -475,12 +469,10 @@
                                         </div>
                                         <div class="col-4">
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_3" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="Pemeriksa Selangor">Pemeriksa Selangor</option>
-                                                <option value="Pemeriksa Melaka">Pemeriksa Melaka</option>
-                                                <option value="Pemeriksa Pahang">Pemeriksa Pahang</option>
+                                                <option selected value="{{$keratan->pemeriksa_3}}">{{$keratan->pemeriksa_3}}</option>
+                                             
                                             </select>
                                         </div>
 
@@ -489,12 +481,10 @@
                                         </div>
                                         <div class="col-4">
                                             <select class="form-select" aria-label="Default select example" name="pemeriksa_4" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
                                             oninput="this.setCustomValidity('')">
-                                                <option selected value="">Pilih Pemeriksa</option>
-                                                <option value="Pemeriksa Selangor">Pemeriksa Selangor</option>
-                                                <option value="Pemeriksa Melaka">Pemeriksa Melaka</option>
-                                                <option value="Pemeriksa Pahang">Pemeriksa Pahang</option>
+                                                <option selected value="{{$keratan->pemeriksa_4}}">{{$keratan->pemeriksa_4}}</option>
+                                              
                                             </select>
                                         </div>
                                     </div>
@@ -505,8 +495,8 @@
                                         </div>
                                         <div class="col-10">
                                             <textarea class="form-control" rows=5 name="catatan" onkeyup="this.value = this.value.toUpperCase();" required
-                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                            oninput="this.setCustomValidity('')"></textarea>
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" readonly
+                                            oninput="this.setCustomValidity('')">{{$keratan->catatan}}</textarea>
                                         </div>
                                     </div>
             
@@ -516,31 +506,11 @@
             
                                     <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
                                         <a href="/keratan" class="btn btn-primary">Kembali</a>
-                                        <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                                            Hantar
-                                        </button>
+                                        
                                     </div>
   
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Adakah anda ingin menghantar permohonan baharu?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                                <button class="btn btn-success text-center" type="submit" style="float: right">Ya</button>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-            
-                                    {{-- <button class="btn btn-success text-center" type="submit" style="float: right">Daftar</button> --}}
-            
+                                    
+                        
                                 </form>
                             </div>
    

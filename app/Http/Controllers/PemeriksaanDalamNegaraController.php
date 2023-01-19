@@ -921,6 +921,12 @@ class PemeriksaanDalamNegaraController extends Controller
         return view('pdn.satu-keratan', compact('keratan'));
     }
 
+    public function lihat_keratan(Request $request) {
+        $id = (int)$request->route('id');
+        $keratan = Keratan::find($id);        
+        return view('pdn.lihat-keratan', compact('keratan'));
+    }
+
     public function kemaskini_keratan(Request $request){
         $id = (int)$request->route('id'); 
 
@@ -953,6 +959,19 @@ class PemeriksaanDalamNegaraController extends Controller
         return redirect('/keratan');
 
     }
+
+     public function jana_keratan(Request $request){
+        $id = (int)$request->route('id');
+
+        $keratan = Keratan::find($id);
+
+        $pdf = FacadePDF::loadView('pdn.jana_keratan', compact('keratan'));
+        return $pdf->download('Borang_Permohonan_Verifikasi_Import_Keratan_Ayam.pdf');
+
+        // return view('pdn.jana_keratan', compact('keratan'));
+    }
+
+
 
     public function borang_verifikasi(){
         return view('pdn.borang-verifikasi');
