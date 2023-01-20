@@ -11,6 +11,7 @@ use App\Models\semak_borangC;
 use App\Models\semak_borangD;
 use App\Models\SijilVeterinar;
 use App\Models\SusuTepung;
+use App\Models\Verifikasi;
 use Illuminate\Http\Request;
 use Alert;
 use App\Models\Exsport;
@@ -972,9 +973,89 @@ class PemeriksaanDalamNegaraController extends Controller
     }
 
 
+    public function borang_verifikasi(Request $request){
 
-    public function borang_verifikasi(){
-        return view('pdn.borang-verifikasi');
+        $verifikasi = $request->session()->get('verifikasi'); 
+        return view('pdn.borang-verifikasi', compact('verifikasi'));
+    }
+
+    public function cipta_borang_verifikasi(Request $request){
+
+        $validatedData = $request->all();
+
+        $verifikasi = new Verifikasi();
+        $verifikasi->fill($validatedData);
+        $request->session()->put('verifikasi', $verifikasi);
+
+        // $verifikasi = New Verifikasi();
+
+        // if(empty($request->session()->get('verifikasi'))){
+        //     $verifikasi = new Verifikasi();
+        //     $verifikasi->fill($validatedData);
+        //     $request->session()->put('verifikasi', $verifikasi);
+        // }else{
+        //     $verifikasi = $request->session()->get('verifikasi');
+        //     $verifikasi->fill($validatedData);
+        //     $request->session()->put('verifikasi', $verifikasi);
+        // }
+
+        // dd($verifikasi);
+
+    
+        return redirect('/borang-verifikasi2');
+
+    }
+
+    public function borang_verifikasi2(Request $request ){
+
+        $verifikasi = $request->session()->get('verifikasi'); 
+
+        return view('pdn.borang-verifikasi2', compact('verifikasi'));
+    }
+
+    public function cipta_borang_verifikasi2(Request $request){
+
+        $validatedData = $request->all();
+
+        $verifikasi = $request->session()->get('verifikasi'); 
+        $verifikasi->fill($validatedData);
+        $request->session()->put('verifikasi', $verifikasi);
+
+        // dd($verifikasi);
+        // $verifikasi->save();
+
+        // Alert::success('Hantar berjaya.', 'Maklumat laporan verifikasi telah dihantar.');
+
+      
+        // return redirect('/keratan');
+        return redirect('/borang-verifikasi3');
+
+    }
+
+    public function borang_verifikasi3(Request $request ){
+
+        $verifikasi = $request->session()->all(); 
+
+        return view('pdn.borang-verifikasi3', compact('verifikasi'));
+    }
+
+    public function cipta_borang_verifikasi3(Request $request){
+
+        $validatedData = $request->all();
+
+        $verifikasi = $request->session()->get('verifikasi'); 
+        $verifikasi->fill($validatedData);
+        $request->session()->put('verifikasi', $verifikasi);
+
+        dd($verifikasi);
+
+        $verifikasi->save();
+
+        Alert::success('Hantar berjaya.', 'Maklumat laporan verifikasi telah dihantar.');
+
+      
+        return redirect('/keratan');
+
     }
 
     public function senarai_susu(){
