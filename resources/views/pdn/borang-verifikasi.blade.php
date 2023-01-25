@@ -86,7 +86,9 @@
                                             <div class="col-6">
                                                 <label class="form-label">Nama</label>
                                             </div>
-                                            <input class="form-control" type="text" name="nama" id=""><br>
+                                            <input class="form-control" type="text" name="nama" id="" onkeyup="this.value = this.value.toUpperCase();" required
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninput="this.setCustomValidity('')"><br>
 
                                             <textarea class="form-control" rows=5 name="alamat" placeholder="Tandatangan" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
@@ -95,7 +97,9 @@
                                             <div class="col-6">
                                                 <label class="form-label">Nama</label>
                                             </div>
-                                            <input class="form-control" type="text" name="nama2" id=""><br>
+                                            <input class="form-control" type="text" name="nama2" id="" onkeyup="this.value = this.value.toUpperCase();" required
+                                            oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
+                                            oninput="this.setCustomValidity('')"><br>
 
                                             <textarea class="form-control" rows=5 name="alamat" placeholder="Tandatangan" onkeyup="this.value = this.value.toUpperCase();" required
                                             oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
@@ -236,7 +240,6 @@
                                     {{-- Button --}}
                                     <div class="row">
                                         <div class="mb-3">
-                                            <a href="/borang-verifikasi2">step2</a>
                                             <button class="btn btn-secondary" type="submit" title="Seterusnya" style="float: right">Seterusnya</button>
                                             <a href="/keratan" class="btn btn-primary mx-2" style="float: right">Kembali</a>
                                         </div>
