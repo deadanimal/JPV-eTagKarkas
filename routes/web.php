@@ -233,6 +233,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('borang-verifikasi2', [PemeriksaanDalamNegaraController::class, 'cipta_borang_verifikasi2']);
     Route::get('borang-verifikasi3', [PemeriksaanDalamNegaraController::class, 'borang_verifikasi3']);
     Route::post('borang-verifikasi3', [PemeriksaanDalamNegaraController::class, 'cipta_borang_verifikasi3']);
+    Route::get('borang-verifikasi4', [PemeriksaanDalamNegaraController::class, 'borang_verifikasi4']);
+    Route::post('borang-verifikasi4', [PemeriksaanDalamNegaraController::class, 'cipta_borang_verifikasi4']);
 
 
     Route::get('susu-tepung', [PemeriksaanDalamNegaraController::class, 'senarai_susu']);

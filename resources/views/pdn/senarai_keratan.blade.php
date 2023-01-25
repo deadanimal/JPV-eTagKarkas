@@ -123,48 +123,49 @@
                                     <th style="width:25%">Nombor Rujukan</th>
                                     <th style="width:25%">Senarai Laporan</th>
                                     <th style="width:10%">Tarikh</th>
-                                    <th style="width:10%">Status</th>
-                                    <th style="width:10%">Tindakan</th>
-
-                                    {{-- <th style="width:10%">Jadual Survelan</th> --}}
-                                    
+                                    <th style="width:10%">Tindakan</th>                                    
                                 </tr>
                             </thead>
                             <tbody>
+                    
                                 <tr>
-                                    <td>CP/20222/1</td>
-                                    <td>Premis A bagi Pengimportan Susu Cair</td>
-                                    <td class="d-none d-md-table-cell">1/12/22</td>
-                                    <td>Kemaskini/Dihantar</td>
+                                    @foreach ($verifikasis as $verifikasi)
+                                    <td>CP/2022/{{$loop->iteration}}</td>
+                                    <td>{{$verifikasi->syarikat}}</td>
+                                    <td>{{$verifikasi->created_at->format('d/m/Y')}}</td>
                                     <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                        <a href="/verifikasi-survelan/{{$verifikasi->id}}"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalEksport{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borang Permohonan Verifikasi Import</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Adakah anda ingin memadam maklumat ini?
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <form action="/verifikasi/{{ $verifikasi->id }}" method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
                                         <a href="#"><i class="align-middle fas fa-fw fa-print"></i></a>
-                                    </td>
-    
-                                </tr>
 
-                                {{-- <tr>
-                                    @foreach ($jaduals as $jadual)
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$jadual->zon}}</td>
-                                    <td>{{$jadual->operasi}}</td>
-                                    <td>{{$jadual->created_at->format('d/m/Y')}}</td>
-                                    <td class="table-action">
-                                        <a href="kemaskini_jadual_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/padam_survelan/{{ $jadual->id }}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                        </form>
-                                    </td>
-                                    <td>Dihantar/Selesai</td>
-                                    <td class="d-none d-md-table-cell text-center"><a href="/jadual-survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></a></td>
-                                       
+                                    </td>                                       
 
                                 </tr>
 
-                                    @endforeach --}}
+                                    @endforeach
                               
                             </tbody>
                         </table>

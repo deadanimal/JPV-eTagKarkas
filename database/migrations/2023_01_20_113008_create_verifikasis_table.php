@@ -58,12 +58,26 @@ return new class extends Migration
             $table->string('tahun_semasa')->nullable();
             $table->string('keratan3')->nullable();
 
-            // step 3 - E
+            // step 3
             $table->string('pemprosesan')->nullable();
             $table->string('kebersihan')->nullable();
             $table->string('pelaksanaan')->nullable();
             $table->string('personal')->nullable();
             $table->string('kawalan')->nullable();
+
+            // step 4
+            $table->string('ulasan')->nullable();
+            $table->string('cadangan')->nullable();
+            $table->string('pemeriksa_ulasan1')->nullable();
+            $table->string('pemeriksa_ulasan2')->nullable();
+            $table->string('pemeriksa_ulasan3')->nullable();
+            $table->string('pemeriksa_ulasan4')->nullable();
+            $table->string('sijil')->nullable();
+            $table->string('pengeluaran')->nullable();
+            $table->string('penyewaan')->nullable();
+            $table->string('oem')->nullable();
+           
+
 
 
           

@@ -869,8 +869,9 @@ class PemeriksaanDalamNegaraController extends Controller
 
     public function senarai_keratan(){
         $keratans = Keratan::all();
+        $verifikasis = Verifikasi::all();
 
-        return view('pdn.senarai_keratan', compact('keratans'));
+        return view('pdn.senarai_keratan', compact('keratans','verifikasis'));
     }
 
     public function borang_keratan(){
@@ -986,21 +987,6 @@ class PemeriksaanDalamNegaraController extends Controller
         $verifikasi = new Verifikasi();
         $verifikasi->fill($validatedData);
         $request->session()->put('verifikasi', $verifikasi);
-
-        // $verifikasi = New Verifikasi();
-
-        // if(empty($request->session()->get('verifikasi'))){
-        //     $verifikasi = new Verifikasi();
-        //     $verifikasi->fill($validatedData);
-        //     $request->session()->put('verifikasi', $verifikasi);
-        // }else{
-        //     $verifikasi = $request->session()->get('verifikasi');
-        //     $verifikasi->fill($validatedData);
-        //     $request->session()->put('verifikasi', $verifikasi);
-        // }
-
-        // dd($verifikasi);
-
     
         return redirect('/borang-verifikasi2');
 
@@ -1008,7 +994,7 @@ class PemeriksaanDalamNegaraController extends Controller
 
     public function borang_verifikasi2(Request $request ){
 
-        $verifikasi = $request->session()->get('verifikasi'); 
+        $verifikasi = $request->session()->all(); 
 
         return view('pdn.borang-verifikasi2', compact('verifikasi'));
     }
@@ -1021,13 +1007,12 @@ class PemeriksaanDalamNegaraController extends Controller
         $verifikasi->fill($validatedData);
         $request->session()->put('verifikasi', $verifikasi);
 
-        // dd($verifikasi);
         // $verifikasi->save();
 
         // Alert::success('Hantar berjaya.', 'Maklumat laporan verifikasi telah dihantar.');
 
-      
-        // return redirect('/keratan');
+        // dd($verifikasi);
+
         return redirect('/borang-verifikasi3');
 
     }
@@ -1044,16 +1029,41 @@ class PemeriksaanDalamNegaraController extends Controller
         $validatedData = $request->all();
 
         $verifikasi = $request->session()->get('verifikasi'); 
+
+        $verifikasi->fill($validatedData);
+        $request->session()->put('verifikasi', $verifikasi);
+
+        // dd($verifikasi);
+
+        $verifikasi->save();
+
+        // Alert::success('Hantar berjaya.', 'Maklumat laporan verifikasi telah dihantar.');
+    
+        return redirect('/borang-verifikasi4');
+    }
+
+    public function borang_verifikasi4(Request $request ){
+
+        $verifikasi = $request->session()->all(); 
+
+        return view('pdn.borang-verifikasi4', compact('verifikasi'));
+    }
+
+    public function cipta_borang_verifikasi4(Request $request){
+
+        $validatedData = $request->all();
+
+        $verifikasi = $request->session()->get('verifikasi'); 
         $verifikasi->fill($validatedData);
         $request->session()->put('verifikasi', $verifikasi);
 
         dd($verifikasi);
 
-        $verifikasi->save();
+        // $verifikasi->save();
 
         Alert::success('Hantar berjaya.', 'Maklumat laporan verifikasi telah dihantar.');
 
-      
+
         return redirect('/keratan');
 
     }

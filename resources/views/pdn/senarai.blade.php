@@ -28,7 +28,7 @@
                         <h5 class="card-title">Pemeriksaan Dalam Negara</h5>
                     </div>
 
-                    @role('pentadbir')
+                    @role('pentadbir' && 'pentadbir-zon')
                     <a href="/borang-survelan" class="btn float-end " style="width: fit-content"><button
                     class="btn btn-warning btn-block">Tambah</button></a>
                     @endrole
@@ -41,7 +41,7 @@
                                     <th style="width:25%;">Zon</th>
                                     <th style="width:25%">Jenis Operasi</th>
                                     <th class="d-none d-md-table-cell" style="width:25%">Tarikh</th>
-                                    @role('pentadbir')
+                                    @role('pentadbir' && 'pentadbir-zon')
                                     <th style="width:10%">Tindakan</th>
                                     <th style="width:10%">Jadual Survelan Audit</th>
                                     @endrole
@@ -68,7 +68,7 @@
                                     <td>{{$jadual->zon}}</td>
                                     <td>{{$jadual->operasi}}</td>
                                     <td>{{$jadual->created_at->format('d/m/Y')}}</td>
-                                    @role('pentadbir')
+                                    @role('pentadbir' && 'pentadbir-zon')
                                     <td class="table-action">
                                         <a href="/satu_pdn/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <form action="/padam_pdn/{{ $jadual->id }}" method="post">

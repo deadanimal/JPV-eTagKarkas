@@ -261,16 +261,16 @@
                                         </div>   
                                     
                                     </div>
-        
-                                    {{-- Button --}}
-                                    <div class="row">
+
+                                     {{-- Button --}}
+                                     <div class="row">
                                         <div class="mb-3">
                                             <a href="/borang-verifikasi" class="btn btn-secondary">Sebelum</a>
-                                            <a href="/borang-verifikasi3" class="btn btn-secondary" type="submit">Seterusnya</a>
-                                            {{-- <button class="btn btn-success" type="submit" title="Hantar" style="float: right">Hantar</button> --}}
+                                            {{-- <a href="/borang-verifikasi3" class="btn btn-secondary" type="submit" title="Seterusnya">Seterusnya</a> --}}
+                                            <button class="btn btn-secondary" type="submit" title="Seterusnya" style="float: right">Seterusnya</button>
                                         </div>
-                                    </div>  
-                                            
+                                     </div> 
+           
                                 </form>
                             </div>
    
