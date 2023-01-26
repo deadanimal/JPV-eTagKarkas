@@ -1057,15 +1057,46 @@ class PemeriksaanDalamNegaraController extends Controller
         $verifikasi->fill($validatedData);
         $request->session()->put('verifikasi', $verifikasi);
 
-        dd($verifikasi);
+        // dd($verifikasi);
 
-        // $verifikasi->save();
+        $verifikasi->save();
 
         Alert::success('Hantar berjaya.', 'Maklumat laporan verifikasi telah dihantar.');
 
 
         return redirect('/keratan');
 
+    }
+
+    public function satu_verifikasi(Request $request) {
+        $id = (int)$request->route('id');
+        $verify = Verifikasi::find($id);        
+        return view('pdn.lihat-verifikasi', compact('verify'));
+    }
+
+    public function lihat_verifikasi(Request  $request) {
+        $id = (int)$request->route('id');
+        $verifikasi = Verifikasi::find($id);        
+        return view('pdn.lihat-verifikasi', compact('verifikasi'));
+    }
+
+    public function padam_verifikasi(Request $request){
+        $id = (int)$request->route('id'); 
+        $verifikasi = Verifikasi::find($id);
+        $verifikasi->delete();
+        alert()->success('Maklumat berjaya dipadam', 'Berjaya');
+        return back();
+    }
+
+    public function jana_verifikasi(Request $request){
+        $id = (int)$request->route('id');
+
+        $verifikasi = Verifikasi::find($id);
+
+        $pdf = FacadePDF::loadView('pdn.jana_verifikasi', compact('verifikasi'));
+        return $pdf->download('Borang_Laporan_Verifikasi.pdf');
+
+        // return view('pdn.jana_verifikasi', compact('verifikasi'));
     }
 
     public function senarai_susu(){
