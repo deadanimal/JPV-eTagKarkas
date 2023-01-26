@@ -235,6 +235,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('borang-verifikasi3', [PemeriksaanDalamNegaraController::class, 'cipta_borang_verifikasi3']);
     Route::get('borang-verifikasi4', [PemeriksaanDalamNegaraController::class, 'borang_verifikasi4']);
     Route::post('borang-verifikasi4', [PemeriksaanDalamNegaraController::class, 'cipta_borang_verifikasi4']);
+    Route::get('lihat-verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'lihat_verifikasi']);
+    Route::get('satu-verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'satu_verifikasi']);
+    Route::delete('verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'padam_verifikasi']);
+    Route::get('jana-verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'jana_verifikasi']);
+
+
+
 
 
     Route::get('susu-tepung', [PemeriksaanDalamNegaraController::class, 'senarai_susu']);

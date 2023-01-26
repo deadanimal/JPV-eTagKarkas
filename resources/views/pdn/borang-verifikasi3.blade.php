@@ -244,8 +244,7 @@
                                     <div class="row">
                                         <div class="mb-3">
                                             <a href="/borang-verifikasi2" class="btn btn-secondary">Sebelum</a>
-                                            <a href="/borang-verifikasi4" class="btn btn-secondary">pg4</a>
-                                            <button class="btn btn-success" type="submit" title="Seterusnya" style="float: right">Seterusnya</button>
+                                            <button class="btn btn-secondary" type="submit" title="Seterusnya" style="float: right">Seterusnya</button>
                                         </div>
                                     </div>  
                                             
