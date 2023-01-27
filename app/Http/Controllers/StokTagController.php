@@ -51,12 +51,12 @@ class StokTagController extends Controller {
         $stok = New StokTag; 
         $stok->nama_rumah = $request->nama_rumah;       
         $stok->tag_diterima = $request->tag_diterima;
-        $stok->tag_rosak = $request->tag_rosak;
-        $stok->tag_bolehpakai = $request->tag_bolehpakai;
         $stok->tarikh_tag_terima = $request->tarikh_tag_terima;
+        $stok->tag_rosak = $request->tag_rosak;
         $stok->tarikh_tag_rosak = $request->tarikh_tag_rosak;
+        $stok->tag_bolehpakai = $request->tag_bolehpakai;
         $stok->catatan = $request->catatan;
-        $stok->tag_id = $request->tag_id;
+        // $stok->tag_id = $request->tag_id;
         $stok->save();
         Alert::success('Stok Tag Dicipta', 'Info Stok Tag dicipta');
         return redirect('/stok-tag');

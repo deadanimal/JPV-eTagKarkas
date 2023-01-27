@@ -76,6 +76,13 @@ class PemeriksaanDalamNegaraController extends Controller
         return view('pdn.satu_pdn', compact('pdn'));
     }
 
+    public function lihat_pdn(Request $request) {
+        $id = (int)$request->route('id');
+        $jaduals = PemeriksaanDalamNegara::find($id);        
+        $pdn = PemeriksaanDalamNegara::find($id);        
+        return view('pdn.lihat-pdn', compact('jaduals','pdn'));
+    }
+
     public function simpan_kemaskini_pdn(Request $request) {  
         $id = (int)$request->route('id'); 
         $pdn = PemeriksaanDalamNegara::find($id); 
@@ -1068,10 +1075,32 @@ class PemeriksaanDalamNegaraController extends Controller
 
     }
 
+
     public function satu_verifikasi(Request $request) {
         $id = (int)$request->route('id');
         $verify = Verifikasi::find($id);        
         return view('pdn.lihat-verifikasi', compact('verify'));
+    }
+
+    public function kemaskini_verifikasi(Request $request){
+
+        $id = (int)$request->route('id');
+
+        $verify = Verifikasi::find($id);        
+
+        $verify = $request->all();
+
+        // $verify->fill($validatedData);
+
+        dd($verify);
+
+        // $verify->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat laporan verifikasi telah dikemaskini.');
+
+
+        return redirect('/keratan');
+
     }
 
     public function lihat_verifikasi(Request  $request) {
