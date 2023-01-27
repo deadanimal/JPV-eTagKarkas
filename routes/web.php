@@ -141,6 +141,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('simpan_kemaskini_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'simpan_kemaskini_pdn']);
     Route::delete('padam_pdn/{id}', [PemeriksaanDalamNegaraController::class, 'padam_pdn']);
     Route::get('jana-survelan/{id}', [PemeriksaanDalamNegaraController::class, 'jana_jadual_survelan']);
+    Route::get('lihat-pdn/{id}', [PemeriksaanDalamNegaraController::class, 'lihat_pdn']);
+
 
 
 
@@ -237,6 +239,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('borang-verifikasi4', [PemeriksaanDalamNegaraController::class, 'cipta_borang_verifikasi4']);
     Route::get('lihat-verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'lihat_verifikasi']);
     Route::get('satu-verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'satu_verifikasi']);
+    Route::put('kemaskini-verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'kemaskini_verifikasi']);
     Route::delete('verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'padam_verifikasi']);
     Route::get('jana-verifikasi/{id}', [PemeriksaanDalamNegaraController::class, 'jana_verifikasi']);
 

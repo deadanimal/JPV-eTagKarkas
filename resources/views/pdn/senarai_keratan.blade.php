@@ -113,8 +113,10 @@
                         <h5 class="card-title">Laporan Pemeriksaan</h5>
                     </div>
 
+                    @role('pengurus-rumah-sembelih')
                     <a href="/borang-verifikasi" class="btn " style="width: fit-content"><button
                         class="btn btn-warning btn-block float-end">Tambah</button></a>
+                    @endrole
 
                     <div class="card-body"  style="border-width: 1px; border-color:black;">
                         <table class="table table-bordered">
@@ -135,7 +137,9 @@
                                     <td>{{$verifikasi->created_at->format('d/m/Y')}}</td>
                                     <td class="table-action">
                                         <a href="/lihat-verifikasi/{{$verifikasi->id}}"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
+                                        @role('pengurus-rumah-sembelih')
                                         <a href="/satu-verifikasi/{{$verifikasi->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                        @endrole
                                         <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                             <!-- Modal -->
                                             <div class="modal fade" id="exampleModalEksport{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

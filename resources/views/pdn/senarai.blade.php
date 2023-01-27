@@ -70,12 +70,37 @@
                                     <td>{{$jadual->created_at->format('d/m/Y')}}</td>
                                     @role('pentadbir' && 'pentadbir-zon')
                                     <td class="table-action">
+                                        <a href="/lihat-pdn/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
                                         <a href="/satu_pdn/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                        <form action="/padam_pdn/{{ $jadual->id }}" method="post">
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalEksport{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borang Permohonan Verifikasi Import</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Adakah anda ingin memadam maklumat ini?
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <form action="/padam_pdn/{{ $jadual->id }}" method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        {{-- <form action="/padam_pdn/{{ $jadual->id }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                        </form>
+                                        </form> --}}
 
                                         {{-- <a href="padam_survelan/{{$jadual->id}}"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
                                     </td>
@@ -92,66 +117,6 @@
                     </div>
                 </div>
 
-                {{-- survelans --}}
-                {{-- <div class="card" >
-                    <div class="card-header">
-                        <h5 class="card-title">Jadual Survelan Audit</h5>
-                    </div>
-
-                    <a href="/jadual_survelan" class="btn " style="width: fit-content"><button
-                        class="btn btn-warning btn-block float-end">Tambah</button></a>
-
-                    <div class="card-body"  style="border-width: 1px; border-color:black;">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th colspan="16">JADUAL PEMERIKSAAN VETERINAR SURVELAN AUDIT(VHM/MyGAP) TAHUN 2022</th>
-                                </tr>
-                                <tr style="vertical-align: middle">
-                                    <th>Bil</th>
-                                    <th>Nombor VHM/MyGAP</th>
-                                    <th>Premis</th>
-                                    <th>Nombor Telefon</th>
-                                    <th>Nama Pemeriksa 1</th>
-                                    <th>Nama Pemeriksa 2</th>
-                                    <th>Nama Pemeriksa 3</th>
-                                    <th>Nama Pemeriksa 4</th> 
-                                    <th>Tindakan</th>  
-                                </tr>
-                                <tr>
-                                <th colspan="16">Zon</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    @foreach ($survelans as $survelan)
-                                        <tr class="text-center">
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$survelan->nombor}}</td>
-                                            <td>{{$survelan->premis}}</td>
-                                            <td>{{$survelan->telefon}}</td>
-                                            <td>{{$survelan->pemeriksa_1}}</td>
-                                            <td>{{$survelan->pemeriksa_2}}</td>
-                                            <td>{{$survelan->pemeriksa_3}}</td>
-                                            <td>{{$survelan->pemeriksa_4}}</td> 
-                                            <td class="table-action">
-                                                <a href="/kemaskini_jadual_survelan/{{$survelan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
-                                                <form action="/padam_survelan/{{ $survelan->id }}" method="post">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
-                                                </form>
-                                            </td> 
-                                        </tr>
-                                    @endforeach
-                                       
-
-                                </tr>
-                              
-                            </tbody>
-                        </table>
-                    </div>
-                </div> --}}
             </div>
 
 

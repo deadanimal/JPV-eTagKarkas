@@ -24,7 +24,7 @@
                                 <h5 class="card-title">Kemaskini Pemeriksaan Dalam Negara</h5>
                             </div>
 
-                           <form action="/simpan_kemaskini_pdn/{{$pdn->id}}" method="POST">
+                           <form action="#" method="POST">
                             @method('PUT')
                             @csrf
                                 <div class="mb-3 col-md-12">
@@ -32,10 +32,7 @@
                                     <select class="form-select" aria-label="Default select example" name="zon"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                         <option selected value="{{$pdn->zon}}">{{$pdn->zon}}</option>
-                                        <option value="Zon Utara">Zon Utara</option>
-                                        <option value="Zon Tengah">Zon Tengah</option>
-                                        <option value="Zon Selatan">Zon Selatan</option>
-                                        <option value="Zon Sabah & Sarawak">Zon Sabah & Sarawak</option>
+                                      
                                     </select>
                                 </div>
 
@@ -44,9 +41,7 @@
                                     <select class="form-select" aria-label="Default select example" name="pensijilan"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                         <option selected value="{{$pdn->pensijilan}}">{{$pdn->pensijilan}}</option>
-                                        <option value="Sijil 1">Sijil 1</option>
-                                        <option value="Sijil 2">Sijil 2</option>
-                                        <option value="Sijil 3">Sijil 3</option>
+                                      
                                     </select>
                                 </div>
 
@@ -55,31 +50,20 @@
                                     <select class="form-select" aria-label="Default select example" name="operasi"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                         <option selected value="{{$pdn->operasi}}">{{$pdn->operasi}}</option>
-                                        <option value="Loji VHM/GVHP">Loji VHM/GVHP</option>
-                                        <option value="Loji MyGAP/MyOrganic">Loji MyGAP/MyOrganic</option>
+                                       
                                     </select>
                                 </div>
 
-                                {{-- <div class="mb-3 col-md-12">
-                                    <label for="inputAddress">Jenis Borang</label>
-                                    <select class="form-select" aria-label="Default select example" name="jenis_borang"
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
-                                        <option selected value="{{$pdn->pensijilan}}">Pilih Jenis</option>
-                                        <option value="survelan">Survelan</option>
-                                        <option value="ncr">NCR</option>
-                                        <option value="obr">OBR</option>
-                                    </select>
-                                </div> --}}
 
                                 <div class="mb-3 col-md-12">
                                     <label for="inputAddress">Jenis Ternakan</label>
                                     <select class="form-select" aria-label="Default select example" name="ternakan"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')">
                                         <option selected value="{{$pdn->ternakan}}">{{$pdn->ternakan}}</option>
-                                        <option value="Ayam">Ayam</option>
+                                        {{-- <option value="Ayam">Ayam</option>
                                         <option value="Ruminan Besar">Ruminan Besar</option>
                                         <option value="Ruminan Kecil">Ruminan Kecil</option>
-                                        <option value="Unggas">Unggas</option>
+                                        <option value="Unggas">Unggas</option> --}}
                                     </select>
                                 </div>
 
@@ -88,9 +72,9 @@
                                 <div class="d-grip gap-2 d-md flex justify-content-md-center mb-3 text-center">
                                     <a href="/pdn" class="btn btn-primary">Kembali</a>
 
-                                    <button type="button" class="btn btn-md btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    {{-- <button type="button" class="btn btn-md btn-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Kemaskini
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 
                                 
