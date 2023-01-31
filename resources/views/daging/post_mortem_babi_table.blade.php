@@ -26,6 +26,22 @@
                       <tbody>
     
                         <tr>
+
+                            {{-- Alternative -create a separate copy of the collection before starting the loop
+                                 and iterate over that instead --}}
+
+                            {{-- @php
+
+                                $post_mortems = $data->copy()
+                                $collection = App\Models\PostMortemBabi::all();
+                                $post_mortems = $collection->copy();
+                                $post_mortems = $collection->map(function ($item) {
+                                    return $item;
+                                });
+                                
+                            @endphp --}}
+
+
                           @foreach ($post_mortems as $post_mortem)
     
                           <td>{{$loop->iteration}}</td>
