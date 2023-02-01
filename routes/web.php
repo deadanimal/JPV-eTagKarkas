@@ -127,6 +127,8 @@ Route::middleware(['auth'])->group(function () {
 // Modul Pensampelan
     Route::get('/pensampelan', [SampelController::class, 'senarai']);
     Route::get('/pensampelan-pilihan', [SampelController::class, 'pilihan']);
+    Route::get('/tunjuk', [SampelController::class, 'tunjuk_jadual']);
+    Route::get('/borang-pensampelan', [SampelController::class, 'borang_pensampelan']);
     Route::get('/pensampelan-pilihan/{id}', [SampelController::class, 'satu_pilihan']);
     // Route::get('/pensampelan/borang-sampel', [SampelController::class, 'borang_sampel']);
     Route::get('/pensampelan/pilihan/{pilihan}', [SampelController::class, 'borang_sampel']);
