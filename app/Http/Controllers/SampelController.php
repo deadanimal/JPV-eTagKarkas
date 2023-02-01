@@ -45,6 +45,20 @@ class SampelController extends Controller
         return view('sampel.pilihan');
     }
 
+    public function tunjuk_jadual(){
+
+        $sampels = Sampel::all();
+
+        return view('sampel.tunjuk', compact('sampels'));
+    }
+
+    public function borang_pensampelan(){
+
+        // $sampels = Sampel::all();
+
+        return view('sampel.borang-pensampelan');
+    }
+
     public function satu_pilihan(Request $request, $pilihan) {
         $user = $request->user();
         $id = (int)$request->route('id');

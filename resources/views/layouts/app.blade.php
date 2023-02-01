@@ -199,7 +199,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/pensampelan-pilihan">
+                            <a class="sidebar-link" href="/tunjuk">
                                 <i class="align-middle me-2 fas fa-fw fa-vial"></i><span
                                     class="align-middle">Pensampelan</span>
                             </a>
