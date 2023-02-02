@@ -92,12 +92,12 @@
                             <tbody>
                     
                                 <tr>
-                                    @foreach ($sampels as $verifikasi)
-                                    {{-- <td>{{$verifikasi->syarikat}}</td> --}}
-                                    <td>{{$verifikasi->created_at->format('d/m/Y')}}</td>
+                                    @foreach ($pensampelans as $pensampelan)
+                                    {{-- <td>{{$pensampelan->syarikat}}</td> --}}
+                                    <td>{{$pensampelan->created_at->format('d/m/Y')}}</td>
                                     <td class="table-action">
-                                        <a href="#"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
+                                        <a href="/lihat-pensampelan/{{$pensampelan->id}}"><i class="align-middle fas fa-fw fa-eye"></i></i></a>
+                                        <a href="/satu-pensampelan/{{$pensampelan->id}}"><i class="align-middle fas fa-fw fa-pen"></i></i></a>
                                         <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalEksport{{$loop->iteration}}"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                             <!-- Modal -->
                                             <div class="modal fade" id="exampleModalEksport{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -113,7 +113,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                    <form action="#" method="post">
+                                                    <form action="/pensampelan/{{ $pensampelan->id }}" method="post">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button type="submit" class="btn btn-primary">Ya</button>
@@ -127,7 +127,7 @@
                                             @csrf
                                             <button type="submit" ><i class="align-middle fas fa-fw fa-trash"></i></button>
                                         </form> --}}
-                                        <a href="#"><i class="align-middle fas fa-fw fa-print"></i></i></a>            
+                                        <a href="/jana-laporan/{{$pensampelan->id}}"><i class="align-middle fas fa-fw fa-print"></i></i></a>            
                                     </td>                                      
 
                                 </tr>

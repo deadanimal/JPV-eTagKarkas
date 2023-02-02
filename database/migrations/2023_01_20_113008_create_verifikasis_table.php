@@ -77,14 +77,6 @@ return new class extends Migration
             $table->string('penyewaan')->nullable();
             $table->string('oem')->nullable();
            
-
-
-
-          
-
-
-            
-
             $table->timestamps();
         });
     }

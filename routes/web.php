@@ -129,6 +129,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pensampelan-pilihan', [SampelController::class, 'pilihan']);
     Route::get('/tunjuk', [SampelController::class, 'tunjuk_jadual']);
     Route::get('/borang-pensampelan', [SampelController::class, 'borang_pensampelan']);
+    Route::post('/laporan', [SampelController::class, 'cipta_borang_pensampelan']);
+    Route::get('/borang-pensampelan2', [SampelController::class, 'borang_pensampelan2']);
+    Route::post('/laporan2', [SampelController::class, 'cipta_borang_pensampelan2']);
+    Route::get('/borang-pensampelan3', [SampelController::class, 'borang_pensampelan3']);
+    Route::post('/laporan3', [SampelController::class, 'cipta_borang_pensampelan3']);
+    Route::delete('/pensampelan/{id}', [SampelController::class, 'padam_pensampelan']);
+    Route::get('lihat-pensampelan/{id}', [SampelController::class, 'lihat_pensampelan']);
+    Route::get('satu-pensampelan/{id}', [SampelController::class, 'satu_pensampelan']);
+    Route::put('kemaskini-laporan/{id}', [SampelController::class, 'kemaskini_pensampelan']);
+    Route::get('jana-laporan/{id}', [SampelController::class, 'jana_pensampelan']);
+
+
     Route::get('/pensampelan-pilihan/{id}', [SampelController::class, 'satu_pilihan']);
     // Route::get('/pensampelan/borang-sampel', [SampelController::class, 'borang_sampel']);
     Route::get('/pensampelan/pilihan/{pilihan}', [SampelController::class, 'borang_sampel']);
