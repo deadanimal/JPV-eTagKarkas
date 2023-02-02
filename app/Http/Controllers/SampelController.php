@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BorangPensampelan;
 use App\Models\JadualSampel;
 use App\Models\RumahSembelih;
 use App\Models\Sampel;
@@ -12,6 +13,8 @@ use DateTime;
 use Carbon\Carbon;
 use Alert;
 use Yajra\DataTables\Contracts\DataTable;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+
 
 
 
@@ -48,15 +51,182 @@ class SampelController extends Controller
     public function tunjuk_jadual(){
 
         $sampels = Sampel::all();
+        $pensampelans = BorangPensampelan::all();
 
-        return view('sampel.tunjuk', compact('sampels'));
+        return view('sampel.tunjuk', compact('sampels', 'pensampelans'));
     }
 
-    public function borang_pensampelan(){
+    public function borang_pensampelan(Request $request){
 
-        // $sampels = Sampel::all();
+        $pensampelan = $request->session()->get('pensampelan'); 
 
-        return view('sampel.borang-pensampelan');
+
+        return view('sampel.borang-pensampelan', compact('pensampelan'));
+    }
+
+    public function cipta_borang_pensampelan(Request $request){
+
+        $validatedData = $request->all();
+        $checkbox = $validatedData['options'];
+        $checkbox = implode(',', $checkbox);
+        $validatedData['options'] = $checkbox;
+
+        $pensampelan = new BorangPensampelan();
+        $pensampelan->fill($validatedData);
+        $request->session()->put('pensampelan', $pensampelan);
+    
+        return redirect('/borang-pensampelan2');
+
+    }
+
+
+    public function borang_pensampelan2(Request $request){
+
+        $pensampelan = $request->session()->all(); 
+
+        return view('sampel.borang-pensampelan2', compact('pensampelan'));
+    }
+
+    public function cipta_borang_pensampelan2(Request $request){
+
+        $validatedData = $request->all();
+        $checkbox = $validatedData['options_ladang'];
+        $checkbox = implode(',', $checkbox);
+        $validatedData['options_ladang'] = $checkbox;
+
+        $pensampelan = $request->session()->get('pensampelan'); 
+        $pensampelan->fill($validatedData);
+        $request->session()->put('pensampelan', $pensampelan);
+
+        // $pensampelan->save();
+
+        // Alert::success('Hantar berjaya.', 'Maklumat laporan pensampelan telah dihantar.');
+
+        // dd($pensampelan);
+
+        return redirect('/borang-pensampelan3');
+
+    }
+
+    public function borang_pensampelan3(Request $request){
+
+        $pensampelan = $request->session()->all(); 
+
+        return view('sampel.borang-pensampelan3', compact('pensampelan'));
+    }
+
+    public function cipta_borang_pensampelan3(Request $request){
+
+        $validatedData = $request->all();
+        $checkbox = $validatedData['kebersihan'];
+        $checkbox = implode(',', $checkbox);
+        $validatedData['kebersihan'] = $checkbox;
+
+        $patogen = $validatedData['patogen'];
+        $patogen = implode(',', $patogen);
+        $validatedData['patogen'] = $patogen;
+
+        $kualiti = $validatedData['kualiti'];
+        $kualiti = implode(',', $kualiti);
+        $validatedData['kualiti'] = $kualiti;
+
+        $pestisid = $validatedData['pestisid'];
+        $pestisid = implode(',', $pestisid);
+        $validatedData['pestisid'] = $pestisid;
+
+        $aditif = $validatedData['aditif'];
+        $aditif = implode(',', $aditif);
+        $validatedData['aditif'] = $aditif;
+
+        $logam = $validatedData['logam'];
+        $logam = implode(',', $logam);
+        $validatedData['logam'] = $logam;
+
+        $mineral = $validatedData['mineral'];
+        $mineral = implode(',', $mineral);
+        $validatedData['mineral'] = $mineral;
+
+        $identifikasi = $validatedData['identifikasi'];
+        $identifikasi = implode(',', $identifikasi);
+        $validatedData['identifikasi'] = $identifikasi;
+
+        $ketulenan = $validatedData['ketulenan'];
+        $ketulenan = implode(',', $ketulenan);
+        $validatedData['ketulenan'] = $ketulenan;
+
+        $ubatan = $validatedData['ubatan'];
+        $ubatan = implode(',', $ubatan);
+        $validatedData['ubatan'] = $ubatan;
+
+        $hormon = $validatedData['hormon'];
+        $hormon = implode(',', $hormon);
+        $validatedData['hormon'] = $hormon;
+
+        $pensampelan = $request->session()->get('pensampelan'); 
+        $pensampelan->fill($validatedData);
+        $request->session()->put('pensampelan', $pensampelan);
+
+        // dd($pensampelan);
+        $pensampelan->save();
+
+        Alert::success('Hantar berjaya.', 'Maklumat laporan pensampelan telah dihantar.');
+
+        
+
+        return redirect('/tunjuk');
+
+    }
+
+    public function padam_pensampelan(Request $request){
+        $id = (int)$request->route('id'); 
+        $pensampelan = BorangPensampelan::find($id);
+        $pensampelan->delete();
+        alert()->success('Maklumat berjaya dipadam', 'Berjaya');
+        return back();
+    }
+
+    public function lihat_pensampelan(Request  $request) {
+        $id = (int)$request->route('id');
+        $pensampel = BorangPensampelan::find($id);        
+        return view('sampel.lihat-pensampelan', compact('pensampel'));
+    }
+
+    public function satu_pensampelan(Request $request) {
+        $id = (int)$request->route('id');
+        $pensampelan = BorangPensampelan::find($id);        
+        return view('sampel.lihat-pensampelan', compact('pensampelan'));
+    }
+
+    public function kemaskini_pensampelan(Request $request){
+
+        $id = (int)$request->route('id');
+
+        $pensampelan = BorangPensampelan::find($id);        
+
+        $pensampelan = $request->all();
+
+        // $pensampelan->fill($validatedData);
+
+        dd($pensampelan);
+
+        // $pensampelan->save();
+
+        Alert::success('Kemaskini berjaya.', 'Maklumat borang pensampelan telah dikemaskini.');
+
+
+        return redirect('/tunjuk');
+
+    }
+
+    public function jana_pensampelan(Request $request){
+        $id = (int)$request->route('id');
+
+        $pensampelan = BorangPensampelan::find($id);
+
+        $pdf = FacadePDF::loadView('sampel.jana-pensampelan', compact('pensampelan'));
+        return $pdf->download('Borang_Pensampelan');
+
+        // return view('sampel.jana-pensampelan', compact('pensampelan'));
     }
 
     public function satu_pilihan(Request $request, $pilihan) {
