@@ -187,13 +187,29 @@ class SampelController extends Controller
 
     public function lihat_pensampelan(Request  $request) {
         $id = (int)$request->route('id');
-        $pensampel = BorangPensampelan::find($id);        
-        return view('sampel.lihat-pensampelan', compact('pensampel'));
+        $pensampel = BorangPensampelan::find($id);
+        
+        // to display checkbox data, convert back into array
+        $checkboxData = BorangPensampelan::find($id);
+        if ($checkboxData != null) {
+            $cbd = BorangPensampelan::find($id)->select('options')->get();
+            // $cbd = explode(',', $cbd);
+            
+        }
+        // dd($cbd);
+        return view('sampel.lihat-pensampelan', compact('pensampel','cbd'));
     }
 
     public function satu_pensampelan(Request $request) {
         $id = (int)$request->route('id');
-        $pensampelan = BorangPensampelan::find($id);        
+        $pensampelan = BorangPensampelan::find($id); 
+        
+        // to display checkbox data, convert back into array
+        // $checkboxData = BorangPensampelan::find($id);
+        // if ($checkboxData) {
+        //     $checkboxData = BorangPensampelan::find($id)->options;
+        //     $checkboxData = explode(',', $checkboxData);
+        // }
         return view('sampel.lihat-pensampelan', compact('pensampelan'));
     }
 

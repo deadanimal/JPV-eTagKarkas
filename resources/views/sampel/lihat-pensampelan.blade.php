@@ -79,7 +79,8 @@
                                         <label class="form-label">Alamat Penghantar</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="text" name="alamat" required 
+                                        <input class="form-control" type="text" name="alamat" required
+
                                         @if (isset($pensampel))
                                         value="{{ $pensampel->alamat }}" readonly
                                         @else
@@ -170,8 +171,15 @@
                                 <div class="mb-3 row">
 
                                     <label class="col-xl-2 col-form-label">Tujuan Penghantaran</label>
+
                                     <div class="col ">Monitoring
-                                        <input type="checkbox" name="options[]" value="opt1" />
+                                        <input type="checkbox" name="options[]" value="opt1" 
+                                        @foreach ($cbd as $key=>$pensampelan)
+                                            @if ($pensampelan->options == "opt1")
+                                                checked
+                                            @endif
+                                        @endforeach
+                                        />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Surveillance
@@ -189,6 +197,9 @@
                                     <div class="col ">Luar <span>Program</span> 
                                         <input type="checkbox" name="options[]" value="opt5" />
                                     </div>
+
+                                        
+                                    
                                     
                                 </div>
 
@@ -197,9 +208,17 @@
                                         <label class="form-label">ID Premis</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="number" name="id_premis" required
+                                        <input class="form-control" type="number" name="id_premis"
+
+                                        @if (isset($pensampel))
+                                            value="{{ $pensampel->id_premis }}" readonly
+                                        @else
+
+                                        onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" required value="{{$pensampelan->id_premis}}"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                        oninput="this.setCustomValidity('')" 
+                                        @endif />
+                                        
                                     </div>
                                 </div>
 
@@ -209,9 +228,15 @@
                                         <label class="form-label">Nama Premis</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="text" name="nama_premis" onkeyup="this.value = this.value.toUpperCase();" required
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" />
+                                        <input class="form-control" type="text" name="nama_premis"
+
+                                        @if (isset($pensampel))
+                                        value="{{ $pensampel->nama_premis }}" readonly
+                                        @else
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" required value="{{ $pensampelan->nama_premis }}"
+                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"
+                                        @endif />
+                                       
                                     </div>
                                 </div>
 
@@ -220,9 +245,16 @@
                                         <label class="form-label">Alamat Premis</label>
                                     </div>
                                     <div class="col-6">
-                                        <textarea class="form-control" rows=5 name="alamat_premis" onkeyup="this.value = this.value.toUpperCase();" required
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')"></textarea>
+
+                                        <input class="form-control" type="text" name="alamat" required
+                                         
+                                        @if (isset($pensampel))
+                                        value="{{ $pensampel->alamat_premis }}" readonly
+                                        @else
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" required value="{{ $pensampelan->alamat_premis }}"
+                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"
+                                        @endif />
+
                                     </div>
                                 </div>
 
@@ -238,9 +270,15 @@
                                         <label class="form-label">Nama Ladang</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="text" name="ladang" onkeyup="this.value = this.value.toUpperCase();" required
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" />
+                                        <input class="form-control" type="text" name="ladang" 
+
+                                        @if (isset($pensampel))
+                                        value="{{ $pensampel->ladang }}" readonly
+                                        @else
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" required value="{{ $pensampelan->ladang }}"
+                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"
+                                        @endif />
+                                       
                                     </div>
                                 </div>
 
@@ -249,9 +287,16 @@
                                         <label class="form-label">Alamat Ladang</label>
                                     </div>
                                     <div class="col-6">
-                                        <textarea class="form-control" rows=5 name="alamat_ladang" onkeyup="this.value = this.value.toUpperCase();" required
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')"></textarea>
+
+                                        <input class="form-control" type="text" name="ladang" 
+
+                                        @if (isset($pensampel))
+                                        value="{{ $pensampel->alamat_ladang }}" readonly
+                                        @else
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" required value="{{ $pensampelan->alamat_ladang }}"
+                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"
+                                        @endif />
+
                                     </div>
                                 </div>
 
@@ -260,9 +305,17 @@
                                         <label class="form-label">ID Ladang</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="number" name="id_ladang" required
+                                        <input class="form-control" type="number" name="id_ladang" 
+
+                                        @if (isset($pensampel))
+                                            value="{{ $pensampel->id_ladang }}" readonly
+                                        @else
+
+                                        onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" required value="{{$pensampelan->id_ladang}}"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                        oninput="this.setCustomValidity('')" 
+                                        @endif />
+                                        
                                     </div>
                                 </div>
 
@@ -271,9 +324,17 @@
                                         <label class="form-label">Nombor Telefon</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="number" name="telefon_ladang" required
+                                        <input class="form-control" type="number" name="telefon_ladang"
+
+                                         @if (isset($pensampel))
+                                            value="{{ $pensampel->telefon_ladang }}" readonly
+                                        @else
+
+                                        onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" required value="{{$pensampelan->telefon_ladang}}"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                        oninput="this.setCustomValidity('')" 
+                                        @endif />
+                                        
                                     </div>
                                 </div>
 
@@ -282,9 +343,17 @@
                                         <label class="form-label">Nombor GPS</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="number" name="gps_ladang" required
+                                        <input class="form-control" type="number" name="gps_ladang"
+
+                                        @if (isset($pensampel))
+                                            value="{{ $pensampel->gps_ladang }}" readonly
+                                        @else
+
+                                        onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" required value="{{$pensampelan->gps_ladang}}"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                        oninput="this.setCustomValidity('')" 
+                                        @endif />
+                                        
                                     </div>
                                 </div>
 
@@ -335,9 +404,15 @@
                                         <label class="form-label">Tarikh Kutip</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="date" name="tarikh_kutip" onkeyup="this.value = this.value.toUpperCase();" required
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" />
+                                        <input class="form-control" type="date" name="tarikh_kutip"
+
+                                        @if (isset($pensampel))
+                                        value="{{ $pensampel->tarikh_kutip }}" readonly
+                                        @else
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" required value="{{ $pensampelan->tarikh_kutip }}"
+                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"
+                                        @endif />
+                                        
                                     </div>
                                 </div>
 
@@ -346,9 +421,17 @@
                                         <label class="form-label">ID Sampel</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="number" name="id_sampel" required
+                                        <input class="form-control" type="number" name="id_sampel"
+
+                                        @if (isset($pensampel))
+                                            value="{{ $pensampel->id_sampel }}" readonly
+                                        @else
+
+                                        onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" required value="{{$pensampelan->id_sampel}}"
                                         oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" onkeyup="this.value=this.value.replace(/(?![0-9])./gmi,'')" />
+                                        oninput="this.setCustomValidity('')" 
+                                        @endif />
+                                       
                                     </div>
                                 </div>
 
@@ -357,9 +440,15 @@
                                         <label class="form-label">Jenis Sampel</label>
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type="text" name="jenis_sampel" onkeyup="this.value = this.value.toUpperCase();" required
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')" />
+                                        <input class="form-control" type="text" name="jenis_sampel"
+
+                                        @if (isset($pensampel))
+                                        value="{{ $pensampel->jenis_sampel }}" readonly
+                                        @else
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" required value="{{ $pensampelan->jenis_sampel }}"
+                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"
+                                        @endif />
+                                        
                                     </div>
                                 </div>
 
@@ -368,9 +457,16 @@
                                         <label class="form-label">Maklumat lain</label>
                                     </div>
                                     <div class="col-6">
-                                        <textarea class="form-control" rows=5 name="maklumat" onkeyup="this.value = this.value.toUpperCase();" required
-                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')"
-                                        oninput="this.setCustomValidity('')"></textarea>
+
+                                        <input class="form-control" type="text" name="maklumat" required
+                                         
+                                        @if (isset($pensampel))
+                                        value="{{ $pensampel->maklumat }}" readonly
+                                        @else
+                                        oninvalid="this.setCustomValidity('Sila isikan maklumat ini.')" required value="{{ $pensampelan->maklumat }}"
+                                        oninput="this.setCustomValidity('')" onkeyup="this.value = this.value.toUpperCase();"
+                                        @endif />
+
                                     </div>
                                 </div>
 
