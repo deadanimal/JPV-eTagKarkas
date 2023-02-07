@@ -174,8 +174,8 @@
 
                                     <div class="col ">Monitoring
                                         <input type="checkbox" name="options[]" value="opt1" 
-                                        @foreach ($cbd as $key=>$pensampelan)
-                                            @if ($pensampelan->options == "opt1")
+                                        @foreach ($cbds as $cbd)
+                                            @if ($cbd == "opt1")
                                                 checked
                                             @endif
                                         @endforeach
@@ -183,19 +183,39 @@
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Surveillance
-                                        <input type="checkbox" name="options[]" value="opt2" />
+                                        <input type="checkbox" name="options[]" value="opt2"
+                                        @foreach ($cbds as $cbd)
+                                        @if ($cbd == "opt2")
+                                            checked
+                                        @endif
+                                    @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Import
-                                        <input type="checkbox" name="options[]" value="opt3" />
+                                        <input type="checkbox" name="options[]" value="opt3"
+                                        @foreach ($cbds as $cbd)
+                                        @if ($cbd == "opt3")
+                                            checked
+                                        @endif
+                                    @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Eksport
-                                        <input type="checkbox" name="options[]" value="opt4" />
+                                        <input type="checkbox" name="options[]" value="opt4"
+                                        @foreach ($cbds as $cbd)
+                                        @if ($cbd == "opt4")
+                                            checked
+                                        @endif
+                                    @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Luar <span>Program</span> 
-                                        <input type="checkbox" name="options[]" value="opt5" />
+                                        <input type="checkbox" name="options[]" value="opt5"
+                                        @foreach ($cbds as $cbd)
+                                        @if ($cbd == "opt5")
+                                            checked
+                                        @endif
+                                    @endforeach />
                                     </div>
 
                                         
@@ -361,39 +381,84 @@
 
                                     <label class="col-xl-2 col-form-label">Jenis Ternakan</label>
                                     <div class="col ">Ayam
-                                        <input type="checkbox" name="options_ladang[]" value="opl1"  />
+                                        <input type="checkbox" name="options_ladang[]" value="opl1"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl1")
+                                                checked
+                                            @endif
+                                        @endforeach  />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Itik
-                                        <input type="checkbox" name="options_ladang[]" value="opl2" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl2"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl2")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Lembu
-                                        <input type="checkbox" name="options_ladang[]" value="opl3" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl3"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl3")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Kerbau
-                                        <input type="checkbox" name="options_ladang[]" value="opl4" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl4"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl4")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Kambing
-                                        <input type="checkbox" name="options_ladang[]" value="opl5" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl5"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl5")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Bebiri
-                                        <input type="checkbox" name="options_ladang[]" value="opl6" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl6"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl6")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Babi
-                                        <input type="checkbox" name="options_ladang[]" value="opl7" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl7"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl7")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Walit
-                                        <input type="checkbox" name="options_ladang[]" value="opl8" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl8"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl8")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     <label class="col"></label>
                                     <div class="col ">Lain-lain
-                                        <input type="checkbox" name="options_ladang[]" value="opl9" />
+                                        <input type="checkbox" name="options_ladang[]" value="opl9"
+                                        @foreach ($ladangs as $cbd)
+                                            @if ($cbd == "opl9")
+                                                checked
+                                            @endif
+                                        @endforeach />
                                     </div>
                                     
                                 </div>
@@ -484,25 +549,45 @@
                                                 <label class="form-label">Kebersihan & Sanitasi</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih1" id="flexCheckDefault"
+                                                @foreach ($kebersihans as $bersih)
+                                                @if ($bersih == "bersih1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Standard plate
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih2" id="flexCheckChecked" 
+                                                @foreach ($kebersihans as $bersih)
+                                                @if ($bersih == "bersih2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   E.coli
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih3" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih3" id="flexCheckChecked"
+                                                @foreach ($kebersihans as $bersih)
+                                                @if ($bersih == "bersih3")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Coliform count
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih4" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="kebersihan[]" value="bersih4" id="flexCheckChecked" 
+                                                @foreach ($kebersihans as $bersih)
+                                                @if ($bersih == "bersih4")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Yeast & mould count
                                                 </label>
@@ -514,43 +599,78 @@
                                                 <label class="form-label">Patogen</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat1" id="flexCheckDefault" 
+                                                @foreach ($patogens as $patogen)
+                                                @if ($patogen == "pat1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Staphyloccocus aureus - Kaedah Spread Plate
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat2" id="flexCheckChecked"
+                                                @foreach ($patogens as $patogen)
+                                                @if ($patogen == "pat2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Campylobacter jejuni. - Kaedah Isolation & Identification
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat3" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat3" id="flexCheckChecked" 
+                                                @foreach ($patogens as $patogen)
+                                                @if ($patogen == "pat3")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Listeria monocytogenes - Kaedah Isolation & Identification
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat4" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat4" id="flexCheckChecked" 
+                                                @foreach ($patogens as $patogen)
+                                                @if ($patogen == "pat4")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Sarcocysts - Kaedah Organoleptic
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat5" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat5" id="flexCheckChecked" 
+                                                @foreach ($patogens as $patogen)
+                                                @if ($patogen == "pat5")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Salmonella.sp  - Kaedah Isolation & Identification
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat6" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat6" id="flexCheckChecked"
+                                                @foreach ($patogens as $patogen)
+                                                @if ($patogen == "pat6")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   E.coli - Kaedah Isolation & Identification
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat7" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="patogen[]" value="pat7" id="flexCheckChecked" 
+                                                @foreach ($patogens as $patogen)
+                                                @if ($patogen == "pat7")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Yersinia enterocolitica - Kaedah Isolation & Identification
                                                 </label>
@@ -562,19 +682,34 @@
                                                 <label class="form-label">Kualiti & Keselamatan Mirobiologi</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="kualiti[]" value="kualiti1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="kualiti[]" value="kualiti1" id="flexCheckDefault" 
+                                                @foreach ($kualitis as $kualiti)
+                                                @if ($kualiti == "kualiti1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Lactic Acid Bacteria
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="kualiti[]" value="kualiti2" id="flexCheckChecked" >
+                                                <input class="form-check-input" type="checkbox" name="kualiti[]" value="kualiti2" id="flexCheckChecked"
+                                                @foreach ($kualitis as $kualiti)
+                                                @if ($kualiti == "kualiti2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Antimicrobial
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="kualiti[]" value="kualiti3" id="flexCheckChecked" >
+                                                <input class="form-check-input" type="checkbox" name="kualiti[]" value="pest1" id="flexCheckChecked"
+                                                @foreach ($kualitis as $kualiti)
+                                                @if ($kualiti == "kualiti3")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Sterility test
                                                 </label>
@@ -586,25 +721,45 @@
                                                 <label class="form-label">Pestisid Kaedah(GC-MS/MS)</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest1" id="flexCheckDefault" 
+                                                @foreach ($pestisids as $pestisid)
+                                                @if ($pestisid == "pest1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Saringan Pestisid
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest2" id="flexCheckChecked" 
+                                                @foreach ($pestisids as $pestisid)
+                                                @if ($pestisid == "pest2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Organochlorine
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest3" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest3" id="flexCheckChecked" 
+                                                @foreach ($pestisids as $pestisid)
+                                                @if ($pestisid == "pest3")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Organophosphorus
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest4" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="pestisid[]" value="pest4" id="flexCheckChecked" 
+                                                @foreach ($pestisids as $pestisid)
+                                                @if ($pestisid == "pest4")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Sintetik Pyrethroid
                                                 </label>
@@ -616,13 +771,23 @@
                                                 <label class="form-label">Aditif(Kaedah Ion Chromatography)</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="aditif[]" value="ad1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="aditif[]" value="ad1" id="flexCheckDefault" 
+                                                @foreach ($aditifs as $aditif)
+                                                @if ($aditif == "ad1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Nitrit
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="aditif[]" value="ad2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="aditif[]" value="ad2" id="flexCheckChecked" 
+                                                @foreach ($aditifs as $aditif)
+                                                @if ($aditif == "ad2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Nitrat
                                                 </label>
@@ -634,31 +799,56 @@
                                                 <label class="form-label">Logam Berat(Kaedah ICP-MS)</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log1" id="flexCheckDefault" 
+                                                @foreach ($logams as $logam)
+                                                @if ($logam == "log1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Arsenik
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log2" id="flexCheckChecked" 
+                                                @foreach ($logams as $logam)
+                                                @if ($logam == "log2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Antimoni
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log3" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log3" id="flexCheckChecked" 
+                                                @foreach ($logams as $logam)
+                                                @if ($logam == "log3")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Plumbum
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log4" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log4" id="flexCheckChecked"
+                                                @foreach ($logams as $logam)
+                                                @if ($logam == "log4")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Kadmium
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log5" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="logam[]" value="log5" id="flexCheckChecked" 
+                                                @foreach ($logams as $logam)
+                                                @if ($logam == "log5")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Merkuri
                                                 </label>
@@ -678,13 +868,23 @@
                                                 <label class="form-label">Mineral</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="mineral[]" value="min1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="mineral[]" value="min1" id="flexCheckDefault" 
+                                                @foreach ($minerals as $mineral)
+                                                @if ($mineral == "min1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Kuprum
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="hidden" name="mineral[]" value="min2" id="flexCheckDefault" checked>
+                                                <input class="form-check-input" type="hidden" name="mineral[]" value="min2" id="flexCheckDefault" 
+                                                @foreach ($minerals as $mineral)
+                                                @if ($mineral == "min2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   
                                                 </label>
@@ -698,37 +898,67 @@
                                                 <label class="form-label">Identifikasi Spesis</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden1" id="flexCheckDefault" 
+                                                @foreach ($identifikasis as $identifikasi)
+                                                @if ($identifikasi == "iden1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Babi
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden2" id="flexCheckChecked" 
+                                                @foreach ($identifikasis as $identifikasi)
+                                                @if ($identifikasi == "iden2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Lembu
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden3" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden3" id="flexCheckChecked" 
+                                                @foreach ($identifikasis as $identifikasi)
+                                                @if ($identifikasi == "iden3")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Bebiri
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden4" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden4" id="flexCheckChecked" 
+                                                @foreach ($identifikasis as $identifikasi)
+                                                @if ($identifikasi == "iden4")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Ayam
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden5" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden5" id="flexCheckChecked" 
+                                                @foreach ($identifikasis as $identifikasi)
+                                                @if ($identifikasi == "iden5")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Kerbau
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden6" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="identifikasi[]" value="iden6" id="flexCheckChecked" 
+                                                @foreach ($identifikasis as $identifikasi)
+                                                @if ($identifikasi == "iden6")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Kambing
                                                 </label>
@@ -741,13 +971,23 @@
                                             </div>
                                            
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="ketulenan[]" value="tulen1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="ketulenan[]" value="tulen1" id="flexCheckDefault" 
+                                                @foreach ($ketulenans as $ketulenan)
+                                                @if ($ketulenan == "tulen1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Profil FTIR
                                                 </label>
                                               </div>
                                               <div class="form-check" >
-                                                <input class="form-check-input" type="hidden" name="ketulenan[]" value="tulen2" id="flexCheckDefault" checked>
+                                                <input class="form-check-input" type="hidden" name="ketulenan[]" value="tulen2" id="flexCheckDefault" 
+                                                @foreach ($ketulenans as $ketulenan)
+                                                @if ($ketulenan == "tulen2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault" >
                                                   
                                                 </label>
@@ -761,25 +1001,45 @@
                                                 <label class="form-label">Ubatan Veterinar</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat1" id="flexCheckDefault" 
+                                                @foreach ($ubatans as $ubatan)
+                                                @if ($ubatan == "ubat1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Antibacterials
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat2" id="flexCheckChecked" 
+                                                @foreach ($ubatans as $ubatan)
+                                                @if ($ubatan == "ubat2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Anticoccidial
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat3" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat3" id="flexCheckChecked" 
+                                                @foreach ($ubatans as $ubatan)
+                                                @if ($ubatan == "ubat3")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Amphenicol
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat4" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="ubatan[]" value="ubat4" id="flexCheckChecked" 
+                                                @foreach ($ubatans as $ubatan)
+                                                @if ($ubatan == "ubat4")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   B-lactam
                                                 </label>
@@ -791,13 +1051,23 @@
                                                 <label class="form-label">Hormon</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="hormon[]" value="hormon1" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" name="hormon[]" value="hormon1" id="flexCheckDefault" 
+                                                @foreach ($hormons as $hormon)
+                                                @if ($hormon == "hormon1")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                   Beta agonist
                                                 </label>
                                               </div>
                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="hormon[]" value="hormon2" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" name="hormon[]" value="hormon2" id="flexCheckChecked" 
+                                                @foreach ($hormons as $hormon)
+                                                @if ($hormon == "hormon2")
+                                                    checked
+                                                @endif
+                                                @endforeach >
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                   Stilbene
                                                 </label>
