@@ -192,12 +192,72 @@ class SampelController extends Controller
         // to display checkbox data, convert back into array
         $checkboxData = BorangPensampelan::find($id);
         if ($checkboxData != null) {
-            $cbd = BorangPensampelan::find($id)->select('options')->get();
-            // $cbd = explode(',', $cbd);
+            $cbd = $checkboxData->options;
+            $cbds = explode(',', $cbd);
             
         }
-        // dd($cbd);
-        return view('sampel.lihat-pensampelan', compact('pensampel','cbd'));
+        if ($checkboxData != null) {
+            $ladang = $checkboxData->options_ladang;
+            $ladangs = explode(',', $ladang);
+            
+        }
+        if ($checkboxData != null) {
+            $kebersihan = $checkboxData->kebersihan;
+            $kebersihans = explode(',', $kebersihan);
+            
+        }
+        if ($checkboxData != null) {
+            $patogen = $checkboxData->patogen;
+            $patogens = explode(',', $patogen);
+            
+        }
+        if ($checkboxData != null) {
+            $kualiti = $checkboxData->kualiti;
+            $kualitis = explode(',', $kualiti);
+            
+        }
+        if ($checkboxData != null) {
+            $pestisid = $checkboxData->pestisid;
+            $pestisids = explode(',', $pestisid);
+            
+        }
+        if ($checkboxData != null) {
+            $aditif = $checkboxData->aditif;
+            $aditifs = explode(',', $aditif);
+            
+        }
+        if ($checkboxData != null) {
+            $logam = $checkboxData->logam;
+            $logams = explode(',', $logam);
+            
+        }
+        if ($checkboxData != null) {
+            $mineral = $checkboxData->mineral;
+            $minerals = explode(',', $mineral);
+            
+        }
+        if ($checkboxData != null) {
+            $identifikasi = $checkboxData->identifikasi;
+            $identifikasis = explode(',', $identifikasi);
+            
+        }
+        if ($checkboxData != null) {
+            $ketulenan = $checkboxData->ketulenan;
+            $ketulenans = explode(',', $ketulenan);
+            
+        }
+        if ($checkboxData != null) {
+            $ubatan = $checkboxData->ubatan;
+            $ubatans = explode(',', $ubatan);
+            
+        }
+        if ($checkboxData != null) {
+            $hormon = $checkboxData->hormon;
+            $hormons = explode(',', $hormon);
+            
+        }
+        // dd($cbds);
+        return view('sampel.lihat-pensampelan', compact('pensampel','cbds','ladangs','kebersihans','patogens','kualitis','pestisids','aditifs','logams','minerals','identifikasis','ketulenans','ubatans','hormons'));
     }
 
     public function satu_pensampelan(Request $request) {
